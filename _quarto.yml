@@ -10,8 +10,6 @@ website:
   title: "Quantitative Text Analysis"
   # margin-header: subscribe.html
   navbar:
-    # background: secondary
-    # foreground: light
     left:
       - text: Syllabus
         href: index.html
@@ -22,7 +20,7 @@ website:
         href: https://github.com/lin-380-s24/
 format:
   html:
-    theme: simplex
+    theme: flatly
     css: styles.css
     toc: true
     toc-depth: 3
