@@ -4,3 +4,6 @@ subscribe.html
 /.quarto/
 .Rprofile
 *code-workspace
+
+# temporary
+/.github/
