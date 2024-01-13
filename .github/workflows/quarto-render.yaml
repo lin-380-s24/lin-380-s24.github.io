@@ -3,13 +3,15 @@ on:
     branches: main
   workflow_dispatch:
 
-name: renderbook
+name: Render and Publish
+
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   render:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
