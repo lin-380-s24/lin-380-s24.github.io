@@ -1,9 +1,13 @@
-_notes.md
-/_docs/
-subscribe.html
+# Quarto/ VS Code
 /.quarto/
-.Rprofile
 *code-workspace
+
+# renv
+.Rprofile
 
 # temporary
 /.github/
+
+# Misc
+_notes.md
+subscribe.html
