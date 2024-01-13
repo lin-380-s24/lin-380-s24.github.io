@@ -7,3 +7,12 @@ image: "image.jpg"
 ---
 
 This is a post with executable code.
+
+
+
+```{r}
+#| label: test-code
+
+head(mtcars)
+```
+

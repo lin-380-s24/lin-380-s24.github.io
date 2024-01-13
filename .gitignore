@@ -6,9 +6,6 @@
 # renv
 .Rprofile
 
-# temporary
-/.github/
-
 # Misc
 _notes.md
 subscribe.html
