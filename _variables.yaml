@@ -1,0 +1,18 @@
+author: Jerid Francom
+
+instructor:
+  name: Dr. Jerid Francom
+  name_short: Jerid
+  email: francojc@wfu.edu
+  github: francojc
+  office: "Greene Hall 323"
+  appointment_url: "https://cal.com/francojc/meeting"
+
+course:
+  title: "Quantitative Text Analysis"
+  number: "LIN 380/680"
+  semester: "Spring 2024"
+  meeting_time: "WF 9:30-10:40 am"
+  meeting_location: "Greene Hall 239"
+  site: https://lin-380-s24.github.io/
+  github: https://github.com/lin-380-s24/
