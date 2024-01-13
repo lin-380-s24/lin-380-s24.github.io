@@ -1,0 +1,17 @@
+---
+title: "Slides"
+listing:
+  id: slide-listing
+  contents: slides/*.qmd
+  # type: table
+  # table-striped: true
+  sort: "date"
+  sort-ui: false
+  categories: unnumbered
+  fields: [image, title, categories, date]
+---
+
+The slide decks used in class are available here and are updated as the course progresses.
+
+::: {#slide-listing}
+:::

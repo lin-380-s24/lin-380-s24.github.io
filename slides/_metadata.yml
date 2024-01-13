@@ -1,0 +1,12 @@
+author: {{< instructor.name >}}
+format:
+  revealjs:
+    theme: [simple]
+    logo: assets/images/logo.jpg
+    # smaller: true
+    preview-links: auto
+    slide-number: true
+    footer: "{{< meta title >}} | Quantitative Text Analysis"
+    embed-resources: true
+    menu:
+      numbers: true

@@ -14,6 +14,7 @@ website:
       - text: Syllabus
         href: index.html
       - schedule.qmd
+      - slides.qmd
       - news.qmd
     tools:
       - icon: github

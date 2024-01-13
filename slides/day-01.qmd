@@ -1,0 +1,78 @@
+---
+title: "Welcome!"
+subtitle: "Quantitative Text Analysis"
+date: "2024-01-17"
+categories: [syllabus, resources, guides]
+---
+
+# Introductions
+
+![](assets/images/hello-hand.jpg)
+
+## Overview
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Course goals
+- Approach
+- Resource setup
+- Getting help
+:::
+
+::: {.column width="50%"}
+
+![](assets/images/data-scientist.jpg)
+
+:::
+
+::::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+# Course goals
+
+- Data literacy
+- Research skills
+- Reproducible workflows
+
+## Data literacy
+
+Identify, interpret and evaluate data analysis procedures and results
+
+## Research skills
+
+Design, implement, and communicate quantitative research
+
+## Reproducible workflows
+
+Apply programmatic strategies to develop and collaborate on reproducible research projects
+
+---
+
+At the end of this course, you will be able to:
+
+<!--
+Include:
+
+- Skills
+- Knowledge
+- Attitudes
+
+- Tangible product
+-->
+
+A demonstration of the student's ability to envision and document a research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
+
+# Approach
+
+-
+
+# Resource setup
+
+## GitHub
+
+- Create a [GitHub account](https://github.com/)
+- ...

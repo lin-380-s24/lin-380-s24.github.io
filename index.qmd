@@ -21,6 +21,7 @@ Are you curious about how to use technology to unlock hidden insights from text?
 Throughout the course, you will gain valuable skills in data analysis and interpretation, research design and implementation, programming, and collaboration. You will learn how to collect, organize, and analyze textual data in a way that ensures your findings are valid, reliable, and impactful. You will also gain hands-on experience with the R programming language, a powerful tool for conducting text analysis and automating data analysis processes.
 
 By the end of the course, you will be able to design and apply appropriate research designs to address research questions based on textual data, implement text analysis techniques using computational tools, and communicate your research findings effectively through written reports and oral presentations. You will also be able to collaborate with your peers and the research community through publicly sharing and implementing reproducible research projects.
+
 Join us for an exciting journey into the world of quantitative text analysis and unlock new insights into language, culture, and society!
 
 ### Learning outcomes
@@ -76,7 +77,7 @@ I start this semester by acknowledging the social, political, and medical challe
 
 ## Learning program
 
-The course is grouped into five learning modules: (1) Orientation, (2) Foundations, (3) Preparation, (4) Analysis, and (5) Communication. The goal of each module is to build your conceptual knowledge and practical programming skills towards developing an original text analysis project prospectus which will showcase your knowledge and skills with a tangible, shareable, and reproducible research product.
+The course is grouped into five learning modules: (1) Orientation, (2) Foundations, (3) Preparation, (4) Analysis, and (5) Communication. The goal of each module is to build your conceptual knowledge and practical programming skills towards developing an original text analysis project prospectus/ final project which will showcase your knowledge and skills with a tangible, shareable, and reproducible research product.
 
 The opening of each module will be signaled by the seedling icon (🌱). Each module targets a set of essential questions. Each of these modules in turn is composed of a series of daily activities that will guide us through topics that will help us address each of these essential questions. Days signaled by a water drop icon (💧) will include learning materials and group and individual activities to build our skills and knowledge on a particular conceptual topic. Days signaled by a branch icon (🌿) will include learning materials geared towards the practical application of conceptual knowledge through programming demonstrations and lab activities. Days signaled by a tree icon (🌳) are dedicated to project development activities.
 
@@ -102,11 +103,11 @@ These activities are aimed at developing students' research and technical implem
 
 **Project prospectus**
 
-The project prospectus is the culmination of the project activities and a demonstration of the student's ability to envision and document a research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
+The project prospectus is the culmination of the project activities and a demonstration of the student's ability to envision and document a text analysis research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
 
 **Final project** (graduate students, *optional for undergraduates*)
 
-The final project is a demonstration of the student's ability to bring to fruition a research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings.
+The final project is a demonstration of the student's ability to bring to fruition a text analysis research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings.
 
 ## Policies
 
