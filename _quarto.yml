@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _docs
+
+website:
+  title: "Quantitative Text Analysis"
+  # margin-header: subscribe.html
+  navbar:
+    # background: secondary
+    # foreground: light
+    left:
+      - schedule.qmd
+      - news.qmd
+    tools:
+      - icon: github
+        href: https://github.com/lin-380-s24/
+format:
+  html:
+    theme: simplex
+    css: styles.css
+    toc: true

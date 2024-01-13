@@ -1,0 +1,15 @@
+---
+title: "Quantitative Text Analysis"
+subtitle: "LIN 380 - Spring 2024"
+author: "Dr. Jerid Francom"
+---
+
+
+## Course Description
+
+Are you curious about how to use technology to unlock hidden insights from text? Do you want to become a skilled researcher who can analyze textual data in a way that is rigorous, reproducible, and insightful? In this course, you will learn how to harness the power of computational tools to explore and interpret text in a way that supports meaningful research questions in Linguistics and language science.
+
+Throughout the course, you will gain valuable skills in data analysis and interpretation, research design and implementation, programming, and collaboration. You will learn how to collect, organize, and analyze textual data in a way that ensures your findings are valid, reliable, and impactful. You will also gain hands-on experience with the R programming language, a powerful tool for conducting text analysis and automating data analysis processes.
+
+By the end of the course, you will be able to design and apply appropriate research designs to address research questions based on textual data, implement text analysis techniques using computational tools, and communicate your research findings effectively through written reports and oral presentations. You will also be able to collaborate with your peers and the research community through publicly sharing and implementing reproducible research projects.
+Join us for an exciting journey into the world of quantitative text analysis and unlock new insights into language, culture, and society!
