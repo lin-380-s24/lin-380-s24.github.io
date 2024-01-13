@@ -3,6 +3,8 @@ project:
 
 execute:
   freeze: auto
+  message: false
+  warning: false
 
 website:
   title: "Quantitative Text Analysis"
@@ -11,6 +13,8 @@ website:
     # background: secondary
     # foreground: light
     left:
+      - text: Syllabus
+        href: index.html
       - schedule.qmd
       - news.qmd
     tools:
@@ -21,3 +25,4 @@ format:
     theme: simplex
     css: styles.css
     toc: true
+    toc-depth: 3
