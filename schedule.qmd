@@ -2,9 +2,68 @@
 title: "Schedule"
 ---
 
-| Date | Topic | Reading | Due |
-|------|-------|---------|-----|
-| 1/7 | Introduction | | |
+> **Note:** This is a tentative schedule. The syllabus may be updated as the course develops. If you have any questions, please contact the instructor.
 
+```{r}
+#| label: setup
+#| echo: false
 
-... and so on.
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+
+sheet <-
+  read_sheet("https://docs.google.com/spreadsheets/d/1aiPWIESWSkqGQrSksIWGgEniF6Mc4QPnWuwhNvqsH58/edit?usp=sharing")
+```
+
+```{r}
+#| label: schedule
+#| echo: false
+
+sheet |>
+  mutate(
+    Date = as.Date(Date),
+    Day = ifelse(is.na(Day), "", Day),
+    Target = ifelse(is.na(Target), "", Target)
+  ) |>
+  gt(rowname_col = "Target", groupname_col = "Module") |>
+  text_transform(cells_body(columns = c(Reading)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Slides)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("chalkboard-user", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('chalkboard-user')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Labs)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Project)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("book-bookmark", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('book-bookmark')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Assessment)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("list-check", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('list-check')}</a>")
+      )
+    }
+  ) |>
+  fmt_date(Date, date_style = 10) |>
+  sub_missing(columns = Date, missing_text = "")
+
+```
