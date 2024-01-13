@@ -5,5 +5,11 @@
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
     ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/day-01.html"
+    ]
   }
 ]

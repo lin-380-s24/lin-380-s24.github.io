@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/lin-380-s24/site/posts/post-with-code/index.html</loc>
-    <lastmod>2024-01-13T21:05:20.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/lin-380-s24/site/index.html</loc>
-    <lastmod>2024-01-13T21:05:19.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/lin-380-s24/site/news.html</loc>
-    <lastmod>2024-01-13T21:05:19.172Z</lastmod>
+    <loc>https://github.com/lin-380-s24/site/slides/day-01.html</loc>
+    <lastmod>2024-01-13T21:48:32.305Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/lin-380-s24/site/posts/welcome/index.html</loc>
-    <lastmod>2024-01-13T21:05:20.184Z</lastmod>
+    <lastmod>2024-01-13T21:48:29.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/lin-380-s24/site/index.html</loc>
+    <lastmod>2024-01-13T21:48:28.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/lin-380-s24/site/news.html</loc>
+    <lastmod>2024-01-13T21:48:28.173Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/lin-380-s24/site/slides.html</loc>
+    <lastmod>2024-01-13T21:48:29.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/lin-380-s24/site/posts/post-with-code/index.html</loc>
+    <lastmod>2024-01-13T21:48:29.977Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/lin-380-s24/site/schedule.html</loc>
-    <lastmod>2024-01-13T21:05:21.020Z</lastmod>
+    <lastmod>2024-01-13T21:48:33.037Z</lastmod>
   </url>
 </urlset>
