@@ -1,5 +1,6 @@
 # Quarto/ VS Code
 /.quarto/
+/_site/
 *code-workspace
 
 # renv
