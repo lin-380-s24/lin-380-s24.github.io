@@ -2,11 +2,14 @@ author: Jerid Francom
 
 instructor:
   name: Dr. Jerid Francom
+  pronouns: he/him/his
   name_short: Jerid
+  title: Associate Professor of Spanish and Linguistics
   email: francojc@wfu.edu
-  github: francojc
-  office: "Greene Hall 323"
+  office: "Greene Hall 550"
   appointment_url: "https://cal.com/francojc/meeting"
+  photo: francom-bw.png
+  github: francojc
 
 course:
   title: "Quantitative Text Analysis"
