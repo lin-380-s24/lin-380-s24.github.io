@@ -1,1 +1,1 @@
-Sitemap: https://lin-380-s24.github.io/site/sitemap.xml
+Sitemap: https://github.com/lin-380-s24/site/sitemap.xml
