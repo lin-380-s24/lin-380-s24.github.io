@@ -2,3 +2,5 @@ _notes.md
 /_docs/
 subscribe.html
 /.quarto/
+.Rprofile
+*code-workspace
