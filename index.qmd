@@ -3,6 +3,8 @@ title: "{{< fa handshake >}} Syllabus"
 subtitle: "LIN 380/680: Quantitative Text Analysis for Linguistics"
 ---
 
+<!-- ![]({{< var course.sticker >}}){width="150px" style="float: right;"} -->
+
 ## Instructor
 
 ![]({{< var instructor.photo >}}){style="float: right; margin-right: 1em;" width="150px"}

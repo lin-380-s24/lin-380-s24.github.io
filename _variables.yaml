@@ -13,6 +13,7 @@ instructor:
 
 course:
   title: "Quantitative Text Analysis"
+  sticker: assets/hex-sticker.png
   number: "LIN 380/680"
   semester: "Spring 2024"
   meeting_time: "WF 9:30-10:40 am"

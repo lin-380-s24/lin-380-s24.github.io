@@ -8,6 +8,7 @@ execute:
 
 website:
   title: "Quantitative Text Analysis"
+  favicon: assets/hex-sticker.png
   # margin-header: subscribe.html
   navbar:
     right:
