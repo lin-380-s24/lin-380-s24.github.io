@@ -3,6 +3,7 @@ title: "Welcome!"
 subtitle: "Quantitative Text Analysis"
 date: "2024-01-17"
 categories: [syllabus, resources, guides]
+draft: true
 ---
 
 # Introductions
