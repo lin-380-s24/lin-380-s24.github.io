@@ -10,9 +10,8 @@ website:
   title: "Quantitative Text Analysis"
   # margin-header: subscribe.html
   navbar:
-    left:
-      - text: Syllabus
-        href: index.html
+    right:
+      - index.qmd
       - schedule.qmd
       - slides.qmd
       - news.qmd
