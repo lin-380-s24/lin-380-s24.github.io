@@ -1,12 +1,17 @@
 ---
-title: "News"
+title: "{{< fa bullhorn >}} News"
 listing:
+  id: news-listing
   contents: posts
-  sort: "date desc"
   type: default
-  categories: true
+  sort: "date desc"
   sort-ui: false
   filter-ui: false
+  categories: unnumbered
+  fields: [image, title, categories, date]
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
+
+::: {#news-listing}
+:::
