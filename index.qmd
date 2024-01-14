@@ -1,4 +1,5 @@
 ---
+title: "{{< fa handshake >}} Syllabus"
 subtitle: "LIN 380/680: Quantitative Text Analysis for Linguistics"
 ---
 

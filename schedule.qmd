@@ -1,5 +1,5 @@
 ---
-title: "Schedule"
+title: "{{< fa calendar-check >}} Schedule"
 ---
 
 > **Note:** This is a tentative schedule. The syllabus may be updated as the course develops. If you have any questions, please contact the instructor.
