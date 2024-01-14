@@ -1,10 +1,7 @@
 [
   {
     "listing": "/slides.html",
-    "items": [
-      "/slides/day-02.html",
-      "/slides/day-01.html"
-    ]
+    "items": []
   },
   {
     "listing": "/news.html",
