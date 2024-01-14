@@ -9,12 +9,12 @@ execute:
 website:
   title: "Quantitative Text Analysis"
   favicon: assets/hex-sticker.png
-  # margin-header: subscribe.html
   navbar:
     right:
       - index.qmd
       - schedule.qmd
       - slides.qmd
+      - guides.qmd
       - news.qmd
     tools:
       - icon: github

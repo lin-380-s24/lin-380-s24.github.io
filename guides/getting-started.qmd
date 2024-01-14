@@ -1,0 +1,32 @@
+---
+title: "Getting started"
+description: "A quick introduction to the basics of using the API"
+categories: [software, r, git, docker]
+draft: true
+---
+
+In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working.
+
+## What is a virtual computing environment?
+
+A virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.
+
+I have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.
+
+To be able to use this environment, you will need to install Docker on your computer. Navigate to the [Docker website](https://www.docker.com/products/docker-desktop/) and follow the instructions for installing Docker on your computer.
+
+- [Mac instructions](https://docs.docker.com/desktop/install/mac-install/)
+- [Windows instructions](https://docs.docker.com/desktop/install/windows-install/)
+
+## Using the virtual computing environment
+
+Once you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the "Images" tab in Docker Desktop and search  for the image called `francojc/qtalr-image`. Once you have found it, click on the "Pull" button to download the image.
+
+![Docker Desktop](images/docker-desktop.png)
+
+Once the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the "Run" button to build a container based on this image.
+
+
+
+
+This will start a virtual computing environment that contains all the tools and resources we need for this course.
