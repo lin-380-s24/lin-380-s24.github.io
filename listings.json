@@ -4,6 +4,10 @@
     "items": []
   },
   {
+    "listing": "/guides.html",
+    "items": []
+  },
+  {
     "listing": "/news.html",
     "items": [
       "/posts/post-with-code/index.html",
