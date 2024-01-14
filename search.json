@@ -1,38 +1,73 @@
 [
   {
-    "objectID": "slides/day-01.html#overview",
-    "href": "slides/day-01.html#overview",
-    "title": "Welcome!",
-    "section": "Overview",
-    "text": "Overview\n\n\n\nCourse goals\nApproach\nResource setup\nGetting help\n\n\n\n\n\n\nSpeaker notes go here."
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
   },
   {
-    "objectID": "slides/day-01.html#data-literacy",
-    "href": "slides/day-01.html#data-literacy",
-    "title": "Welcome!",
-    "section": "Data literacy",
-    "text": "Data literacy\nIdentify, interpret and evaluate data analysis procedures and results"
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
+    "section": "",
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\n\nquarto\n\n\nr\n\n\nresources\n\n\nguides\n\n\nrecipes\n\n\n \n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n  \n\n\n\n\nWelcome!\n\n\nQuantitative Text Analysis\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "slides/day-01.html#research-skills",
-    "href": "slides/day-01.html#research-skills",
-    "title": "Welcome!",
-    "section": "Research skills",
-    "text": "Research skills\nDesign, implement, and communicate quantitative research"
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": " News",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n \n\n\n\n\nJan 13, 2024\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n \n\n\n\n\nJan 10, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "slides/day-01.html#reproducible-workflows",
-    "href": "slides/day-01.html#reproducible-workflows",
-    "title": "Welcome!",
-    "section": "Reproducible workflows",
-    "text": "Reproducible workflows\nApply programmatic strategies to develop and collaborate on reproducible research projects"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": " Syllabus",
+    "section": "",
+    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
   },
   {
-    "objectID": "slides/day-01.html#github",
-    "href": "slides/day-01.html#github",
-    "title": "Welcome!",
-    "section": "GitHub",
-    "text": "GitHub\n\nCreate a GitHub account\n…\n\n\n\n\nWelcome! | Quantitative Text Analysis"
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": " Syllabus",
+    "section": "",
+    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
+  },
+  {
+    "objectID": "index.html#course",
+    "href": "index.html#course",
+    "title": " Syllabus",
+    "section": "Course",
+    "text": "Course\n\nDescription\nAre you curious about how to use technology to unlock hidden insights from text? Do you want to become a skilled researcher who can analyze textual data in a way that is rigorous, reproducible, and insightful? In this course, you will learn how to harness the power of computational tools to explore and interpret text in a way that supports meaningful research questions in Linguistics and language science.\nThroughout the course, you will gain valuable skills in data analysis and interpretation, research design and implementation, programming, and collaboration. You will learn how to collect, organize, and analyze textual data in a way that ensures your findings are valid, reliable, and impactful. You will also gain hands-on experience with the R programming language, a powerful tool for conducting text analysis and automating data analysis processes.\nBy the end of the course, you will be able to design and apply appropriate research designs to address research questions based on textual data, implement text analysis techniques using computational tools, and communicate your research findings effectively through written reports and oral presentations. You will also be able to collaborate with your peers and the research community through publicly sharing and implementing reproducible research projects.\nJoin us for an exciting journey into the world of quantitative text analysis and unlock new insights into language, culture, and society!\n\n\nLearning outcomes\nBy the end of this course you will be able to:\nA. Identify, interpret and evaluate data analysis procedures and results\n\nIdentify the impact of research decisions (data collection, organization, and analysis) on research findings.\nInterpret, assess, and contextualize the analysis of textual data to support research questions.\nEvaluate the validity and reliability of findings based on textual data.\n\nB. Design, implement, and communicate research\n\nDesign and apply appropriate research designs to address research questions related to language science.\nImplement text analysis techniques using computational tools to derive insights from textual data.\nCommunicate research findings effectively through written reports and oral presentations.\n\nC. Apply programmatic strategies to develop and collaborate on reproducible research projects\n\nConduct text analysis and automate text analysis processes using the R programming language.\nDevelop a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.\nCollaborate with peers and the research community through publicly sharing and implementing reproducible research projects.\n\n\n\nResources\n\nFrancom, J (forthcoming). An Introduction to Quantitative Text Analysis for Linguistics: Reproducible Research using R. Routledge Press.\n\nR package and companion website\n\nGitHub: A free account is required for this course.\n\n\n\nPrerequisites\nThis course takes a pedagogical approach which assumes no prior experience with statistics or programming, making it an accessible resource for novices beginning their exploration of quantitative text analysis methods. However, it is recommended that students have some familiarity with linguistics and/or language science research and research methods."
+  },
+  {
+    "objectID": "index.html#approach",
+    "href": "index.html#approach",
+    "title": " Syllabus",
+    "section": "Approach",
+    "text": "Approach\n\nBuilding community\nBuilding a community of learners is at the heart of enriching courses. It is key to keep in mind that each one of us is intrinsically motivated to know more about the world –that’s why we are all here! The experience of learning, however solitary it may seem at times, is best achieved in collaboration with others on their educational journey. Each of us brings important and valuable life experiences and academic knowledge and interests that are vital elements to making our class exceptional. Don’t check yourself at the classroom door! Engage, reflect, share, and discuss. Take risks, ask questions, and let’s embark on this intellectual journey together.\n\n\nTransparency and responsibility\nIn my view, any course is not an island to itself. In an educational journey, a course provides you opportunities to grow both in learning content and the meta-process of learning how to learn. I will approach this course in precisely this way: I am more concerned with process than product. In this course (and in all courses) the material will prove challenging at times. This is a good thing. You will learn a lot, but you likely will not “learn it all” –I’m still learning! Learning is as much about success as it is trial and error. I will highly value trial as it provides an opportunity to err and learn. As part of this process, I will ask you to reflect on your process –when you seek support and how you find it. Your responsibility is to own your learning, collaborate with peers, seek and discover, and contribute to the learning of your peers (as well as mine). My responsibility is to provide the scaffolding and guidance to get you started on (or rather, continue) your journey.\n\n\nDiversity & inclusion\nI am committed to developing and supporting an ongoing environment that serves students from all diverse backgrounds and where diversity is viewed as a resource, strength, and benefit to our learning community. It is my goal to present materials and provide options for activities that are respectful to gender, sexuality, disability, age, socioeconomic status, ethnicity, race, and culture. Despite my best efforts, there may still be ways to improve the effectiveness of this course for you personally or for other students or student groups. Your suggestions for improvement are encouraged and appreciated.\n\n\nFlexibility\nI start this semester by acknowledging the social, political, and medical challenges that all of us face. I recognize that some of you are more impacted than others and that many of you may be learning from a place of anxiety, uncertainty, and trauma. I will stay cognizant of this throughout the semester, especially as I make teaching decisions. If there are ways I can make your learning experience better, please let me know."
+  },
+  {
+    "objectID": "index.html#learning-program",
+    "href": "index.html#learning-program",
+    "title": " Syllabus",
+    "section": "Learning program",
+    "text": "Learning program\nThe course is grouped into five learning modules: (1) Orientation, (2) Foundations, (3) Preparation, (4) Analysis, and (5) Communication. The goal of each module is to build your conceptual knowledge and practical programming skills towards developing an original text analysis project prospectus/ final project which will showcase your knowledge and skills with a tangible, shareable, and reproducible research product.\nThe opening of each module will be signaled by the seedling icon (🌱). Each module targets a set of essential questions. Each of these modules in turn is composed of a series of daily activities that will guide us through topics that will help us address each of these essential questions. Days signaled by a water drop icon (💧) will include learning materials and group and individual activities to build our skills and knowledge on a particular conceptual topic. Days signaled by a branch icon (🌿) will include learning materials geared towards the practical application of conceptual knowledge through programming demonstrations and lab activities. Days signaled by a tree icon (🌳) are dedicated to project development activities."
+  },
+  {
+    "objectID": "index.html#assessment",
+    "href": "index.html#assessment",
+    "title": " Syllabus",
+    "section": "Assessment",
+    "text": "Assessment\nIn line with my view that learning is a process, not a product, individual learning activities will be assessed through qualitative feedback, peer review, and self-assessment –but will not be assigned a grade by the instructor. Instead, you will be asked to provide a self-assessment of your learning progress periodically during the semester and a final process letter at the end of classes. As a final grade is an institutional requirement, during the final examination period I will meet with students individually to critically assess their learning progress (including self-assessments and a process letter) and determine an appropriate final course grade.\n\nModule-based components\nEngagement discussions\nThese discussions will ask you to reflect on your preliminary reactions to the learning materials and collaborate with your peers to establish, clarify, and discover new connections.\nExpansion activities\nThese will be a series of interactive coding (‘swirl’) and lab activities that aim to employ your conceptual knowledge and develop your R programming skills.\n\n\nProject components\nProject activities\nThese activities are aimed at developing students’ research and technical implementation skills through a project on a specific topic determined by student interest.\nProject prospectus\nThe project prospectus is the culmination of the project activities and a demonstration of the student’s ability to envision and document a text analysis research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.\nFinal project (graduate students, optional for undergraduates)\nThe final project is a demonstration of the student’s ability to bring to fruition a text analysis research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings."
+  },
+  {
+    "objectID": "index.html#policies",
+    "href": "index.html#policies",
+    "title": " Syllabus",
+    "section": "Policies",
+    "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -42,79 +77,9 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "",
-    "section": "",
-    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "",
-    "section": "",
-    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
-  },
-  {
-    "objectID": "index.html#course",
-    "href": "index.html#course",
-    "title": "",
-    "section": "Course",
-    "text": "Course\n\nDescription\nAre you curious about how to use technology to unlock hidden insights from text? Do you want to become a skilled researcher who can analyze textual data in a way that is rigorous, reproducible, and insightful? In this course, you will learn how to harness the power of computational tools to explore and interpret text in a way that supports meaningful research questions in Linguistics and language science.\nThroughout the course, you will gain valuable skills in data analysis and interpretation, research design and implementation, programming, and collaboration. You will learn how to collect, organize, and analyze textual data in a way that ensures your findings are valid, reliable, and impactful. You will also gain hands-on experience with the R programming language, a powerful tool for conducting text analysis and automating data analysis processes.\nBy the end of the course, you will be able to design and apply appropriate research designs to address research questions based on textual data, implement text analysis techniques using computational tools, and communicate your research findings effectively through written reports and oral presentations. You will also be able to collaborate with your peers and the research community through publicly sharing and implementing reproducible research projects.\nJoin us for an exciting journey into the world of quantitative text analysis and unlock new insights into language, culture, and society!\n\n\nLearning outcomes\nBy the end of this course you will be able to:\nA. Identify, interpret and evaluate data analysis procedures and results\n\nIdentify the impact of research decisions (data collection, organization, and analysis) on research findings.\nInterpret, assess, and contextualize the analysis of textual data to support research questions.\nEvaluate the validity and reliability of findings based on textual data.\n\nB. Design, implement, and communicate research\n\nDesign and apply appropriate research designs to address research questions related to language science.\nImplement text analysis techniques using computational tools to derive insights from textual data.\nCommunicate research findings effectively through written reports and oral presentations.\n\nC. Apply programmatic strategies to develop and collaborate on reproducible research projects\n\nConduct text analysis and automate text analysis processes using the R programming language.\nDevelop a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.\nCollaborate with peers and the research community through publicly sharing and implementing reproducible research projects.\n\n\n\nResources\n\nFrancom, J (forthcoming). An Introduction to Quantitative Text Analysis for Linguistics: Reproducible Research using R. Routledge Press.\n\nR package and companion website\n\nGitHub: A free account is required for this course.\n\n\n\nPrerequisites\nThis course takes a pedagogical approach which assumes no prior experience with statistics or programming, making it an accessible resource for novices beginning their exploration of quantitative text analysis methods. However, it is recommended that students have some familiarity with linguistics and/or language science research and research methods."
-  },
-  {
-    "objectID": "index.html#approach",
-    "href": "index.html#approach",
-    "title": "",
-    "section": "Approach",
-    "text": "Approach\n\nBuilding community\nBuilding a community of learners is at the heart of enriching courses. It is key to keep in mind that each one of us is intrinsically motivated to know more about the world –that’s why we are all here! The experience of learning, however solitary it may seem at times, is best achieved in collaboration with others on their educational journey. Each of us brings important and valuable life experiences and academic knowledge and interests that are vital elements to making our class exceptional. Don’t check yourself at the classroom door! Engage, reflect, share, and discuss. Take risks, ask questions, and let’s embark on this intellectual journey together.\n\n\nTransparency and responsibility\nIn my view, any course is not an island to itself. In an educational journey, a course provides you opportunities to grow both in learning content and the meta-process of learning how to learn. I will approach this course in precisely this way: I am more concerned with process than product. In this course (and in all courses) the material will prove challenging at times. This is a good thing. You will learn a lot, but you likely will not “learn it all” –I’m still learning! Learning is as much about success as it is trial and error. I will highly value trial as it provides an opportunity to err and learn. As part of this process, I will ask you to reflect on your process –when you seek support and how you find it. Your responsibility is to own your learning, collaborate with peers, seek and discover, and contribute to the learning of your peers (as well as mine). My responsibility is to provide the scaffolding and guidance to get you started on (or rather, continue) your journey.\n\n\nDiversity & inclusion\nI am committed to developing and supporting an ongoing environment that serves students from all diverse backgrounds and where diversity is viewed as a resource, strength, and benefit to our learning community. It is my goal to present materials and provide options for activities that are respectful to gender, sexuality, disability, age, socioeconomic status, ethnicity, race, and culture. Despite my best efforts, there may still be ways to improve the effectiveness of this course for you personally or for other students or student groups. Your suggestions for improvement are encouraged and appreciated.\n\n\nFlexibility\nI start this semester by acknowledging the social, political, and medical challenges that all of us face. I recognize that some of you are more impacted than others and that many of you may be learning from a place of anxiety, uncertainty, and trauma. I will stay cognizant of this throughout the semester, especially as I make teaching decisions. If there are ways I can make your learning experience better, please let me know."
-  },
-  {
-    "objectID": "index.html#learning-program",
-    "href": "index.html#learning-program",
-    "title": "",
-    "section": "Learning program",
-    "text": "Learning program\nThe course is grouped into five learning modules: (1) Orientation, (2) Foundations, (3) Preparation, (4) Analysis, and (5) Communication. The goal of each module is to build your conceptual knowledge and practical programming skills towards developing an original text analysis project prospectus/ final project which will showcase your knowledge and skills with a tangible, shareable, and reproducible research product.\nThe opening of each module will be signaled by the seedling icon (🌱). Each module targets a set of essential questions. Each of these modules in turn is composed of a series of daily activities that will guide us through topics that will help us address each of these essential questions. Days signaled by a water drop icon (💧) will include learning materials and group and individual activities to build our skills and knowledge on a particular conceptual topic. Days signaled by a branch icon (🌿) will include learning materials geared towards the practical application of conceptual knowledge through programming demonstrations and lab activities. Days signaled by a tree icon (🌳) are dedicated to project development activities."
-  },
-  {
-    "objectID": "index.html#assessment",
-    "href": "index.html#assessment",
-    "title": "",
-    "section": "Assessment",
-    "text": "Assessment\nIn line with my view that learning is a process, not a product, individual learning activities will be assessed through qualitative feedback, peer review, and self-assessment –but will not be assigned a grade by the instructor. Instead, you will be asked to provide a self-assessment of your learning progress periodically during the semester and a final process letter at the end of classes. As a final grade is an institutional requirement, during the final examination period I will meet with students individually to critically assess their learning progress (including self-assessments and a process letter) and determine an appropriate final course grade.\n\nModule-based components\nEngagement discussions\nThese discussions will ask you to reflect on your preliminary reactions to the learning materials and collaborate with your peers to establish, clarify, and discover new connections.\nExpansion activities\nThese will be a series of interactive coding (‘swirl’) and lab activities that aim to employ your conceptual knowledge and develop your R programming skills.\n\n\nProject components\nProject activities\nThese activities are aimed at developing students’ research and technical implementation skills through a project on a specific topic determined by student interest.\nProject prospectus\nThe project prospectus is the culmination of the project activities and a demonstration of the student’s ability to envision and document a text analysis research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.\nFinal project (graduate students, optional for undergraduates)\nThe final project is a demonstration of the student’s ability to bring to fruition a text analysis research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings."
-  },
-  {
-    "objectID": "index.html#policies",
-    "href": "index.html#policies",
-    "title": "",
-    "section": "Policies",
-    "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News",
-    "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 13, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWelcome!\n\n\nQuantitative Text Analysis\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
-  },
-  {
     "objectID": "schedule.html",
     "href": "schedule.html",
-    "title": "Schedule",
+    "title": " Schedule",
     "section": "",
     "text": "Note: This is a tentative schedule. The syllabus may be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n  \n    \n    \n      \n      Day\n      Date\n      Focus\n      Reading\n      Slides\n      Labs\n      Project\n      Assessment\n    \n  \n  \n    \n      🌱 Orientation\n    \n    💧\n1\n17 Jan\nIntro course and resources\n\n\n\n\n\n    🌿\n2\n19 Jan\nWriting with code\n\n\n\n\n\n    \n      🌱 Foundations\n    \n    💧\n3\n24 Jan\nText Analysis\n\n\n\n\n\n    🌿\n4\n26 Jan\nAcademic writing with Quarto\n\n\n\n\n\n    💧\n5\n31 Jan\nData\n\n\n\n\n\n    🌿\n6\n2 Feb\nReading, inspecting, and writing data\n\n\n\n\n\n    💧\n7\n7 Feb\nAnalysis\n\n\n\n\n\n    🌿\n8\n9 Feb\nDescriptive assessment of datasets\n\n\n\n\n\n    💧\n9\n14 Feb\nResearch\n\n\n\n\n\n    🌿\n10\n16 Feb\nScaffolding a research project\n\n\n\n\n\n    🌳\n11\n21 Feb\nBlueprint\n\n\n\n\n\n    \n      🌱 Preparation\n    \n    💧\n12\n23 Feb\nAcquire\n\n\n\n\n\n    🌿\n13\n28 Feb\nCollecting and documenting data\n\n\n\n\n\n    💧\n14\n1 Mar\nCurate\n\n\n\n\n\n    🌿\n15\n6 Mar\nOrganizing and documenting data\n\n\n\n\n\n    💧\n16\n8 Mar\nTransform\n\n\n\n\n\n    🌿\n17\n20 Mar\nTransforming and documenting data\n\n\n\n\n\n    \n      🌱 Analysis\n    \n    💧\n18\n22 Mar\nExplore\n\n\n\n\n\n    🌿\n19\n27 Mar\nEmploying exploratory methods\n\n\n\n\n\n    💧\n20\n29 Mar\nPredict\n\n\n\n\n\n    🌿\n21\n3 Apr\nBuilding predictive models\n\n\n\n\n\n    💧\n23\n5 Apr\nInfer\n\n\n\n\n\n    🌿\n24\n10 Apr\nBuilding inferential models\n\n\n\n\n\n    \n      🌱 Communication\n    \n    💧\n25\n12 Apr\nContribute\n\n\n\n\n\n    🌿\n25\n17 Apr\nSharing research\n\n\n\n\n\n    🌳\n26\n19 Apr\nWorkshop\n\n\n\n\n\n    🌳\n27\n24 Apr\nShowcase\n\n\n\n\n\n    🌳\n28\n26 Apr\nShowcase\n\n\n\n\n\n    🌳\n29\n1 May\nWrite-up\n\n\n\n\n\n    \n      🌻 Finalize\n    \n    \n\n7 May\nIndividual sessions"
   }
