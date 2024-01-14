@@ -6,7 +6,7 @@ title: "{{< fa calendar-check >}} Schedule"
 https://docs.google.com/spreadsheets/d/1aiPWIESWSkqGQrSksIWGgEniF6Mc4QPnWuwhNvqsH58/edit?usp=sharing
 -->
 
-> **Note:** This is a tentative schedule. The syllabus may be updated as the course develops. If you have any questions, please contact the instructor.
+> **Note:** This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.
 
 ```{r}
 #| label: setup
@@ -67,7 +67,6 @@ sheet |>
       )
     }
   ) |>
-  fmt_date(Date, date_style = 10) |>
+  fmt_date(Date, date_style = 30) |>
   sub_missing(columns = Date, missing_text = "")
-
 ```
