@@ -1,0 +1,11 @@
+---
+title: "Writing with code"
+subtitle: "An introduction to Literate Programming with R and Quarto"
+date: "2024-01-19"
+categories: [quarto, r, resources, guides, recipes]
+---
+
+## Overview
+
+...
+

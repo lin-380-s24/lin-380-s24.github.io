@@ -9,7 +9,9 @@ categories: [syllabus, resources, guides]
 
 ![](assets/images/hello-hand.jpg)
 
-## Overview
+# {background-image="assets/images/lin-380-flyer.png" background-size="80%"}
+
+# Overview
 
 :::: {.columns}
 
@@ -32,39 +34,31 @@ categories: [syllabus, resources, guides]
 Speaker notes go here.
 :::
 
-# Course goals
+## Course goals
 
-- Data literacy
-- Research skills
-- Reproducible workflows
-
-## Data literacy
+::: {.callout}
+**{{< fa scroll >}} Data literacy**
 
 Identify, interpret and evaluate data analysis procedures and results
+:::
 
-## Research skills
+::: {.callout}
+**{{< fa flask-vial >}} Research skills**
 
 Design, implement, and communicate quantitative research
+:::
 
-## Reproducible workflows
+::: {.callout}
+**{{< fa arrows-spin >}} Reproducible workflows**
 
 Apply programmatic strategies to develop and collaborate on reproducible research projects
+:::
 
 ---
 
-At the end of this course, you will be able to:
+<!-- Show a collage of visuals, tables, websites to provide an idea of the things that students will be able to do! -->
 
-<!--
-Include:
-
-- Skills
-- Knowledge
-- Attitudes
-
-- Tangible product
--->
-
-A demonstration of the student's ability to envision and document a research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
+...
 
 # Approach
 

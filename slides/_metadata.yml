@@ -1,12 +1,14 @@
-author: {{< instructor.name >}}
+author: {{< var instructor.name >}}
 format:
   revealjs:
     theme: [simple]
     logo: assets/images/logo.jpg
     # smaller: true
     preview-links: auto
+    hash-type: number
     slide-number: true
-    footer: "{{< meta title >}} | Quantitative Text Analysis"
+    footer: "{{< meta title >}} | {{< var course.title >}}"
     embed-resources: true
+    controls: false
     menu:
       numbers: true
