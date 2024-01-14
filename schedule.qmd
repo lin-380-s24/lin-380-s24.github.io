@@ -2,6 +2,10 @@
 title: "{{< fa calendar-check >}} Schedule"
 ---
 
+<!-- EDIT: the google sheet to update data
+https://docs.google.com/spreadsheets/d/1aiPWIESWSkqGQrSksIWGgEniF6Mc4QPnWuwhNvqsH58/edit?usp=sharing
+-->
+
 > **Note:** This is a tentative schedule. The syllabus may be updated as the course develops. If you have any questions, please contact the instructor.
 
 ```{r}

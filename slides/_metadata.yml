@@ -12,3 +12,7 @@ format:
     controls: false
     menu:
       numbers: true
+revealjs-plugins:
+  - codefocus
+execute:
+  echo: true
