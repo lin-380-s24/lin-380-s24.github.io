@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A quick introduction to the basics of using the API">
+<meta name="description" content="How to set up your computer for this course.">
 
 <title>Quantitative Text Analysis - Getting started</title>
 <style>
@@ -105,6 +105,11 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../news.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../news.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools">
     <a href="https://github.com/lin-380-s24/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -123,7 +128,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-is-a-virtual-computing-environment" id="toc-what-is-a-virtual-computing-environment" class="nav-link active" data-scroll-target="#what-is-a-virtual-computing-environment">What is a virtual computing environment?</a></li>
-  <li><a href="#using-the-virtual-computing-environment" id="toc-using-the-virtual-computing-environment" class="nav-link" data-scroll-target="#using-the-virtual-computing-environment">Using the virtual computing environment</a></li>
+  <li><a href="#setting-up-the-virtual-computing-environment" id="toc-setting-up-the-virtual-computing-environment" class="nav-link" data-scroll-target="#setting-up-the-virtual-computing-environment">Setting up the virtual computing environment</a></li>
+  <li><a href="#sharing-files-between-your-computer-and-the-virtual-computing-environment" id="toc-sharing-files-between-your-computer-and-the-virtual-computing-environment" class="nav-link" data-scroll-target="#sharing-files-between-your-computer-and-the-virtual-computing-environment">Sharing files between your computer and the virtual computing environment</a></li>
   </ul>
 </nav>
     </div>
@@ -136,6 +142,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">software</div>
     <div class="quarto-category">r</div>
+    <div class="quarto-category">rstudio</div>
     <div class="quarto-category">git</div>
     <div class="quarto-category">docker</div>
   </div>
@@ -143,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    A quick introduction to the basics of using the API
+    How to set up your computer for this course.
   </div>
 </div>
 
@@ -162,6 +169,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-is-a-virtual-computing-environment" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-virtual-computing-environment">What is a virtual computing environment?</h2>
 <p>A virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.</p>
+<p><img src="getting-started/docker.png" class="img-fluid" style="float: right; width: 50%;"></p>
 <p>I have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.</p>
 <p>To be able to use this environment, you will need to install Docker on your computer. Navigate to the <a href="https://www.docker.com/products/docker-desktop/">Docker website</a> and follow the instructions for installing Docker on your computer.</p>
 <ul>
@@ -169,17 +177,70 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://docs.docker.com/desktop/install/windows-install/">Windows instructions</a></li>
 </ul>
 </section>
-<section id="using-the-virtual-computing-environment" class="level2">
-<h2 class="anchored" data-anchor-id="using-the-virtual-computing-environment">Using the virtual computing environment</h2>
-<p>Once you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called <code>francojc/qtalr-image</code>. Once you have found it, click on the “Pull” button to download the image.</p>
+<section id="setting-up-the-virtual-computing-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-virtual-computing-environment">Setting up the virtual computing environment</h2>
+<p>Once you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called <code>francojc/lin-380</code>. Once you have found it, click on the “Pull” button to download the image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/docker-desktop.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Docker Desktop</figcaption>
+<p><img src="getting-started/docker-pull-image.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Pull the image from Docker Hub</figcaption>
 </figure>
 </div>
 <p>Once the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.</p>
-<p>This will start a virtual computing environment that contains all the tools and resources we need for this course.</p>
+<p>You will need to fill out the following configuration options:</p>
+<ul>
+<li><strong>Name</strong>: Give your container a name. This can be anything you like.</li>
+<li><strong>Ports</strong>: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter <code>8787</code> in the “Local Port” field and <code>8787</code> in the “Container Port” field.</li>
+<li><strong>Volumes</strong>: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter <code>/home/rstudio/Workpace</code> as the path inside the container.</li>
+<li><strong>Environment variables</strong>: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called <code>PASSWORD</code> to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.</li>
+</ul>
+<p>Once you have filled out all the configuration options, click on the “Run” button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="getting-started/docker-run-container.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Run the container</figcaption>
+</figure>
+</div>
+<p>This will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link <a href="http://localhost:8787">8787:8787</a> under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username <code>rstudio</code> and the password you specified in the configuration options.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="getting-started/docker-access-container.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Log in to RStudio Server</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Remember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sharing-files-between-your-computer-and-the-virtual-computing-environment" class="level2">
+<h2 class="anchored" data-anchor-id="sharing-files-between-your-computer-and-the-virtual-computing-environment">Sharing files between your computer and the virtual computing environment</h2>
+<p>Your computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.</p>
+<p>However, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the <code>/home/rstudio/Workspace</code> folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="getting-started/docker-rstudio-volume.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Sharing files between the container and your computer</figcaption>
+</figure>
+</div>
+<p>This connection between Host path and Container path is a two-way street. This means that any files you create in the <code>/home/rstudio/Workspace</code> folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the <code>/home/rstudio/Workspace</code> folder inside the container.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Very important</strong></p>
+<p>You cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one.</p>
+</div>
+</div>
+</div>
 
 
 </section>

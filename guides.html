@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -137,6 +137,11 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./news.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./news.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools">
     <a href="https://github.com/lin-380-s24/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -151,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="docker">docker</div><div class="category" data-category="git">git</div><div class="category" data-category="r">r</div><div class="category" data-category="rstudio">rstudio</div><div class="category" data-category="software">software</div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -180,7 +185,68 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="software,r,rstudio,git,docker" data-listing-file-modified-sort="1705339733357" data-listing-reading-time-sort="5">
+<a href="./guides/getting-started.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Getting started
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
+software
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('rstudio'); return false;">
+rstudio
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('git'); return false;">
+git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('docker'); return false;">
+docker
+</div>
+</div>
+<div class="card-text listing-description">
+How to set up your computer for this course.
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="software,r,rstudio,git,docker" data-listing-file-modified-sort="1705339733893" data-listing-reading-time-sort="2">
+<a href="./guides/managing-docker-rstudio.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Managing Docker and RStudio Server
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
+software
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('rstudio'); return false;">
+rstudio
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('git'); return false;">
+git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('docker'); return false;">
+docker
+</div>
+</div>
+<div class="card-text listing-description">
+How to start, stop, and restart a Docker container and RStudio Server.
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
