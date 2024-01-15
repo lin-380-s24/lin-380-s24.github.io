@@ -9,7 +9,7 @@ execute:
 website:
   title: "Quantitative Text Analysis"
   favicon: assets/hex-sticker.png
-  site-url: https://lin-380-s24.github.io/site/
+  site-url: https://lin-380-s24.github.io/
   description: "Course website for LIN 380: Quantitative Text Analysis, Spring 2024"
   navbar:
     right:
