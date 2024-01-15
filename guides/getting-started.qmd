@@ -1,8 +1,7 @@
 ---
 title: "Getting started"
-description: "A quick introduction to the basics of using the API"
-categories: [software, r, git, docker]
-draft: true
+description: "How to set up your computer for this course."
+categories: [software, r, rstudio, git, docker]
 ---
 
 In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working.
@@ -11,6 +10,8 @@ In this course, we will be using a virtual computing envionment to set up the re
 
 A virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.
 
+![](getting-started/docker.png){style="float: right; width: 50%;"}
+
 I have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.
 
 To be able to use this environment, you will need to install Docker on your computer. Navigate to the [Docker website](https://www.docker.com/products/docker-desktop/) and follow the instructions for installing Docker on your computer.
@@ -18,15 +19,46 @@ To be able to use this environment, you will need to install Docker on your comp
 - [Mac instructions](https://docs.docker.com/desktop/install/mac-install/)
 - [Windows instructions](https://docs.docker.com/desktop/install/windows-install/)
 
-## Using the virtual computing environment
+## Setting up the virtual computing environment
 
-Once you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the "Images" tab in Docker Desktop and search  for the image called `francojc/qtalr-image`. Once you have found it, click on the "Pull" button to download the image.
+Once you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the "Images" tab in Docker Desktop and search for the image called `francojc/lin-380`. Once you have found it, click on the "Pull" button to download the image.
 
-![Docker Desktop](images/docker-desktop.png)
+![Pull the image from Docker Hub](getting-started/docker-pull-image.gif)
 
 Once the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the "Run" button to build a container based on this image.
 
+You will need to fill out the following configuration options:
 
+- **Name**: Give your container a name. This can be anything you like.
+- **Ports**: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter `8787` in the "Local Port" field and `8787` in the "Container Port" field.
+- **Volumes**: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the "Add" button and select the folder where you want to store your work for this course. On the right hand side, enter `/home/rstudio/Workpace` as the path inside the container.
+- **Environment variables**: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called `PASSWORD` to set the password for RStudio Server. On the left hand side, type 'PASSWORD' in the "Key" field and the password you want to use in the "Value" field.
 
+Once you have filled out all the configuration options, click on the "Run" button.
 
-This will start a virtual computing environment that contains all the tools and resources we need for this course.
+![Run the container](getting-started/docker-run-container.gif)
+
+This will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the "Containers" tab in Docker Desktop, find the container you just created, and click the link [8787:8787](http://localhost:8787) under "Port(s)". This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username `rstudio` and the password you specified in the configuration options.
+
+![Log in to RStudio Server](getting-started/docker-access-container.gif)
+
+:::{.callout}
+Remember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!
+:::
+
+## Sharing files between your computer and the virtual computing environment
+
+Your computer is what is known as the "Host". The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.
+
+However, when you created the container, you specified a folder on your computer ("Host path") that should be accessible from inside the container through the `/home/rstudio/Workspace` folder ("Container path"). This is known as a "Volume". This connection between your computer and the virtual computing environment is the only way to share files between the two directly.
+
+![Sharing files between the container and your computer](getting-started/docker-rstudio-volume.gif)
+
+This connection between Host path and Container path is a two-way street. This means that any files you create in the `/home/rstudio/Workspace` folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the `/home/rstudio/Workspace` folder inside the container.
+
+:::{.callout}
+**Very important**
+
+You cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one.
+:::
+

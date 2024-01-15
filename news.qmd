@@ -9,6 +9,7 @@ listing:
   filter-ui: false
   categories: unnumbered
   fields: [image, title, categories, date]
+  feed: true
 page-layout: full
 title-block-banner: false
 ---

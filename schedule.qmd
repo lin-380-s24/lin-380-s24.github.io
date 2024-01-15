@@ -35,35 +35,35 @@ sheet |>
   text_transform(cells_body(columns = c(Reading)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
+        glue::glue("<a href = {x} target='_blank'>{fontawesome::fa('book')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Slides)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("chalkboard-user", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('chalkboard-user')}</a>")
+        glue::glue("<a href = {x} target='_blank'>{fontawesome::fa('chalkboard-user')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Labs)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+        glue::glue("<a href = {x} target='_blank'>{fontawesome::fa('laptop')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Project)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("book-bookmark", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('book-bookmark')}</a>")
+        glue::glue("<a href = {x} target='_blank'>{fontawesome::fa('book-bookmark')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Assessment)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("list-check", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('list-check')}</a>")
+        glue::glue("<a href = {x} target='_blank'>{fontawesome::fa('list-check')}</a>")
       )
     }
   ) |>

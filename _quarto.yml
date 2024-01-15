@@ -9,6 +9,8 @@ execute:
 website:
   title: "Quantitative Text Analysis"
   favicon: assets/hex-sticker.png
+  site-url: https://lin-380-s24.github.io/site/
+  description: "Course website for LIN 380: Quantitative Text Analysis, Spring 2024"
   navbar:
     right:
       - index.qmd
@@ -16,6 +18,8 @@ website:
       - slides.qmd
       - guides.qmd
       - news.qmd
+      - icon: rss
+        href: news.xml
     tools:
       - icon: github
         href: https://github.com/lin-380-s24/
