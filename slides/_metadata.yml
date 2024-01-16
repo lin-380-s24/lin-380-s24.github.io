@@ -1,4 +1,6 @@
-author: {{< var instructor.name >}}
+author: "{{< var instructor.name >}}"
+institute: "Wake Forest University"
+date-format: medium
 format:
   revealjs:
     theme: [simple]
