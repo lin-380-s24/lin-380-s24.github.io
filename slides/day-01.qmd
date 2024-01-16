@@ -104,9 +104,9 @@ We will use Hypothes.is to annotate course readings. This is a flexible and powe
 
 # Getting help
 
-- Software Documentation / Online communities
+- [Software Documentation](https://r-universe.dev/search/) / [Online communities](https://stackoverflow.com/questions/tagged/r)
 - [Course homepage](https://lin-380-s24.github.io/)
-- Let's meet!
+- [Let's meet!](https://cal.com/francojc/meeting)
 
 <!--
 
