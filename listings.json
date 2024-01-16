@@ -14,6 +14,8 @@
   },
   {
     "listing": "/slides.html",
-    "items": []
+    "items": [
+      "/slides/day-01.html"
+    ]
   }
 ]

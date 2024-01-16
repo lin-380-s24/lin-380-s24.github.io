@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="guides">guides</div><div class="category" data-category="resources">resources</div><div class="category" data-category="syllabus">syllabus</div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -180,7 +180,40 @@ ul.task-list li input[type="checkbox"] {
 <p>The slide decks used in class are available here and are updated as the course progresses.</p>
 <div id="listing-slide-listing" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="syllabus,resources,guides" data-listing-date-sort="1705449600000" data-listing-file-modified-sort="1705371341973" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./slides/day-01.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./slides/day-01.html">
+<h3 class="no-anchor listing-title">
+Welcome!
+</h3>
+<div class="listing-subtitle">
+Quantitative Text Analysis
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('syllabus'); return false;">
+syllabus
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('resources'); return false;">
+resources
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('guides'); return false;">
+guides
+</div>
+</div>
+<a href="./slides/day-01.html"> </a>
+</div>
+<div class="metadata">
+<a href="./slides/day-01.html">
+<div class="listing-date">
+Jan 17, 2024
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
