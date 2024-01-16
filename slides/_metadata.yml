@@ -8,8 +8,8 @@ format:
     hash-type: number
     slide-number: true
     footer: "{{< meta title >}} | {{< var course.title >}}"
-    embed-resources: true
-    controls: false
+    embed-resources: false
+    chalkboard: true
     menu:
       numbers: true
 revealjs-plugins:
