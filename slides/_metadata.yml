@@ -3,7 +3,7 @@ date-format: medium
 format:
   revealjs:
     theme: [simple]
-    logo: assets/images/logo.jpg
+    logo: assets/images/logo-sm.jpg
     preview-links: true
     hash-type: number
     slide-number: true
