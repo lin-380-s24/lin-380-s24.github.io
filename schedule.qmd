@@ -2,6 +2,7 @@
 title: "{{< fa calendar-check >}} Schedule"
 execute:
   freeze: auto
+  always: true
 ---
 
 <!-- EDIT: the google sheet to update data
