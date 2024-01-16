@@ -54,7 +54,8 @@ C. Apply programmatic strategies to develop and collaborate on reproducible rese
 
 - Francom, J (forthcoming). *[An Introduction to Quantitative Text Analysis for Linguistics: Reproducible Research using R](https://qtalr.github.io/book)*. Routledge Press.
   - [R package and companion website](https://qtalr.github.io/qtalrkit/)
-- GitHub: A [free](https://education.github.com/pack/join) account is required for this course.
+- GitHub: A [free](https://education.github.com/pack/join) account (sign up for the Student Developer Pack).
+- Hypothes.is: A [free](https://web.hypothes.is/start/) account.
 
 ### Prerequisites
 
