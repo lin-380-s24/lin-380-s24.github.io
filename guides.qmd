@@ -2,11 +2,12 @@
 title: "{{< fa wrench >}} Guides"
 listing:
   id: guide-listing
-  contents: guides/*.qmd
+  contents: guides
   type: grid
   filter-ui: true
+  sort: "date"
   categories: unnumbered
-  fields: [title, description, categories]
+  fields: [image, title, description, categories]
 page-layout: full
 title-block-banner: false
 ---

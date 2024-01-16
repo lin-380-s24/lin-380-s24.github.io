@@ -1,16 +1,18 @@
 ---
 title: "Getting started"
-description: "How to set up your computer for this course."
-categories: [software, r, rstudio, git, docker]
+description: "How to set up your computer for this course using Docker containers."
+categories: [rstudio, docker]
+date: 2024-01-14
+date-format: "Spring YYYY"
 ---
 
 In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working.
 
 ## What is a virtual computing environment?
 
-A virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.
-
 ![](getting-started/docker.png){style="float: right; width: 50%;"}
+
+A virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.
 
 I have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.
 

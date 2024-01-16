@@ -1,7 +1,10 @@
 ---
 title: "Managing Docker and RStudio Server"
 description: "How to start, stop, and restart a Docker container and RStudio Server."
-categories: [software, r, rstudio, git, docker]
+categories: [rstudio, docker]
+date: 2024-01-15
+date-format: "Spring YYYY"
+image: managing-docker-rstudio/rstudio.png
 ---
 
 This guide assumes you've set up a Docker container with RStudio Server according to the instructions in the [Getting started](./getting-started.qmd) guide.

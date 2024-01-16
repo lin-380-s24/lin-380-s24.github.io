@@ -1,0 +1,59 @@
+---
+title: "Get up to speed with Git and GitHub"
+description: "A short introduction to Git and GitHub repositories, and how to clone them to your computer."
+categories: [rstudio, git, github]
+date: 2024-01-16
+date-format: "Spring YYYY"
+---
+
+In this guide, you'll learn how to use Git and GitHub to gain access to materials for this course.
+
+## What is Git and GitHub?
+
+![](get-up-with-git/github.png){style="float: right; width: 50%; margin-left: 1em;"}
+
+As I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The `francojc/lin-380` image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we'll use.
+
+Included in this software is a utility called `git`. Git is a version control system that allows you to track changes to files and collaborate with others. It's a powerful tool that is widely used in software development, and it's also useful for managing changes to data analysis projects.
+
+The `git` software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you'll use it to submit your work and collaborate with peers.
+
+## First steps with Git and GitHub: cloning a repository
+
+There are a few terms that are useful to know before working with Git and GitHub. Let's start with a few of the most important ones as we get started learning how to clone a repository.
+
+**Storage**
+
+- **Repository** (or "repo"): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.
+- **Remote**: A remote is a repository that is hosted on a server, such as GitHub.
+- **Local**: A local repository is one that is stored on your computer.
+
+**Actions**
+
+- **Clone**: To clone a repository is to create a local copy of a remote repository on your computer.
+
+Let's start with these terms and concepts in mind as we work through the next few steps.
+
+### Cloning a repository
+
+One of the first things you'll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.
+
+Let's take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called `lin-380-s24`. Within this organization, I've created a number of repositories we will use in this course. One of these is called `lab-00`. You can find it at the following URL: <https://github.com/lin-380-s24/lab-00>.
+
+Lab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called "cloning" it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue "Code" button on the repository page, and then copying the URL that appears in the box that pops up under 'Clone'.
+
+![Get the URL to clone a repository](get-up-with-git/github-clone-repo.gif)
+
+Once you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.
+
+. . .
+
+Once you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the "New Project" button in the upper left corner of the RStudio toolbar or "File" drop-down menu. This will open a dialog box with a number of options for creating a new project. Select "Version Control" and then "Git".
+
+This will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to^[I recommend you choose the `Workspace/` folder so that this, and other projects, are copied to your local computer.], and click "Create Project". This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!
+
+![Use RStudio to clone a GitHub repo](get-up-with-git/rstudio-clone-repo.gif)
+
+There is much more to learn about Git and GitHub, but this is enough to get you started.
+
+**Note:** We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We'll also have more to say about them later in the course.
