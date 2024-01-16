@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lin-380-s24.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-01-16T03:11:18.479Z</lastmod>
+    <lastmod>2024-01-16T14:56:40.020Z</lastmod>
   </url>
   <url>
-    <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
-    <lastmod>2024-01-16T03:11:17.855Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/index.html</loc>
-    <lastmod>2024-01-16T03:11:17.104Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides.html</loc>
-    <lastmod>2024-01-16T03:11:15.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/news.html</loc>
-    <lastmod>2024-01-16T03:11:16.584Z</lastmod>
+    <loc>https://lin-380-s24.github.io/guides/get-up-with-git.html</loc>
+    <lastmod>2024-01-16T14:56:39.424Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/managing-docker-rstudio.html</loc>
-    <lastmod>2024-01-16T03:11:17.444Z</lastmod>
+    <lastmod>2024-01-16T14:56:38.636Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/news.html</loc>
+    <lastmod>2024-01-16T14:56:37.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides.html</loc>
+    <lastmod>2024-01-16T14:56:37.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/index.html</loc>
+    <lastmod>2024-01-16T14:56:38.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
+    <lastmod>2024-01-16T14:56:39.044Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides.html</loc>
-    <lastmod>2024-01-16T03:11:18.215Z</lastmod>
+    <lastmod>2024-01-16T14:56:39.776Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-01.html</loc>
-    <lastmod>2024-01-16T03:11:19.907Z</lastmod>
+    <lastmod>2024-01-16T14:56:40.432Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/schedule.html</loc>
-    <lastmod>2024-01-16T03:11:20.963Z</lastmod>
+    <lastmod>2024-01-16T14:56:41.436Z</lastmod>
   </url>
 </urlset>

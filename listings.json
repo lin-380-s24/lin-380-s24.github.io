@@ -1,15 +1,16 @@
 [
   {
-    "listing": "/guides.html",
-    "items": [
-      "/guides/getting-started.html",
-      "/guides/managing-docker-rstudio.html"
-    ]
-  },
-  {
     "listing": "/news.html",
     "items": [
       "/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/guides.html",
+    "items": [
+      "/guides/getting-started.html",
+      "/guides/managing-docker-rstudio.html",
+      "/guides/get-up-with-git.html"
     ]
   },
   {

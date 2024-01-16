@@ -74,9 +74,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="docker">docker</div><div class="category" data-category="git">git</div><div class="category" data-category="r">r</div><div class="category" data-category="rstudio">rstudio</div><div class="category" data-category="software">software</div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="docker">docker</div><div class="category" data-category="git">git</div><div class="category" data-category="github">github</div><div class="category" data-category="rstudio">rstudio</div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -185,56 +185,42 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="software,r,rstudio,git,docker" data-listing-file-modified-sort="1705374662420" data-listing-reading-time-sort="5">
+<div class="g-col-1" data-index="0" data-categories="rstudio,docker" data-listing-date-sort="1705190400000" data-listing-file-modified-sort="1705416985561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <a href="./guides/getting-started.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="guides/getting-started/docker.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Getting started
 </h5>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
-software
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
 <div class="listing-category" onclick="window.quartoListingCategory('rstudio'); return false;">
 rstudio
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('git'); return false;">
-git
 </div>
 <div class="listing-category" onclick="window.quartoListingCategory('docker'); return false;">
 docker
 </div>
 </div>
 <div class="card-text listing-description">
-How to set up your computer for this course.
+How to set up your computer for this course using Docker containers.
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="software,r,rstudio,git,docker" data-listing-file-modified-sort="1705374662956" data-listing-reading-time-sort="2">
+<div class="g-col-1" data-index="1" data-categories="rstudio,docker" data-listing-date-sort="1705276800000" data-listing-file-modified-sort="1705416986093" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <a href="./guides/managing-docker-rstudio.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./guides/managing-docker-rstudio/rstudio.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Managing Docker and RStudio Server
 </h5>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
-software
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
 <div class="listing-category" onclick="window.quartoListingCategory('rstudio'); return false;">
 rstudio
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('git'); return false;">
-git
 </div>
 <div class="listing-category" onclick="window.quartoListingCategory('docker'); return false;">
 docker
@@ -242,6 +228,32 @@ docker
 </div>
 <div class="card-text listing-description">
 How to start, stop, and restart a Docker container and RStudio Server.
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="rstudio,git,github" data-listing-date-sort="1705363200000" data-listing-file-modified-sort="1705416985369" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="./guides/get-up-with-git.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="guides/get-up-with-git/github.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Get up to speed with Git and GitHub
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('rstudio'); return false;">
+rstudio
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('git'); return false;">
+git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('github'); return false;">
+github
+</div>
+</div>
+<div class="card-text listing-description">
+A short introduction to Git and GitHub repositories, and how to clone them to your computer.
 </div>
 </div>
 </div>
