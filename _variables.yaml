@@ -17,6 +17,7 @@ course:
   number: "LIN 380/680"
   semester: "Spring"
   year: 2024
+  institute: "Wake Forest University"
   meeting_time: "WF 11-12:15 pm"
   meeting_location: "Greene Hall 239"
   site: https://lin-380-s24.github.io/

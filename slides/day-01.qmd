@@ -137,7 +137,3 @@ We will use Hypothes.is to annotate course readings. This is a flexible and powe
 # Questions?
 
 ![](assets/images/day-01/questions.jpg){width="30%"}
-
-
-
-<!-- Rough Notation examples: https://github.com/EmilHvitfeldt/quarto-roughnotation/blob/main/example.qmd -->

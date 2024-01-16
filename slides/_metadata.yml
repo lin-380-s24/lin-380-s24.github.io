@@ -1,15 +1,13 @@
 author: "{{< var instructor.name >}}"
-institute: "Wake Forest University"
 date-format: medium
 format:
   revealjs:
     theme: [simple]
     logo: assets/images/logo.jpg
-    # smaller: true
     preview-links: true
     hash-type: number
     slide-number: true
-    footer: "{{< meta title >}} | {{< var course.title >}}"
+    footer: "{{< meta title >}} | {{< var course.title >}} | {{< var course.institute >}}"
     embed-resources: false
     chalkboard: true
     menu:
