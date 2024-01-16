@@ -4,7 +4,7 @@ format:
     theme: [simple]
     logo: assets/images/logo.jpg
     # smaller: true
-    preview-links: auto
+    preview-links: true
     hash-type: number
     slide-number: true
     footer: "{{< meta title >}} | {{< var course.title >}}"
@@ -14,5 +14,7 @@ format:
       numbers: true
 revealjs-plugins:
   - codefocus
+filters:
+  - roughnotation
 execute:
   echo: true
