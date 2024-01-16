@@ -1,8 +1,9 @@
 [
   {
-    "listing": "/slides.html",
+    "listing": "/guides.html",
     "items": [
-      "/slides/day-01.html"
+      "/guides/getting-started.html",
+      "/guides/managing-docker-rstudio.html"
     ]
   },
   {
@@ -12,10 +13,9 @@
     ]
   },
   {
-    "listing": "/guides.html",
+    "listing": "/slides.html",
     "items": [
-      "/guides/getting-started.html",
-      "/guides/managing-docker-rstudio.html"
+      "/slides/day-01.html"
     ]
   }
 ]

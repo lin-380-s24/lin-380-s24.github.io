@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Hello, World!",
     "section": "",
-    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n  \n    \n    \n      \n      Day\n      Date\n      Focus\n      Reading\n      Slides\n      Labs\n      Project\n      Assessment\n    \n  \n  \n    \n      🌱 Orientation\n    \n    💧\n1\nJan 17\nIntro course and resources\n\n\n\n\n\n    🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n    \n      🌱 Foundations\n    \n    💧\n3\nJan 24\nText Analysis\n\n\n\n\n\n    🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n    💧\n5\nJan 31\nData\n\n\n\n\n\n    🌿\n6\nFeb 2\nReading, inspecting, and writing data\n\n\n\n\n\n    💧\n7\nFeb 7\nAnalysis\n\n\n\n\n\n    🌿\n8\nFeb 9\nDescriptive assessment of datasets\n\n\n\n\n\n    💧\n9\nFeb 14\nResearch\n\n\n\n\n\n    🌿\n10\nFeb 16\nScaffolding a research project\n\n\n\n\n\n    🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n    \n      🌱 Preparation\n    \n    💧\n12\nFeb 23\nAcquire\n\n\n\n\n\n    🌿\n13\nFeb 28\nCollecting and documenting data\n\n\n\n\n\n    💧\n14\nMar 1\nCurate\n\n\n\n\n\n    🌿\n15\nMar 6\nOrganizing and documenting data\n\n\n\n\n\n    💧\n16\nMar 8\nTransform\n\n\n\n\n\n    🌿\n17\nMar 20\nTransforming and documenting data\n\n\n\n\n\n    \n      🌱 Analysis\n    \n    💧\n18\nMar 22\nExplore\n\n\n\n\n\n    🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n    💧\n20\nMar 29\nPredict\n\n\n\n\n\n    🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n    💧\n23\nApr 5\nInfer\n\n\n\n\n\n    🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n    \n      🌱 Communication\n    \n    💧\n25\nApr 12\nContribute\n\n\n\n\n\n    🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n    🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n    🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n    🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n    🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n    \n      🌻 Finalize\n    \n    \n\nMay 7\nIndividual sessions"
+    "text": "This is the first post!"
   },
   {
     "objectID": "guides/getting-started.html",
@@ -84,18 +84,11 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": " Slides",
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": " Guides",
     "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWelcome!\n\n\nQuantitative Text Analysis\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Hello, World!",
-    "section": "",
-    "text": "This is the first post!"
+    "text": "Getting started\n\n\n\nsoftware\n\n\nr\n\n\nrstudio\n\n\ngit\n\n\ndocker\n\n\n\nHow to set up your computer for this course.\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nsoftware\n\n\nr\n\n\nrstudio\n\n\ngit\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "news.html",
@@ -103,13 +96,6 @@
     "title": " News",
     "section": "",
     "text": "Hello, World!\n\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n \n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "guides.html",
-    "href": "guides.html",
-    "title": " Guides",
-    "section": "",
-    "text": "Getting started\n\n\n\nsoftware\n\n\nr\n\n\nrstudio\n\n\ngit\n\n\ndocker\n\n\n\nHow to set up your computer for this course.\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nsoftware\n\n\nr\n\n\nrstudio\n\n\ngit\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "guides/managing-docker-rstudio.html",
@@ -131,5 +117,19 @@
     "title": "Managing Docker and RStudio Server",
     "section": "Restart Docker container and RStudio Server",
     "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
+    "section": "",
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWelcome!\n\n\nQuantitative Text Analysis\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n  \n    \n    \n      \n      Day\n      Date\n      Focus\n      Reading\n      Slides\n      Labs\n      Project\n      Assessment\n    \n  \n  \n    \n      🌱 Orientation\n    \n    💧\n1\nJan 17\nIntro course and resources\n\n\n\n\n\n    🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n    \n      🌱 Foundations\n    \n    💧\n3\nJan 24\nText Analysis\n\n\n\n\n\n    🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n    💧\n5\nJan 31\nData\n\n\n\n\n\n    🌿\n6\nFeb 2\nReading, inspecting, and writing data\n\n\n\n\n\n    💧\n7\nFeb 7\nAnalysis\n\n\n\n\n\n    🌿\n8\nFeb 9\nDescriptive assessment of datasets\n\n\n\n\n\n    💧\n9\nFeb 14\nResearch\n\n\n\n\n\n    🌿\n10\nFeb 16\nScaffolding a research project\n\n\n\n\n\n    🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n    \n      🌱 Preparation\n    \n    💧\n12\nFeb 23\nAcquire\n\n\n\n\n\n    🌿\n13\nFeb 28\nCollecting and documenting data\n\n\n\n\n\n    💧\n14\nMar 1\nCurate\n\n\n\n\n\n    🌿\n15\nMar 6\nOrganizing and documenting data\n\n\n\n\n\n    💧\n16\nMar 8\nTransform\n\n\n\n\n\n    🌿\n17\nMar 20\nTransforming and documenting data\n\n\n\n\n\n    \n      🌱 Analysis\n    \n    💧\n18\nMar 22\nExplore\n\n\n\n\n\n    🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n    💧\n20\nMar 29\nPredict\n\n\n\n\n\n    🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n    💧\n23\nApr 5\nInfer\n\n\n\n\n\n    🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n    \n      🌱 Communication\n    \n    💧\n25\nApr 12\nContribute\n\n\n\n\n\n    🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n    🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n    🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n    🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n    🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n    \n      🌻 Finalize\n    \n    \n\nMay 7\nIndividual sessions"
   }
 ]
