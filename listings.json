@@ -1,8 +1,8 @@
 [
   {
-    "listing": "/news.html",
+    "listing": "/slides.html",
     "items": [
-      "/posts/welcome/index.html"
+      "/slides/day-01.html"
     ]
   },
   {
@@ -14,9 +14,10 @@
     ]
   },
   {
-    "listing": "/slides.html",
+    "listing": "/news.html",
     "items": [
-      "/slides/day-01.html"
+      "/posts/eulc5/index.html",
+      "/posts/welcome/index.html"
     ]
   }
 ]

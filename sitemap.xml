@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lin-380-s24.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-01-16T17:41:42.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides/get-up-with-git.html</loc>
-    <lastmod>2024-01-16T17:41:41.499Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides/managing-docker-rstudio.html</loc>
-    <lastmod>2024-01-16T17:41:40.675Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/news.html</loc>
-    <lastmod>2024-01-16T17:41:39.795Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides.html</loc>
-    <lastmod>2024-01-16T17:41:39.167Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/index.html</loc>
-    <lastmod>2024-01-16T17:41:40.311Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
-    <lastmod>2024-01-16T17:41:41.123Z</lastmod>
+    <loc>https://lin-380-s24.github.io/posts/eulc5/index.html</loc>
+    <lastmod>2024-01-17T03:50:28.076Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides.html</loc>
-    <lastmod>2024-01-16T17:41:41.847Z</lastmod>
+    <lastmod>2024-01-17T03:50:27.540Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
+    <lastmod>2024-01-17T03:50:26.792Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/index.html</loc>
+    <lastmod>2024-01-17T03:50:26.032Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides.html</loc>
+    <lastmod>2024-01-17T03:50:24.804Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/news.html</loc>
+    <lastmod>2024-01-17T03:50:25.508Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides/managing-docker-rstudio.html</loc>
+    <lastmod>2024-01-17T03:50:26.380Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides/get-up-with-git.html</loc>
+    <lastmod>2024-01-17T03:50:27.176Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/welcome/index.html</loc>
+    <lastmod>2024-01-17T03:50:27.800Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-01.html</loc>
-    <lastmod>2024-01-16T17:41:42.539Z</lastmod>
+    <lastmod>2024-01-17T03:50:28.532Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/schedule.html</loc>
-    <lastmod>2024-01-16T17:41:43.543Z</lastmod>
+    <lastmod>2024-01-17T03:50:29.580Z</lastmod>
   </url>
 </urlset>
