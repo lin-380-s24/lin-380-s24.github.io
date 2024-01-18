@@ -60,19 +60,12 @@ In Quarto, prose is written in [Markdown](https://quarto.org/docs/authoring/mark
 
 [Code blocks](https://quarto.org/docs/computations/r.html#code-blocks) in Quarto introduce sections where code can be executed.
 
-```{r}
-#| label: example-code-setup
-#| include: false
-
-library(ggplot2)
-data <- corpora::BrownPassives
-```
-
-```{r}
-#| label: example-plot
+:::: {.columns}
+::: {.column width="60%"}
+````quarto
+```{{r}}
+#| label: fig-example-plot
 #| fig-cap: A simple plot
-#| echo: fenced
-#| output-location: column
 
 ggplot(
   data,
@@ -84,6 +77,37 @@ ggplot(
     y = "Passives (count)"
   )
 ```
+````
+:::
+
+::: {.column width="40%" .r-stretch}
+```{r}
+#| label: fig-example-code-show
+#| fig-cap: A simple plot
+#| echo: false
+
+library(ggplot2)
+data <- corpora::BrownPassives
+
+ggplot(
+  data,
+  aes(x = cat, y = passive)
+) +
+  geom_col() +
+  labs(
+    x = "Categories",
+    y = "Passives (count)"
+  )
+```
+:::
+
+The code here generates the plot in @fig-example-code-show.
+
+::::
+
+
+
+
 
 ## Lab 00: Writing with code
 
