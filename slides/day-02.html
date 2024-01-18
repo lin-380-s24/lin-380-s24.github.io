@@ -10,9 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
@@ -34,6 +32,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -348,16 +411,140 @@ Dr.&nbsp;Jerid Francom
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
-<p>…</p>
 <ul>
-<li><i class="fa-solid fa-trash" aria-label="trash"></i> icon</li>
+<li>Literate Programming</li>
+<li>Quarto</li>
+<li>Quarto + Markdown</li>
+<li>Quarto + R</li>
+<li>Lab 00: Writing with code</li>
 </ul>
-
-
-<img src="assets/images/logo-sm.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Writing with code | Quantitative Text Analysis | Wake Forest University</p>
+</section>
+<section class="slide level2">
+<h2>Literate Programming</h2>
+<p>Literate programming is an approach to programming in which code, documentation, and results are all interwoven into a single document.</p>
+<ul>
+<li>Encourages stating the problem and solution in plain language</li>
+<li>Encourages writing code that is easy to read and understand</li>
+<li>Includes more explicit documentation than traditional code comments</li>
+<li>Facilitates reproducible research</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Quarto</h2>
+<p><a href="https://quarto.org/docs/gallery/">Quarto</a> is a document generation system that supports literate programming. It is designed to support a wide range of document types (HTML, PDF, Word, etc.) and programming languages (R, Python, Julia, etc.).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "My First Quarto Document"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">## Intro to Quarto</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>This is a code block which simply prints a message.</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="in">```{r}</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#| label: example-code</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="fu">print</span>(<span class="st">"My name is Quarto"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+<h2>Quarto + Markdown</h2>
+<p>In Quarto, prose is written in <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a>. Markdown is a lightweight markup language that is easy to read and write.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Markdown</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code># Heading</code></td>
+<td>Heading</td>
+</tr>
+<tr class="even">
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+<tr class="odd">
+<td><code>footnote^[Footnote info...]</code></td>
+<td>footnote<sup>1</sup></td>
+</tr>
+<tr class="even">
+<td><code>- bullets</code></td>
+<td>- bullets</td>
+</tr>
+<tr class="odd">
+<td><code>[links](https://quarto.org)</code></td>
+<td><a href="https://quarto.org">links</a></td>
+</tr>
+</tbody>
+</table>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Footnote info…</p></li></ol></aside></section>
+<section class="slide level2">
+<h2>Quarto + R</h2>
+<p><a href="https://quarto.org/docs/computations/r.html#code-blocks">Code blocks</a> in Quarto introduce sections where code can be executed.</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: example-plot</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| fig-cap: A simple plot</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#| output-location: column</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">ggplot</span>(</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  data,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">aes</span>(<span class="at">x =</span> cat, <span class="at">y =</span> passive)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">x =</span> <span class="st">"Categories"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="at">y =</span> <span class="st">"Passives (count)"</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>  )</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="day-02_files/figure-revealjs/example-plot-1.png" width="960"></p>
+<figcaption>A simple plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
+<section class="slide level2">
+<h2>Lab 00: Writing with code</h2>
+<p>In <a href="https://github.com/lin-380-s24/lab-00">lab 00</a>, you will create a basic Quarto document and explore some of the features of Quarto.</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Clone the lab</a></li><li><a href="#tabset-1-2">Complete the lab</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ul>
+<li>Copy the clone URL for the lab 00 repository</li>
+<li>Open RStudio (with Docker Desktop running)</li>
+<li>Create a new project from version control</li>
+<li>Paste the clone URL into the repository URL field</li>
+</ul>
+
+</div>
+<div id="tabset-1-2">
+<ul>
+<li>Follow the instructions in the README.md file</li>
+</ul>
+<p>Remember you can use the <a href="https://qtalr.github.io/qtalrkit/articles/recipe-0.html">Recipe 00</a> as a reference, or even other documentation on the <a href="https://quarto.org/">Quarto website</a>.</p>
+</div>
+</div>
+</div>
+
+<p><img src="assets/images/logo-sm.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Writing with code | Quantitative Text Analysis | Wake Forest University</p>
+</div>
+<aside><div>
+<p>See <a href="../guides/get-up-with-git.html">Get up to speed with Git and GitHub</a></p>
+</div></aside></section>
+
     </div>
   </div>
 
@@ -572,6 +759,44 @@ Dr.&nbsp;Jerid Francom
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

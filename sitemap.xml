@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lin-380-s24.github.io/slides/day-02.html</loc>
+    <lastmod>2024-01-18T14:32:46.844Z</lastmod>
+  </url>
+  <url>
     <loc>https://lin-380-s24.github.io/posts/eulc5/index.html</loc>
-    <lastmod>2024-01-17T14:23:39.940Z</lastmod>
+    <lastmod>2024-01-18T14:32:45.936Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides.html</loc>
-    <lastmod>2024-01-17T14:23:39.396Z</lastmod>
+    <lastmod>2024-01-18T14:32:45.380Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
-    <lastmod>2024-01-17T14:23:38.676Z</lastmod>
+    <lastmod>2024-01-18T14:32:44.548Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/index.html</loc>
-    <lastmod>2024-01-17T14:23:37.924Z</lastmod>
+    <lastmod>2024-01-18T14:32:43.768Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides.html</loc>
-    <lastmod>2024-01-17T14:23:36.736Z</lastmod>
+    <lastmod>2024-01-18T14:32:42.524Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/news.html</loc>
-    <lastmod>2024-01-17T14:23:37.412Z</lastmod>
+    <lastmod>2024-01-18T14:32:43.232Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/managing-docker-rstudio.html</loc>
-    <lastmod>2024-01-17T14:23:38.272Z</lastmod>
+    <lastmod>2024-01-18T14:32:44.124Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/get-up-with-git.html</loc>
-    <lastmod>2024-01-17T14:23:39.048Z</lastmod>
+    <lastmod>2024-01-18T14:32:44.940Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-01-17T14:23:39.668Z</lastmod>
+    <lastmod>2024-01-18T14:32:45.648Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-01.html</loc>
-    <lastmod>2024-01-17T14:23:40.392Z</lastmod>
+    <lastmod>2024-01-18T14:32:46.404Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/schedule.html</loc>
-    <lastmod>2024-01-17T14:23:41.420Z</lastmod>
+    <lastmod>2024-01-18T14:32:47.592Z</lastmod>
   </url>
 </urlset>
