@@ -1,0 +1,50 @@
+---
+title: "Sorting out first-day hiccups"
+date: "2024-01-18"
+categories: [news, tech, guides]
+---
+
+Hi all,
+
+I'm writing this post to address the fact that we did not get as far as we would have liked to on the [first day of the course](https://lin-380-s24.github.io/slides/day-01#/). Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn't in class, most were able to do so after class.
+
+::: {.aside}
+If you are still having trouble installing Docker Desktop, please reach out to me [via email](mailto:francojc@wfu.edu)
+:::
+
+However, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.
+
+In order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th.
+
+::: {.aside}
+If you have any issues completing these tasks, please let me know.
+:::
+
+## 1. Docker Desktop + RStudio
+
+- Download the `francojc/lin-380` image in Docker Desktop.
+- Run the `francojc/lin-380` image in Docker Desktop.
+  - Please note that you will need to follow the Getting started guide to set up the correct configuration for the container.
+- Connect to the container running in Docker Desktop by visiting `localhost:8787` in your browser.
+
+::: {.aside}
+These steps are documented in detail in the [Getting started](https://lin380.github.io/guide/getting-started/) guide.
+:::
+
+## 2. Hypothes.is account
+
+- Create a [Hypothes.is](https://web.hypothes.is/start/) account
+- Join the course group [lin-380-s24](https://hypothes.is/groups/4Zk3YJv3/lin-380-s24)
+- Access the annotation layer on the readings (*e.g* [textbook](https://qtalr.github.io/book/))
+
+::: {.aside}
+Save your Hypothes.is username and password somewhere safe. You will need it to log in to Hypothes.is to be able to annotate readings.
+:::
+
+## 3. GitHub account
+
+- Create a [GitHub](https://education.github.com/pack/join) student account
+
+::: {.aside}
+Save your GitHub username and password somewhere safe. You will need it to interact with GitHub.
+:::
