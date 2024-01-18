@@ -4,7 +4,7 @@
     "href": "posts/first-day-hiccups/index.html",
     "title": "Sorting out first-day hiccups",
     "section": "",
-    "text": "Hi all,\nI’m writing this post to address the fact that we did not get as far as we would have liked to on the first day of the course. Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn’t in class, most were able to do so after class.\nHowever, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.\nIn order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th."
+    "text": "I’m writing this post to address the fact that we did not get as far as we would have liked to on the first day of the course. Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn’t in class, most were able to do so after class.\nHowever, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.\nIn order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th."
   },
   {
     "objectID": "posts/first-day-hiccups/index.html#docker-desktop-rstudio",
