@@ -2,14 +2,109 @@
 title: "Writing with code"
 subtitle: "An introduction to Literate Programming with R and Quarto"
 date: "2024-01-19"
-categories: [quarto, r, recipes]
-draft: true
+categories: [quarto, r, recipes, github, rstudio]
 ---
 
 ## Overview
 
-...
+- Literate Programming
+- Quarto
+- Quarto + Markdown
+- Quarto + R
+- Lab 00: Writing with code
 
-- {{< fa trash >}} icon
+## Literate Programming
+
+Literate programming is an approach to programming in which code, documentation, and results are all interwoven into a single document.
+
+- Encourages stating the problem and solution in plain language
+- Encourages writing code that is easy to read and understand
+- Includes more explicit documentation than traditional code comments
+- Facilitates reproducible research
+
+## Quarto
+
+[Quarto](https://quarto.org/docs/gallery/) is a document generation system that supports literate programming. It is designed to support a wide range of document types (HTML, PDF, Word, etc.) and programming languages (R, Python, Julia, etc.).
+
+````quarto
+---
+title: "My First Quarto Document"
+format: html
+---
+
+## Intro to Quarto
+
+This is a code block which simply prints a message.
+
+```{{r}}
+#| label: example-code
+
+print("My name is Quarto")
+```
+````
+
+## Quarto + Markdown
+
+In Quarto, prose is written in [Markdown](https://quarto.org/docs/authoring/markdown-basics.html). Markdown is a lightweight markup language that is easy to read and write.
 
 
+| Markdown | HTML |
+| --- | --- |
+| `# Heading` | Heading |
+| `**bold**` | **bold** |
+| `footnote^[Footnote info...]` | footnote^[Footnote info...] |
+| `- bullets` | - bullets |
+| `[links](https://quarto.org)` | [links](https://quarto.org) |
+
+## Quarto + R
+
+[Code blocks](https://quarto.org/docs/computations/r.html#code-blocks) in Quarto introduce sections where code can be executed.
+
+```{r}
+#| label: example-code-setup
+#| include: false
+
+library(ggplot2)
+data <- corpora::BrownPassives
+```
+
+```{r}
+#| label: example-plot
+#| fig-cap: A simple plot
+#| echo: fenced
+#| output-location: column
+
+ggplot(
+  data,
+  aes(x = cat, y = passive)
+) +
+  geom_col() +
+  labs(
+    x = "Categories",
+    y = "Passives (count)"
+  )
+```
+
+## Lab 00: Writing with code
+
+In [lab 00](https://github.com/lin-380-s24/lab-00), you will create a basic Quarto document and explore some of the features of Quarto.
+
+::: {.panel-tabset}
+
+### Clone the lab
+
+- Copy the clone URL for the lab 00 repository
+- Open RStudio (with Docker Desktop running)
+- Create a new project from version control
+- Paste the clone URL into the repository URL field
+
+::: {.aside}
+See [Get up to speed with Git and GitHub](../guides/get-up-with-git.html)
+:::
+
+### Complete the lab
+
+- Follow the instructions in the README.md file
+
+Remember you can use the [Recipe 00](https://qtalr.github.io/qtalrkit/articles/recipe-0.html) as a reference, or even other documentation on the [Quarto website](https://quarto.org/).
+:::
