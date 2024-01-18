@@ -484,33 +484,34 @@ Dr.&nbsp;Jerid Francom
 <section class="slide level2">
 <h2>Quarto + R</h2>
 <p><a href="https://quarto.org/docs/computations/r.html#code-blocks">Code blocks</a> in Quarto introduce sections where code can be executed.</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: example-plot</span></span>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: fig-example-plot</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| fig-cap: A simple plot</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#| output-location: column</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">ggplot</span>(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  data,</span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">aes</span>(<span class="at">x =</span> cat, <span class="at">y =</span> passive)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">x =</span> <span class="st">"Categories"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    <span class="at">y =</span> <span class="st">"Passives (count)"</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>  )</span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">ggplot</span>(</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  data,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">aes</span>(<span class="at">x =</span> cat, <span class="at">y =</span> passive)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="at">x =</span> <span class="st">"Categories"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">y =</span> <span class="st">"Passives (count)"</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  )</span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column r-stretch" style="width:40%;">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-example-code-show" class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="day-02_files/figure-revealjs/example-plot-1.png" width="960"></p>
-<figcaption>A simple plot</figcaption>
+<p><img data-src="day-02_files/figure-revealjs/fig-example-code-show-1.png" width="960"></p>
+<figcaption>Figure&nbsp;1: A simple plot</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</div><p>The code here generates the plot in <a href="#/fig-example-code-show">Figure&nbsp;1</a>.</p>
 </div>
 </section>
 <section class="slide level2">
