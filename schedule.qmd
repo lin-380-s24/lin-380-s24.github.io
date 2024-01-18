@@ -30,9 +30,10 @@ sheet <-
 
 sheet |>
   mutate(
-    Date = as.Date(Date),
+    Target = ifelse(is.na(Target), "", Target),
     Day = ifelse(is.na(Day), "", Day),
-    Target = ifelse(is.na(Target), "", Target)
+    Date = as.Date(Date),
+    Lessons = ifelse(is.na(Lessons), "", Lessons)
   ) |>
   gt(rowname_col = "Target", groupname_col = "Module") |>
   text_transform(cells_body(columns = c(Reading)),
