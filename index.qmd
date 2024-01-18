@@ -1,6 +1,9 @@
 ---
 title: "{{< fa handshake >}} Syllabus"
 subtitle: "LIN 380/680: Quantitative Text Analysis for Linguistics"
+date: today
+language:
+  title-block-published: "Updated"
 ---
 
 <!-- ![]({{< var course.sticker >}}){width="150px" style="float: right;"} -->
@@ -109,7 +112,7 @@ These activities are aimed at developing students' research and technical implem
 
 The project prospectus is the culmination of the project activities and a demonstration of the student's ability to envision and document a text analysis research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
 
-**Final project** (graduate students, *optional for undergraduates*)
+**Final project** (*optional*)
 
 The final project is a demonstration of the student's ability to bring to fruition a text analysis research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings.
 
