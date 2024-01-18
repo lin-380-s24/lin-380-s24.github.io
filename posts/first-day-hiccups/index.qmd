@@ -4,8 +4,6 @@ date: "2024-01-18"
 categories: [news, tech, guides]
 ---
 
-Hi all,
-
 I'm writing this post to address the fact that we did not get as far as we would have liked to on the [first day of the course](https://lin-380-s24.github.io/slides/day-01#/). Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn't in class, most were able to do so after class.
 
 ::: {.aside}
