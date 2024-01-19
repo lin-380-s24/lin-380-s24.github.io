@@ -41,7 +41,7 @@ Save your Hypothes.is username and password somewhere safe. You will need it to 
 
 ## 3. GitHub account
 
-- Create a [GitHub](https://education.github.com/pack/join) student account
+- Create a [GitHub](https://github.com) student account
 
 ::: {.aside}
 Save your GitHub username and password somewhere safe. You will need it to interact with GitHub.
