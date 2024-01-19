@@ -136,7 +136,7 @@ We will use GitHub to share and collaborate on course materials.
 
 :::: {.columns}
 ::: {.column width="60%"}
-1. Create a [GitHub](https://education.github.com/pack/join) student account
+1. Create a [GitHub](https://github.com/) account
 2. Join the course organization \
 [lin-380-s24](https://github.com/lin-380-s24)
 :::
