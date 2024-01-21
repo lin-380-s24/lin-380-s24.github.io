@@ -1,7 +1,6 @@
 ---
 title: "{{< fa calendar-check >}} Schedule"
 execute:
-  freeze: auto
   always: true
 ---
 
