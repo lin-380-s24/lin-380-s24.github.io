@@ -10,7 +10,555 @@
 <atom:link href="https://lin-380-s24.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for LIN 380: Quantitative Text Analysis, Spring 2024</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Thu, 18 Jan 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 21 Jan 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Workaround for Mac M1-chip users for Docker Desktop containers</title>
+  <link>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>In this post, I will address the issue of Docker Desktop not being able to run containers on Mac M1-chip machines. If you have experienced an issue creating a container from the <code>francojc/lin-380</code> image where when logging in to RStudio Server you get the error message below, then this post is for you.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/apple-silicon-error.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Apple silicon error message</figcaption>
+</figure>
+</div>
+<section id="the-issue" class="level2">
+<h2 class="anchored" data-anchor-id="the-issue">The issue</h2>
+<p>The issue is that the <code>francojc/lin-380</code> image is built for the <code>x86_64</code> architecture, but the M1-chip is an <code>arm64</code> architecture (the nuts and bolts of the computer). This means that the image is not compatible with the M1-chip. The solution is to build the image for the <code>arm64</code> architecture.</p>
+<p><a href="https://rocker-project.org/">Rocker</a> has <a href="https://hub.docker.com/search?q=rocker%2F&amp;operating_system=linux&amp;architecture=arm64">alternative images for the <code>arm64</code> architecture</a>, but they are not as complete and so we will need to do some extra work to get the image to work like the original <code>x86_64</code> image.</p>
+</section>
+<section id="the-solution" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-solution">The solution</h2>
+<section id="install-docker-desktop-for-apple-silicon" class="level3">
+<h3 class="anchored" data-anchor-id="install-docker-desktop-for-apple-silicon">Install Docker Desktop for Apple silicon</h3>
+<p>Make sure you have installed Docker Desktop for Mac M1-chip machines (Apple silicon). If you have not, you can find the instructions <a href="https://docs.docker.com/desktop/install/mac-install/">here</a>.</p>
+</section>
+<section id="pull-the-rockerrstudio-image" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="pull-the-rockerrstudio-image">Pull the <code>rocker/rstudio</code> image</h3>
+<p>Pull the <code>rocker/rstudio</code> image. Open Docker Desktop, go to the search bar at the top and type <code>rocker/rstudio</code>. Click on the image and then click on the <code>Pull</code> button. Wait for the image to download.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Make sure you delete all earlier containers and images from Docker Desktop. We want to start with a clean slate.</p>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-pull-rstudio.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Pull <code>rocker/rstudio</code></figcaption>
+</figure>
+</div>
+</section>
+<section id="create-a-new-container-from-the-rockerrstudio-image" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-new-container-from-the-rockerrstudio-image">Create a new container from the <code>rocker/rstudio</code> image</h3>
+<ul>
+<li>Click the <code>Run</code> button <i class="fa-solid fa-play" aria-label="play"></i>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-run-image.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Run <code>rocker/rstudio</code> image</figcaption>
+</figure>
+</div>
+<ul>
+<li>Click on the <code>Optional settings</code> dropdown.</li>
+</ul>
+<p>Fill out these fields:</p>
+<ul>
+<li>Container name: <code>lin-380</code> (you choose the name, no spaces)</li>
+<li>Host port: <code>8787</code></li>
+<li>Host path: (use the Finder to select a folder on your Mac where you want to save your files)</li>
+<li>Container path: <code>/home/rstudio/Workspace</code> (use this exact path!)</li>
+<li>Environment variables:
+<ul>
+<li>Variable: <code>PASSWORD</code>, Value: (you choose the password, no spaces)</li>
+<li>Variable: <code>ROOT</code>, Value: <code>true</code></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-run-settings.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Optional settings</figcaption>
+</figure>
+</div>
+<ul>
+<li>Click the <code>Run</code> button to create the container. Wait for the container to be created.</li>
+</ul>
+</section>
+<section id="open-rstudio-server-in-your-browser" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="open-rstudio-server-in-your-browser">Open RStudio Server in your browser</h3>
+<ul>
+<li>Click on the <a href="http://localhost:8787/"><code>8787:8787</code></a> link to open RStudio Server in your browser.</li>
+<li>Use the <code>rstudio</code> username and the password you chose to log in to RStudio Server.</li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>This is the point that you would normally see the error message. But because we are using the <code>rocker/rstudio</code> image, we shouldn’t see the error message. If you do, stop and contact me.</p>
+</div></div></section>
+<section id="configure-rstudio-server" class="level3">
+<h3 class="anchored" data-anchor-id="configure-rstudio-server">Configure RStudio Server</h3>
+<p>You should now be logged in to RStudio Server. And see something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/rstudio-server-start.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Fresh RStudio Server</figcaption>
+</figure>
+</div>
+<p>This is where we will configure RStudio Server to work like the <code>francojc/lin-380</code> image. We will need to do some one-time configuration in the Terminal. Click on the <code>Terminal</code> tab (between the ‘Console’ and ‘Background Jobs’ tabs) to open the Terminal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/rstudio-terminal.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Terminal inside RStudio</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>Install Quarto</li>
+</ol>
+<p>Type the following command in the Terminal and press <code>Enter</code>:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">quarto</span> install tinytex</span></code></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-install-quarto.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Install Quarto inside Terminal</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Install the <code>tidyverse</code> packages</li>
+</ol>
+<p>Type the following command in the Terminal and press <code>Enter</code>:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> /rocker_scripts/install_tidyverse.sh</span></code></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-install-tidyverse.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Install Tidyverse packages in Terminal</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Add custom preferences to RStudio</li>
+</ol>
+<p>Create a new file called <code>rstudio-prefs.json</code> in the Terminal by typing the following command and pressing <code>Enter</code>:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">touch</span> ~/rstudio-prefs.json</span></code></pre></div>
+<p>This file should appear in your home directory. Open the file by clicking on it in the Files tab. This will open the file in the Source tab.</p>
+<p>Copy and paste the following code into the file and save it:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-2">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"save_workspace"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"never"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-3">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"remove_history_duplicates"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-4">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"reuse_sessions_for_project_links"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-5">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"posix_terminal_shell"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bash"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-6">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"initial_working_directory"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"~"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-7">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"insert_native_pipe_operator"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-8">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"soft_wrap_r_files"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-9">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"strip_trailing_whitespace"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-10">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"highlight_selected_line"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-11">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"rainbow_parentheses"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-12">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"warn_variable_defined_but_not_used"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-13">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"default_encoding"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"UTF-8"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-14">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"indent_guides"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rainbowlines"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-15">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"syntax_color_console"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-16">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"show_doc_outline_rmd"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-17">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"visual_markdown_code_editor_line_numbers"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-18">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"code_completion"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"manual"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-19">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"rmd_viewer_type"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pane"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-20">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"rmd_auto_date"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-21">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"pdf_previewer"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"system"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-22">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"default_latex_program"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"XeLaTeX"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-23">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"use_tinytex"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-24">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"jobs_tab_visibility"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"shown"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-25">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"default_project_location"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"~/Workspace"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-26">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"panes"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-27">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"quadrants"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb4-28">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-29">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Console"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-30">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"TabSet1"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-31">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"TabSet2"</span></span>
+<span id="cb4-32">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-33">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"tabSet1"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb4-34">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Environment"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-35">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"History"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-36">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Build"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-37">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"VCS"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-38">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tutorial"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-39">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Presentation"</span></span>
+<span id="cb4-40">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-41">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"tabSet2"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb4-42">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Files"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-43">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Plots"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-44">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Packages"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-45">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Help"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-46">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Viewer"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-47">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Presentations"</span></span>
+<span id="cb4-48">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-49">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"hiddenTabSet"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb4-50">          <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Connections"</span></span>
+<span id="cb4-51">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-52">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"console_left_on_top"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-53">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"console_right_on_top"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-54">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"additional_source_columns"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb4-55">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-56"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>Now you return to the Terminal and type the following command and press <code>Enter</code>:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json</span></code></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-copy-rstudio-prefs.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Copy RStudio preferences in Terminal</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="congratulations" class="level2">
+<h2 class="anchored" data-anchor-id="congratulations">Congratulations!</h2>
+<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/https:/media.giphy.com/media/G96zgIcQn1L2xpmdxi/giphy.gif" class="img-fluid"></p>
+<p>You have successfully created a container from the <code>rocker/rstudio</code> image and configured it to work much like the <code>francojc/lin-380</code> image (we have some other R packages we will install as we need them).</p>
+<p>You can now use this container for your LIN 380 assignments!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>tech</category>
+  <category>docker</category>
+  <category>mac</category>
+  <category>m1</category>
+  <category>terminal</category>
+  <guid>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</guid>
+  <pubDate>Sun, 21 Jan 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Sorting out first-day hiccups</title>
   <link>https://lin-380-s24.github.io/posts/first-day-hiccups/index.html</link>
