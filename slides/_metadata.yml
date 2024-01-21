@@ -12,6 +12,8 @@ format:
     chalkboard: true
     menu:
       numbers: true
+    mermaid:
+      theme: dark
 revealjs-plugins:
   - codefocus
 filters:

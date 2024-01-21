@@ -1,0 +1,82 @@
+---
+title: "Text analysis in context"
+subtitle: "Where science, data, and linguistics meet."
+date: "2024-01-24"
+categories: [data science, research, computer science, statistics, linguistics]
+draft: true
+---
+
+## Overview
+
+- Science
+- Data science
+- Text analysis
+
+# Science
+
+## Why
+
+Human limitations:
+
+- Experience: limited
+- Experience: biased
+
+Science is a path to migigate these limitations.
+
+
+## How
+
+```{mermaid}
+%%| echo: false
+%%| fig-width: 8
+%%| fig-align: left
+
+%% Question > Hypothesis > Experiment > Analysis > Conclusion
+
+flowchart TB
+  A((Question)) --> |Form| B[Hypothesis]
+  B -->|Design| C[Experiment]
+  C -->|Peform| D[Analysis]
+  D -->|Interpret| E((Findings))
+```
+
+# Data science
+
+## Triad
+
+![](assets/images/day-03/ta-ds-venn.drawio.png){.absolute left=250 width="50%"}
+
+
+# Text analysis
+
+## Where does it fit?
+
+
+```{mermaid}
+%%| echo: false
+
+flowchart LR
+  subgraph Qualtitative
+    A[Kinds]
+    B[Patterns]
+  end
+
+  subgraph Quantitative
+    C[Counts]
+  end
+```
+
+
+## Text analysis
+```{mermaid}
+%%| echo: false
+
+flowchart LR
+  subgraph TOP
+    A[Data sceince] --> B[Text analysis in context]
+    subgraph BOTTOM
+      C[Text analysis in context] --> D[Text analysis]
+    end
+  end
+```
+
