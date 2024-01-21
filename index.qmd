@@ -1,7 +1,7 @@
 ---
 title: "{{< fa handshake >}} Syllabus"
 subtitle: "LIN 380/680: Quantitative Text Analysis for Linguistics"
-date: today
+date: 2024-01-18
 language:
   title-block-published: "Updated"
 ---
