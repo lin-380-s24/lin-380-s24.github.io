@@ -28,74 +28,60 @@
     "text": "3. GitHub account\n\nCreate a GitHub account\n\n\n\n\n\nSave your GitHub username and password somewhere safe. You will need it to interact with GitHub."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Hello, World!",
+    "objectID": "posts/cool-stuff-lab-00/index.html",
+    "href": "posts/cool-stuff-lab-00/index.html",
+    "title": "Cool stuff: Lab 00",
     "section": "",
-    "text": "This is the first post!"
+    "text": "I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.\nI’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here."
   },
   {
-    "objectID": "guides/get-up-with-git.html",
-    "href": "guides/get-up-with-git.html",
-    "title": "Get up to speed with Git and GitHub",
+    "objectID": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "href": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "title": "Cool stuff: Lab 00",
+    "section": "Changing Quarto document themes",
+    "text": "Changing Quarto document themes\nQuarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.\n---\ntitle: \"My Document\"\nformat:\n  html:\n    theme: cerulean\n---\n\n\n\nThemes are available for both HTML and PDF output, but they are not the same. Here you can find a list of HTML themes.\nFor PDF output, you need to specify the documentclass: in the front matter.\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    documentclass: report\n---\n\n\n\nThe options are more limited for PDF output given the nature of the output but you can read more here."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "href": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "title": "Cool stuff: Lab 00",
+    "section": "Keyboard shortcuts in RStudio",
+    "text": "Keyboard shortcuts in RStudio\nRStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them here.\nFor starters, here are the ones I use the most to work with Quarto and R:\n\n\n\nSymbols used in keyboard shortcuts\n\n\nSymbol\nKey\n\n\n\n\nShift\nShift key\n\n\nCtrl\nControl key\n\n\nCommand\nCommand key\n(Mac only)\n\n\nAlt\nAlt key\n\n\nOption\nOption key\n(Mac only)\n\n\nEsc\nEscape key\n\n\nTab\nTab key\n\n\nEnter\nEnter key\n\n\n\n\nFor Quarto document elements\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nRender Quarto documents\n\n\n\nAdd a code block to a Quarto document\n\n\n\n\n\nFor R code\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nTo invoke code completion when typing R code\n\n\n\nRun current line or selection in the Console\n\n\n\nTo comment or uncomment a line or selection so that it is or is not run as R code\n\n\n\nTo insert the &lt;- operator to assign code output to a variable\n\n\n\nTo insert a |&gt; operator to pipe the output of one operation to the input of the next\n\n\n\nTo reformat R code so that indentation is more legible"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
     "section": "",
-    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n \n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n  \n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
-    "href": "guides/get-up-with-git.html#what-is-git-and-github",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "What is Git and GitHub?",
-    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "First steps with Git and GitHub: cloning a repository",
-    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#footnotes",
-    "href": "guides/get-up-with-git.html#footnotes",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
-  },
-  {
-    "objectID": "guides/managing-docker-rstudio.html",
-    "href": "guides/managing-docker-rstudio.html",
-    "title": "Managing Docker and RStudio Server",
+    "objectID": "guides/getting-started.html",
+    "href": "guides/getting-started.html",
+    "title": "Getting started",
     "section": "",
-    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
+    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Stop Docker container and RStudio Server",
-    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
+    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "What is a virtual computing environment?",
+    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Restart Docker container and RStudio Server",
-    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
+    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Setting up the virtual computing environment",
+    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
   },
   {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": " News",
-    "section": "",
-    "text": "Workaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n \n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n  \n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n \n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n  \n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n \n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n  \n\n\n\n\nHello, World!\n\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n \n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "guides.html",
-    "href": "guides.html",
-    "title": " Guides",
-    "section": "",
-    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Sharing files between your computer and the virtual computing environment",
+    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
   },
   {
     "objectID": "index.html",
@@ -147,39 +133,74 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
-    "objectID": "guides/getting-started.html",
-    "href": "guides/getting-started.html",
-    "title": "Getting started",
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": " Guides",
     "section": "",
-    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
+    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "What is a virtual computing environment?",
-    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
-  },
-  {
-    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Setting up the virtual computing environment",
-    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
-  },
-  {
-    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Sharing files between your computer and the virtual computing environment",
-    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": " Slides",
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": " News",
     "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n  \n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n \n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n  \n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n \n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Cool stuff: Lab 00\n\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n \n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n  \n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n \n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n  \n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n \n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n  \n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n \n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n  \n\n\n\n\nHello, World!\n\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n \n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html",
+    "href": "guides/managing-docker-rstudio.html",
+    "title": "Managing Docker and RStudio Server",
+    "section": "",
+    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Stop Docker container and RStudio Server",
+    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Restart Docker container and RStudio Server",
+    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html",
+    "href": "guides/get-up-with-git.html",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "",
+    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
+    "href": "guides/get-up-with-git.html#what-is-git-and-github",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "What is Git and GitHub?",
+    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "First steps with Git and GitHub: cloning a repository",
+    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#footnotes",
+    "href": "guides/get-up-with-git.html#footnotes",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Hello, World!",
+    "section": "",
+    "text": "This is the first post!"
   },
   {
     "objectID": "posts/eulc5/index.html",

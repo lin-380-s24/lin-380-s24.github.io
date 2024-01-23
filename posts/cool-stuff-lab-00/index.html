@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-01-23">
 
-<title>Quantitative Text Analysis -  News</title>
+<title>Quantitative Text Analysis - Cool stuff: Lab 00</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +21,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/hex-sticker.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/hex-sticker.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,41 +99,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-news-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-news-listing'] = new List('listing-news-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Quantitative Text Analysis" href="news.xml"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -107,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quantitative Text Analysis</span>
     </a>
   </div>
@@ -118,27 +122,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-handshake" aria-label="handshake"></i> Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html" rel="" target="">
+    <a class="nav-link" href="../../schedule.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-calendar-check" aria-label="calendar-check"></i> Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides.html" rel="" target="">
+    <a class="nav-link" href="../../slides.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-chalkboard-user" aria-label="chalkboard-user"></i> Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./guides.html" rel="" target="">
+    <a class="nav-link" href="../../guides.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-wrench" aria-label="wrench"></i> Guides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./news.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../news.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./news.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../news.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -151,25 +155,44 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="conferences">conferences</div><div class="category" data-category="cool-stuff">cool-stuff</div><div class="category" data-category="docker">docker</div><div class="category" data-category="guides">guides</div><div class="category" data-category="keyboard-shortcuts">keyboard-shortcuts</div><div class="category" data-category="m1">m1</div><div class="category" data-category="mac">mac</div><div class="category" data-category="news">news</div><div class="category" data-category="quarto">quarto</div><div class="category" data-category="research">research</div><div class="category" data-category="tech">tech</div><div class="category" data-category="terminal">terminal</div><div class="category" data-category="testing">testing</div><div class="category" data-category="themes">themes</div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#changing-quarto-document-themes" id="toc-changing-quarto-document-themes" class="nav-link active" data-scroll-target="#changing-quarto-document-themes">Changing Quarto document themes</a></li>
+  <li><a href="#keyboard-shortcuts-in-rstudio" id="toc-keyboard-shortcuts-in-rstudio" class="nav-link" data-scroll-target="#keyboard-shortcuts-in-rstudio">Keyboard shortcuts in RStudio</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</h1>
-</div>
+<h1 class="title">Cool stuff: Lab 00</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cool-stuff</div>
+    <div class="quarto-category">quarto</div>
+    <div class="quarto-category">themes</div>
+    <div class="quarto-category">keyboard-shortcuts</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 23, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -177,195 +200,149 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div id="listing-news-listing" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cool-stuff,quarto,themes,keyboard-shortcuts" data-listing-date-sort="1705968000000" data-listing-file-modified-sort="1706023109700" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/cool-stuff-lab-00/index.html"> <p class="card-img-top"><img src="posts/cool-stuff-lab-00/html-theme-output.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/cool-stuff-lab-00/index.html">
-<h3 class="no-anchor listing-title">
-Cool stuff: Lab 00
-</h3>
-<div class="listing-subtitle">
+<p>I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.</p>
+<p>I’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here.</p>
+<section id="changing-quarto-document-themes" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="changing-quarto-document-themes">Changing Quarto document themes</h2>
+<p>Quarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cerulean</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cool-stuff'); return false;">
-cool-stuff
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('themes'); return false;">
-themes
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('keyboard-shortcuts'); return false;">
-keyboard-shortcuts
-</div>
-</div>
-<a href="./posts/cool-stuff-lab-00/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/cool-stuff-lab-00/index.html">
-<div class="listing-date">
-Jan 23, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="news,tech,docker,mac,m1,terminal" data-listing-date-sort="1705795200000" data-listing-file-modified-sort="1706023109712" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/mac-m1-chip-workaround/index.html"> <p class="card-img-top"><img src="posts/mac-m1-chip-workaround/apple-silicon-error.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/mac-m1-chip-workaround/index.html">
-<h3 class="no-anchor listing-title">
-Workaround for Mac M1-chip users for Docker Desktop containers
-</h3>
-<div class="listing-subtitle">
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="html-theme-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
+</div></div><p>Themes are available for both HTML and PDF output, but they are not the same. Here you can find a list of <a href="https://bootswatch.com/">HTML themes</a>.</p>
+<p>For PDF output, you need to specify the <code>documentclass:</code> in the front matter.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> report</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('docker'); return false;">
-docker
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('mac'); return false;">
-mac
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('m1'); return false;">
-m1
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('terminal'); return false;">
-terminal
-</div>
-</div>
-<a href="./posts/mac-m1-chip-workaround/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/mac-m1-chip-workaround/index.html">
-<div class="listing-date">
-Jan 21, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="news,tech,guides" data-listing-date-sort="1705536000000" data-listing-file-modified-sort="1706023109704" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/first-day-hiccups/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/first-day-hiccups/index.html">
-<h3 class="no-anchor listing-title">
-Sorting out first-day hiccups
-</h3>
-<div class="listing-subtitle">
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="pdf-class-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
+</div></div><p>The options are more limited for PDF output given the nature of the output but you can read more <a href="https://quarto.org/docs/output-formats/pdf-basics.html#document-class">here</a>.</p>
+</section>
+<section id="keyboard-shortcuts-in-rstudio" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="keyboard-shortcuts-in-rstudio">Keyboard shortcuts in RStudio</h2>
+<p>RStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a>.</p>
+<p>For starters, here are the ones I use the most to work with Quarto and R:</p>
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('guides'); return false;">
-guides
-</div>
-</div>
-<a href="./posts/first-day-hiccups/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/first-day-hiccups/index.html">
-<div class="listing-date">
-Jan 18, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="news,conferences,research" data-listing-date-sort="1705363200000" data-listing-file-modified-sort="1706023109704" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/eulc5/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/eulc5/index.html">
-<h3 class="no-anchor listing-title">
-Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('conferences'); return false;">
-conferences
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
-research
-</div>
-</div>
-<a href="./posts/eulc5/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/eulc5/index.html">
-<div class="listing-date">
-Jan 16, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="news,testing" data-listing-date-sort="1705276800000" data-listing-file-modified-sort="1706023109896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/welcome/index.html">
-<h3 class="no-anchor listing-title">
-Hello, World!
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('testing'); return false;">
-testing
-</div>
-</div>
-<a href="./posts/welcome/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html">
-<div class="listing-date">
-Jan 15, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<div class="no-row-height column-margin column-container"><div class="">
+<table class="table">
+<caption>Symbols used in keyboard shortcuts</caption>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><kbd>Shift</kbd></p></td>
+<td>Shift key</td>
+</tr>
+<tr class="even">
+<td><p><kbd>Ctrl</kbd></p></td>
+<td>Control key</td>
+</tr>
+<tr class="odd">
+<td><p><kbd>Command</kbd></p></td>
+<td>Command key<br>
+(Mac only)</td>
+</tr>
+<tr class="even">
+<td><p><kbd>Alt</kbd></p></td>
+<td>Alt key</td>
+</tr>
+<tr class="odd">
+<td><p><kbd>Option</kbd></p></td>
+<td>Option key<br>
+(Mac only)</td>
+</tr>
+<tr class="even">
+<td><p><kbd>Esc</kbd></p></td>
+<td>Escape key</td>
+</tr>
+<tr class="odd">
+<td><p><kbd>Tab</kbd></p></td>
+<td>Tab key</td>
+</tr>
+<tr class="even">
+<td><p><kbd>Enter</kbd></p></td>
+<td>Enter key</td>
+</tr>
+</tbody>
+</table>
+</div></div><table class="table">
+<caption>For Quarto document elements</caption>
+<colgroup>
+<col style="width: 72%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Render Quarto documents</td>
+<td><p><kbd data-mac="Shift Command K" data-windows="Shift Ctrl K"></kbd></p></td>
+</tr>
+<tr class="even">
+<td>Add a code block to a Quarto document</td>
+<td><p><kbd data-mac="Command Option i" data-windows="Ctrl Alt i"></kbd></p></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<caption>For R code</caption>
+<colgroup>
+<col style="width: 72%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>To invoke code completion when typing R code</td>
+<td><p><kbd data-mac="Tab" data-windows="Tab"></kbd></p></td>
+</tr>
+<tr class="even">
+<td>Run current line or selection in the Console</td>
+<td><p><kbd data-mac="Command Enter" data-windows="Ctrl Enter"></kbd></p></td>
+</tr>
+<tr class="odd">
+<td>To comment or uncomment a line or selection so that it is or is not run as R code</td>
+<td><p><kbd data-mac="Shift Command C" data-windows="Shift Ctrl C"></kbd></p></td>
+</tr>
+<tr class="even">
+<td>To insert the <code>&lt;-</code> operator to assign code output to a variable</td>
+<td><p><kbd data-mac="Option -" data-windows="Alt -"></kbd></p></td>
+</tr>
+<tr class="odd">
+<td>To insert a <code>|&gt;</code> operator to pipe the output of one operation to the input of the next</td>
+<td><p><kbd data-mac="Command Shift M" data-windows="Ctrl Shift M"></kbd></p></td>
+</tr>
+<tr class="even">
+<td>To reformat R code so that indentation is more legible</td>
+<td><p><kbd data-mac="Command Shift A" data-windows="Ctrl Shift A"></kbd></p></td>
+</tr>
+</tbody>
+</table>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
