@@ -3,11 +3,12 @@ date-format: medium
 format:
   revealjs:
     theme: [simple]
-    logo: assets/images/logo-sm.jpg
+    logo: images/logo-sm.jpg
     preview-links: true
     hash-type: number
     slide-number: true
     footer: "{{< meta title >}} | {{< var course.title >}} | {{< var course.institute >}}"
+    transition: fade
     embed-resources: false
     chalkboard: true
     menu:
@@ -20,3 +21,4 @@ filters:
   - roughnotation
 execute:
   echo: true
+bibliography: bibliography.bib

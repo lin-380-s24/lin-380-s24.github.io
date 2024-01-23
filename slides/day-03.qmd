@@ -3,80 +3,361 @@ title: "Text analysis in context"
 subtitle: "Where science, data, and linguistics meet."
 date: "2024-01-24"
 categories: [data science, research, computer science, statistics, linguistics]
-draft: true
 ---
 
 ## Overview
 
+> "Everything about science is changing because of the impact of information technology and the data deluge."\
+> - Jim Gray
+
+:::: {.columns}
+::: {.column width="60%"}
 - Science
 - Data science
 - Text analysis
+:::
+
+::: {.column width="40%"}
+![](images/data-deluge.jpg){.absolute top=250 right=90 width="35%"}
+:::
+::::
 
 # Science
 
-## Why
+## Why science?
 
-Human limitations:
+:::: {.columns}
+::: {.column width="60%" .incremental}
+Humans are inherently limited in their ability to understand the world as it is. In what ways?
 
-- Experience: limited
-- Experience: biased
+- Our individual experiences are limited and not representative of the whole.
+- Our cognition is not free from bias. Memory and recall are not perfect.
+:::
 
-Science is a path to migigate these limitations.
+::: {.column width="40%"}
+![](images/human-limits.jpg){fig-align="center"}
+:::
+::::
 
+## What is science?
 
-## How
+:::: {.columns}
+::: {.column width="60%"}
+A process for understanding the world as it is.
 
+- Systematic
+- Meticulous
+- Replicable
+:::
+
+::: {.column width="40%"}
+Scientific workflow
 ```{mermaid}
 %%| echo: false
-%%| fig-width: 8
-%%| fig-align: left
+%%| fig-align: center
 
-%% Question > Hypothesis > Experiment > Analysis > Conclusion
-
-flowchart TB
-  A((Question)) --> |Form| B[Hypothesis]
-  B -->|Design| C[Experiment]
-  C -->|Peform| D[Analysis]
-  D -->|Interpret| E((Findings))
+flowchart LR
+  subgraph Science
+    direction TB
+    B[Question] --> C>Collect data]
+    C --> D>Analyze data]
+    D --> E>Interpret results]
+    E --> F[Report]
+  end
+  A((Observation)) --> Science --> G((Insight))
 ```
+:::
+::::
 
 # Data science
 
-## Triad
+## Emergence
 
-![](assets/images/day-03/ta-ds-venn.drawio.png){.absolute left=250 width="50%"}
+:::: {.columns}
+::: {.column width="50%"}
+- Computing power
+- Data availability
+- Data storage
+:::
 
+::: {.column width="50%"}
+Data science workflow
+```{mermaid}
+%%| echo: false
+%%| fig-height: 5
+flowchart LR
+  subgraph two ["Data science"]
+    direction TB
+    C --> C1(Diverse sources) --> C2
+    C2[(Data storage)] --> D
+    D --> D1{Algorithms} --> E
+    subgraph one [Science]
+      direction TB
+      B[Question] --> C>Collect data]
+      C .-> D>Analyze data]
+      D .-> E>Interpret results]
+      E --> F[Report]
+    end
+  end
+  A((Observation)) --> two --> G((Insight))
+```
+:::
+::::
+
+## The data science toolbelt
+
+:::: {.columns}
+::: {.column width="60%"}
+- Computing:\
+execute the research process
+- Statistics:\
+identifying patterns
+- Domain knowledge:\
+understanding the context
+:::
+
+::: {.column width="40%"}
+![](images/ta-ds-venn.drawio.png)
+:::
+::::
+
+## Ubiquity
+
+:::: {.columns}
+::: {.column width="50%"}
+**Professional**
+
+- Business
+- Medicine
+- Government
+- Law
+- Journalism
+- *etc.*
+:::
+
+::: {.column width="50%"}
+**Academic**
+
+- Formal sciences
+- Natural sciences
+- Social sciences
+- Humanities
+- *etc.*
+:::
+::::
 
 # Text analysis
 
-## Where does it fit?
+## Language research{.smaller}
 
-
+:::: {.columns}
+::: {.column width="70%"}
 ```{mermaid}
 %%| echo: false
-
-flowchart LR
-  subgraph Qualtitative
-    A[Kinds]
-    B[Patterns]
-  end
-
-  subgraph Quantitative
-    C[Counts]
-  end
+%%| fig-width: 100%
+flowchart TB
+  A[Methods] --> B[Qualitative]
+  B ----> B1[Ethnolinguistics]
+  B ----> B2[Discourse analysis]
+  A --> C[Quantitative]
+  C --> D[Experimental]
+  D ----> D1[Psycholinguistics]
+  D ----> D2[Phonetics]
+  C --> E[Observational]
+  E ----> E1[Computational linguistics]
+  E ----> E2[Corpus linguistics]
 ```
+:::
+
+::: {.column width="30%"}
+**Text analysis** the process of extracting information from observed language data.
+
+It can be used as a tool for research or a method of inquiry in its own right.
+:::
+::::
+
+:::{.fragment .fade-up}
+We will approach text analysis as a method of inquiry.
+:::
 
 
-## Text analysis
-```{mermaid}
-%%| echo: false
+## Cases{.smaller}
 
-flowchart LR
-  subgraph TOP
-    A[Data sceince] --> B[Text analysis in context]
-    subgraph BOTTOM
-      C[Text analysis in context] --> D[Text analysis]
-    end
-  end
-```
+:::: {.columns}
+::: {.column width="60%"}
+@Bychkovska2017 investigates possible differences between L1-English and L1-Chinese undergraduate students' use of lexical bundles, multiword sequences which are extended collocations (*i.e.* as the result of), in argumentative essays. The authors used the Michigan Corpus of Upper-Level Student Papers (MICUSP) corpus using the argumentative essay section for L1-English and the Corpus of Ohio Learner and Teacher English (COLTE) for the L1-Chinese English essays. They found that L1-Chinese writers used more than 2 times as many bundle types than L1-English peers which they attribute to L1-Chinese writers attempt to avoid uncommon expressions and/or due to their lack of register awareness (conversation has more bundles than writing, generally).
+:::
 
+::: {.column width="40%"}
+**Questions**
+
+- What is the area of research?
+- What is the research question?
+- What is the data?
+- What is the method?
+- What is the finding?
+:::
+::::
+
+:::{.notes}
+L2 writing. Are there differences between L1 and L2 writers in the use of lexical bundles in argumentative essays? MICUSP (L1 English) and COLTE (L1 Chinese) corpora. 2x as many bundle types in L1 Chinese English.
+:::
+
+## Cases{.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+@Olohan2008 investigate the extent to which translated texts differ from native texts. In particular the author explores the notion of explicitation in translated texts (the tendency to make information in the source text explicit in the target translation). The study makes use of the Translational English Corpus (TEC) for translation samples and comparable sections of the British National Corpus (BNC) for the native samples. The results suggest that there is a tendency for syntactic explicitation in the translational corpus (TEC) which is assumed to be a subconscious process employed unwittingly by translators.
+:::
+
+::: {.column width="40%"}
+**Questions**
+
+- What is the area of research?
+- What is the research question?
+- What is the data?
+- What is the method?
+- What is the finding?
+:::
+::::
+
+:::{.notes}
+Translation studies. Do translated texts differ from native texts? TEC (translated) and BNC (native) corpora. Syntactic explicitation in translated texts.
+:::
+
+## Other cases?{.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+![](images/student-thinking.jpg){width="50%"}
+
+Brainstorm some ideas you may have in which text analysis could be used as a method of inquiry.
+:::
+
+::: {.column width="40%"}
+**Questions to consider**
+
+- What is the area of research?
+- What is the research question?
+- What is the data?
+- What is the method?
+- What is the finding?
+:::
+::::
+
+:::{.notes}
+...
+:::
+
+# The plan
+
+## The plan{.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+![](images/p-diki.drawio.png)
+:::
+
+::: {.column width="45%"}
+> **Foundations**\
+> Establish a fundamental understanding of the characteristics of each of the levels in the "Data, Information, Knowledge, and Insight Hierarchy (DIKI)"
+:::
+::::
+
+<!-- {{< fa brands r-project >}} vectors, data frames, functions, packages, summaries, and plots
+
+{{< fa folder-tree >}} Quarto, Markdown, YAML, code blocks, citations, and cross-references, and RStudio projects
+
+{{< fa brands github >}} repos, cloning, edits, and commits -->
+
+You will be able to [read, write, and manipulate text data]{.rn} in R including creating statistical summary tables and plots. You will also have the foundational skills to [frame research questions and design studies]{.rn} that use text analysis.
+
+## The plan{.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+![](images/p-diki.drawio.png)
+:::
+
+::: {.column width="45%"}
+> **Preparation**\
+> Implement data acquistion, curation, and transformation steps.
+
+:::
+::::
+
+<!-- {{< fa brands r-project >}} control statments, regular expressions, custom functions, and shaping and reshaping datasets by rows and columns.
+
+{{< fa folder-tree >}} Reproducible projects, data documentation, reusing code, and project organization
+
+{{< fa brands github >}} forking, pushing, issues, and pulling -->
+
+You will be able to [acquire, curate, and transform text data]{.rn} in R. You will also have the skills to [design and implement data collection procedures]{.rn} for text analysis.
+
+## The plan{.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+![](images/p-diki.drawio.png)
+:::
+
+::: {.column width="45%"}
+> **Analysis**\
+> Perform analysis of datasets, the evaluation of results, and the interpretation of the findings for exploratory, predictive, and inferential purposes.
+:::
+::::
+
+<!-- {{< fa brands r-project >}} lists, matrices, advanced plotting, and advanced summary tables
+
+{{< fa folder-tree >}} freezing, caching, and parallel processing
+
+{{< fa brands github >}} branching, merging, and pull requests -->
+
+You will be able to [analyze text data]{.rn} in R and interpret findings in context. You will also have the skills to [design, implement, and critique data analysis procedures]{.rn} for text analysis.
+
+## The plan{.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+![](images/p-diki.drawio.png)
+:::
+
+::: {.column width="45%"}
+> **Communication**\
+Demonstrate the presentation of research either as a prospectus of a viable research plan (prospectus) or as a implemented research project (final project).
+:::
+::::
+
+<!-- {{< fa brands r-project >}} reproducible environments
+
+{{< fa folder-tree >}} reproducible reports, presentations, and websites
+
+{{< fa brands github >}} publishing, actions, and continuous integration -->
+
+You will be able to [communicate research findings]{.rn} in a reproducible manner. You will also have the skills to [create and share reproducible computing environments]{.rn} for data analysis projects.
+
+## Final thoughts{.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Science** is a process for understanding the world as it is.
+- **Data science** is a process for understanding the world as it is using computing, statistics, and domain knowledge.
+- **Text analysis** is a data science method for extracting and analyzing information from observed language data.
+
+This course is designed to provide you with the skills to use text analysis as a method of inquiry.
+:::
+
+::: {.column width="40%"}
+![](images/data-deluge.jpg)
+:::
+::::
+
+::: {.aside}
+**Next time:**\
+We will discuss [Recipe 1 "Academic writing with Quarto"](https://qtalr.github.io/qtalrkit/articles/recipe-1.html) and work on [Lab 01](https://github.com/qtalr/lab-01)"\
+**Remember:**\
+Do readings and use Hypothes.is to socially annotate the readings. This helps us generate discussion that we can pick up in class.
+:::
+
+
+# References
