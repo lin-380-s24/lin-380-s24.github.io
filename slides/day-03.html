@@ -10,7 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
@@ -32,7 +34,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -350,11 +371,21 @@ Dr.&nbsp;Jerid Francom
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
+<blockquote>
+<p>“Everything about science is changing because of the impact of information technology and the data deluge.”<br>
+- Jim Gray</p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li>Science</li>
 <li>Data science</li>
 <li>Text analysis</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/data-deluge.jpg" class="absolute" style="top: 250px; right: 90px; width: 35%; "></p>
+</div>
+</div>
 </section>
 <section>
 <section class="title-slide slide level1 center">
@@ -362,28 +393,51 @@ Dr.&nbsp;Jerid Francom
 
 </section>
 <section class="slide level2">
-<h2>Why</h2>
-<p>Human limitations:</p>
+<h2>Why science?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Humans are inherently limited in their ability to understand the world as it is. In what ways?</p>
 <ul>
-<li>Experience: limited</li>
-<li>Experience: biased</li>
+<li class="fragment">Our individual experiences are limited and not representative of the whole.</li>
+<li class="fragment">Our cognition is not free from bias. Memory and recall are not perfect.</li>
 </ul>
-<p>Science is a path to migigate these limitations.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/human-limits.jpg"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
-<h2>How</h2>
-<div class="cell" data-reveal="true" data-fig-width="8" data-layout-align="left">
+<h2>What is science?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>A process for understanding the world as it is.</p>
+<ul>
+<li>Systematic</li>
+<li>Meticulous</li>
+<li>Replicable</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p>Scientific workflow</p>
+<div class="cell" data-reveal="true" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <div>
-<pre class="mermaid mermaid-js">%% Question &gt; Hypothesis &gt; Experiment &gt; Analysis &gt; Conclusion
-
-flowchart TB
-  A((Question)) --&gt; |Form| B[Hypothesis]
-  B --&gt;|Design| C[Experiment]
-  C --&gt;|Peform| D[Analysis]
-  D --&gt;|Interpret| E((Findings))
+<pre class="mermaid mermaid-js">flowchart LR
+  subgraph Science
+    direction TB
+    B[Question] --&gt; C&gt;Collect data]
+    C --&gt; D&gt;Analyze data]
+    D --&gt; E&gt;Interpret results]
+    E --&gt; F[Report]
+  end
+  A((Observation)) --&gt; Science --&gt; G((Insight))
 </pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -395,59 +449,333 @@ flowchart TB
 
 </section>
 <section class="slide level2">
-<h2>Triad</h2>
-<p><img data-src="assets/images/day-03/ta-ds-venn.drawio.png" class="absolute" style="left: 250px; width: 50%; "></p>
+<h2>Emergence</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Computing power</li>
+<li>Data availability</li>
+<li>Data storage</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Data science workflow</p>
+<div class="cell" data-reveal="true" data-fig-height="5">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  subgraph two ["Data science"]
+    direction TB
+    C --&gt; C1(Diverse sources) --&gt; C2
+    C2[(Data storage)] --&gt; D
+    D --&gt; D1{Algorithms} --&gt; E
+    subgraph one [Science]
+      direction TB
+      B[Question] --&gt; C&gt;Collect data]
+      C .-&gt; D&gt;Analyze data]
+      D .-&gt; E&gt;Interpret results]
+      E --&gt; F[Report]
+    end
+  end
+  A((Observation)) --&gt; two --&gt; G((Insight))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>The data science toolbelt</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Computing:<br>
+execute the research process</li>
+<li>Statistics:<br>
+identifying patterns</li>
+<li>Domain knowledge:<br>
+understanding the context</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/ta-ds-venn.drawio.png"></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Ubiquity</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Professional</strong></p>
+<ul>
+<li>Business</li>
+<li>Medicine</li>
+<li>Government</li>
+<li>Law</li>
+<li>Journalism</li>
+<li><em>etc.</em></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Academic</strong></p>
+<ul>
+<li>Formal sciences</li>
+<li>Natural sciences</li>
+<li>Social sciences</li>
+<li>Humanities</li>
+<li><em>etc.</em></li>
+</ul>
+</div>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Text analysis</h1>
 
 </section>
-<section class="slide level2">
-<h2>Where does it fit?</h2>
-<div class="cell" data-reveal="true">
+<section class="slide level2 smaller">
+<h2>Language research</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell" data-reveal="true" data-fig-width="100%">
 <div class="cell-output-display">
 <div>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
-  subgraph Qualtitative
-    A[Kinds]
-    B[Patterns]
-  end
-
-  subgraph Quantitative
-    C[Counts]
-  end
+<pre class="mermaid mermaid-js">flowchart TB
+  A[Methods] --&gt; B[Qualitative]
+  B ----&gt; B1[Ethnolinguistics]
+  B ----&gt; B2[Discourse analysis]
+  A --&gt; C[Quantitative]
+  C --&gt; D[Experimental]
+  D ----&gt; D1[Psycholinguistics]
+  D ----&gt; D2[Phonetics]
+  C --&gt; E[Observational]
+  E ----&gt; E1[Computational linguistics]
+  E ----&gt; E2[Corpus linguistics]
 </pre>
 </div>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:30%;">
+<p><strong>Text analysis</strong> the process of extracting information from observed language data.</p>
+<p>It can be used as a tool for research or a method of inquiry in its own right.</p>
+</div>
+</div>
+<div class="fragment fade-up">
+<p>We will approach text analysis as a method of inquiry.</p>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Cases</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="citation" data-cites="Bychkovska2017">Bychkovska and Lee (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> investigates possible differences between L1-English and L1-Chinese undergraduate students’ use of lexical bundles, multiword sequences which are extended collocations (<em>i.e.</em> as the result of), in argumentative essays. The authors used the Michigan Corpus of Upper-Level Student Papers (MICUSP) corpus using the argumentative essay section for L1-English and the Corpus of Ohio Learner and Teacher English (COLTE) for the L1-Chinese English essays. They found that L1-Chinese writers used more than 2 times as many bundle types than L1-English peers which they attribute to L1-Chinese writers attempt to avoid uncommon expressions and/or due to their lack of register awareness (conversation has more bundles than writing, generally).</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is the area of research?</li>
+<li>What is the research question?</li>
+<li>What is the data?</li>
+<li>What is the method?</li>
+<li>What is the finding?</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>L2 writing. Are there differences between L1 and L2 writers in the use of lexical bundles in argumentative essays? MICUSP (L1 English) and COLTE (L1 Chinese) corpora. 2x as many bundle types in L1 Chinese English.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2 smaller">
+<h2>Cases</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="citation" data-cites="Olohan2008">Olohan (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> investigate the extent to which translated texts differ from native texts. In particular the author explores the notion of explicitation in translated texts (the tendency to make information in the source text explicit in the target translation). The study makes use of the Translational English Corpus (TEC) for translation samples and comparable sections of the British National Corpus (BNC) for the native samples. The results suggest that there is a tendency for syntactic explicitation in the translational corpus (TEC) which is assumed to be a subconscious process employed unwittingly by translators.</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is the area of research?</li>
+<li>What is the research question?</li>
+<li>What is the data?</li>
+<li>What is the method?</li>
+<li>What is the finding?</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Translation studies. Do translated texts differ from native texts? TEC (translated) and BNC (native) corpora. Syntactic explicitation in translated texts.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2 smaller">
+<h2>Other cases?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/student-thinking.jpg" style="width:50.0%"></p>
+<p>Brainstorm some ideas you may have in which text analysis could be used as a method of inquiry.</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Questions to consider</strong></p>
+<ul>
+<li>What is the area of research?</li>
+<li>What is the research question?</li>
+<li>What is the data?</li>
+<li>What is the method?</li>
+<li>What is the finding?</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The plan</h1>
+
+</section>
+<section class="slide level2 smaller">
+<h2>The plan</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="images/p-diki.drawio.png"></p>
+</div><div class="column" style="width:45%;">
+<blockquote>
+<p><strong>Foundations</strong><br>
+Establish a fundamental understanding of the characteristics of each of the levels in the “Data, Information, Knowledge, and Insight Hierarchy (DIKI)”</p>
+</blockquote>
+</div>
+</div>
+<!--  vectors, data frames, functions, packages, summaries, and plots
+
+ Quarto, Markdown, YAML, code blocks, citations, and cross-references, and RStudio projects
+
+ repos, cloning, edits, and commits -->
+<p>You will be able to <span class="rn">read, write, and manipulate text data</span> in R including creating statistical summary tables and plots. You will also have the foundational skills to <span class="rn">frame research questions and design studies</span> that use text analysis.</p>
+</section>
+<section class="slide level2 smaller">
+<h2>The plan</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="images/p-diki.drawio.png"></p>
+</div><div class="column" style="width:45%;">
+<blockquote>
+<p><strong>Preparation</strong><br>
+Implement data acquistion, curation, and transformation steps.</p>
+</blockquote>
+</div>
+</div>
+<!--  control statments, regular expressions, custom functions, and shaping and reshaping datasets by rows and columns.
+
+ Reproducible projects, data documentation, reusing code, and project organization
+
+ forking, pushing, issues, and pulling -->
+<p>You will be able to <span class="rn">acquire, curate, and transform text data</span> in R. You will also have the skills to <span class="rn">design and implement data collection procedures</span> for text analysis.</p>
+</section>
+<section class="slide level2 smaller">
+<h2>The plan</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="images/p-diki.drawio.png"></p>
+</div><div class="column" style="width:45%;">
+<blockquote>
+<p><strong>Analysis</strong><br>
+Perform analysis of datasets, the evaluation of results, and the interpretation of the findings for exploratory, predictive, and inferential purposes.</p>
+</blockquote>
+</div>
+</div>
+
+<!--  lists, matrices, advanced plotting, and advanced summary tables
+
+ freezing, caching, and parallel processing
+
+ branching, merging, and pull requests -->
+<p>You will be able to <span class="rn">analyze text data</span> in R and interpret findings in context. You will also have the skills to <span class="rn">design, implement, and critique data analysis procedures</span> for text analysis.</p>
+</section>
+<section class="slide level2 smaller">
+<h2>The plan</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="images/p-diki.drawio.png"></p>
+</div><div class="column" style="width:45%;">
+<blockquote>
+<p><strong>Communication</strong><br>
+Demonstrate the presentation of research either as a prospectus of a viable research plan (prospectus) or as a implemented research project (final project).</p>
+</blockquote>
+</div>
+</div>
+<!--  reproducible environments
+
+ reproducible reports, presentations, and websites
+
+ publishing, actions, and continuous integration -->
+<p>You will be able to <span class="rn">communicate research findings</span> in a reproducible manner. You will also have the skills to <span class="rn">create and share reproducible computing environments</span> for data analysis projects.</p>
+</section>
+<section class="slide level2 smaller">
+<h2>Final thoughts</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><strong>Science</strong> is a process for understanding the world as it is.</li>
+<li><strong>Data science</strong> is a process for understanding the world as it is using computing, statistics, and domain knowledge.</li>
+<li><strong>Text analysis</strong> is a data science method for extracting and analyzing information from observed language data.</li>
+</ul>
+<p>This course is designed to provide you with the skills to use text analysis as a method of inquiry.</p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/data-deluge.jpg"></p>
+</div>
+</div>
+
+<aside><div>
+<p><strong>Next time:</strong><br>
+We will discuss <a href="https://qtalr.github.io/qtalrkit/articles/recipe-1.html">Recipe 1 “Academic writing with Quarto”</a> and work on <a href="https://github.com/qtalr/lab-01">Lab 01</a>“<br>
+<strong>Remember:</strong><br>
+Do readings and use Hypothes.is to socially annotate the readings. This helps us generate discussion that we can pick up in class.</p>
+</div></aside></section></section>
+<section class="title-slide slide level1 smaller scrollable" id="references">
+<h1>References</h1>
+
+
+<img src="images/logo-sm.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Text analysis in context | Quantitative Text Analysis | Wake Forest University</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Bychkovska2017" class="csl-entry" role="listitem">
+Bychkovska, Tetyana, and Joseph J. Lee. 2017. <span>“At the Same Time: Lexical Bundles in L1 and L2 University Student Argumentative Writing.”</span> <em>Journal of English for Academic Purposes</em> 30 (November): 38–52. <a href="https://doi.org/10.1016/j.jeap.2017.10.008">https://doi.org/10.1016/j.jeap.2017.10.008</a>.
+</div>
+<div id="ref-Olohan2008" class="csl-entry" role="listitem">
+Olohan, Maeve. 2008. <span>“Leave It Out! Using a Comparable Corpus to Investigate Aspects of Explicitation in Translation.”</span> <em>Cadernos de Tradu<span>ç</span><span>ã</span>o</em>, 153–69.
 </div>
 </div>
 </section>
-<section class="slide level2">
-<h2>Text analysis</h2>
-<div class="cell" data-reveal="true">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  subgraph TOP
-    A[Data sceince] --&gt; B[Text analysis in context]
-    subgraph BOTTOM
-      C[Text analysis in context] --&gt; D[Text analysis]
-    end
-  end
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-
-<img src="assets/images/logo-sm.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Text analysis in context | Quantitative Text Analysis | Wake Forest University</p>
-</div>
-</section></section>
     </div>
   </div>
 
@@ -608,7 +936,7 @@ flowchart TB
         previewLinks: true,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',

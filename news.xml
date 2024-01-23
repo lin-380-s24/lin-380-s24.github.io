@@ -171,11 +171,11 @@ font-style: inherit;">---</span></span></code></pre></div>
 <tbody>
 <tr class="odd">
 <td>Render Quarto documents</td>
-<td><p><kbd data-mac="Shift Command K" data-windows="Shift Ctrl K"></kbd></p></td>
+<td><p><kbd data-windows="Shift Ctrl K" data-mac="Shift Command K"></kbd></p></td>
 </tr>
 <tr class="even">
 <td>Add a code block to a Quarto document</td>
-<td><p><kbd data-mac="Command Option i" data-windows="Ctrl Alt i"></kbd></p></td>
+<td><p><kbd data-windows="Ctrl Alt i" data-mac="Command Option i"></kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -194,27 +194,27 @@ font-style: inherit;">---</span></span></code></pre></div>
 <tbody>
 <tr class="odd">
 <td>To invoke code completion when typing R code</td>
-<td><p><kbd data-mac="Tab" data-windows="Tab"></kbd></p></td>
+<td><p><kbd data-windows="Tab" data-mac="Tab"></kbd></p></td>
 </tr>
 <tr class="even">
 <td>Run current line or selection in the Console</td>
-<td><p><kbd data-mac="Command Enter" data-windows="Ctrl Enter"></kbd></p></td>
+<td><p><kbd data-windows="Ctrl Enter" data-mac="Command Enter"></kbd></p></td>
 </tr>
 <tr class="odd">
 <td>To comment or uncomment a line or selection so that it is or is not run as R code</td>
-<td><p><kbd data-mac="Shift Command C" data-windows="Shift Ctrl C"></kbd></p></td>
+<td><p><kbd data-windows="Shift Ctrl C" data-mac="Shift Command C"></kbd></p></td>
 </tr>
 <tr class="even">
 <td>To insert the <code>&lt;-</code> operator to assign code output to a variable</td>
-<td><p><kbd data-mac="Option -" data-windows="Alt -"></kbd></p></td>
+<td><p><kbd data-windows="Alt -" data-mac="Option -"></kbd></p></td>
 </tr>
 <tr class="odd">
 <td>To insert a <code>|&gt;</code> operator to pipe the output of one operation to the input of the next</td>
-<td><p><kbd data-mac="Command Shift M" data-windows="Ctrl Shift M"></kbd></p></td>
+<td><p><kbd data-windows="Ctrl Shift M" data-mac="Command Shift M"></kbd></p></td>
 </tr>
 <tr class="even">
 <td>To reformat R code so that indentation is more legible</td>
-<td><p><kbd data-mac="Command Shift A" data-windows="Ctrl Shift A"></kbd></p></td>
+<td><p><kbd data-windows="Ctrl Shift A" data-mac="Command Shift A"></kbd></p></td>
 </tr>
 </tbody>
 </table>
