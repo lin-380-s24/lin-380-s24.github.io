@@ -15,6 +15,7 @@ categories: [data science, research, computer science, statistics, linguistics]
 - Science
 - Data science
 - Text analysis
+- The plan
 :::
 
 ::: {.column width="40%"}
