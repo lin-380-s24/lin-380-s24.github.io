@@ -1,0 +1,89 @@
+---
+title: "Cool stuff: Lab 00"
+date: 2024-01-23
+categories: [cool-stuff, quarto, themes, keyboard-shortcuts]
+---
+
+I want to start a series of posts that I will call "Cool stuff" that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.
+
+I'll highlight a couple of things here, but I'd love to hear from you all about what you are doing with Quarto. If you have something you'd like to share, please let me know and I'll highlight it here.
+
+## Changing Quarto document themes
+
+Quarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.
+
+
+```yaml
+---
+title: "My Document"
+format:
+  html:
+    theme: cerulean
+---
+```
+
+::: {.aside}
+![](html-theme-output.png){style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"}
+:::
+Themes are available for both HTML and PDF output, but they are not the same. Here you can find a list of [HTML themes](https://bootswatch.com/).
+
+
+For PDF output, you need to specify the `documentclass:` in the front matter.
+
+```yaml
+---
+title: "My Document"
+format:
+  pdf:
+    documentclass: report
+---
+```
+
+::: {.aside}
+![](pdf-class-output.png){style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"}
+:::
+
+The options are more limited for PDF output given the nature of the output but you can read more [here](https://quarto.org/docs/output-formats/pdf-basics.html#document-class).
+
+## Keyboard shortcuts in RStudio
+
+RStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts).
+
+For starters, here are the ones I use the most to work with Quarto and R:
+
+::: {.aside}
+| Symbol | Key |
+|--------|-----|
+| {{< kbd Shift >}} | Shift key |
+| {{< kbd Ctrl >}} | Control key |
+| {{< kbd Command >}} | Command key\
+(Mac only) |
+| {{< kbd Alt >}} | Alt key |
+| {{< kbd Option >}} | Option key\
+(Mac only) |
+| {{< kbd Esc >}} | Escape key |
+| {{< kbd Tab >}} | Tab key |
+| {{< kbd Enter >}} | Enter key |
+
+: Symbols used in keyboard shortcuts
+
+:::
+
+
+| Description | Shortcut |
+|-------------|-----|
+| Render Quarto documents | {{< kbd win='Shift Ctrl K' mac='Shift Command K' >}} |
+| Add a code block to a Quarto document | {{< kbd win='Ctrl Alt i' mac='Command Option i' >}} |
+
+: For Quarto document elements
+
+| Description | Shortcut |
+|-------------|-----|
+| To invoke code completion when typing R code | {{< kbd win=Tab mac=Tab >}} |
+| Run current line or selection in the Console | {{< kbd win='Ctrl Enter' mac='Command Enter' >}}
+| To comment or uncomment a line or selection so that it is or is not run as R code | {{< kbd win='Shift Ctrl C' mac='Shift Command C' >}} |
+| To insert the `<-` operator to assign code output to a variable | {{< kbd win='Alt -' mac='Option -' >}} |
+| To insert a `|>` operator to pipe the output of one operation to the input of the next | {{< kbd win='Ctrl Shift M' mac='Command Shift M' >}} |
+| To reformat R code so that indentation is more legible | {{< kbd win='Ctrl Shift A' mac='Command Shift A' >}} |
+
+: For R code
