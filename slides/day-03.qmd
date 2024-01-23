@@ -342,8 +342,8 @@ You will be able to [communicate research findings]{.rn} in a reproducible manne
 :::: {.columns}
 ::: {.column width="60%"}
 - **Science** is a process for understanding the world as it is.
-- **Data science** is a process for understanding the world as it is using computing, statistics, and domain knowledge.
-- **Text analysis** is a data science method for extracting and analyzing information from observed language data.
+- **Data science** enhances science using computing, statistics, and domain knowledge.
+- **Text analysis** employs data science to extract and analyze information from observed language usage.
 
 This course is designed to provide you with the skills to use text analysis as a method of inquiry.
 :::
