@@ -1,0 +1,10 @@
+---
+title: "Academic writing with Quarto"
+subtitle: "Enabling more productive scholarly communication"
+date: "2024-01-26"
+categories: [quarto, front-matter, figures, tables, citations, tables-of-contents, cross-references, code, code-blocks]
+draft: true
+---
+
+## Overview
+

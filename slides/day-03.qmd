@@ -181,7 +181,6 @@ It can be used as a tool for research or a method of inquiry in its own right.
 We will approach text analysis as a method of inquiry.
 :::
 
-
 ## Cases{.smaller}
 
 :::: {.columns}
@@ -245,10 +244,6 @@ Brainstorm some ideas you may have in which text analysis could be used as a met
 - What is the finding?
 :::
 ::::
-
-:::{.notes}
-...
-:::
 
 # The plan
 
