@@ -3,8 +3,254 @@ title: "Academic writing with Quarto"
 subtitle: "Enabling more productive scholarly communication"
 date: "2024-01-26"
 categories: [quarto, front-matter, figures, tables, citations, tables-of-contents, cross-references, code, code-blocks]
-draft: true
 ---
 
 ## Overview
+
+- Review components of a Quarto document
+- Review academic writing features:
+  - Numbered sections
+  - Tables of contents
+  - Cross-referencing tables and figures
+  - In-line citations and references
+
+# Quarto
+
+Quarto documents have two main parts: front matter and content.
+
+## Front matter
+
+:::: {.columns}
+::: {.column width="60%"}
+```quarto
+---
+title: "Academic writing with Quarto"
+format: pdf
+---
+```
+:::
+
+::: {.column width="40%"}
+![](images/front-matter.png)
+:::
+::::
+
+
+
+## Front matter + content
+
+:::: {.columns}
+::: {.column width="60%"}
+```{.quarto code-line-numbers="5-8"}
+---
+title: "Academic writing with Quarto"
+format: pdf
+---
+
+## Overview
+
+This is my overview of this important topic. ...
+```
+:::
+
+::: {.column width="40%"}
+![](images/front-matter-content.png)
+:::
+::::
+
+
+## Front matter + content + code
+
+:::: {.columns}
+::: {.column width="60%"}
+````{.quarto code-line-numbers="10-13"}
+---
+title: "Academic writing with Quarto"
+format: pdf
+---
+
+## Overview
+
+This is my overview of this important topic. ...
+
+```{{r}}
+x <- 1:10
+x
+```
+
+This code shows us the values of `x`.
+````
+:::
+
+::: {.column width="40%"}
+![](images/front-matter-content-code.png)
+:::
+::::
+
+# Academic writing features
+
+## Numbered sections
+
+:::: {.columns}
+::: {.column width="60%"}
+
+```{.quarto code-line-numbers="3-5"}
+---
+title: "Academic writing with Quarto"
+format:
+  pdf:
+    number-sections: true
+---
+
+## Overview
+
+## Setup
+
+### Install Quarto
+
+### Create a new Quarto project
+```
+:::
+
+::: {.column width="40%"}
+![](images/numbered-sections.png)
+:::
+::::
+
+## Tables of contents
+
+:::: {.columns}
+::: {.column width="60%"}
+```{.quarto code-line-numbers="6-7"}
+---
+title: "Academic writing with Quarto"
+format:
+  pdf:
+    number-sections: true
+    toc: true
+    toc-depth: 1
+---
+
+## Overview
+
+## Setup
+
+### Install Quarto
+
+### Create a new Quarto project
+```
+:::
+
+::: {.column width="40%"}
+![](images/toc-depth.png)
+:::
+::::
+
+## Cross-referencing tables
+
+:::: {.columns}
+::: {.column width="60%"}
+```{.quarto code-line-numbers="10-15|8"}
+---
+title: "Academic writing with Quarto"
+format: pdf
+---
+
+## Overview
+
+View @tbl-test below.
+
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| A        | B        | C        |
+| D        | E        | F        |
+
+: A simple markdown table {#tbl-test}
+```
+:::
+
+::: {.column width="40%"}
+![](images/cross-ref-table.png)
+:::
+::::
+
+
+## Cross-referencing figures
+
+:::: {.columns}
+::: {.column width="60%"}
+````{.quarto code-line-numbers="10-15|8"}
+---
+title: "Academic writing with Quarto"
+format: pdf
+---
+
+## Overview
+
+View @fig-test below.
+
+```{{r}}
+#| label: fig-test
+#| fig-cap: "A test plot!"
+
+plot(1:10)
+```
+````
+:::
+
+::: {.column width="40%"}
+![](images/cross-ref-figure.png)
+:::
+::::
+
+## In-line citations and references
+
+:::: {.columns}
+::: {.column width="60%"}
+```{.quarto code-line-numbers="4,11-12,14"}
+---
+title: "Academic writing with Quarto"
+format: pdf
+bibliography: bibliography.bib
+---
+
+## Overview
+
+There are various ways to do in-line citations. Here are two:
+
+1. @tidyverse2019
+2. [@tidyverse2019]
+
+# References
+```
+:::
+
+::: {.column width="40%"}
+![](images/citations.png)
+:::
+::::
+
+## Bibliography file
+
+`bibliography.bib` contains BibTeX entries for all of the references in the document.
+
+```{.bibtex code-line-numbers="|1"}
+@Article{tidyverse2019},
+  title = {Welcome to the {tidyverse}},
+  author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+  year = {2019},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1686},
+  doi = {10.21105/joss.01686},
+}
+```
+
+
+# Lab 01: Academic writing with Quarto
+
+## Setup
+
+![](images/lab-01-startup.gif)
 
