@@ -9,12 +9,13 @@
 <link>https://lin-380-s24.github.io/news.html</link>
 <atom:link href="https://lin-380-s24.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for LIN 380: Quantitative Text Analysis, Spring 2024</description>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.4.549</generator>
 <lastBuildDate>Tue, 23 Jan 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Cool stuff: Lab 00</title>
-  <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/index.html</link>
+  <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -60,7 +61,7 @@ font-style: inherit;"> cerulean</span></span>
 background-color: null;
 font-style: inherit;">---</span></span></code></pre></div>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p><img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-00/html-theme-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
 </div></div><p>Themes are available for both HTML and PDF output, but they are not the same. Here you can find a list of <a href="https://bootswatch.com/">HTML themes</a>.</p>
 <p>For PDF output, you need to specify the <code>documentclass:</code> in the front matter.</p>
@@ -101,18 +102,122 @@ font-style: inherit;"> report</span></span>
 background-color: null;
 font-style: inherit;">---</span></span></code></pre></div>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p><img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-00/pdf-class-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
 </div></div><p>The options are more limited for PDF output given the nature of the output but you can read more <a href="https://quarto.org/docs/output-formats/pdf-basics.html#document-class">here</a>.</p>
+<section id="pdf-output-gotcha" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-output-gotcha">PDF output gotcha</h3>
+<p>When Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.</p>
+<p>One of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like <code>`verbatim text`</code> is rendered as <code>verbatim text</code>. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.</p>
+<p>The first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.</p>
+<p>Say we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: <code>![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)</code>.</p>
+<p>In a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block<sup>1</sup>.</p>
+<pre><code>```markdown
+![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)
+```</code></pre>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><span class="al" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)</span></span></code></pre></div>
+<p>In many cases this will be enough to <del>solve</del> side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My Document"</span></span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pdf</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">include-in-header</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">      - </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">text</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb5-7">          \usepackage{fvextra}</span>
+<span id="cb5-8">          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breaknonspaceingroup,breakanywhere}</span>
+<span id="cb5-9"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+<p>This is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.</p>
+<p>If more LaTeX customization is needed, you are best to create a new LaTeX document, say <code>header.tex</code>, and add the LaTeX code to that file. Then you can add the following to the front matter:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My Document"</span></span>
+<span id="cb6-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb6-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pdf</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb6-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">include-in-header</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> header.tex</span></span>
+<span id="cb6-6"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</section>
 </section>
 <section id="keyboard-shortcuts-in-rstudio" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="keyboard-shortcuts-in-rstudio">Keyboard shortcuts in RStudio</h2>
 <p>RStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a>.</p>
 <p>For starters, here are the ones I use the most to work with Quarto and R:</p>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <table class="table">
 <caption>Symbols used in keyboard shortcuts</caption>
+<colgroup>
+<col style="width: 61%">
+<col style="width: 38%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Symbol</th>
@@ -121,37 +226,37 @@ font-style: inherit;">---</span></span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><kbd>Shift</kbd></p></td>
+<td><p><span class="visually-hidden">Shift</span></p></td>
 <td>Shift key</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Ctrl</kbd></p></td>
+<td><p><span class="visually-hidden">Ctrl</span></p></td>
 <td>Control key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Command</kbd></p></td>
+<td><p><span class="visually-hidden">Command</span></p></td>
 <td>Command key<br>
 (Mac only)</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Alt</kbd></p></td>
+<td><p><span class="visually-hidden">Alt</span></p></td>
 <td>Alt key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Option</kbd></p></td>
+<td><p><span class="visually-hidden">Option</span></p></td>
 <td>Option key<br>
 (Mac only)</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Esc</kbd></p></td>
+<td><p><span class="visually-hidden">Esc</span></p></td>
 <td>Escape key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Tab</kbd></p></td>
+<td><p><span class="visually-hidden">Tab</span></p></td>
 <td>Tab key</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Enter</kbd></p></td>
+<td><p><span class="visually-hidden">Enter</span></p></td>
 <td>Enter key</td>
 </tr>
 </tbody>
@@ -171,11 +276,11 @@ font-style: inherit;">---</span></span></code></pre></div>
 <tbody>
 <tr class="odd">
 <td>Render Quarto documents</td>
-<td><p><kbd data-mac="Shift Command K" data-windows="Shift Ctrl K"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>Add a code block to a Quarto document</td>
-<td><p><kbd data-mac="Command Option i" data-windows="Ctrl Alt i"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 </tbody>
 </table>
@@ -194,27 +299,27 @@ font-style: inherit;">---</span></span></code></pre></div>
 <tbody>
 <tr class="odd">
 <td>To invoke code completion when typing R code</td>
-<td><p><kbd data-mac="Tab" data-windows="Tab"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>Run current line or selection in the Console</td>
-<td><p><kbd data-mac="Command Enter" data-windows="Ctrl Enter"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="odd">
 <td>To comment or uncomment a line or selection so that it is or is not run as R code</td>
-<td><p><kbd data-mac="Shift Command C" data-windows="Shift Ctrl C"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>To insert the <code>&lt;-</code> operator to assign code output to a variable</td>
-<td><p><kbd data-mac="Option -" data-windows="Alt -"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="odd">
 <td>To insert a <code>|&gt;</code> operator to pipe the output of one operation to the input of the next</td>
-<td><p><kbd data-mac="Command Shift M" data-windows="Ctrl Shift M"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>To reformat R code so that indentation is more legible</td>
-<td><p><kbd data-mac="Command Shift A" data-windows="Ctrl Shift A"></kbd></p></td>
+<td><p><span class="visually-hidden"></span></p></td>
 </tr>
 </tbody>
 </table>
@@ -222,18 +327,25 @@ font-style: inherit;">---</span></span></code></pre></div>
 
 </section>
 
- ]]></description>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Note that a code block that has the language, <code>markdown</code> in this case, without curly braces <code>{}</code> means to show the code highlighting but not to execute the code. In some ways it is equivalent to <code>#| eval: false</code>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
   <category>cool-stuff</category>
   <category>quarto</category>
   <category>themes</category>
   <category>keyboard-shortcuts</category>
-  <guid>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/index.html</guid>
+  <guid>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/</guid>
   <pubDate>Tue, 23 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Workaround for Mac M1-chip users for Docker Desktop containers</title>
-  <link>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</link>
+  <link>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -241,7 +353,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/apple-silicon-error.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Apple silicon error message</figcaption>
+<figcaption>Apple silicon error message</figcaption>
 </figure>
 </div>
 <section id="the-issue" class="level2">
@@ -259,12 +371,12 @@ font-style: inherit;">---</span></span></code></pre></div>
 <h3 class="anchored" data-anchor-id="pull-the-rockerrstudio-image">Pull the <code>rocker/rstudio</code> image</h3>
 <p>Pull the <code>rocker/rstudio</code> image. Open Docker Desktop, go to the search bar at the top and type <code>rocker/rstudio</code>. Click on the image and then click on the <code>Pull</code> button. Wait for the image to download.</p>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Make sure you delete all earlier containers and images from Docker Desktop. We want to start with a clean slate.</p>
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-pull-rstudio.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Pull <code>rocker/rstudio</code></figcaption>
+<figcaption>Pull <code>rocker/rstudio</code></figcaption>
 </figure>
 </div>
 </section>
@@ -276,7 +388,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-run-image.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Run <code>rocker/rstudio</code> image</figcaption>
+<figcaption>Run <code>rocker/rstudio</code> image</figcaption>
 </figure>
 </div>
 <ul>
@@ -297,7 +409,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/docker-run-settings.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Optional settings</figcaption>
+<figcaption>Optional settings</figcaption>
 </figure>
 </div>
 <ul>
@@ -311,7 +423,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 <li>Use the <code>rstudio</code> username and the password you chose to log in to RStudio Server.</li>
 </ul>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>This is the point that you would normally see the error message. But because we are using the <code>rocker/rstudio</code> image, we shouldn’t see the error message. If you do, stop and contact me.</p>
 </div></div></section>
 <section id="configure-rstudio-server" class="level3">
@@ -320,14 +432,14 @@ font-style: inherit;">---</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/rstudio-server-start.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Fresh RStudio Server</figcaption>
+<figcaption>Fresh RStudio Server</figcaption>
 </figure>
 </div>
 <p>This is where we will configure RStudio Server to work like the <code>francojc/lin-380</code> image. We will need to do some one-time configuration in the Terminal. Click on the <code>Terminal</code> tab (between the ‘Console’ and ‘Background Jobs’ tabs) to open the Terminal.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/rstudio-terminal.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Terminal inside RStudio</figcaption>
+<figcaption>Terminal inside RStudio</figcaption>
 </figure>
 </div>
 <ol type="1">
@@ -340,7 +452,7 @@ font-style: inherit;">quarto</span> install tinytex</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-install-quarto.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Install Quarto inside Terminal</figcaption>
+<figcaption>Install Quarto inside Terminal</figcaption>
 </figure>
 </div>
 <ol start="2" type="1">
@@ -353,7 +465,7 @@ font-style: inherit;">sudo</span> /rocker_scripts/install_tidyverse.sh</span></c
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-install-tidyverse.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Install Tidyverse packages in Terminal</figcaption>
+<figcaption>Install Tidyverse packages in Terminal</figcaption>
 </figure>
 </div>
 <ol start="3" type="1">
@@ -754,14 +866,14 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/terminal-copy-rstudio-prefs.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Copy RStudio preferences in Terminal</figcaption>
+<figcaption>Copy RStudio preferences in Terminal</figcaption>
 </figure>
 </div>
 </section>
 </section>
 <section id="congratulations" class="level2">
 <h2 class="anchored" data-anchor-id="congratulations">Congratulations!</h2>
-<p><img src="https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/https:/media.giphy.com/media/G96zgIcQn1L2xpmdxi/giphy.gif" class="img-fluid"></p>
+<p><img src="https://media.giphy.com/media/G96zgIcQn1L2xpmdxi/giphy.gif" class="img-fluid"></p>
 <p>You have successfully created a container from the <code>rocker/rstudio</code> image and configured it to work much like the <code>francojc/lin-380</code> image (we have some other R packages we will install as we need them).</p>
 <p>You can now use this container for your LIN 380 assignments!</p>
 
@@ -775,24 +887,25 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
   <category>mac</category>
   <category>m1</category>
   <category>terminal</category>
-  <guid>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</guid>
+  <guid>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/</guid>
   <pubDate>Sun, 21 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Sorting out first-day hiccups</title>
-  <link>https://lin-380-s24.github.io/posts/first-day-hiccups/index.html</link>
+  <link>https://lin-380-s24.github.io/posts/first-day-hiccups/</link>
   <description><![CDATA[ 
+
 
 
 
 <p>I’m writing this post to address the fact that we did not get as far as we would have liked to on the <a href="https://lin-380-s24.github.io/slides/day-01#/">first day of the course</a>. Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn’t in class, most were able to do so after class.</p>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>If you are still having trouble installing Docker Desktop, please reach out to me <a href="mailto:francojc@wfu.edu">via email</a></p>
 </div></div><p>However, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.</p>
 <p>In order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th.</p>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>If you have any issues completing these tasks, please let me know.</p>
 </div></div><section id="docker-desktop-rstudio" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="docker-desktop-rstudio">1. Docker Desktop + RStudio</h2>
@@ -805,7 +918,7 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
 <li>Connect to the container running in Docker Desktop by visiting <code>localhost:8787</code> in your browser.</li>
 </ul>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>These steps are documented in detail in the <a href="https://lin380.github.io/guide/getting-started/">Getting started</a> guide.</p>
 </div></div></section>
 <section id="hypothes.is-account" class="level2 page-columns page-full">
@@ -816,7 +929,7 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
 <li>Access the annotation layer on the readings (<em>e.g</em> <a href="https://qtalr.github.io/book/">textbook</a>)</li>
 </ul>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Save your Hypothes.is username and password somewhere safe. You will need it to log in to Hypothes.is to be able to annotate readings.</p>
 </div></div></section>
 <section id="github-account" class="level2 page-columns page-full">
@@ -827,7 +940,7 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
 
 
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Save your GitHub username and password somewhere safe. You will need it to interact with GitHub.</p>
 </div></div></section>
 
@@ -835,13 +948,14 @@ font-style: inherit;">cp</span> ~/rstudio-prefs.json ~/.config/rstudio/rstudio-p
   <category>news</category>
   <category>tech</category>
   <category>guides</category>
-  <guid>https://lin-380-s24.github.io/posts/first-day-hiccups/index.html</guid>
+  <guid>https://lin-380-s24.github.io/posts/first-day-hiccups/</guid>
   <pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)</title>
-  <link>https://lin-380-s24.github.io/posts/eulc5/index.html</link>
+  <link>https://lin-380-s24.github.io/posts/eulc5/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -864,14 +978,15 @@ Conference Date: April 19th, 2024 (One day virtual event)</p>
   <category>news</category>
   <category>conferences</category>
   <category>research</category>
-  <guid>https://lin-380-s24.github.io/posts/eulc5/index.html</guid>
+  <guid>https://lin-380-s24.github.io/posts/eulc5/</guid>
   <pubDate>Tue, 16 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Hello, World!</title>
   <dc:creator>Jerid Francom</dc:creator>
-  <link>https://lin-380-s24.github.io/posts/welcome/index.html</link>
+  <link>https://lin-380-s24.github.io/posts/welcome/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -882,7 +997,7 @@ Conference Date: April 19th, 2024 (One day virtual event)</p>
  ]]></description>
   <category>news</category>
   <category>testing</category>
-  <guid>https://lin-380-s24.github.io/posts/welcome/index.html</guid>
+  <guid>https://lin-380-s24.github.io/posts/welcome/</guid>
   <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 </channel>

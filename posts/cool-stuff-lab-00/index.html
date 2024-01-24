@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -85,7 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -94,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,9 +115,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quantitative Text Analysis</span>
     </a>
@@ -122,35 +129,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text"><i class="fa-solid fa-handshake" aria-label="handshake"></i> Syllabus</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text"><i class="fa-solid fa-handshake" aria-label="handshake"></i> Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../schedule.html" rel="" target="">
- <span class="menu-text"><i class="fa-solid fa-calendar-check" aria-label="calendar-check"></i> Schedule</span></a>
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text"><i class="fa-solid fa-calendar-check" aria-label="calendar-check"></i> Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../slides.html" rel="" target="">
- <span class="menu-text"><i class="fa-solid fa-chalkboard-user" aria-label="chalkboard-user"></i> Slides</span></a>
+    <a class="nav-link" href="../../slides.html"> 
+<span class="menu-text"><i class="fa-solid fa-chalkboard-user" aria-label="chalkboard-user"></i> Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../guides.html" rel="" target="">
- <span class="menu-text"><i class="fa-solid fa-wrench" aria-label="wrench"></i> Guides</span></a>
+    <a class="nav-link" href="../../guides.html"> 
+<span class="menu-text"><i class="fa-solid fa-wrench" aria-label="wrench"></i> Guides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../news.html" rel="" target="">
- <span class="menu-text"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</span></a>
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text"><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> News</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../news.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../news.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-    <a href="https://github.com/lin-380-s24/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/lin-380-s24/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -163,7 +170,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#changing-quarto-document-themes" id="toc-changing-quarto-document-themes" class="nav-link active" data-scroll-target="#changing-quarto-document-themes">Changing Quarto document themes</a></li>
+  <li><a href="#changing-quarto-document-themes" id="toc-changing-quarto-document-themes" class="nav-link active" data-scroll-target="#changing-quarto-document-themes">Changing Quarto document themes</a>
+  <ul class="collapse">
+  <li><a href="#pdf-output-gotcha" id="toc-pdf-output-gotcha" class="nav-link" data-scroll-target="#pdf-output-gotcha">PDF output gotcha</a></li>
+  </ul></li>
   <li><a href="#keyboard-shortcuts-in-rstudio" id="toc-keyboard-shortcuts-in-rstudio" class="nav-link" data-scroll-target="#keyboard-shortcuts-in-rstudio">Keyboard shortcuts in RStudio</a></li>
   </ul>
 </nav>
@@ -194,11 +204,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">January 24, 2024</p>
+    </div>
+  </div>
     
   </div>
   
 
+
 </header>
+
 
 <p>I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.</p>
 <p>I’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here.</p>
@@ -212,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cerulean</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p><img src="html-theme-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
 </div></div><p>Themes are available for both HTML and PDF output, but they are not the same. Here you can find a list of <a href="https://bootswatch.com/">HTML themes</a>.</p>
 <p>For PDF output, you need to specify the <code>documentclass:</code> in the front matter.</p>
@@ -223,18 +241,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> report</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p><img src="pdf-class-output.png" class="img-fluid" style="float:right; border: 1px solid #ccc; display: block; margin: 0 auto;"></p>
 </div></div><p>The options are more limited for PDF output given the nature of the output but you can read more <a href="https://quarto.org/docs/output-formats/pdf-basics.html#document-class">here</a>.</p>
+<section id="pdf-output-gotcha" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-output-gotcha">PDF output gotcha</h3>
+<p>When Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.</p>
+<p>One of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like <code>`verbatim text`</code> is rendered as <code>verbatim text</code>. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.</p>
+<p>The first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.</p>
+<p>Say we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: <code>![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)</code>.</p>
+<p>In a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<pre><code>```markdown
+![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)
+```</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In many cases this will be enough to <del>solve</del> side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">      - </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          \usepackage{fvextra}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breaknonspaceingroup,breakanywhere}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.</p>
+<p>If more LaTeX customization is needed, you are best to create a new LaTeX document, say <code>header.tex</code>, and add the LaTeX code to that file. Then you can add the following to the front matter:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span><span class="at"> header.tex</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="keyboard-shortcuts-in-rstudio" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="keyboard-shortcuts-in-rstudio">Keyboard shortcuts in RStudio</h2>
 <p>RStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a>.</p>
 <p>For starters, here are the ones I use the most to work with Quarto and R:</p>
 
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <table class="table">
 <caption>Symbols used in keyboard shortcuts</caption>
+<colgroup>
+<col style="width: 61%">
+<col style="width: 38%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Symbol</th>
@@ -243,37 +295,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><kbd>Shift</kbd></p></td>
+<td><p><kbd aria-hidden="true">Shift</kbd><span class="visually-hidden">Shift</span></p></td>
 <td>Shift key</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Ctrl</kbd></p></td>
+<td><p><kbd aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span></p></td>
 <td>Control key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Command</kbd></p></td>
+<td><p><kbd aria-hidden="true">Command</kbd><span class="visually-hidden">Command</span></p></td>
 <td>Command key<br>
 (Mac only)</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Alt</kbd></p></td>
+<td><p><kbd aria-hidden="true">Alt</kbd><span class="visually-hidden">Alt</span></p></td>
 <td>Alt key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Option</kbd></p></td>
+<td><p><kbd aria-hidden="true">Option</kbd><span class="visually-hidden">Option</span></p></td>
 <td>Option key<br>
 (Mac only)</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Esc</kbd></p></td>
+<td><p><kbd aria-hidden="true">Esc</kbd><span class="visually-hidden">Esc</span></p></td>
 <td>Escape key</td>
 </tr>
 <tr class="odd">
-<td><p><kbd>Tab</kbd></p></td>
+<td><p><kbd aria-hidden="true">Tab</kbd><span class="visually-hidden">Tab</span></p></td>
 <td>Tab key</td>
 </tr>
 <tr class="even">
-<td><p><kbd>Enter</kbd></p></td>
+<td><p><kbd aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span></p></td>
 <td>Enter key</td>
 </tr>
 </tbody>
@@ -293,11 +345,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Render Quarto documents</td>
-<td><p><kbd data-mac="Shift Command K" data-windows="Shift Ctrl K"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Shift Command K" data-windows="Shift Ctrl K"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>Add a code block to a Quarto document</td>
-<td><p><kbd data-mac="Command Option i" data-windows="Ctrl Alt i"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Command Option i" data-windows="Ctrl Alt i"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 </tbody>
 </table>
@@ -316,27 +368,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>To invoke code completion when typing R code</td>
-<td><p><kbd data-mac="Tab" data-windows="Tab"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Tab" data-windows="Tab"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>Run current line or selection in the Console</td>
-<td><p><kbd data-mac="Command Enter" data-windows="Ctrl Enter"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Command Enter" data-windows="Ctrl Enter"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="odd">
 <td>To comment or uncomment a line or selection so that it is or is not run as R code</td>
-<td><p><kbd data-mac="Shift Command C" data-windows="Shift Ctrl C"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Shift Command C" data-windows="Shift Ctrl C"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>To insert the <code>&lt;-</code> operator to assign code output to a variable</td>
-<td><p><kbd data-mac="Option -" data-windows="Alt -"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Option -" data-windows="Alt -"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="odd">
 <td>To insert a <code>|&gt;</code> operator to pipe the output of one operation to the input of the next</td>
-<td><p><kbd data-mac="Command Shift M" data-windows="Ctrl Shift M"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Command Shift M" data-windows="Ctrl Shift M"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 <tr class="even">
 <td>To reformat R code so that indentation is more legible</td>
-<td><p><kbd data-mac="Command Shift A" data-windows="Ctrl Shift A"></kbd></p></td>
+<td><p><kbd aria-hidden="true" data-mac="Command Shift A" data-windows="Ctrl Shift A"></kbd><span class="visually-hidden"></span></p></td>
 </tr>
 </tbody>
 </table>
@@ -344,7 +396,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Note that a code block that has the language, <code>markdown</code> in this case, without curly braces <code>{}</code> means to show the code highlighting but not to execute the code. In some ways it is equivalent to <code>#| eval: false</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -424,10 +482,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -437,8 +494,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -451,6 +517,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -494,6 +679,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -519,6 +705,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -579,6 +791,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
