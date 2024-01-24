@@ -1,6 +1,7 @@
 ---
 title: "Cool stuff: Lab 00"
 date: 2024-01-23
+date-modified: 2024-01-24
 categories: [cool-stuff, quarto, themes, keyboard-shortcuts]
 ---
 
@@ -44,6 +45,56 @@ format:
 :::
 
 The options are more limited for PDF output given the nature of the output but you can read more [here](https://quarto.org/docs/output-formats/pdf-basics.html#document-class).
+
+### PDF output gotcha
+
+When Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.
+
+One of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like ```` `verbatim text` ```` is rendered as `verbatim text`. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.
+
+The first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.
+
+Say we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: `![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)`.
+
+In a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block^[Note that a code block that has the language, `markdown` in this case, without curly braces `{}` means to show the code highlighting but not to execute the code. In some ways it is equivalent to `#| eval: false`.].
+
+````
+```markdown
+![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)
+```
+````
+
+```markdown
+![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)
+```
+
+In many cases this will be enough to ~~solve~~ side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:
+
+```yaml
+---
+title: "My Document"
+format:
+  pdf:
+    include-in-header:
+      - text: |
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breaknonspaceingroup,breakanywhere}
+---
+```
+
+This is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.
+
+If more LaTeX customization is needed, you are best to create a new LaTeX document, say `header.tex`, and add the LaTeX code to that file. Then you can add the following to the front matter:
+
+```yaml
+---
+title: "My Document"
+format:
+  pdf:
+    include-in-header: header.tex
+---
+```
+
 
 ## Keyboard shortcuts in RStudio
 
