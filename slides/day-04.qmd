@@ -265,7 +265,7 @@ If not, find the DOI and use [doi2bib](https://www.doi2bib.org/) to generate one
 
 ## Get BibTeX entries
 
-Here are some common examples.
+Here are some common situtations.
 
 ![](images/get-bibtex-entries.gif)
 
