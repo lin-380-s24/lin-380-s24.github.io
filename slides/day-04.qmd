@@ -288,3 +288,9 @@ Here are some common situtations.
 ::: {.aside}
 Remember you can use the [Recipe 01](https://qtalr.github.io/qtalrkit/articles/recipe-1.html) as a reference, or even other documentation on the [Quarto website](https://quarto.org/).
 :::
+
+## Looking ahead
+
+1. Lab 01: Academic writing with Quarto
+2. Project step 1: Interest statement
+3. Self-assessment 1
