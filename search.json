@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "posts/cool-stuff-lab-00/index.html",
+    "href": "posts/cool-stuff-lab-00/index.html",
+    "title": "Cool stuff: Lab 00",
+    "section": "",
+    "text": "I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.\nI’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "href": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "title": "Cool stuff: Lab 00",
+    "section": "Changing Quarto document themes",
+    "text": "Changing Quarto document themes\nQuarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.\n---\ntitle: \"My Document\"\nformat:\n  html:\n    theme: cerulean\n---\n\n\n\nThemes are available for both HTML and PDF output, but they are not the same. Here you can find a list of HTML themes.\nFor PDF output, you need to specify the documentclass: in the front matter.\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    documentclass: report\n---\n\n\n\nThe options are more limited for PDF output given the nature of the output but you can read more here.\n\nPDF output gotcha\nWhen Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.\nOne of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like `verbatim text` is rendered as verbatim text. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.\nThe first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.\nSay we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: ![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html).\nIn a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block1.\n```markdown\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\n```\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\nIn many cases this will be enough to solve side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header:\n      - text: |\n          \\usepackage{fvextra}\n          \\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\\\\{\\},breaklines,breaknonspaceingroup,breakanywhere}\n---\nThis is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.\nIf more LaTeX customization is needed, you are best to create a new LaTeX document, say header.tex, and add the LaTeX code to that file. Then you can add the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header: header.tex\n---"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "href": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "title": "Cool stuff: Lab 00",
+    "section": "Keyboard shortcuts in RStudio",
+    "text": "Keyboard shortcuts in RStudio\nRStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them here.\nFor starters, here are the ones I use the most to work with Quarto and R:\n\n\n\nSymbols used in keyboard shortcuts\n\n\n\n\n\n\nSymbol\nKey\n\n\n\n\nShiftShift\nShift key\n\n\nCtrlCtrl\nControl key\n\n\nCommandCommand\nCommand key\n(Mac only)\n\n\nAltAlt\nAlt key\n\n\nOptionOption\nOption key\n(Mac only)\n\n\nEscEsc\nEscape key\n\n\nTabTab\nTab key\n\n\nEnterEnter\nEnter key\n\n\n\n\nFor Quarto document elements\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nRender Quarto documents\n\n\n\nAdd a code block to a Quarto document\n\n\n\n\n\nFor R code\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nTo invoke code completion when typing R code\n\n\n\nRun current line or selection in the Console\n\n\n\nTo comment or uncomment a line or selection so that it is or is not run as R code\n\n\n\nTo insert the &lt;- operator to assign code output to a variable\n\n\n\nTo insert a |&gt; operator to pipe the output of one operation to the input of the next\n\n\n\nTo reformat R code so that indentation is more legible"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#footnotes",
+    "href": "posts/cool-stuff-lab-00/index.html#footnotes",
+    "title": "Cool stuff: Lab 00",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNote that a code block that has the language, markdown in this case, without curly braces {} means to show the code highlighting but not to execute the code. In some ways it is equivalent to #| eval: false.↩︎"
+  },
+  {
+    "objectID": "posts/eulc5/index.html",
+    "href": "posts/eulc5/index.html",
+    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "section": "",
+    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
+  },
+  {
+    "objectID": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
+    "href": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
+    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "section": "",
+    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
+  },
+  {
     "objectID": "posts/mac-m1-chip-workaround/index.html",
     "href": "posts/mac-m1-chip-workaround/index.html",
     "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
@@ -28,25 +70,11 @@
     "text": "Congratulations!\n\nYou have successfully created a container from the rocker/rstudio image and configured it to work much like the francojc/lin-380 image (we have some other R packages we will install as we need them).\nYou can now use this container for your LIN 380 assignments!"
   },
   {
-    "objectID": "posts/eulc5/index.html",
-    "href": "posts/eulc5/index.html",
-    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": " Guides",
     "section": "",
-    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
-  },
-  {
-    "objectID": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
-    "href": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
-    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
-    "section": "",
-    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Hello, World!",
-    "section": "",
-    "text": "This is the first post!"
+    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "guides/get-up-with-git.html",
@@ -77,53 +105,25 @@
     "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html",
-    "href": "guides/managing-docker-rstudio.html",
-    "title": "Managing Docker and RStudio Server",
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
     "section": "",
-    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
-  },
-  {
-    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Stop Docker container and RStudio Server",
-    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
-  },
-  {
-    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Restart Docker container and RStudio Server",
-    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": " News",
-    "section": "",
-    "text": "Cool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "guides.html",
-    "href": "guides.html",
-    "title": " Guides",
-    "section": "",
-    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": " Syllabus",
     "section": "",
-    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments: &lt;a href=“https://cal.com/francojc/meeting” target=“_blank”&gt;"
+    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
   },
   {
     "objectID": "index.html#instructor",
     "href": "index.html#instructor",
     "title": " Syllabus",
     "section": "",
-    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments: &lt;a href=“https://cal.com/francojc/meeting” target=“_blank”&gt;"
+    "text": "Name: Dr. Jerid Francom\nPronouns: he/him/his\nEmail: francojc@wfu.edu\nOffice: Greene Hall 550\nAppointments:"
   },
   {
     "objectID": "index.html#course",
@@ -161,6 +161,20 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nReading, inspecting, and writing data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nDescriptive assessment of datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding a research project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nCollecting and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nOrganizing and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nTransforming and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n💧\n18\nMar 22\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": " News",
+    "section": "",
+    "text": "Cool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "guides/getting-started.html",
     "href": "guides/getting-started.html",
     "title": "Getting started",
@@ -189,39 +203,25 @@
     "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": " Slides",
+    "objectID": "guides/managing-docker-rstudio.html",
+    "href": "guides/managing-docker-rstudio.html",
+    "title": "Managing Docker and RStudio Server",
     "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
   },
   {
-    "objectID": "posts/cool-stuff-lab-00/index.html",
-    "href": "posts/cool-stuff-lab-00/index.html",
-    "title": "Cool stuff: Lab 00",
-    "section": "",
-    "text": "I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.\nI’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here."
+    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Stop Docker container and RStudio Server",
+    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
   },
   {
-    "objectID": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
-    "href": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
-    "title": "Cool stuff: Lab 00",
-    "section": "Changing Quarto document themes",
-    "text": "Changing Quarto document themes\nQuarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.\n---\ntitle: \"My Document\"\nformat:\n  html:\n    theme: cerulean\n---\n\n\n\nThemes are available for both HTML and PDF output, but they are not the same. Here you can find a list of HTML themes.\nFor PDF output, you need to specify the documentclass: in the front matter.\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    documentclass: report\n---\n\n\n\nThe options are more limited for PDF output given the nature of the output but you can read more here.\n\nPDF output gotcha\nWhen Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.\nOne of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like `verbatim text` is rendered as verbatim text. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.\nThe first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.\nSay we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: ![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html).\nIn a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block1.\n```markdown\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\n```\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\nIn many cases this will be enough to solve side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header:\n      - text: |\n          \\usepackage{fvextra}\n          \\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\\\\{\\},breaklines,breaknonspaceingroup,breakanywhere}\n---\nThis is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.\nIf more LaTeX customization is needed, you are best to create a new LaTeX document, say header.tex, and add the LaTeX code to that file. Then you can add the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header: header.tex\n---"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
-    "href": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
-    "title": "Cool stuff: Lab 00",
-    "section": "Keyboard shortcuts in RStudio",
-    "text": "Keyboard shortcuts in RStudio\nRStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them here.\nFor starters, here are the ones I use the most to work with Quarto and R:\n\n\n\nSymbols used in keyboard shortcuts\n\n\n\n\n\n\nSymbol\nKey\n\n\n\n\nShiftShift\nShift key\n\n\nCtrlCtrl\nControl key\n\n\nCommandCommand\nCommand key\n(Mac only)\n\n\nAltAlt\nAlt key\n\n\nOptionOption\nOption key\n(Mac only)\n\n\nEscEsc\nEscape key\n\n\nTabTab\nTab key\n\n\nEnterEnter\nEnter key\n\n\n\n\nFor Quarto document elements\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nRender Quarto documents\n\n\n\nAdd a code block to a Quarto document\n\n\n\n\n\nFor R code\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nTo invoke code completion when typing R code\n\n\n\nRun current line or selection in the Console\n\n\n\nTo comment or uncomment a line or selection so that it is or is not run as R code\n\n\n\nTo insert the &lt;- operator to assign code output to a variable\n\n\n\nTo insert a |&gt; operator to pipe the output of one operation to the input of the next\n\n\n\nTo reformat R code so that indentation is more legible"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-00/index.html#footnotes",
-    "href": "posts/cool-stuff-lab-00/index.html#footnotes",
-    "title": "Cool stuff: Lab 00",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nNote that a code block that has the language, markdown in this case, without curly braces {} means to show the code highlighting but not to execute the code. In some ways it is equivalent to #| eval: false.↩︎"
+    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Restart Docker container and RStudio Server",
+    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
   },
   {
     "objectID": "posts/first-day-hiccups/index.html",
@@ -252,10 +252,10 @@
     "text": "3. GitHub account\n\nCreate a GitHub account\n\n\n\n\n\nSave your GitHub username and password somewhere safe. You will need it to interact with GitHub."
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Hello, World!",
     "section": "",
-    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nReading, inspecting, and writing data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nDescriptive assessment of datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding a research project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nCollecting and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nOrganizing and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nTransforming and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n💧\n18\nMar 22\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
+    "text": "This is the first post!"
   }
 ]
