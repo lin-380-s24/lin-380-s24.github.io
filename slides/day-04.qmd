@@ -291,6 +291,20 @@ Remember you can use the [Recipe 01](https://qtalr.github.io/qtalrkit/articles/r
 
 ## Looking ahead
 
+:::: {.columns}
+::: {.column width="60%"}
+Current tasks
+
 1. Lab 01: Academic writing with Quarto
 2. Project step 1: Interest statement
 3. Self-assessment 1
+:::
+
+::: {.column width="40%"}
+Next week
+
+1. Reading: [Data](https://qtalr.github.io/book/understanding-data.html)
+   - Annotate with Hypothes.is
+2. Lessons: Objects, Packages and functions
+:::
+::::
