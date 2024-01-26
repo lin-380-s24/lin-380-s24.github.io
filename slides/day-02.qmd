@@ -9,9 +9,9 @@ categories: [quarto, r, recipes, github, rstudio]
 
 - Literate Programming
 - Quarto
-- Quarto + Markdown
-- Quarto + R
 - Lab 00: Writing with code
+
+# Literate Programming
 
 ## Literate Programming
 
@@ -21,6 +21,8 @@ Literate programming is an approach to programming in which code, documentation,
 - Encourages writing code that is easy to read and understand
 - Includes more explicit documentation than traditional code comments
 - Facilitates reproducible research
+
+# Quarto
 
 ## Quarto
 
@@ -106,10 +108,9 @@ The code here generates the plot in @fig-example-code-show.
 ::::
 
 
+# Lab 00: Writing with code
 
-
-
-## Lab 00: Writing with code
+## Setup
 
 In [lab 00](https://github.com/lin-380-s24/lab-00), you will create a basic Quarto document and explore some of the features of Quarto.
 
@@ -129,6 +130,8 @@ See [Get up to speed with Git and GitHub](../guides/get-up-with-git.html)
 ### Complete the lab
 
 - Follow the instructions in the README.md file
+:::
 
+::: {.aside}
 Remember you can use the [Recipe 00](https://qtalr.github.io/qtalrkit/articles/recipe-0.html) as a reference, or even other documentation on the [Quarto website](https://quarto.org/).
 :::

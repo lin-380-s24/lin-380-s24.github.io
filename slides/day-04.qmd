@@ -7,14 +7,11 @@ categories: [quarto, front-matter, figures, tables, citations, tables-of-content
 
 ## Overview
 
-- Review components of a Quarto document
-- Review academic writing features:
-  - Numbered sections
-  - Tables of contents
-  - Cross-referencing tables and figures
-  - In-line citations and references
+- Quarto review
+- Academic writing features
+- Lab 01: Academic writing with Quarto
 
-# Quarto
+# Quarto review
 
 Quarto documents have two main parts: front matter and content.
 
@@ -247,10 +244,47 @@ There are various ways to do in-line citations. Here are two:
 }
 ```
 
+## Find articles and BibTeX references
+
+:::: {.columns}
+::: {.column width="60%"}
+Search engines
+
+- [Linguistics and Language Behavior Abstracts (LLBA) interface](http://zsr.wfu.edu/databases/purl/28783) (WFU only)
+- [Google Scholar](https://scholar.google.com)
+:::
+
+::: {.column width="40%"}
+BibTeX entries
+
+Some engines and publishers provide BibTeX entries for articles. Others do not.
+
+If not, find the DOI and use [doi2bib](https://www.doi2bib.org/) to generate one.
+:::
+::::
+
+## Get BibTeX entries
+
+Here are some common examples.
+
+![](images/get-bibtex-entries.gif)
 
 # Lab 01: Academic writing with Quarto
 
 ## Setup
 
-![](images/lab-01-startup.gif)
+:::: {.columns}
+::: {.column width="40%"}
+- Clone the [Lab 01 repository](https://github.com/lin-380-s24/lab-01) from GitHub
+- Open the project in RStudio
+- Follow the instructions in `README.md`
+:::
 
+::: {.column width="60%"}
+![](images/lab-01-startup.gif)
+:::
+::::
+
+::: {.aside}
+Remember you can use the [Recipe 01](https://qtalr.github.io/qtalrkit/articles/recipe-1.html) as a reference, or even other documentation on the [Quarto website](https://quarto.org/).
+:::

@@ -16,7 +16,7 @@ Name: {{< var instructor.name >}} \
 Pronouns: {{< var instructor.pronouns >}} \
 Email: {{< var instructor.email >}} \
 Office: {{< var instructor.office >}} \
-Appointments: <a href="{{< var instructor.appointment_url >}}" target="_blank">{{< fa calendar >}}</a>
+Appointments: <a href='{{< var instructor.appointment_url >}}' target="_blank">{{< fa calendar >}}</a>
 
 ## Course
 
