@@ -10,11 +10,13 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Writing with code</title>
+  <title>Quantitative Text Analysis - Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -397,8 +399,8 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Writing with code</h1>
-  <p class="subtitle">An introduction to Literate Programming with R and Quarto</p>
+  <h1 class="title">Data</h1>
+  <p class="subtitle">Understanding data and information</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -408,169 +410,530 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Jan 19, 2024</p>
+  <p class="date">Jan 31, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Up for today:</p>
 <ul>
-<li>Literate Programming</li>
-<li>Quarto</li>
-<li>Lab 00: Writing with code</li>
+<li>Understanding data</li>
+<li>From data to information</li>
+<li>Documenting the process</li>
 </ul>
+<p>Looking ahead:</p>
+<ul>
+<li>Recipe and lab 02</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/data-information-abstract.png"></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Quick reminders</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><i class="fa-solid fa-bell" aria-label="bell"></i> <a href="https://lin-380-s24.github.io/schedule.html">Course schedule</a></p>
+<p><i class="fa-solid fa-note-sticky" aria-label="note-sticky"></i> <a href="https://qtalr.github.io/book/understanding-data.html">Lessons</a></p>
+<ul>
+<li>Intro to Swirl</li>
+<li>Workspace</li>
+<li>Vectors</li>
+<li>Objects</li>
+<li>Packages and functions</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> Keeping up with this work is in your best interest.<br>
+</p>
+<p><i class="fa-solid fa-hand-point-up" aria-label="hand-point-up"></i> Don’t forget the lessons! They are key to making sure you will be ready for upcoming <i class="fa-brands fa-r-project" aria-label="r-project"></i> programming portions of labs!</p>
+</div>
+</div>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Literate Programming</h1>
-
+<h1>Understanding data</h1>
+<p>The raw material of data science</p>
 </section>
 <section class="slide level2">
-<h2>Literate Programming</h2>
-<p>Literate programming is an approach to programming in which code, documentation, and results are all interwoven into a single document.</p>
+<h2>Populations and samples</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Population</strong></p>
+<p>An idealized set of objects or events that share a common characteristic or belong to a specific category.</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Sample</strong></p>
+<p>A finite set of objects or events from drawn from a defined population.</p>
+</div>
+</div>
+
+<img data-src="images/population-sample.drawio.png" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Sampling</h2>
+<p><strong>Sampling frame</strong> Defining the population of interest.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Representativeness</strong></p>
+<p>The degree to which a sample reflects the characteristics of the population from which it is drawn.</p>
 <ul>
-<li>Encourages stating the problem and solution in plain language</li>
-<li>Encourages writing code that is easy to read and understand</li>
-<li>Includes more explicit documentation than traditional code comments</li>
-<li>Facilitates reproducible research</li>
+<li>All samples are biased to some extent.</li>
+<li>Some samples are more biased than others.</li>
 </ul>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Quarto</h1>
-
+</div><div class="column" style="width:40%;">
+<p><em>Minimize</em> bias</p>
+<ul>
+<li>Size</li>
+<li>Randomization</li>
+<li>Stratification</li>
+<li>Balance</li>
+</ul>
+</div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Quarto</h2>
-<p><a href="https://quarto.org/docs/gallery/">Quarto</a> is a document generation system that supports literate programming. It is designed to support a wide range of document types (HTML, PDF, Word, etc.) and programming languages (R, Python, Julia, etc.).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="co">---</span></span>
-<span id="cb1-2"><a></a><span class="an">title:</span><span class="co"> "My First Quarto Document"</span></span>
-<span id="cb1-3"><a></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a></a><span class="co">---</span></span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="fu">## Intro to Quarto</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a>This is a code block which simply prints a message.</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="in">```{r}</span></span>
-<span id="cb1-11"><a></a><span class="in">#| label: example-code</span></span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="in">print("My name is Quarto")</span></span>
-<span id="cb1-14"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-<h2>Quarto + Markdown</h2>
-<p>In Quarto, prose is written in <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a>. Markdown is a lightweight markup language that is easy to read and write.</p>
+<h2>Corpora</h2>
+<div style="font-size: 0.8em;">
 <table>
 <thead>
 <tr class="header">
-<th>Markdown</th>
-<th>HTML</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Sampling scope</th>
+<th style="text-align: left;">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code># Heading</code></td>
-<td>Heading</td>
+<td style="text-align: left;">Reference</td>
+<td style="text-align: left;">General characteristics of a language population</td>
+<td style="text-align: left;"><a href="https://anc.org/">ANC</a><a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></td>
 </tr>
 <tr class="even">
-<td><code>**bold**</code></td>
-<td><strong>bold</strong></td>
+<td style="text-align: left;">Specialized</td>
+<td style="text-align: left;">Specific populations, <em>e.g.</em> spoken language, academic writing, <em>etc.</em></td>
+<td style="text-align: left;"><a href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus">SBCSAE</a><a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a></td>
 </tr>
 <tr class="odd">
-<td><code>footnote^[Footnote info...]</code></td>
-<td>footnote<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></td>
+<td style="text-align: left;">Parallel</td>
+<td style="text-align: left;">Directly comparable texts in different languages (<em>i.e.</em> translations)</td>
+<td style="text-align: left;"><a href="https://www.statmt.org/europarl/">Europarl</a><a href="#/footnotes" class="footnote-ref" id="fnref3" role="doc-noteref" data-footnote-href="#/fn3" onclick=""><sup>3</sup></a></td>
 </tr>
 <tr class="even">
-<td><code>- bullets</code></td>
-<td>- bullets</td>
-</tr>
-<tr class="odd">
-<td><code>[links](https://quarto.org)</code></td>
-<td><a href="https://quarto.org">links</a></td>
+<td style="text-align: left;">Comparable</td>
+<td style="text-align: left;">Indirectly comparable texts in different languages or language varieties (<em>i.e.</em> similar sampling frames)</td>
+<td style="text-align: left;"><a href="https://varieng.helsinki.fi/CoRD/corpora/BROWN/">Brown and LOB</a><a href="#/footnotes" class="footnote-ref" id="fnref4" role="doc-noteref" data-footnote-href="#/fn4" onclick=""><sup>4</sup></a></td>
 </tr>
 </tbody>
 </table>
-<aside></aside></section>
+</div>
+
+<aside><div>
+<p>Visit <a href="https://qtalr.github.io/qtalrkit/articles/guide-4.html">Identifying data and data sources</a> for more information on available corpora.</p>
+</div></aside></section>
 <section class="slide level2">
-<h2>Quarto + R</h2>
-<p><a href="https://quarto.org/docs/computations/r.html#code-blocks">Code blocks</a> in Quarto introduce sections where code can be executed.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a></a><span class="in">#| label: fig-example-plot</span></span>
-<span id="cb2-3"><a></a><span class="in">#| fig-cap: A simple plot</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="in">ggplot(</span></span>
-<span id="cb2-6"><a></a><span class="in">  data,</span></span>
-<span id="cb2-7"><a></a><span class="in">  aes(x = cat, y = passive)</span></span>
-<span id="cb2-8"><a></a><span class="in">) +</span></span>
-<span id="cb2-9"><a></a><span class="in">  geom_col() +</span></span>
-<span id="cb2-10"><a></a><span class="in">  labs(</span></span>
-<span id="cb2-11"><a></a><span class="in">    x = "Categories",</span></span>
-<span id="cb2-12"><a></a><span class="in">    y = "Passives (count)"</span></span>
-<span id="cb2-13"><a></a><span class="in">  )</span></span>
-<span id="cb2-14"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column r-stretch" style="width:40%;">
+<h2>Corpus formats</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Unstructured</a></li><li><a href="#tabset-1-2">Semi-structured</a></li><li><a href="#tabset-1-3">Structured</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>Plain text</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plain number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>The quick brown fox jumps over the lazy dog.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2">
+<p>XML</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a></a>&lt;<span class="kw">text</span><span class="ot"> id</span> <span class="ot">=</span> <span class="st">"1"</span>&gt;</span>
+<span id="cb2-2"><a></a>  &lt;<span class="kw">sentence</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;</span>
+<span id="cb2-3"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;The&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-4"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span>&gt;quick&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-5"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span>&gt;brown&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-6"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span>&gt;fox&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-7"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span>&gt;jumps&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-8"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"6"</span>&gt;over&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-9"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"7"</span>&gt;the&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-10"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"8"</span>&gt;lazy&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-11"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"9"</span>&gt;dog&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-12"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"10"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb2-13"><a></a>  &lt;/<span class="kw">sentence</span>&gt;</span>
+<span id="cb2-14"><a></a>&lt;/<span class="kw">text</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-3">
+<p>R data frame</p>
 <div class="cell">
-<div class="cell-output-display">
-<div id="fig-example-code-show" class="quarto-figure quarto-figure-center quarto-float">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-example-code-show-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="day-02_files/figure-revealjs/fig-example-code-show-1.png" width="960">
+<div class="cell-output cell-output-stdout">
+<pre><code>   text_id sentence_id word_id  word
+1        1           1       1   The
+2        1           1       2 quick
+3        1           1       3 brown
+4        1           1       4   fox
+5        1           1       5 jumps
+6        1           1       6  over
+7        1           1       7   the
+8        1           1       8  lazy
+9        1           1       9   dog
+10       1           1      10     .</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-code-show-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A simple plot
-</figcaption>
-</figure>
 </div>
 </div>
 </div>
-</div><p>The code here generates the plot in <a href="#/fig-example-code-show" class="quarto-xref">Figure&nbsp;1</a>.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Lab 00: Writing with code</h1>
+<h1>From data to information</h1>
 
 </section>
 <section class="slide level2">
-<h2>Setup</h2>
-<p>In <a href="https://github.com/lin-380-s24/lab-00">lab 00</a>, you will create a basic Quarto document and explore some of the features of Quarto.</p>
+<h2>Tidy data</h2>
+<p>Physical structure <img data-src="images/ud-tidy.drawio.png"></p>
+</section>
+<section class="slide level2">
+<h2>Tidy data</h2>
+<p>Semantic structure</p>
+<div style="font-size: 0.8em;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a></a>   title             date modality domain          ref_num word       lemma      pos</span>
+<span id="cb4-2"><a></a>   &lt;<span class="kw">chr</span>&gt;            &lt;<span class="kw">dbl</span>&gt; &lt;<span class="kw">fct</span>&gt;    &lt;<span class="kw">chr</span>&gt;             &lt;<span class="kw">int</span>&gt; &lt;<span class="kw">chr</span>&gt;      &lt;<span class="kw">chr</span>&gt;      &lt;<span class="kw">chr</span>&gt;</span>
+<span id="cb4-3"><a></a> 1 Hotel California  2008 Writing  General Fiction       1 Sound      sound      NNP</span>
+<span id="cb4-4"><a></a> 2 Hotel California  2008 Writing  General Fiction       2 is         be         VBZ</span>
+<span id="cb4-5"><a></a> 3 Hotel California  2008 Writing  General Fiction       3 a          a          DT</span>
+<span id="cb4-6"><a></a> 4 Hotel California  2008 Writing  General Fiction       4 vibration  vibration  NN</span>
+<span id="cb4-7"><a></a> 5 Hotel California  2008 Writing  General Fiction       5 .          .          .</span>
+<span id="cb4-8"><a></a> 6 Hotel California  2008 Writing  General Fiction       6 Sound      sound      NNP</span>
+<span id="cb4-9"><a></a> 7 Hotel California  2008 Writing  General Fiction       7 travels    travel     VBZ</span>
+<span id="cb4-10"><a></a> 8 Hotel California  2008 Writing  General Fiction       8 as         as         IN</span>
+<span id="cb4-11"><a></a> 9 Hotel California  2008 Writing  General Fiction       9 a          a          DT</span>
+<span id="cb4-12"><a></a>10 Hotel California  2008 Writing  General Fiction      10 mechanical mechanical JJ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Levels of measurement</li>
+<li>Unit of observation</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Levels of measurement</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a></a>essay_id part_id sex    group tokens types   ttr prop_l2</span>
+<span id="cb5-2"><a></a>E1       L01     female T2        79    46 0.582   0.987</span>
+<span id="cb5-3"><a></a>E2       L02     female T1        18    18 1       0.667</span>
+<span id="cb5-4"><a></a>E7       L07     male   T3        98    60 0.612   1</span>
+<span id="cb5-5"><a></a>E3       L02     female T3       101    53 0.525   1</span>
+<span id="cb5-6"><a></a>E4       L05     female T1        20    17 0.85    0.9</span>
+<span id="cb5-7"><a></a>E8       L07     male   T4       134    84 0.627   0.978</span>
+<span id="cb5-8"><a></a>E5       L05     female T3       158    80 0.506   0.987</span>
+<span id="cb5-9"><a></a>E6       L05     female T4       184    94 0.511   0.995</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+What are the levels of measurement?</p>
+<div style="font-size: 0.6em;">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Level</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Mutually exclusive categories</td>
+<td style="text-align: left;">What?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ordinal</td>
+<td style="text-align: left;">Ordered categorical</td>
+<td style="text-align: left;">What order?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Numeric</td>
+<td style="text-align: left;">Ordinal intervals</td>
+<td style="text-align: left;">How much/ many?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide level2">
+<h2>Unit of observation</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a></a>essay_id part_id sex    group tokens types   ttr prop_l2</span>
+<span id="cb6-2"><a></a>E1       L01     female T2        79    46 0.582   0.987</span>
+<span id="cb6-3"><a></a>E2       L02     female T1        18    18 1       0.667</span>
+<span id="cb6-4"><a></a>E7       L07     male   T3        98    60 0.612   1</span>
+<span id="cb6-5"><a></a>E3       L02     female T3       101    53 0.525   1</span>
+<span id="cb6-6"><a></a>E4       L05     female T1        20    17 0.85    0.9</span>
+<span id="cb6-7"><a></a>E8       L07     male   T4       134    84 0.627   0.978</span>
+<span id="cb6-8"><a></a>E5       L05     female T3       158    80 0.506   0.987</span>
+<span id="cb6-9"><a></a>E6       L05     female T4       184    94 0.511   0.995</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+What is the unit of observation?</p>
+</section>
+<section class="slide level2">
+<h2>Transformation</h2>
+<p>Reshaping</p>
+
+<img data-src="images/ud-transformations.drawio.png" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Types: preparation</h2>
+<p>Clean, standardize, and derive key attributes</p>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Clone the lab</a></li><li><a href="#tabset-1-2">Complete the lab</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Normalization</a></li><li><a href="#tabset-2-2">Tokenization</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
+<div id="tabset-2-1">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Case</td>
+<td style="text-align: left;">Lower, UPPER, Title Case</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Remove</td>
+<td style="text-align: left;">Punctuation, special characters</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Replace</td>
+<td style="text-align: left;">abbreviations, contractions</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-2-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Any linguistic unit that can be operationalized.</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  text_id word                 
+    &lt;dbl&gt; &lt;chr&gt;                
+1       1 tokenization enables 
+2       1 enables the          
+3       1 the quantitative     
+4       1 quantitative analysis
+5       1 analysis of          
+6       1 of text              </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Types: enrichment</h2>
+<p>Augment the dataset with additional information</p>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Recoding</a></li><li><a href="#tabset-3-2">Generation</a></li><li><a href="#tabset-3-3">Integration</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Copy the clone URL for the lab 00 repository</li>
-<li>Open RStudio (with Docker Desktop running)</li>
-<li>Create a new project from version control</li>
-<li>Paste the clone URL into the repository URL field</li>
+<li>Decrease levels</li>
+<li>Increase levels</li>
 </ul>
-
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 3
+   word       pos   cat        
+   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;      
+ 1 Recoding   NN    Noun       
+ 2 transforms VBZ   Verb       
+ 3 values     NNS   Noun       
+ 4 to         TO    Preposition
+ 5 new        JJ    Adjective  
+ 6 values     NNS   Noun       
+ 7 more       RBR   Adverb     
+ 8 suitable   JJ    Adjective  
+ 9 for        IN    Preposition
+10 analysis   NN    Noun       </code></pre>
 </div>
-<div id="tabset-1-2">
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 6
+   sent_id token_id token    xpos  features                   syntactic_relation
+     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;             
+ 1       1 1        Wow      UH    &lt;NA&gt;                       discourse         
+ 2       1 2        ,        ,     &lt;NA&gt;                       punct             
+ 3       1 3        this     DT    Number=Sing|PronType=Dem   nsubj             
+ 4       1 4        is       VBZ   Mood=Ind|Number=Sing|Pers… cop               
+ 5       1 5        a        DT    Definite=Ind|PronType=Art  det               
+ 6       1 6        great    JJ    Degree=Pos                 amod              
+ 7       1 7        tool     NN    Number=Sing                root              
+ 8       1 8        for      IN    &lt;NA&gt;                       case              
+ 9       1 9        text     NN    Number=Sing                compound          
+10       1 10       analysis NN    Number=Sing                nmod              
+11       1 11       !        .     &lt;NA&gt;                       punct             </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Concatenate</p>
+<p><img data-src="images/integration-concat-visual.drawio.png"></p>
+</div><div class="column" style="width:50%;">
+<p>Join</p>
+<p><img data-src="images/integration-join-visual.drawio.png"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Documenting the process</h1>
+
+</section>
+<section class="slide level2 smaller">
+<h2>Data origin</h2>
+<div id="tbl-do" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Data origin template
+</figcaption>
+<div aria-describedby="tbl-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 35%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Information</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Resource name</td>
+<td>Name of the corpus resource.</td>
+</tr>
+<tr class="even">
+<td>Data source</td>
+<td>URL, DOI, <em>etc.</em></td>
+</tr>
+<tr class="odd">
+<td>Data sampling frame</td>
+<td>Language, language variety, modality, genre, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Data collection date(s)</td>
+<td>The date or date range of the data collection.</td>
+</tr>
+<tr class="odd">
+<td>Data format</td>
+<td>Plain text, XML, HTML, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Data schema</td>
+<td>Relationships between data elements: files, folders, <em>etc.</em></td>
+</tr>
+<tr class="odd">
+<td>License</td>
+<td>CC BY, CC BY-NC, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Attribution</td>
+<td>Citation information for the data source.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Data dictionary</h2>
+<div id="tbl-dd" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Data dictionary template
+</figcaption>
+<div aria-describedby="tbl-dd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 35%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Information</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variable name</td>
+<td>The name of the variable as it appears in the dataset, <em>e.g.</em> <code>participant_id</code>, <code>modality</code>, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Readable variable name</td>
+<td>A human-readable name for the variable, <em>e.g.</em> ‘Participant ID’, ‘Language modality’, <em>etc.</em></td>
+</tr>
+<tr class="odd">
+<td>Variable type</td>
+<td>The type of information that the variable contains, <em>e.g.</em> ‘categorical’, ‘ordinal’, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Variable description</td>
+<td>A prose description expanding on the readable name and can include measurement units, allowed values, <em>etc.</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Looking ahead</h1>
+
+</section>
+<section class="slide level2">
+<h2>Recipe and lab</h2>
 <ul>
-<li>Follow the instructions in the README.md file</li>
+<li>Recipe 02: <a href="https://qtalr.github.io/qtalrkit/articles/recipe-2.html">Reading, inspecting, and writing datasets</a></li>
+<li>Lab 02: <a href="https://github.com/qtalr/lab-02">Dive into datasets</a></li>
 </ul>
-</div>
-</div>
-</div>
+<!--
+Key points to address:
 
+- Data literacy:
+  - How populations, samples, and corpora align with research questions
+  - Nuances between data and information
+- Research skills:
+  - Understand the process of organizing and transforming data
+  - Importance of documenting data for design and implementation of research
+- Programming skills:
+  - Making connections with R-specific resources and tools (Lessons and Recipes)
+-->
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Writing with code | Quantitative Text Analysis | Wake Forest University</p>
+<p>Data | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
-<aside><div>
-<p>See <a href="../guides/get-up-with-git.html">Get up to speed with Git and GitHub</a></p>
-</div><div>
-<p>Remember you can use the <a href="https://qtalr.github.io/qtalrkit/articles/recipe-0.html">Recipe 00</a> as a reference, or even other documentation on the <a href="https://quarto.org/">Quarto website</a>.</p>
-</div></aside></section></section>
+</section></section>
 <section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Footnote info…</p></li>
+<li id="fn1"><p>The OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.</p></li>
+<li id="fn2"><p>The Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.</p></li>
+<li id="fn3"><p>The Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.</p></li>
+<li id="fn4"><p>The Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples.</p></li>
 </ol>
 </section>
     </div>
