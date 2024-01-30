@@ -1,0 +1,416 @@
+---
+title: "Data"
+subtitle: "Understanding data and information"
+date: "2024-01-31"
+categories: [sampling, corpora, tidy-data, data-structures, data-types]
+---
+
+## Overview
+
+:::: {.columns}
+::: {.column width="60%"}
+Up for today:
+
+- Understanding data
+- From data to information
+- Documenting the process
+
+Looking ahead:
+
+- Recipe and lab 02
+:::
+
+::: {.column width="40%"}
+![](images/data-information-abstract.png)
+:::
+::::
+
+## Quick reminders
+
+:::: {.columns}
+::: {.column width="50%"}
+{{< fa bell >}} [Course schedule](https://lin-380-s24.github.io/schedule.html)
+
+{{< fa note-sticky >}} [Lessons](https://qtalr.github.io/book/understanding-data.html)
+
+- Intro to Swirl
+- Workspace
+- Vectors
+- Objects
+- Packages and functions
+:::
+
+::: {.column width="50%"}
+{{< fa triangle-exclamation >}} Keeping up with this work is in your best interest.
+\
+
+{{< fa hand-point-up >}} Don't forget the lessons! They are key to making sure you will be ready for upcoming {{< fa brands r-project >}} programming portions of labs!
+:::
+::::
+
+# Understanding data
+The raw material of data science
+
+## Populations and samples
+
+:::: {.columns}
+::: {.column width="60%"}
+**Population**
+
+An idealized set of objects or events that share a common characteristic or belong to a specific category.
+:::
+
+::: {.column width="40%"}
+**Sample**
+
+A finite set of objects or events from drawn from a defined population.
+:::
+::::
+
+![](images/population-sample.drawio.png)
+
+## Sampling
+
+**Sampling frame** Defining the population of interest.
+
+:::: {.columns}
+::: {.column width="60%"}
+**Representativeness**
+
+The degree to which a sample reflects the characteristics of the population from which it is drawn.
+
+- All samples are biased to some extent.
+- Some samples are more biased than others.
+:::
+
+::: {.column width="40%"}
+*Minimize* bias
+
+- Size
+- Randomization
+- Stratification
+- Balance
+:::
+::::
+
+
+## Corpora
+
+::: {style="font-size: 0.8em;"}
+| Type | Sampling scope | Example |
+|:-----|:----------------| :-------|
+| Reference | General characteristics of a language population | [ANC](https://anc.org/)^[The OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.] |
+| Specialized | Specific populations, *e.g.* spoken language, academic writing, *etc.* | [SBCSAE](https://www.linguistics.ucsb.edu/research/santa-barbara-corpus)^[The Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.] |
+| Parallel | Directly comparable texts in different languages (*i.e.* translations) | [Europarl](https://www.statmt.org/europarl/)^[The Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.] |
+| Comparable | Indirectly comparable texts in different languages or language varieties (*i.e.* similar sampling frames) | [Brown and LOB](https://varieng.helsinki.fi/CoRD/corpora/BROWN/)^[The Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples.] |
+:::
+
+::: {.aside}
+Visit [Identifying data and data sources](https://qtalr.github.io/qtalrkit/articles/guide-4.html) for more information on available corpora.
+:::
+
+## Corpus formats
+
+::: {.panel-tabset}
+
+### Unstructured
+
+Plain text
+
+```plain
+The quick brown fox jumps over the lazy dog.
+```
+
+### Semi-structured
+
+XML
+
+```xml
+<text id = "1">
+  <sentence id="1">
+    <word id="1">The</word>
+    <word id="2">quick</word>
+    <word id="3">brown</word>
+    <word id="4">fox</word>
+    <word id="5">jumps</word>
+    <word id="6">over</word>
+    <word id="7">the</word>
+    <word id="8">lazy</word>
+    <word id="9">dog</word>
+    <word id="10">.</word>
+  </sentence>
+</text>
+```
+
+### Structured
+
+R data frame
+```{r}
+#| echo: false
+data.frame(
+  text_id = 1,
+  sentence_id = 1,
+  word_id = 1:10,
+  word = c("The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", ".")
+)
+```
+:::
+
+# From data to information
+
+## Tidy data
+
+Physical structure
+![](images/ud-tidy.drawio.png)
+
+## Tidy data
+
+Semantic structure
+
+::: {style="font-size: 0.8em;"}
+```xml
+   title             date modality domain          ref_num word       lemma      pos
+   <chr>            <dbl> <fct>    <chr>             <int> <chr>      <chr>      <chr>
+ 1 Hotel California  2008 Writing  General Fiction       1 Sound      sound      NNP
+ 2 Hotel California  2008 Writing  General Fiction       2 is         be         VBZ
+ 3 Hotel California  2008 Writing  General Fiction       3 a          a          DT
+ 4 Hotel California  2008 Writing  General Fiction       4 vibration  vibration  NN
+ 5 Hotel California  2008 Writing  General Fiction       5 .          .          .
+ 6 Hotel California  2008 Writing  General Fiction       6 Sound      sound      NNP
+ 7 Hotel California  2008 Writing  General Fiction       7 travels    travel     VBZ
+ 8 Hotel California  2008 Writing  General Fiction       8 as         as         IN
+ 9 Hotel California  2008 Writing  General Fiction       9 a          a          DT
+10 Hotel California  2008 Writing  General Fiction      10 mechanical mechanical JJ
+```
+:::
+
+- Levels of measurement
+- Unit of observation
+
+## Levels of measurement
+
+```xml
+essay_id part_id sex    group tokens types   ttr prop_l2
+E1       L01     female T2        79    46 0.582   0.987
+E2       L02     female T1        18    18 1       0.667
+E7       L07     male   T3        98    60 0.612   1
+E3       L02     female T3       101    53 0.525   1
+E4       L05     female T1        20    17 0.85    0.9
+E8       L07     male   T4       134    84 0.627   0.978
+E5       L05     female T3       158    80 0.506   0.987
+E6       L05     female T4       184    94 0.511   0.995
+```
+\
+What are the levels of measurement?
+
+::: {style="font-size: 0.6em;"}
+| Level | Description | Question |
+|:------|:------------|:--------|
+| Categorical | Mutually exclusive categories | What? |
+| Ordinal | Ordered categorical | What order? |
+| Numeric | Ordinal intervals | How much/ many? |
+:::
+
+## Unit of observation
+
+```xml
+essay_id part_id sex    group tokens types   ttr prop_l2
+E1       L01     female T2        79    46 0.582   0.987
+E2       L02     female T1        18    18 1       0.667
+E7       L07     male   T3        98    60 0.612   1
+E3       L02     female T3       101    53 0.525   1
+E4       L05     female T1        20    17 0.85    0.9
+E8       L07     male   T4       134    84 0.627   0.978
+E5       L05     female T3       158    80 0.506   0.987
+E6       L05     female T4       184    94 0.511   0.995
+```
+\
+What is the unit of observation?
+
+
+## Transformation
+
+Reshaping
+
+![](images/ud-transformations.drawio.png)
+
+## Types: preparation
+
+Clean, standardize, and derive key attributes
+
+::: {.panel-tabset}
+
+### Normalization
+
+| Type | Example |
+|:-----|:--------|
+| Case | Lower, UPPER, Title Case |
+| Remove | Punctuation, special characters |
+| Replace | abbreviations, contractions |
+
+### Tokenization{style="font-size: 0.8em;"}
+
+:::: {.columns}
+::: {.column width="50%"}
+Any linguistic unit that can be operationalized.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+library(tidytext)
+library(dplyr)
+tibble(text_id = 1, text = "Tokenization enables the quantitative analysis of text!") |>
+  unnest_tokens(word, text, token = "ngrams", n = 2)
+```
+:::
+::::
+
+:::
+
+## Types: enrichment
+
+Augment the dataset with additional information
+
+::: {.panel-tabset}
+
+### Recoding
+
+
+:::: {.columns}
+::: {.column width="50%"}
+- Decrease levels
+- Increase levels
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+tibble(
+  word = c("Recoding", "transforms", "values", "to", "new", "values", "more", "suitable", "for", "analysis"),
+  pos = c("NN", "VBZ", "NNS", "TO", "JJ", "NNS", "RBR", "JJ", "IN", "NN"),
+  cat = c("Noun", "Verb", "Noun", "Preposition", "Adjective", "Noun", "Adverb", "Adjective", "Preposition", "Noun")
+)
+```
+:::
+::::
+
+### Generation
+
+```{r}
+#| echo: false
+load_model_udpipe <- function(model_lang) {
+  cleanNLP::cnlp_init_udpipe(model_lang) # to download the model, if not downloaded
+  base_path <- system.file("extdata", package = "cleanNLP") # get the base path
+  model_name <- # extract the model_name
+    base_path |> # extract the base path
+    dir() |>
+    stringr::str_subset(pattern = paste0("^", model_lang))
+
+  model <-
+    udpipe::udpipe_load_model(file = file.path(base_path, model_name, fsep = "/"))
+
+  return(model)
+}
+
+eng_model <- load_model_udpipe("english-ewt")
+
+anno_df <- tibble(
+  text_id = 1,
+  sent_id = 1,
+  sentence = "Wow, this is a great tool for text analysis!"
+)
+
+annotation <-
+  anno_df |>
+  dplyr::filter(text_id == "1" & sent_id == 1) |>
+  cleanNLP::cnlp_annotate(text_name = "sentence", doc_name = "text_id")
+
+text_annotation <-
+  left_join(annotation$document, annotation$token) |>
+  select(sent_id, token_id = tid, token, xpos, features = feats, syntactic_relation = relation)
+
+text_annotation
+```
+
+### Integration
+
+:::: {.columns}
+::: {.column width="50%"}
+Concatenate
+
+![](images/integration-concat-visual.drawio.png)
+:::
+
+::: {.column width="50%"}
+Join
+
+![](images/integration-join-visual.drawio.png)
+:::
+::::
+
+:::
+
+
+# Documenting the process
+
+## Data origin{.smaller}
+
++-------------------------+-------------------------------------------------------------+
+| Information             | Description                                                 |
++=========================+=============================================================+
+| Resource name           | Name of the corpus resource.                                |
++-------------------------+-------------------------------------------------------------+
+| Data source             | URL, DOI, *etc.*                                            |
++-------------------------+-------------------------------------------------------------+
+| Data sampling frame     | Language, language variety, modality, genre, *etc.*         |
++-------------------------+-------------------------------------------------------------+
+| Data collection date(s) | The date or date range of the data collection.              |
++-------------------------+-------------------------------------------------------------+
+| Data format             | Plain text, XML, HTML, *etc.*                               |
++-------------------------+-------------------------------------------------------------+
+| Data schema             | Relationships between data elements: files, folders, *etc.* |
++-------------------------+-------------------------------------------------------------+
+| License                 | CC BY, CC BY-NC, *etc.*                                     |
++-------------------------+-------------------------------------------------------------+
+| Attribution             | Citation information for the data source.                   |
++-------------------------+-------------------------------------------------------------+
+
+: Data origin template {#tbl-do tbl-colwidths="[35, 65]"}
+
+## Data dictionary{.smaller}
+
++------------------------+--------------------------------------------------------------------------------------------------------------+
+| Information            | Description                                                                                                  |
++========================+==============================================================================================================+
+| Variable name          | The name of the variable as it appears in the dataset, *e.g.* `participant_id`, `modality`, *etc.*           |
++------------------------+--------------------------------------------------------------------------------------------------------------+
+| Readable variable name | A human-readable name for the variable, *e.g.* 'Participant ID', 'Language modality', *etc.*                 |
++------------------------+--------------------------------------------------------------------------------------------------------------+
+| Variable type          | The type of information that the variable contains, *e.g.* 'categorical', 'ordinal', *etc.*                  |
++------------------------+--------------------------------------------------------------------------------------------------------------+
+| Variable description   | A prose description expanding on the readable name and can include measurement units, allowed values, *etc.* |
++------------------------+--------------------------------------------------------------------------------------------------------------+
+
+: Data dictionary template {#tbl-dd tbl-colwidths="[35, 65]"}
+
+# Looking ahead
+
+## Recipe and lab
+
+- Recipe 02: [Reading, inspecting, and writing datasets](https://qtalr.github.io/qtalrkit/articles/recipe-2.html)
+- Lab 02: [Dive into datasets](https://github.com/qtalr/lab-02)
+
+
+<!--
+Key points to address:
+
+- Data literacy:
+  - How populations, samples, and corpora align with research questions
+  - Nuances between data and information
+- Research skills:
+  - Understand the process of organizing and transforming data
+  - Importance of documenting data for design and implementation of research
+- Programming skills:
+  - Making connections with R-specific resources and tools (Lessons and Recipes)
+-->

@@ -4,7 +4,10 @@ format:
   revealjs:
     theme: [simple]
     logo: images/logo-sm.jpg
+    code-overflow: wrap
     preview-links: true
+    footnotes-hover: true
+    reference-location: document
     hash-type: number
     slide-number: true
     footer: "{{< meta title >}} | {{< var course.title >}} | {{< var course.institute >}}"
