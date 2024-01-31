@@ -13,7 +13,6 @@ I'll highlight a couple of things here, but I'd love to hear from you all about 
 
 Quarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.
 
-
 ```yaml
 ---
 title: "My Document"

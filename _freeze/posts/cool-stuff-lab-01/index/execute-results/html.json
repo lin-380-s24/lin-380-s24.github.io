@@ -1,0 +1,17 @@
+{
+  "hash": "f3e4154cea38c3de302672c5c3aa2130",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Cool stuff: Lab 01\"\ndate: 2024-01-30\n# date-modified: 2024-01-24\ncategories: [cool-stuff, quarto, citations]\n---\n\n\n\n## Quarto + other languages\n\nQuarto is a great tool for writing documents in which we combine prose (in Markdown) and R. But you should know that Quarto can also be used with other languages, such as Python, Julia, and Observable JavaScript. This is a great feature, as it allows you to use the best tool for the job, and to combine different languages in the same document!\n\n:::{#lst-r}\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- c(1, 2, 3)\ny <- c(4, 5, 6)\n\nx %*% y\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n     [,1]\n[1,]   32\n```\n\n\n:::\n:::\n\nR code\n:::\n\n:::{#lst-python}\n\n::: {.cell}\n\n```{.python .cell-code}\nimport numpy as np\n\nx = np.array([1, 2, 3])\ny = np.array([4, 5, 6])\n\nnp.dot(x, y)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n32\n```\n\n\n:::\n:::\n\nPython code\n:::\n\nAt the moment you have enough on your hands with Quarto + R. But it's good to know that you can expand your horizons in the future!\n\n## Adding figures\n\nI know a lot of you are really excited to get to the point where you can add figures to your documents. We cover figures head on soon!\n\nFor now, I want to introduce you to the `ggplot2` package, which is a great tool for creating figures in R. In @fig-brown-lob I don't expect you to understand this code, but if you are interested and have some time, you can take a look at the code and see if you can understand what it does.\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| label: fig-brown-lob\n#| fig-cap: \"Passive voice in the Brown (AmE) and LOB (BrE) corpora\"\n\n# Load packages\nlibrary(ggplot2)      # for plotting\nlibrary(dplyr)        # for data manipulation\nlibrary(corpora)      # for the BrownLOBPassives dataset\n\n# Get the dataset\ndata <- BrownLOBPassives |> as_tibble()\n\n# Create boxplot\ndata |>\n  ggplot(aes(\n    x = genre,\n    y = passive,\n    color = lang\n    )) +\n  geom_boxplot() +\n  labs(\n       x = \"Genre\",\n       y = \"Passive voice (count)\",\n       color = \"Language\"\n       ) +\n    coord_flip()\n```\n````\n\n::: {.cell-output-display}\n![Passive voice in the Brown (AmE) and LOB (BrE) corpora](index_files/figure-html/fig-brown-lob-1.png){#fig-brown-lob width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
