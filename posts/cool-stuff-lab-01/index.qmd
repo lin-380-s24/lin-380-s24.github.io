@@ -1,11 +1,72 @@
 ---
 title: "Cool stuff: Lab 01"
 date: 2024-01-30
-# date-modified: 2024-01-24
 categories: [cool-stuff, quarto, citations]
 ---
 
 In this cool stuff, I just have a few things to share.
+
+## Using commenting in Quarto and R
+
+When writing documents in Quarto, you will often find yourself in a situation in which you would like to write some comments in the prose that only you will see and that will not appear in the final document. Think of these comments as notes to yourself (or to your collaborators). It's like 'speaker notes' for slide presentations.
+
+In Markdown, you can use HTML comments to achieve this. For example, the following HTML comment will not appear in the final document:
+
+```markdown
+## This is a heading
+
+<!-- This is a comment that will not appear in the final document -->
+
+Here is my prose....
+
+```
+
+In your labs, project steps, and self-assessments these comments may be helpful to you as you work through the steps and document the questions you need to answer or ideas that you have that will help you complete the task.
+
+When we write in code block, the comments have a different purpose. They are used to explain the code to others (and to yourself in the future). The comments will appear (if you use the `echo: true` option) in the final document. Here is an example of a comment in R:
+
+```r
+# Print my name
+print("My name is Jerid Francom")
+```
+
+I hope that these comments will help you as you work through the labs and projects!
+
+
+## Literature search 2.0
+
+The WFU ZSR Library provides access for the WFU community to a couple of research tools that can help you with your literature search. These tools use AI to help you find the most relevant articles for your research. They are called [Elicit](https://elicit.com/) and [Scite](https://scite.ai/partners/students).
+
+::: {#fig-literature-search layout-ncol=2}
+
+![](elicit.png){#fig-elicit}
+
+![](scite.png){#fig-scite}
+
+AI tools for literature search
+:::
+
+Create an account with your WFU email and start using these tools to find the most relevant articles for your research!
+
+## Bibliographies
+
+In the previous lab, we learned how to add citations to our documents. By first adding the `bibliography:` key to the YAML front matter with a `*.bib` file as the value and then adding the `@` symbol followed by the citation key in the prose.
+
+The somewhat more tricky aspect is getting the reference entries in the BiBTeX format. Once you have identified a source that you want to cite, you can sometimes find a link to create a BibTeX entry --but many times not.
+
+In the latter case, you can use a DOI (Digital Object Identifier) and the [doi2bib.org](https://doi2bib.org) website to create the BiBTeX entry. Just identify the DOI, which generally appears in the article's metadata and has the form `10.1234/5678` (or something similar) and paste it into the website. The website will generate the BiBTeX entry for you. You can copy and paste this entry into your `*.bib` file. Use the citation key in the `@` symbol in the prose of your Quarto document.
+
+## Citation and reference styles
+
+The BibTeX format is only a storage format. The style of the citations and the bibliography is determined by the style file that you use. The default style file in Quarto is the [Chicago Manual of Style](https://chicagomanualofstyle.org/).
+
+You can change the style file by [downloading a new style file](https://github.com/citation-style-language/styles?search=1) (`.csl`), adding it to your project, and then using the `csl:` key in the front matter to specify the new style file.
+
+::: {#fig-csl-files}
+![](adding-csl-files.gif)
+
+Adding a new `.csl` file to your project
+:::
 
 ## Quarto + other languages
 
