@@ -19,6 +19,93 @@
 
 
 
+<p>In this cool stuff, I just have a few things to share.</p>
+<section id="using-commenting-in-quarto-and-r" class="level2">
+<h2 class="anchored" data-anchor-id="using-commenting-in-quarto-and-r">Using commenting in Quarto and R</h2>
+<p>When writing documents in Quarto, you will often find yourself in a situation in which you would like to write some comments in the prose that only you will see and that will not appear in the final document. Think of these comments as notes to yourself (or to your collaborators). It’s like ‘speaker notes’ for slide presentations.</p>
+<p>In Markdown, you can use HTML comments to achieve this. For example, the following HTML comment will not appear in the final document:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## This is a heading</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;!-- This is a comment that will not appear in the final document --&gt;</span></span>
+<span id="cb1-4"></span>
+<span id="cb1-5">Here is my prose....</span></code></pre></div>
+<p>In your labs, project steps, and self-assessments these comments may be helpful to you as you work through the steps and document the questions you need to answer or ideas that you have that will help you complete the task.</p>
+<p>When we write in code block, the comments have a different purpose. They are used to explain the code to others (and to yourself in the future). The comments will appear (if you use the <code>echo: true</code> option) in the final document. Here is an example of a comment in R:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print my name</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My name is Jerid Francom"</span>)</span></code></pre></div>
+<p>I hope that these comments will help you as you work through the labs and projects!</p>
+</section>
+<section id="literature-search-2.0" class="level2">
+<h2 class="anchored" data-anchor-id="literature-search-2.0">Literature search 2.0</h2>
+<p>The WFU ZSR Library provides access for the WFU community to a couple of research tools that can help you with your literature search. These tools use AI to help you find the most relevant articles for your research. They are called <a href="https://elicit.com/">Elicit</a> and <a href="https://scite.ai/partners/students">Scite</a>.</p>
+<div id="fig-literature-search" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-literature-search-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-literature-search" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-elicit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-elicit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-01/elicit.png" id="fig-elicit" class="img-fluid figure-img" data-ref-parent="fig-literature-search">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-elicit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-literature-search" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-scite" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-scite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-01/scite.png" id="fig-scite" class="img-fluid figure-img" data-ref-parent="fig-literature-search">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-scite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-literature-search-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: AI tools for literature search
+</figcaption>
+</figure>
+</div>
+<p>Create an account with your WFU email and start using these tools to find the most relevant articles for your research!</p>
+</section>
+<section id="bibliographies" class="level2">
+<h2 class="anchored" data-anchor-id="bibliographies">Bibliographies</h2>
+<p>In the previous lab, we learned how to add citations to our documents. By first adding the <code>bibliography:</code> key to the YAML front matter with a <code>*.bib</code> file as the value and then adding the <code>@</code> symbol followed by the citation key in the prose.</p>
+<p>The somewhat more tricky aspect is getting the reference entries in the BiBTeX format. Once you have identified a source that you want to cite, you can sometimes find a link to create a BibTeX entry –but many times not.</p>
+<p>In the latter case, you can use a DOI (Digital Object Identifier) and the <a href="https://doi2bib.org">doi2bib.org</a> website to create the BiBTeX entry. Just identify the DOI, which generally appears in the article’s metadata and has the form <code>10.1234/5678</code> (or something similar) and paste it into the website. The website will generate the BiBTeX entry for you. You can copy and paste this entry into your <code>*.bib</code> file. Use the citation key in the <code>@</code> symbol in the prose of your Quarto document.</p>
+</section>
+<section id="citation-and-reference-styles" class="level2">
+<h2 class="anchored" data-anchor-id="citation-and-reference-styles">Citation and reference styles</h2>
+<p>The BibTeX format is only a storage format. The style of the citations and the bibliography is determined by the style file that you use. The default style file in Quarto is the <a href="https://chicagomanualofstyle.org/">Chicago Manual of Style</a>.</p>
+<p>You can change the style file by <a href="https://github.com/citation-style-language/styles?search=1">downloading a new style file</a> (<code>.csl</code>), adding it to your project, and then using the <code>csl:</code> key in the front matter to specify the new style file.</p>
+<div id="fig-csl-files" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-csl-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-01/adding-csl-files.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-csl-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Adding a new <code>.csl</code> file to your project
+</figcaption>
+</figure>
+</div>
+</section>
 <section id="quarto-other-languages" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-other-languages">Quarto + other languages</h2>
 <p>Quarto is a great tool for writing documents in which we combine prose (in Markdown) and R. But you should know that Quarto can also be used with other languages, such as Python, Julia, and Observable JavaScript. This is a great feature, as it allows you to use the best tool for the job, and to combine different languages in the same document!</p>
@@ -29,7 +116,7 @@ Listing&nbsp;1: R code
 </figcaption>
 <div aria-describedby="lst-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">x <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -40,7 +127,7 @@ background-color: null;
 font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span>
-<span id="cb1-2">y <span class="ot" style="color: #003B4F;
+<span id="cb3-2">y <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -51,8 +138,8 @@ background-color: null;
 font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6</span>)</span>
-<span id="cb1-3"></span>
-<span id="cb1-4">x <span class="sc" style="color: #5E5E5E;
+<span id="cb3-3"></span>
+<span id="cb3-4">x <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%*%</span> y</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -70,13 +157,13 @@ Listing&nbsp;2: Python code
 </figcaption>
 <div aria-describedby="lst-python-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> np</span>
-<span id="cb3-2"></span>
-<span id="cb3-3">x <span class="op" style="color: #5E5E5E;
+<span id="cb5-2"></span>
+<span id="cb5-3">x <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> np.array([<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -85,7 +172,7 @@ background-color: null;
 font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>])</span>
-<span id="cb3-4">y <span class="op" style="color: #5E5E5E;
+<span id="cb5-4">y <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> np.array([<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -94,8 +181,8 @@ background-color: null;
 font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6</span>])</span>
-<span id="cb3-5"></span>
-<span id="cb3-6">np.dot(x, y)</span></code></pre></div>
+<span id="cb5-5"></span>
+<span id="cb5-6">np.dot(x, y)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>32</code></pre>
 </div>
@@ -105,84 +192,84 @@ font-style: inherit;">6</span>])</span>
 </div>
 <p>At the moment you have enough on your hands with Quarto + R. But it’s good to know that you can expand your horizons in the future!</p>
 </section>
-<section id="adding-figures" class="level2">
-<h2 class="anchored" data-anchor-id="adding-figures">Adding figures</h2>
+<section id="first-look-figures" class="level2">
+<h2 class="anchored" data-anchor-id="first-look-figures">First look: figures</h2>
 <p>I know a lot of you are really excited to get to the point where you can add figures to your documents. We cover figures head on soon!</p>
-<p>For now, I want to introduce you to the <code>ggplot2</code> package, which is a great tool for creating figures in R. In Figure&nbsp;1 I don’t expect you to understand this code, but if you are interested and have some time, you can take a look at the code and see if you can understand what it does.</p>
+<p>For now, I want to introduce you to the <code>ggplot2</code> package, which is a great tool for creating figures in R. In Figure&nbsp;3 I don’t expect you to understand this code, but if you are interested and have some time, you can take a look at the code and see if you can understand what it does.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="in" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb5-2"><span class="in" style="color: #5E5E5E;
+<span id="cb7-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| label: fig-brown-lob</span></span>
-<span id="cb5-3"><span class="in" style="color: #5E5E5E;
+<span id="cb7-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| fig-cap: "Passive voice in the Brown (AmE) and LOB (BrE) corpora"</span></span>
-<span id="cb5-4"></span>
-<span id="cb5-5"><span class="in" style="color: #5E5E5E;
+<span id="cb7-4"></span>
+<span id="cb7-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load packages</span></span>
-<span id="cb5-6"><span class="in" style="color: #5E5E5E;
+<span id="cb7-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">library(ggplot2)      # for plotting</span></span>
-<span id="cb5-7"><span class="in" style="color: #5E5E5E;
+<span id="cb7-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">library(dplyr)        # for data manipulation</span></span>
-<span id="cb5-8"><span class="in" style="color: #5E5E5E;
+<span id="cb7-8"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">library(corpora)      # for the BrownLOBPassives dataset</span></span>
-<span id="cb5-9"></span>
-<span id="cb5-10"><span class="in" style="color: #5E5E5E;
+<span id="cb7-9"></span>
+<span id="cb7-10"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get the dataset</span></span>
-<span id="cb5-11"><span class="in" style="color: #5E5E5E;
+<span id="cb7-11"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">data &lt;- BrownLOBPassives |&gt; as_tibble()</span></span>
-<span id="cb5-12"></span>
-<span id="cb5-13"><span class="in" style="color: #5E5E5E;
+<span id="cb7-12"></span>
+<span id="cb7-13"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create boxplot</span></span>
-<span id="cb5-14"><span class="in" style="color: #5E5E5E;
+<span id="cb7-14"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">data |&gt;</span></span>
-<span id="cb5-15"><span class="in" style="color: #5E5E5E;
+<span id="cb7-15"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  ggplot(aes(</span></span>
-<span id="cb5-16"><span class="in" style="color: #5E5E5E;
+<span id="cb7-16"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    x = genre,</span></span>
-<span id="cb5-17"><span class="in" style="color: #5E5E5E;
+<span id="cb7-17"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    y = passive,</span></span>
-<span id="cb5-18"><span class="in" style="color: #5E5E5E;
+<span id="cb7-18"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    color = lang</span></span>
-<span id="cb5-19"><span class="in" style="color: #5E5E5E;
+<span id="cb7-19"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    )) +</span></span>
-<span id="cb5-20"><span class="in" style="color: #5E5E5E;
+<span id="cb7-20"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  geom_boxplot() +</span></span>
-<span id="cb5-21"><span class="in" style="color: #5E5E5E;
+<span id="cb7-21"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  labs(</span></span>
-<span id="cb5-22"><span class="in" style="color: #5E5E5E;
+<span id="cb7-22"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">       x = "Genre",</span></span>
-<span id="cb5-23"><span class="in" style="color: #5E5E5E;
+<span id="cb7-23"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">       y = "Passive voice (count)",</span></span>
-<span id="cb5-24"><span class="in" style="color: #5E5E5E;
+<span id="cb7-24"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">       color = "Language"</span></span>
-<span id="cb5-25"><span class="in" style="color: #5E5E5E;
+<span id="cb7-25"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">       ) +</span></span>
-<span id="cb5-26"><span class="in" style="color: #5E5E5E;
+<span id="cb7-26"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    coord_flip()</span></span>
-<span id="cb5-27"><span class="in" style="color: #5E5E5E;
+<span id="cb7-27"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
 <div class="cell-output-display">
@@ -192,7 +279,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 <img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-01/index_files/figure-html/fig-brown-lob-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brown-lob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Passive voice in the Brown (AmE) and LOB (BrE) corpora
+Figure&nbsp;3: Passive voice in the Brown (AmE) and LOB (BrE) corpora
 </figcaption>
 </figure>
 </div>
