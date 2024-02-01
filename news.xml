@@ -10,7 +10,7 @@
 <atom:link href="https://lin-380-s24.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for LIN 380: Quantitative Text Analysis, Spring 2024</description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Tue, 30 Jan 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 01 Feb 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Cool stuff: Lab 01</title>
   <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-01/</link>
@@ -19,7 +19,8 @@
 
 
 
-<p>In this cool stuff, I just have a few things to share.</p>
+<p>In this cool stuff, I just have a few things to share including, commenting in Quarto and R, literature search 2.0, bibliographies, citation and reference styles, Quarto + other languages, and a first look at figures.</p>
+<p>As always, I hope you find this information helpful and interesting!</p>
 <section id="using-commenting-in-quarto-and-r" class="level2">
 <h2 class="anchored" data-anchor-id="using-commenting-in-quarto-and-r">Using commenting in Quarto and R</h2>
 <p>When writing documents in Quarto, you will often find yourself in a situation in which you would like to write some comments in the prose that only you will see and that will not appear in the final document. Think of these comments as notes to yourself (or to your collaborators). It’s like ‘speaker notes’ for slide presentations.</p>
@@ -297,7 +298,7 @@ Figure&nbsp;3: Passive voice in the Brown (AmE) and LOB (BrE) corpora
   <category>python</category>
   <category>csl-styles</category>
   <guid>https://lin-380-s24.github.io/posts/cool-stuff-lab-01/</guid>
-  <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Cool stuff: Lab 00</title>
