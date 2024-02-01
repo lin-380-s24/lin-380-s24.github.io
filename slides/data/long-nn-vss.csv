@@ -1,0 +1,43 @@
+story,sentence,word,pos,lemma,nchar
+264,1,alarm-clock,NN,alarm-clock,11
+264,2,resemblance,NN,resemblance,11
+264,3,alarm-clock,NN,alarm-clock,11
+264,8,alarm-clock,NN,alarm-clock,11
+264,16,recognition,NN,recognition,11
+264,17,temperature,NN,temperature,11
+264,18,abbreviation,NN,abbreviation,12
+264,32,explanation,NN,explanation,11
+264,41,prosecution,NN,prosecution,11
+264,41,publication,NN,publication,11
+264,41,deportation,NN,deportation,11
+264,50,padlock-shape,NN,padlock-shape,13
+264,78,Concrete-Jungle,NN,concrete-jungle,15
+264,92,identification,NN,identification,14
+264,118,four-person,NN,four-person,11
+264,142,conversation,NN,conversation,12
+264,148,Concrete-Jungle,NN,concrete-jungle,15
+264,182,self-heating,NN,self-heating,12
+264,195,concentration,NN,concentration,13
+264,203,embarrassment,NN,embarrassment,13
+264,203,corporation,NN,corporation,11
+How To Swim,228,diving-board,NN,diving-board,12
+How To Swim,235,personality,NN,personality,11
+How To Swim,238,environment,NN,environment,11
+Waiting,249,notice-board,NN,notice-board,12
+Waiting,252,notice-board,NN,notice-board,12
+Waiting,257,environment,NN,environment,11
+Waiting,259,conversation,NN,conversation,12
+Waiting,262,predictability,NN,predictability,14
+Waiting,264,imagination,NN,imagination,11
+Waiting,276,imagination,NN,imagination,11
+A Thrilling Experience,298,grasshopper,NN,grasshopper,11
+A Thrilling Experience,310,disturbance,NN,disturbance,11
+An Example of Idiomatic English,328,disappointment,NN,disappointment,14
+An Example of Idiomatic English,341,observation,NN,observation,11
+An Example of Idiomatic English,354,hiding-place,NN,hiding-place,12
+An Example of Idiomatic English,360,loudspeaker,NN,loudspeaker,11
+An Example of Idiomatic English,367,transmitter,NN,transmitter,11
+An Example of Idiomatic English,379,interference,NN,interference,12
+An Example of Idiomatic English,386,observation,NN,observation,11
+The Garden,432,adolescence,NN,adolescence,11
+The Garden,440,conversation,NN,conversation,12

@@ -7,7 +7,7 @@ listing:
   sort: "date desc"
   sort-ui: false
   filter-ui: false
-  categories: unnumbered
+  categories: numbered
   fields: [image, title, categories, date]
 page-layout: full
 title-block-banner: false

@@ -1,0 +1,396 @@
+---
+title: "Reading, inspecting, and writing datasets"
+subtitle: "First approach at combining Quarto and R"
+date: "2024-02-02"
+categories: [quarto, r, readr, dplyr]
+tags: [read_csv, glimpse, slice_head, glimpse, select]
+---
+
+## Overview
+
+- Quarto + code blocks
+- Packages
+- Reading with `readr`
+- Inspecting with `dplyr`
+- Writing with `readr`
+- Lab 02: [Dive into datasets](https://github.com/lin-380-s24/lab-02)
+
+# Quarto + code blocks
+
+## Code block options
+
+:::: {.columns}
+::: {.column width="60%"}
+As the **front-matter** controls the behavior of the document, the **code block options** control the behavior of the code.
+
+If not specified, the default behavior is to show the code, evaluate it, and display the output. If there are any warnings or errors, they will be displayed as well.
+:::
+
+::: {.column width="40%"}
+[Default behavior:]{style="font-size: .75em;"}
+```{{r}}
+#| echo: true
+#| include: true
+#| message: true
+
+1 + 1
+```
+```{r}
+1 + 1
+```
+
+[Has the same result as:]{style="font-size: .75em;"}
+
+```{{r}}
+1 + 1
+```
+```{r}
+1 + 1
+```
+
+:::
+::::
+
+## Code block options
+
+We can change these defaults, as needed.
+
+:::: {.columns}
+::: {.column width="30%"}
+[No code]{style="font-size: .75em;"}
+```{{r}}
+#| echo: false
+
+1 + 1
+```
+```{r}
+#| echo: false
+1 + 1
+```
+:::
+
+::: {.column width="30%"}
+[No code or output]{style="font-size: .75em;"}
+```{{r}}
+#| include: false
+
+1 + 1
+```
+:::
+
+::: {.column width="30%"}
+[No messages]{style="font-size: .75em;"}
+```{{r}}
+#| message: false
+
+1 + 1
+```
+```{r}
+#| message: false
+1 + 1
+```
+:::
+::::
+
+::: {.aside}
+There are many other options that can be used to control the behavior of the code blocks. For a complete list, see the [Quarto documentation](https://quarto.org/docs/output-formats/html-code.html).
+:::
+
+## Code block: example
+
+:::: {.columns}
+::: {.column width="60%"}
+```{{r}}
+# Load libraries
+library(tidyverse)
+```
+
+```{r}
+#| message: true
+# Loading libraries
+library(tidyverse)
+```
+:::
+
+::: {.column width="40%"}
+```{{r}}{code-line-numbers="|2"}
+#| message: false
+# Load libraries
+library(tidyverse)
+```
+
+```{r}
+#| message: true
+# Loading libraries
+library(tidyverse)
+```
+:::
+::::
+
+# Packages
+
+## Loading packages
+
+R packages that are installed in the system exist in a "library". These packages can be loaded (checked out) using the `library()` function.
+
+```{{r}}
+#| label: load-packages
+#| message: false
+
+# Load packages
+library(readr)     # for reading/ writing datasets
+library(dplyr)     # for data manipulation
+```
+
+Now the functions from the `readr` [@R-readr] and `dplyr` [@R-dplyr] packages are available for use.
+
+# Reading with `readr`
+
+## About `readr`
+
+![](images/hex-readr.png){.absolute top=0 right=0 width="10%"}
+
+The `readr` package provides a set of functions for reading and writing data and datasets.
+
+:::: {.columns}
+::: {.column width="50%"}
+Data:
+
+- `read_file_raw()`: for reading in raw data
+- `read_lines()`: for reading in lines of a file
+- *etc.*
+:::
+
+::: {.column width="50%"}
+Datasets:
+
+- `read_csv()`: for reading comma-separated values
+- `read_tsv()`: for reading tab-separated values
+- *etc.*
+:::
+::::
+
+## Reading a dataset
+
+Let's read a CSV file. The file is called `corpora-vss.csv` and is located in the `data` folder.
+
+```bash
+project/
+  ├── data/
+  │   └── corpora-vss.csv
+  └── my_file.qmd
+```
+
+Therefore, we use this 'path' to read the file:
+
+```{{r}}{code-line-numbers="|6"}
+#| label: read-dataset
+#| message: false
+
+# Read dataset
+vss_df <- read_csv("data/corpora-vss.csv")
+```
+
+::: {.aside}
+[Very Short Stories](http://www.schtepf.de/History/pages/stories.html) @R-corpora
+:::
+
+## R objects: Data frame
+
+The `read_csv()` function returns a data frame, which is a type of R object which is rectangular (has rows and columns) and can store different types of data (vectors).
+
+To confirm that we have a data frame object, we can use the `class()` function.
+
+```{{r}}{code-line-numbers="|5"}
+#| label: check-if-df
+
+# Preview dataset
+class(vss_df)
+```
+
+```{r}
+#| message: false
+#| echo: false
+library(readr)
+library(dplyr)
+vss_df <- read_csv("data/corpora-vss.csv")
+class(vss_df)
+```
+
+::: {.fragment .fade-in}
+The output should contain `data.frame`. \
+It does! ... and some other information....
+:::
+
+## R objects: Tibble
+
+The `read_csv()` function returns a tibble, which is a type of R object that is similar to a data frame, but has some nice user-friendly features.
+
+:::: {.columns style="font-size: .75em;"}
+::: {.column width="40%"}
+- Prints the dimensions of the data frame
+- Prints the vector type of each column (variable)
+- Only prints first 10 rows
+- Only prints the columns that fit on the screen
+:::
+
+::: {.column width="60%"}
+```{r}
+vss_df
+```
+:::
+::::
+
+# Inspecting with `dplyr`
+
+## About `dplyr`
+
+![](images/hex-dplyr.png){.absolute top=0 right=0 width="10%"}
+
+The `dplyr` package provides a set of functions for data manipulation. We will look a few of these functions.
+
+- `glimpse()`: for a compact summary of the data
+- `slice_head()`: for a preview of the first `n = ` rows
+- `slice_tail()`: for a preview of the last `n = ` rows
+- `slice_sample()`: for a random sample of `n = ` rows
+- `arrange()`: for sorting rows by column values
+- `select()`: for selecting columns (variables)
+- `filter()`: for filtering rows by column values
+
+## Quick summary
+
+The `glimpse()` function provides a compact summary of the data.
+
+::: {style="font-size: .75em;"}
+```{r}
+# Preview dataset
+glimpse(vss_df)
+```
+:::
+
+This particularly useful when the number of variables is large and the tibble gets truncated on the screen.
+
+## Sort and preview
+
+The `arrange()` function sorts the rows of the data frame by the values of a column.
+The `slice_head()` function previews the first `n = ` rows of the data frame.
+
+::: {style="font-size: .75em;"}
+```{r}
+slice_head(arrange(vss_df, desc(nchar)), n = 5)
+```
+:::
+
+This code works, but is not very readable. We can use the `pipe` operator `|>` to make it more readable!
+
+## Sort and preview v.2
+
+The `pipe` operator `|>` allows us to chain functions together in a more readable way.
+
+::: {style="font-size: .75em;"}
+```{r}
+vss_df |>             # data frame
+  arrange(-nchar) |>  # sort by nchar (desc)
+  slice_head(n = 5)   # preview first 5 rows
+```
+:::
+
+
+::: {.aside}
+Use the keyboard short: {{< kbd win=Shift-Ctrl-M mac=Shift-Command-M >}} to insert the `|>` operator.
+:::
+
+## Select columns and/or rows
+
+The `select()` function selects columns (variables) from the data frame.
+The `filter()` function selects rows based on the values of a column.
+
+:::: {.columns style="font-size: .75em;"}
+::: {.column width="65%"}
+```{r}
+# Filter rows
+vss_df |>
+  filter(nchar > 10)
+```
+:::
+
+::: {.column width="35%"}
+```{r}
+# Select columns
+vss_df |>
+  filter(pos == "NN") |>
+  select(sentence, word)
+```
+:::
+::::
+
+## Assigning output
+
+If you want to save the output of a function, you can use the assignment operator `<-`.
+
+```{r}
+# Filter rows
+long_nn_vss <-                    # assign output (of the following...)
+  vss_df |>                       # data frame
+  filter(nchar > 10, pos == "NN") # filter rows (two conditions)
+
+# Preview
+slice_head(long_nn_vss, n = 5)
+```
+
+::: {.aside}
+You can use the keyboard shortcut: {{< kbd win=Alt-- mac=Option-- >}} to insert the assignment operator `<-`.
+:::
+
+# Writing with `readr`
+
+## Writing a dataset
+
+The `readr` package includes functions for writing datasets, similar to the functions for reading datasets. We will use the `write_csv()` function to write a data frame to a CSV file.
+
+```{r}
+# Write dataset
+write_csv(long_nn_vss, "data/long-nn-vss.csv")
+```
+Now the file `long-nn-vss.csv` is located in the `data/` folder.
+```bash
+project/
+  ├── data/
+  │   ├── long-nn-vss.csv
+  │   └── corpora-vss.csv
+  └── my_file.qmd
+```
+
+# Lab 02: Dive into datasets
+
+## Setup
+
+- Clone the [Lab 02 repository](https://github.com/lin-380-s24/lab-02) from GitHub
+- Open the project in RStudio
+- Follow the instructions in `README.md`
+
+::: {.aside}
+Remember you can use the [Recipe 02](https://qtalr.github.io/qtalrkit/articles/recipe-2.html) as a reference, or even other documentation on the [Quarto website](https://quarto.org/).
+
+To find out more about the `readr` and `dplyr` packages, you can use the `help()` function in R or the `?` operator (e.g. `?read_csv`).
+:::
+
+## Looking ahead
+
+:::: {.columns}
+::: {.column width="60%"}
+Current tasks
+
+1. Lab 02: Dive into datasets
+:::
+
+::: {.column width="40%"}
+Next week
+
+1. Reading: [Analysis](https://qtalr.github.io/book/approaching-analysis.html)
+   - Annotate with Hypothes.is
+2. Lessons (Swirl): Summarizing data, Visual summaries
+:::
+::::
+
+## References
