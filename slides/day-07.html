@@ -10,7 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
@@ -32,7 +34,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -326,6 +348,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="default">
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
@@ -470,7 +496,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['readr', 'dplyr'];
+  globalThis.qwebrInstallRPackagesList = ['dplyr', 'nsyllable', 'ggplot2', 'skimr'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -480,7 +506,7 @@
   globalThis.qwebrAutoloadRPackages = true;
 
   // Display a startup message?
-  globalThis.qwebrShowStartupMessage = true;
+  globalThis.qwebrShowStartupMessage = false;
   globalThis.qwebrShowHeaderMessage = false;
 
   // Describe the webR settings that should be used
@@ -492,7 +518,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"\ndownload.file(\n  \"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/corpora-vss.csv\",\n  \"corpora-vss.csv\"\n)\n\nlibrary(readr)\nlibrary(dplyr)\n\nvss_df <- read.csv(\"corpora-vss.csv\") |> as_tibble()","id":1,"options":{"context":"setup","warning":"true","classes":"","out-width":"700px","fig-cap":"","comment":"","fig-width":7,"label":"unnamed-chunk-1","out-height":"","message":"true","results":"markup","fig-height":5,"dpi":72,"output":"true"}},{"code":"# Show vss_d tibble\nvss_df","id":2,"options":{"context":"interactive","warning":"true","classes":"","out-width":"700px","fig-cap":"","comment":"","fig-width":7,"label":"unnamed-chunk-2","out-height":"","message":"true","results":"markup","fig-height":5,"dpi":72,"output":"true"}}];
+  globalThis.qwebrCellDetails = [{"id":1,"code":"download.file(\n  \"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/corpora-vss.csv\",\n  \"corpora-vss.csv\"\n)","options":{"label":"unnamed-chunk-1","fig-cap":"","context":"setup","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":2,"code":"\nset.seed(123)\n\nvss_df <-\n  read.csv(\"corpora-vss.csv\") |>\n  as_tibble() |>\n  mutate(n_syll = nsyllable::nsyllable(word)) |>\n  # for each unique story name, code as a number\n  mutate(story_id = as.integer(factor(story))) |>\n  # for each unique sentence, code as a number\n  mutate(sent_id = sentence) |>\n  # for each word of a story's sentence, code as a number\n  group_by(story_id, sent_id) |>\n  mutate(word_id = row_number()) |>\n  ungroup() |>\n  # sample a genre for each story\n  group_by(story_id) |>\n  mutate(genre = sample(c(\"fiction\", \"non-fiction\"), size = 1, replace = FALSE)) |>\n  ungroup() |>\n  mutate(n_char = nchar(word)) |>\n  mutate(genre = as.factor(genre)) |>\n  select(story_id, genre, sent_id, word_id, word, n_char, n_syll, pos)","options":{"label":"unnamed-chunk-2","fig-cap":"","context":"setup","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":3,"code":"\nlibrary(dplyr) # data manipulation\nlibrary(skimr) # summary statistics","options":{"label":"demo-load-packages","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":4,"code":"# Preview vss_df\nvss_df","options":{"label":"unnamed-chunk-4","fig-cap":"","context":"interactive","classes":"","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","autorun":"true","out-width":"700px","dpi":72}},{"id":5,"code":"# Use the `skim()` function for a statistical overview\nskim(____)","options":{"label":"unnamed-chunk-5","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":6,"code":"\nvss_df <- vss_df |> filter(!is.na(n_syll))","options":{"label":"unnamed-chunk-6","fig-cap":"","context":"setup","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":7,"code":"# of `n_char` for all words\nvss_df |>\n  summarize(____ = ____)","options":{"label":"unnamed-chunk-7","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":8,"code":"# standard deviation of `n_char` for all words\nvss_df |>\n  summarize(\n    n_char_sd = sd(n_char)\n  )","options":{"label":"unnamed-chunk-8","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":9,"code":"# of `n_syll` for all words\nvss_df |>\n  summarize(\n    n_syll_median = median(n_syll)\n  )","options":{"label":"unnamed-chunk-9","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":10,"code":"# interquartile range of `n_syll` for all words\nvss_df |>\n  summarize(\n    n_syll_iqr = IQR(n_syll)\n  )","options":{"label":"unnamed-chunk-10","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":11,"code":"# mode for `genre` of all stories\nvss_df |>\n  count(genre)","options":{"label":"unnamed-chunk-11","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":12,"code":"# histogram of `n_char` for all words\nvss_df |>\n  ggplot(aes(x = n_char)) +\n  geom_histogram()","options":{"label":"unnamed-chunk-12","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"false","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":13,"code":"# density plot of `n_char` for all words\nvss_df |>\n  ggplot(aes(x = n_char)) +\n  geom_*()","options":{"label":"unnamed-chunk-13","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":14,"code":"# boxplot of `n_char` for all words\nvss_df |>\n  ggplot(aes(x = ____)) +\n  geom_*()","options":{"label":"unnamed-chunk-14","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":15,"code":"# contingency table of `genre` and `pos` (nouns and adjectives)\nvss_df |>\n  filter(pos %in% ____) |>\n  group_by(____, ____) |>\n  summarize(n = ____)","options":{"label":"unnamed-chunk-15","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":16,"code":"# pivot table of `genre` and mean `n_char`\nvss_df |>\n  group_by(____) |>\n  summarize(mean_n_char = mean(n_char))","options":{"label":"unnamed-chunk-16","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":17,"code":"# boxplot of `genre` and `n_char`\nvss_df |>\n  ggplot(aes(x = ____, y = ____)) +\n  geom_boxplot()","options":{"label":"unnamed-chunk-17","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}},{"id":18,"code":"# scatterplot of `n_char` and `n_syll`\nvss_df |>\n  ggplot(aes(x = ____, y = ____)) +\n  geom_point()","options":{"label":"unnamed-chunk-18","fig-cap":"","context":"interactive","fig-height":5,"warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","comment":"","output":"true","classes":"","out-width":"700px","dpi":72}}];
 
   </script>
   <script type="module">
@@ -1405,10 +1431,15 @@ Dr.&nbsp;Jerid Francom
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>Describe</li>
+<li>Describe
+<ul>
+<li><i class="fa-brands fa-r-project" aria-label="r-project"></i> mixed in!</li>
+</ul></li>
 <li>Analyze</li>
 <li>Communicate</li>
 </ul>
@@ -1427,15 +1458,15 @@ Dr.&nbsp;Jerid Francom
 <p>Summarize the data to understand its characteristics.</p>
 <div>
 <ul>
-<li class="fragment">Central Tendency: What is the “typical” value?</li>
-<li class="fragment">Dispersion: How much do the values vary?</li>
-<li class="fragment">Distribution: What does the data look like?</li>
-<li class="fragment">Association: How do variables relate to one another?</li>
+<li class="fragment"><i class="fa-solid fa-location-dot" aria-label="location-dot"></i> Central Tendency: What is the “typical” value?</li>
+<li class="fragment"><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Dispersion: How much do the values vary?</li>
+<li class="fragment"><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Distribution: What does the data look like?</li>
+<li class="fragment"><i class="fa-solid fa-handshake-simple" aria-label="handshake-simple"></i> Association: How do variables relate to one another?</li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Central Tendency</h2>
+<h2><i class="fa-solid fa-location-dot" aria-label="location-dot"></i> Central Tendency</h2>
 <p>A single statistic that aims to represent a variable.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -1444,7 +1475,7 @@ Dr.&nbsp;Jerid Francom
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="day-07_files/figure-revealjs/mode-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/mode-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1458,7 +1489,7 @@ Dr.&nbsp;Jerid Francom
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="day-07_files/figure-revealjs/mean-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/mean-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1471,7 +1502,7 @@ Dr.&nbsp;Jerid Francom
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="day-07_files/figure-revealjs/median-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/median-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1482,7 +1513,7 @@ Dr.&nbsp;Jerid Francom
 </div>
 </section>
 <section class="slide level2">
-<h2>Dispersion</h2>
+<h2><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Dispersion</h2>
 <p>A single statistic to represent the variability of a variable.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1491,7 +1522,7 @@ Dr.&nbsp;Jerid Francom
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="day-07_files/figure-revealjs/sd-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/sd-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1503,7 +1534,7 @@ Dr.&nbsp;Jerid Francom
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="day-07_files/figure-revealjs/iqr-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/iqr-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1512,19 +1543,19 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 </section>
-<section class="slide level2">
-<h2>Distribution</h2>
+<section class="slide level2 scrollable">
+<h2><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Distribution</h2>
 <p><span style="font-size: .75em">Normal distribution</span></p>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/normal-distribution-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/normal-distribution-1.png" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/normal-distribution-2.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/normal-distribution-2.png" width="384"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/normal-distribution-3.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/normal-distribution-3.png" width="384"></p>
 </div>
 </div>
 </div>
@@ -1532,19 +1563,157 @@ Dr.&nbsp;Jerid Francom
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-1.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-1.png" width="480"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-2.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-2.png" width="480"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-3.png" width="960"></p>
+<p><img data-src="day-07_files/figure-revealjs/skewed-distribution-3.png" width="480"></p>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Association</h2>
+<h2><i class="fa-solid fa-handshake-simple" aria-label="handshake-simple"></i> Association</h2>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Relationship between one variable and another</p>
+<div style="font-size: 0.8em;">
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Categorical</th>
+<th>Ordinal</th>
+<th>Numeric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Categorical</strong></td>
+<td>Contingency Table</td>
+<td>Contingency Table/ Bar plot</td>
+<td>Pivot Table/ Boxplot</td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>-</td>
+<td>Contingency Table/ Bar plot</td>
+<td>Pivot Table/ Boxplot</td>
+</tr>
+<tr class="odd">
+<td><strong>Numeric</strong></td>
+<td>-</td>
+<td>-</td>
+<td>Scatterplot</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Demo</h1>
+
+</section>
+<section class="slide level2">
+<h2>Load necessary packages</h2>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+
+<aside><div>
+<p><span class="citation" data-cites="R-dplyr">Wickham et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>, <span class="citation" data-cites="R-skimr">Waring et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p>
+</div></aside></section>
+<section class="slide level2 scrollable">
+<h2>Very Short Stores <code>vss_df</code> dataset</h2>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 scrollable">
+<h2>Statistical overview</h2>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 scrollable">
+<h2>Targeted statistics</h2>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><i class="fa-solid fa-location-dot" aria-label="location-dot"></i> Mean</a></li><li><a href="#tabset-1-2"><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Standard deviation</a></li><li><a href="#tabset-1-3"><em>Etc.</em></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-1-2">
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-1-3">
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Distribution</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Histogram</a></li><li><a href="#tabset-2-2">Density Plot</a></li><li><a href="#tabset-2-3">Boxplot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div id="qwebr-insertion-location-12"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-2-2">
+<div id="qwebr-insertion-location-13"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-2-3">
+<div id="qwebr-insertion-location-14"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2><i class="fa-solid fa-handshake-simple" aria-label="handshake-simple"></i> Association</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><i class="fa-solid fa-table" aria-label="table"></i> Contingency</a></li><li><a href="#tabset-3-2"><i class="fa-solid fa-table" aria-label="table"></i> Pivot</a></li><li><a href="#tabset-3-3"><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Box</a></li><li><a href="#tabset-3-4"><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Scatter</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>Categorical x Categorical/ Ordinal</p>
+<div id="qwebr-insertion-location-15"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-3-2">
+<p>Categorical x Numeric (measure)</p>
+<div id="qwebr-insertion-location-16"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-3-3">
+<p>Categorical x Numeric</p>
+<div id="qwebr-insertion-location-17"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-3-4">
+<p>Numeric x Numeric</p>
+<div id="qwebr-insertion-location-18"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -1552,25 +1721,166 @@ Dr.&nbsp;Jerid Francom
 
 </section>
 <section class="slide level2">
-<h2>Explore</h2>
-</section>
-<section class="slide level2">
-<h2>Predict</h2>
-</section>
-<section class="slide level2">
-<h2>Infer</h2>
+<h2>Aims, approach, methods, and evaluation</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Explore</a></li><li><a href="#tabset-4-2">Predict</a></li><li><a href="#tabset-4-3">Infer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div id="tbl-eda" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-eda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Exploratory Data Analysis
+</figcaption>
+<div aria-describedby="tbl-eda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Aims</td>
+<td>Explore: gain insight, open new avenues</td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td>Inductive, data-driven, and iterative</td>
+</tr>
+<tr class="odd">
+<td>Methods</td>
+<td>Descriptive, pattern detection with machine learning (unsupervised)</td>
+</tr>
+<tr class="even">
+<td>Evaluation</td>
+<td>Associative</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div id="tabset-4-2">
+<div id="tbl-pda" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Predictive Data Analysis
+</figcaption>
+<div aria-describedby="tbl-pda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Aims</td>
+<td>Examine: support and validate</td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td>Semi-deductive, data/theory-driven, and iterative</td>
+</tr>
+<tr class="odd">
+<td>Methods</td>
+<td>Predictive modeling with machine learning (supervised)</td>
+</tr>
+<tr class="even">
+<td>Evaluation</td>
+<td>Accuracy measures, associative</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div id="tabset-4-3">
+<div id="tbl-ida" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ida-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Inferential Data Analysis
+</figcaption>
+<div aria-describedby="tbl-ida-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Aims</td>
+<td>Extrapolate: generalize and explain</td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td>Deductive, theory-driven, and non-iterative</td>
+</tr>
+<tr class="odd">
+<td>Methods</td>
+<td>Inferential statistics (theory- or simulation-based)</td>
+</tr>
+<tr class="even">
+<td>Evaluation</td>
+<td>Causal inference, associative</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Communicate</h1>
 
 </section>
-<section class="slide level2">
+<section class="slide level2 smaller">
 <h2>Report</h2>
+<p>Presentations, articles, and reports are the primary means of communicating results.</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  subgraph "Motivation"
+    A[Literature review] --&gt; B[Research question]
+    A --&gt; C[Hypothesis]
+  end
+  subgraph "Methods"
+    C --&gt; D["Data\n description"]
+    B --&gt; D
+    D --&gt; F["Data analysis\n description"]
+  end
+  subgraph "Analysis"
+    F --&gt; G["Descriptive statistics"]
+    G --&gt; H["Exploratory findings"]
+    G --&gt; I["Predictive modeling"]
+    G --&gt; J["Inferential estimates"]
+    H --&gt; K[Results]
+    I --&gt; K
+    J --&gt; K
+  end
+  subgraph "Discussion"
+    K --&gt; L[Interpretation]
+    K --&gt; N[Limitations]
+    K --&gt; M[Implications]
+  end
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Document</h2>
-</section></section>
+
+<img data-src="images/qtal-big-picture.png" class="r-stretch"></section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Summary</h1>
@@ -1578,34 +1888,35 @@ Dr.&nbsp;Jerid Francom
 </section>
 <section class="slide level2">
 <h2>Upshot</h2>
+<ul>
+<li>Descriptive statistics are the first step in understanding data.</li>
+<li>Statistical thinking is a process of asking questions and answering them with data.</li>
+<li>The process of analysis depends on the aims of the research.</li>
+<li>Communication and documentation is key to sharing results and understanding.</li>
+</ul>
 </section>
 <section class="slide level2">
 <h2>Looking ahead</h2>
-</section>
-<section class="slide level2">
-<h2>Testing <code>webr</code></h2>
 <ul>
-<li>This is a test of the <code>webr</code> package</li>
-<li>I’m going to use the <code>vss_df</code> data frame from the <code>corpora-vss.csv</code> file</li>
+<li>Recipe 03: <a href="https://qtalr.github.io/qtalrkit/articles/recipe-3.html">Descriptive assessment of datasets</a></li>
+<li>Lab 03: <a href="https://github.com/qtalr/lab-03">Trace the datascape</a></li>
 </ul>
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section class="slide level2">
-<h2>Testing <code class="scrollable">webr</code></h2>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Cool!</p>
-<!-- Documentation for quarto-webr:
-- https://quarto-webr.thecoatlessprofessor.com/
-- Available packages: https://repo.r-wasm.org/
-- More deep docs: https://docs.r-wasm.org/webr/latest/
--->
+<section class="slide level2 smaller scrollable" id="references">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Analysis | Quantitative Text Analysis | Wake Forest University</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-skimr" class="csl-entry" role="listitem">
+Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. <em>Skimr: Compact and Flexible Summaries of Data</em>. <a href="https://CRAN.R-project.org/package=skimr">https://CRAN.R-project.org/package=skimr</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
 </div>
 </section></section>
