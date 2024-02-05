@@ -168,18 +168,18 @@
     "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nDive into datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nTrace the datascape\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding reproducible research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nHarvesting research data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nOrganizing and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nTransforming and documenting data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n💧\n18\nMar 22\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
   },
   {
-    "objectID": "slides/day-05.html#footnotes",
-    "href": "slides/day-05.html#footnotes",
-    "title": "Data",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.\nThe Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.\nThe Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.\nThe Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples."
+    "objectID": "slides/day-06.html#references",
+    "href": "slides/day-06.html#references",
+    "title": "Reading, inspecting, and writing datasets",
+    "section": "References",
+    "text": "References\n\n\n\n\nReading, inspecting, and writing datasets | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nEvert, Stephanie. 2023. Corpora: Statistics and Data Sets for Corpus Frequency Data. https://CRAN.R-project.org/package=corpora.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. Readr: Read Rectangular Text Data. https://CRAN.R-project.org/package=readr."
   },
   {
-    "objectID": "slides/day-02.html#footnotes",
-    "href": "slides/day-02.html#footnotes",
-    "title": "Writing with code",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFootnote info…"
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
+    "section": "",
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -231,18 +231,18 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": " Slides",
-    "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/day-02.html#footnotes",
+    "href": "slides/day-02.html#footnotes",
+    "title": "Writing with code",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFootnote info…"
   },
   {
-    "objectID": "slides/day-06.html#references",
-    "href": "slides/day-06.html#references",
-    "title": "Reading, inspecting, and writing datasets",
-    "section": "References",
-    "text": "References\n\n\n\n\nReading, inspecting, and writing datasets | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nEvert, Stephanie. 2023. Corpora: Statistics and Data Sets for Corpus Frequency Data. https://CRAN.R-project.org/package=corpora.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. Readr: Read Rectangular Text Data. https://CRAN.R-project.org/package=readr."
+    "objectID": "slides/day-05.html#footnotes",
+    "href": "slides/day-05.html#footnotes",
+    "title": "Data",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.\nThe Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.\nThe Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.\nThe Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples."
   },
   {
     "objectID": "news.html",
