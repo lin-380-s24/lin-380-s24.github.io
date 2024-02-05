@@ -5,6 +5,8 @@
 /.quarto/
 /_site/
 *code-workspace
+*_cache/
+*_files/
 
 # renv
 .Rprofile

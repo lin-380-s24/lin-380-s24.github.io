@@ -20,8 +20,13 @@ format:
       theme: dark
 revealjs-plugins:
   - codefocus
+webr:
+  show-startup-message: true
+  packages: ['readr', 'dplyr']
 filters:
+  - webr
   - roughnotation
+engine: knitr
 execute:
   echo: true
 bibliography: bibliography.bib

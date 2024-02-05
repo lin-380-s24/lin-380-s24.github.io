@@ -1,0 +1,269 @@
+---
+title: "Analysis"
+subtitle: "Approaching statistical thinking for text analysis."
+date: "2024-02-07"
+categories: [quarto, webr]
+draft: true
+---
+
+## Overview
+
+:::: {.columns}
+::: {.column width="60%"}
+- Describe
+- Analyze
+- Communicate
+:::
+
+::: {.column width="40%"}
+![](images/statistical-thinking.png)
+:::
+::::
+
+
+# Describe
+
+## Descriptive methods
+
+Summarize the data to understand its characteristics.
+
+::: {.incremental}
+- Central Tendency: What is the "typical" value?
+- Dispersion: How much do the values vary?
+- Distribution: What does the data look like?
+- Association: How do variables relate to one another?
+:::
+
+## Central Tendency
+
+A single statistic that aims to represent a variable.
+
+:::: {.columns}
+::: {.column width="30%"}
+Mode
+
+```{r}
+#| label: mode
+#| echo: false
+
+set.seed(123)
+
+x <- rgamma(10000, shape = 2, scale = 1)
+
+plot(density(x), main = "Density Plot", lwd = 3)
+
+mode <- x[which.max(table(x))]
+
+abline(v = mode, col = "red", lwd = 3)
+```
+
+Most common\
+`r round(mode, 2)`\
+[*used most for categorical data*]{style="font-size: .5em"}
+:::
+
+::: {.column width="30%"}
+Mean
+
+```{r}
+#| label: mean
+#| echo: false
+
+plot(density(x), main = "Density Plot", lwd = 3)
+
+mean <- mean(x)
+
+abline(v = mean, col = "green", lwd = 3)
+```
+
+Average\
+`r round(mean, 2)`
+:::
+
+::: {.column width="30%"}
+Median
+
+```{r}
+#| label: median
+#| echo: false
+
+plot(density(x), main = "Density Plot", lwd = 3)
+
+median <- median(x)
+
+abline(v = median, col = "blue", lwd = 3)
+```
+
+Middle\
+`r round(median, 2)`
+:::
+::::
+
+## Dispersion
+
+A single statistic to represent the variability of a variable.
+
+:::: {.columns}
+::: {.column width="50%"}
+Standard Deviation
+
+```{r}
+#| label: sd
+#| echo: false
+
+plot(density(x), main = "Density Plot", lwd = 3)
+
+sd <- sd(x)
+mean <- mean(x)
+
+abline(v = mean(x) + c(-1, 1) * sd, col = "green", lwd = 3, lty = 2)
+abline(v = mean, col = "green", lwd = 3)
+```
+
+`r round(sd, 2)` around the mean
+:::
+
+::: {.column width="50%"}
+IQR (Interquartile Range)
+
+```{r}
+#| label: iqr
+#| echo: false
+
+plot(density(x), main = "Density Plot", lwd = 3)
+
+q1 <- quantile(x, 0.25)
+q2 <- median(x)
+q3 <- quantile(x, 0.75)
+
+abline(v = c(q1, q3), col = "blue", lwd = 3, lty = 2)
+abline(v = q2, col = "blue", lwd = 3)
+```
+
+`r round(q3 - q1, 2)` 75$^{th}$ - 25$^{th}$ percentiles
+:::
+::::
+
+## Distribution
+
+[Normal distribution]{style="font-size: .75em"}
+```{r}
+#| label: normal-distribution
+#| echo: false
+#| fig-height: 5
+#| layout-ncol: 3
+#| cache: true
+
+set.seed(123)
+
+x <- rnorm(10000000, mean = 0, sd = 1)
+
+# add mode, mean, and median
+
+mean <- mean(x)
+median <- median(x)
+
+hist(x, main = "Histogram")
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+
+plot(density(x), main = "Density Plot")
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+
+boxplot(x, horizontal = TRUE)
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+```
+[Skewed distributions]{style="font-size: .75em"}
+
+```{r}
+#| label: skewed-distribution
+#| echo: false
+#| fig-height: 5
+#| layout-ncol: 3
+
+set.seed(123)
+
+x <- rgamma(10000, shape = 2, scale = 1)
+
+# add mode, mean, and median
+mode <- x[which.max(table(x))]
+mean <- mean(x)
+median <- median(x)
+
+hist(x, main = "Histogram")
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+
+plot(density(x), main = "Density Plot")
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+
+boxplot(x, horizontal = TRUE)
+
+abline(v = mean, col = "green", lwd = 3)
+abline(v = median, col = "blue", lwd = 3)
+```
+
+## Association
+
+# Analyze
+
+## Explore
+
+## Predict
+
+## Infer
+
+# Communicate
+
+## Report
+
+## Document
+
+# Summary
+
+## Upshot
+
+## Looking ahead
+
+
+## Testing `webr`
+
+- This is a test of the `webr` package
+- I'm going to use the `vss_df` data frame from the `corpora-vss.csv` file
+
+```{webr-r}
+#| context: setup
+
+download.file(
+  "https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/corpora-vss.csv",
+  "corpora-vss.csv"
+)
+
+library(readr)
+library(dplyr)
+
+vss_df <- read.csv("corpora-vss.csv") |> as_tibble()
+```
+
+## Testing `webr`{.scrollable}
+
+```{webr-r}
+# Show vss_d tibble
+vss_df
+```
+
+Cool!
+
+<!-- Documentation for quarto-webr:
+- https://quarto-webr.thecoatlessprofessor.com/
+- Available packages: https://repo.r-wasm.org/
+- More deep docs: https://docs.r-wasm.org/webr/latest/
+-->
