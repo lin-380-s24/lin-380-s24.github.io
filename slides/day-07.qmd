@@ -3,14 +3,35 @@ title: "Analysis"
 subtitle: "Approaching statistical thinking for text analysis."
 date: "2024-02-07"
 categories: [quarto, webr]
-draft: true
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'nsyllable', 'ggplot2', 'skimr']
+  message: false
 ---
 
 ## Overview
 
+```{webr-r}
+#| context: setup
+download.file(
+  "https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/corpora-vss.csv",
+  "corpora-vss.csv"
+)
+```
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+```
+
 :::: {.columns}
 ::: {.column width="60%"}
 - Describe
+  - {{< fa brands r-project >}} mixed in!
 - Analyze
 - Communicate
 :::
@@ -20,7 +41,6 @@ draft: true
 :::
 ::::
 
-
 # Describe
 
 ## Descriptive methods
@@ -28,13 +48,13 @@ draft: true
 Summarize the data to understand its characteristics.
 
 ::: {.incremental}
-- Central Tendency: What is the "typical" value?
-- Dispersion: How much do the values vary?
-- Distribution: What does the data look like?
-- Association: How do variables relate to one another?
+- {{< fa location-dot >}} Central Tendency: What is the "typical" value?
+- {{< fa arrows-left-right >}} Dispersion: How much do the values vary?
+- {{< fa chart-line >}} Distribution: What does the data look like?
+- {{< fa handshake-simple >}}  Association: How do variables relate to one another?
 :::
 
-## Central Tendency
+## {{< fa location-dot >}} Central Tendency
 
 A single statistic that aims to represent a variable.
 
@@ -47,13 +67,9 @@ Mode
 #| echo: false
 
 set.seed(123)
-
 x <- rgamma(10000, shape = 2, scale = 1)
-
 plot(density(x), main = "Density Plot", lwd = 3)
-
 mode <- x[which.max(table(x))]
-
 abline(v = mode, col = "red", lwd = 3)
 ```
 
@@ -70,9 +86,7 @@ Mean
 #| echo: false
 
 plot(density(x), main = "Density Plot", lwd = 3)
-
 mean <- mean(x)
-
 abline(v = mean, col = "green", lwd = 3)
 ```
 
@@ -88,9 +102,7 @@ Median
 #| echo: false
 
 plot(density(x), main = "Density Plot", lwd = 3)
-
 median <- median(x)
-
 abline(v = median, col = "blue", lwd = 3)
 ```
 
@@ -99,7 +111,7 @@ Middle\
 :::
 ::::
 
-## Dispersion
+## {{< fa arrows-left-right >}} Dispersion
 
 A single statistic to represent the variability of a variable.
 
@@ -112,10 +124,8 @@ Standard Deviation
 #| echo: false
 
 plot(density(x), main = "Density Plot", lwd = 3)
-
 sd <- sd(x)
 mean <- mean(x)
-
 abline(v = mean(x) + c(-1, 1) * sd, col = "green", lwd = 3, lty = 2)
 abline(v = mean, col = "green", lwd = 3)
 ```
@@ -131,11 +141,9 @@ IQR (Interquartile Range)
 #| echo: false
 
 plot(density(x), main = "Density Plot", lwd = 3)
-
 q1 <- quantile(x, 0.25)
 q2 <- median(x)
 q3 <- quantile(x, 0.75)
-
 abline(v = c(q1, q3), col = "blue", lwd = 3, lty = 2)
 abline(v = q2, col = "blue", lwd = 3)
 ```
@@ -144,42 +152,37 @@ abline(v = q2, col = "blue", lwd = 3)
 :::
 ::::
 
-## Distribution
+## {{< fa chart-line >}} Distribution{.scrollable}
 
 [Normal distribution]{style="font-size: .75em"}
 ```{r}
 #| label: normal-distribution
 #| echo: false
-#| fig-height: 5
+#| fig-width: 4
+#| fig-asp: 0.75
 #| layout-ncol: 3
 #| cache: true
 
 set.seed(123)
-
 x <- rnorm(10000000, mean = 0, sd = 1)
 
 # add mode, mean, and median
-
 mean <- mean(x)
 median <- median(x)
 
 hist(x, main = "Histogram")
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 
 plot(density(x), main = "Density Plot")
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 
 boxplot(x, horizontal = TRUE)
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 ```
 [Skewed distributions]{style="font-size: .75em"}
-
 ```{r}
 #| label: skewed-distribution
 #| echo: false
@@ -187,7 +190,6 @@ abline(v = median, col = "blue", lwd = 3)
 #| layout-ncol: 3
 
 set.seed(123)
-
 x <- rgamma(10000, shape = 2, scale = 1)
 
 # add mode, mean, and median
@@ -196,74 +198,291 @@ mean <- mean(x)
 median <- median(x)
 
 hist(x, main = "Histogram")
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 
 plot(density(x), main = "Density Plot")
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 
 boxplot(x, horizontal = TRUE)
-
 abline(v = mean, col = "green", lwd = 3)
 abline(v = median, col = "blue", lwd = 3)
 ```
 
-## Association
+## {{< fa handshake-simple >}} Association
+
+```{webr-r}
+#| context: setup
+
+set.seed(123)
+
+vss_df <-
+  read.csv("corpora-vss.csv") |>
+  as_tibble() |>
+  mutate(n_syll = nsyllable::nsyllable(word)) |>
+  # for each unique story name, code as a number
+  mutate(story_id = as.integer(factor(story))) |>
+  # for each unique sentence, code as a number
+  mutate(sent_id = sentence) |>
+  # for each word of a story's sentence, code as a number
+  group_by(story_id, sent_id) |>
+  mutate(word_id = row_number()) |>
+  ungroup() |>
+  # sample a genre for each story
+  group_by(story_id) |>
+  mutate(genre = sample(c("fiction", "non-fiction"), size = 1, replace = FALSE)) |>
+  ungroup() |>
+  mutate(n_char = nchar(word)) |>
+  mutate(genre = as.factor(genre)) |>
+  select(story_id, genre, sent_id, word_id, word, n_char, n_syll, pos)
+```
+
+Relationship between one variable and another
+
+::: {style="font-size: 0.8em;"}
+| | Categorical | Ordinal | Numeric |
+|---|---|---|---|
+| **Categorical** | Contingency Table | Contingency Table/ Bar plot | Pivot Table/ Boxplot |
+| **Ordinal** | - | Contingency Table/ Bar plot | Pivot Table/ Boxplot |
+| **Numeric** | - | - | Scatterplot |
+:::
+
+# Demo
+
+## Load necessary packages
+
+```{webr-r}
+#| label: demo-load-packages
+
+library(dplyr) # data manipulation
+library(skimr) # summary statistics
+```
+
+::: {.aside}
+@R-dplyr, @R-skimr
+:::
+
+## Very Short Stores `vss_df` dataset{.scrollable}
+
+```{webr-r}
+#| context: interactive
+#| autorun: true
+# Preview vss_df
+vss_df
+```
+
+## Statistical overview{.scrollable}
+
+```{webr-r}
+# Use the `skim()` function for a statistical overview
+skim(____)
+```
+
+## Targeted statistics{.scrollable}
+
+```{webr-r}
+#| context: setup
+
+vss_df <- vss_df |> filter(!is.na(n_syll))
+```
+
+::: {.panel-tabset}
+### {{< fa location-dot >}} Mean
+```{webr-r}
+# of `n_char` for all words
+vss_df |>
+  summarize(____ = ____)
+```
+### {{< fa arrows-left-right >}} Standard deviation
+```{webr-r}
+# standard deviation of `n_char` for all words
+vss_df |>
+  summarize(
+    n_char_sd = sd(n_char)
+  )
+```
+### *Etc.*
+```{webr-r}
+# of `n_syll` for all words
+vss_df |>
+  summarize(
+    n_syll_median = median(n_syll)
+  )
+```
+```{webr-r}
+# interquartile range of `n_syll` for all words
+vss_df |>
+  summarize(
+    n_syll_iqr = IQR(n_syll)
+  )
+```
+```{webr-r}
+# mode for `genre` of all stories
+vss_df |>
+  count(genre)
+```
+:::
+
+## {{< fa chart-line >}} Distribution{.scrollable}
+
+::: {.panel-tabset}
+### Histogram
+
+```{webr-r}
+#| message: false
+# histogram of `n_char` for all words
+vss_df |>
+  ggplot(aes(x = n_char)) +
+  geom_histogram()
+```
+### Density Plot
+
+```{webr-r}
+# density plot of `n_char` for all words
+vss_df |>
+  ggplot(aes(x = n_char)) +
+  geom_*()
+```
+### Boxplot
+
+```{webr-r}
+# boxplot of `n_char` for all words
+vss_df |>
+  ggplot(aes(x = ____)) +
+  geom_*()
+```
+:::
+
+## {{< fa handshake-simple >}} Association{.scrollable}
+
+::: {.panel-tabset}
+### {{< fa table >}} Contingency
+Categorical x Categorical/ Ordinal
+```{webr-r}
+# contingency table of `genre` and `pos` (nouns and adjectives)
+vss_df |>
+  filter(pos %in% ____) |>
+  group_by(____, ____) |>
+  summarize(n = ____)
+```
+### {{< fa table >}} Pivot
+Categorical x Numeric (measure)
+```{webr-r}
+# pivot table of `genre` and mean `n_char`
+vss_df |>
+  group_by(____) |>
+  summarize(mean_n_char = mean(n_char))
+```
+### {{< fa chart-line >}} Box
+Categorical x Numeric
+```{webr-r}
+# boxplot of `genre` and `n_char`
+vss_df |>
+  ggplot(aes(x = ____, y = ____)) +
+  geom_boxplot()
+```
+### {{< fa chart-line >}} Scatter
+Numeric x Numeric
+```{webr-r}
+# scatterplot of `n_char` and `n_syll`
+vss_df |>
+  ggplot(aes(x = ____, y = ____)) +
+  geom_point()
+```
+:::
 
 # Analyze
 
-## Explore
+## Aims, approach, methods, and evaluation
 
-## Predict
+::: {.panel-tabset}
+### Explore
 
-## Infer
+| | |
+|---|---|
+| Aims | Explore: gain insight, open new avenues |
+| Approach | Inductive, data-driven, and iterative |
+| Methods | Descriptive, pattern detection with machine learning (unsupervised) |
+| Evaluation | Associative |
+
+: Exploratory Data Analysis {#tbl-eda}{tbl-colwidths="[20, 80]"}
+
+### Predict
+
+| | |
+|---|---|
+| Aims | Examine: support and validate |
+| Approach | Semi-deductive, data/theory-driven, and iterative |
+| Methods | Predictive modeling with machine learning (supervised) |
+| Evaluation | Accuracy measures, associative |
+
+: Predictive Data Analysis {#tbl-pda}{tbl-colwidths="[20, 80]"}
+
+### Infer
+
+| | |
+|---|---|
+| Aims | Extrapolate: generalize and explain |
+| Approach | Deductive, theory-driven, and non-iterative |
+| Methods | Inferential statistics (theory- or simulation-based) |
+| Evaluation | Causal inference, associative |
+
+: Inferential Data Analysis {#tbl-ida}{tbl-colwidths="[20, 80]"}
+
+:::
 
 # Communicate
 
-## Report
+## Report{.smaller}
+
+Presentations, articles, and reports are the primary means of communicating results.
+
+```{mermaid}
+%%| echo: false
+flowchart LR
+  subgraph "Motivation"
+    A[Literature review] --> B[Research question]
+    A --> C[Hypothesis]
+  end
+  subgraph "Methods"
+    C --> D["Data\n description"]
+    B --> D
+    D --> F["Data analysis\n description"]
+  end
+  subgraph "Analysis"
+    F --> G["Descriptive statistics"]
+    G --> H["Exploratory findings"]
+    G --> I["Predictive modeling"]
+    G --> J["Inferential estimates"]
+    H --> K[Results]
+    I --> K
+    J --> K
+  end
+  subgraph "Discussion"
+    K --> L[Interpretation]
+    K --> N[Limitations]
+    K --> M[Implications]
+  end
+```
 
 ## Document
+
+![](images/qtal-big-picture.png)
 
 # Summary
 
 ## Upshot
 
+- Descriptive statistics are the first step in understanding data.
+- Statistical thinking is a process of asking questions and answering them with data.
+- The process of analysis depends on the aims of the research.
+- Communication and documentation is key to sharing results and understanding.
+
 ## Looking ahead
 
+- Recipe 03: [Descriptive assessment of datasets](https://qtalr.github.io/qtalrkit/articles/recipe-3.html)
+- Lab 03: [Trace the datascape](https://github.com/qtalr/lab-03)
 
-## Testing `webr`
+## References
 
-- This is a test of the `webr` package
-- I'm going to use the `vss_df` data frame from the `corpora-vss.csv` file
-
-```{webr-r}
-#| context: setup
-
-download.file(
-  "https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/corpora-vss.csv",
-  "corpora-vss.csv"
-)
-
-library(readr)
-library(dplyr)
-
-vss_df <- read.csv("corpora-vss.csv") |> as_tibble()
-```
-
-## Testing `webr`{.scrollable}
-
-```{webr-r}
-# Show vss_d tibble
-vss_df
-```
-
-Cool!
-
-<!-- Documentation for quarto-webr:
-- https://quarto-webr.thecoatlessprofessor.com/
-- Available packages: https://repo.r-wasm.org/
-- More deep docs: https://docs.r-wasm.org/webr/latest/
--->
