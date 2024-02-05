@@ -2,7 +2,7 @@
 title: "Analysis"
 subtitle: "Approaching statistical thinking for text analysis."
 date: "2024-02-07"
-categories: [quarto, webr]
+categories: [central-tendency, dispersion, distribution, association, analysis, documentation, r, skimr, dplyr, ggplot2]
 webr:
   show-startup-message: false
   packages: ['dplyr', 'nsyllable', 'ggplot2', 'skimr']
