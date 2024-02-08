@@ -1,0 +1,254 @@
+---
+title: "Trace the datascape"
+subtitle: "Descriptive assessment of datasets"
+date: "2024-02-09"
+categories: [ggplot2, skimr, janitor, knitr, summarize(), group_by(), count(), tabyl(), kable(), geom_*()]
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'knitr', 'ggplot2', 'skimr', 'corpora', 'janitor', 'kableExtra']
+  message: false
+---
+
+## Overview
+
+- Statistical overviews
+- Data summaries
+- Visual summaries
+- Lab 03: Trace the datascape
+
+```{r}
+#| label: slides-setup
+#| include: false
+
+# Load packages
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(skimr)
+library(corpora)
+library(janitor)
+library(kableExtra)
+
+# Read the dataset from the `corpora` package
+brown_fam_df <-
+  corpora::PassiveBrownFam |> # reference the dataset
+  as_tibble() # convert to a tibble
+
+# Rename variables
+brown_fam_df <-
+  brown_fam_df |> # pass the original dataset
+  rename( # rename variables: new_name = old_name
+    variety = lang,
+    num_words = n.words,
+    act_verbs = act,
+    pass_verbs = pass,
+    verbs = verbs,
+    pct_passive = p.pass
+  ) |>
+  select(-corpus, -section, -period, -id) |>
+  mutate(id = row_number(), genre = stringr::str_to_title(genre)) |>
+  select(id, everything())
+```
+
+```{webr-r}
+#| context: setup
+
+# Read the dataset from the `corpora` package
+brown_fam_df <-
+  corpora::PassiveBrownFam |> # reference the dataset
+  as_tibble() # convert to a tibble
+
+# Rename variables
+brown_fam_df <-
+  brown_fam_df |> # pass the original dataset
+  rename( # rename variables: new_name = old_name
+    variety = lang,
+    num_words = n.words,
+    act_verbs = act,
+    pass_verbs = pass,
+    verbs = verbs,
+    pct_passive = p.pass
+  ) |>
+  select(-corpus, -section, -period, -id) |>
+  mutate(id = row_number(), genre = stringr::str_to_title(genre)) |>
+  select(id, everything())
+```
+
+## Statistical overviews{.smaller .scrollable}
+
+::: {.panel-tabset}
+### skim()
+```{webr-r}
+# Use skim() to get all variables
+brown_fam_df |>
+  skim()
+
+# Use skim() |> yank("var_type") to get specific types (e.g. "character", "numeric", etc.)
+brown_fam_df |>
+  skim() |>
+  yank("numeric")
+```
+
+### summarize()
+```{webr-r}
+# Use summarize() to get summary statistics
+brown_fam_df |>
+  summarize(
+    mean = mean(num_words),
+    sd = sd(num_words),
+    median = median(num_words),
+    iqr = IQR(num_words)
+  )
+```
+:::
+
+## Data summaries{.smaller .scrollable}
+
+::: {.panel-tabset}
+### count()
+```{webr-r}
+# Use count() to get frequency tables
+brown_fam_df |>
+  count(genre, variety)
+```
+
+### tabyl()
+```{webr-r}
+# Use tabyl() to get contingency tables
+brown_fam_df |>
+  tabyl(genre, variety)
+```
+
+### group_by() + summarize()
+```{webr-r}
+# Use group_by() + summarize() to get pivot tables
+brown_fam_df |>
+  group_by(genre) |>
+  summarize(
+    mean_words = mean(num_words),
+    sd_words = sd(num_words)
+  )
+```
+:::
+
+## Data summaries to tables{.smaller .scrollable}
+
+::: {.panel-tabset}
+### kable()
+```{webr-r}
+variety_word_stats <-
+  brown_fam_df |>
+  group_by(variety) |>
+  summarize(
+    mean_words = mean(num_words),
+    sd_words = sd(num_words)
+  )
+
+variety_word_stats |>
+  kable()
+```
+
+### kable() results
+```{r}
+#| label: kable-data
+#| echo: false
+
+variety_word_stats <-
+  brown_fam_df |>
+  group_by(variety) |>
+  summarize(
+    mean_words = mean(num_words),
+    sd_words = sd(num_words)
+  )
+```
+
+```{{r}}
+#| label: tbl-kable-results
+#| tbl-cap: "Variety word statistics"
+
+variety_word_stats |>
+  kable()
+```
+
+```{r}
+#| label: tbl-kable-results
+#| tbl-cap: "Variety word statistics"
+#| echo: false
+
+variety_word_stats |>
+  kable()
+```
+:::
+
+## Visual summaries{.smaller .scrollable}
+
+Density plots
+
+::: {.panel-tabset}
+### One variable
+```{webr-r}
+# Use geom_density() to visualize the distribution of num_words
+brown_fam_df |>
+  ggplot(aes(x = num_words)) +   # specify the x-axis variable
+  geom_density()
+```
+
+### Two variables{.smaller .scrollable}
+```{webr-r}
+# Use geom_density() to visualize the distribution of num_words by variety
+brown_fam_df |>
+  ggplot(aes(x = num_words, fill = variety)) + # specify the x-axis and fill variables
+  geom_density(alpha = 0.5)                   # specify alpha for transparency
+```
+:::
+
+## Visual summaries{.smaller .scrollable}
+
+Boxplots
+
+::: {.panel-tabset}
+### One variable
+```{webr-r}
+# Use geom_boxplot() to visualize the distribution of pass_verbs
+brown_fam_df |>
+  ggplot(aes(x = pass_verbs)) + # specify the x-axis
+  geom_boxplot()                # create the boxplot
+```
+
+### Two variables
+```{webr-r}
+# Use geom_boxplot() to visualize the distribution of pass_verbs by variety
+brown_fam_df |>
+  ggplot(aes(x = variety, y = pass_verbs)) + # specify the x-axis and y-axis
+  geom_boxplot()                            # create the boxplot
+```
+:::
+
+## Visual summaries{.smaller .scrollable}
+
+Scatterplots
+
+::: {.panel-tabset}
+### Two variables
+```{webr-r}
+# Use geom_point() to visualize the relationship between num_words and verbs
+brown_fam_df |>
+  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis
+  geom_point()                                # create the scatterplot
+```
+### Two variables with trend line
+```{webr-r}
+# Use geom_point() and geom_smooth() to visualize the relationship between num_words and verbs
+brown_fam_df |>
+  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis
+  geom_point() +                              # create the scatterplot
+  geom_smooth(method = "lm")                  # add a trend line
+```
+:::
+
+# Lab 03: Trace the datascape
+
+## Setup
+
+- Clone the repository to RStudio as a new project
+- Follow the instructions in the `README.md` file
