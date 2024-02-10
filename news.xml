@@ -10,7 +10,158 @@
 <atom:link href="https://lin-380-s24.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for LIN 380: Quantitative Text Analysis, Spring 2024</description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Thu, 01 Feb 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 10 Feb 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Cool stuff: Lab 02</title>
+  <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-02/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this cool stuff, I want to address the concept of R sessions and Quarto render sessions, how to cite R packages, and how to include in-line R code in a Quarto document.</p>
+<section id="r-sessions-and-quarto-render-sessions" class="level2">
+<h2 class="anchored" data-anchor-id="r-sessions-and-quarto-render-sessions">R sessions and Quarto render sessions</h2>
+<p>As we have now have a basic working knowledge of RStudio, Quarto, and R it is worth covering an important topic that is often confusing for beginners: the difference between R sessions and Quarto render sessions.</p>
+<section id="r-sessions" class="level3">
+<h3 class="anchored" data-anchor-id="r-sessions">R sessions</h3>
+<p><img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-02/r-logo.png" class="img-fluid" style="float: right; width: 35%; margin-left: 1em;"></p>
+<p>Each time you open RStudio, you are starting an R session. An R session keeps track of the objects you create, the packages you load, and the code you run –that goes through the Console!</p>
+<p>When you change RStudio projects, you are changing from one R session to another. This is important because each R session is independent of the others. This means that if you load a package in one R session, it will not be available in another R session. This modularity is a good thing. It helps us keep project code separate and avoid conflicts between different projects. It’s one of the key reasons we have been creating R projects for each lab.</p>
+</section>
+<section id="quarto-render-sessions" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-render-sessions">Quarto render sessions</h3>
+<p><img src="https://lin-380-s24.github.io/posts/cool-stuff-lab-02/quarto-hex.png" class="img-fluid" style="float: right; width: 30%; margin-left: 1em;"></p>
+<p>Quarto render sessions are used to render the document. When you click the ‘Render’ button in the Quarto pane, you are starting a Quarto render session. This session is also independent of the R session in your RStudio project. This means that if you load a package in the R session, it will not be available in the Quarto render session. This is why you need to include the packages you use in the Quarto document itself. Again, you must include all the necessary code in the Quarto document to ensure that the document can be rendered without errors.</p>
+<p>Again, this is a good thing. It means that the Quarto document is self-contained and can be shared with others without worrying about whether they have the necessary code to produce the same results.</p>
+</section>
+<section id="working-with-r-and-quarto-interactively" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-r-and-quarto-interactively">Working with R and Quarto interactively</h3>
+<p>When developing a Quarto document, you can run R code in the R session (Console) to test and explore the code. Once you are satisfied with the code, you can add it to the Quarto document in the Editor pane, and then render the document to see the results.</p>
+<p>Another approach is to add the code (in code blocks) in the Quarto document and run the code in the R session by clicking the <code>Run</code> button in the code block, or line-by-line by using the <span class="visually-hidden"></span> on the line (or pipe sequence) you want to run.</p>
+<p>It is very natural to switch between the R session and the Quarto render session as you develop your document. You will often find yourself running code in the R session to test and explore, and then adding the code to the Quarto document to include in the final document. Just don’t assume that since you’ve run some code in the R session, it will automatically be available in the Quarto render session!</p>
+</section>
+</section>
+<section id="citing-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="citing-r-packages">Citing R packages</h2>
+<p>When you use an R package in your Quarto document, you should cite the package. This is important for two reasons:</p>
+<ul>
+<li>It gives credit to the authors of the package.</li>
+<li>It helps others find the package if they want to use it.</li>
+</ul>
+<p>You can get the necessary BiBTeX citation for an R package by running the <code>citation()</code> function with the package name as the argument. For example, to get the citation for the <code>dplyr</code> package, you would run:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">citation</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dplyr"</span>)</span></code></pre></div>
+<pre><code>To cite package ‘dplyr’ in publications use:
+
+  Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A
+  Grammar of Data Manipulation_. R package version 1.1.4,
+  &lt;https://CRAN.R-project.org/package=dplyr&gt;.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {dplyr: A Grammar of Data Manipulation},
+    author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},
+    year = {2023},
+    note = {R package version 1.1.4},
+    url = {https://CRAN.R-project.org/package=dplyr},
+  }</code></pre>
+<p>You then copy/paste the BibTeX entry into a bibliography <code>.bib</code> file. Just remember to check to make sure the entry has a citation key, and if does not (like the example above) create one. I usually use <code>R-</code> followed by the package name, so the citation key for <code>dplyr</code> would be <code>R-dplyr</code>.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">@Manual</span>{<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">R</span>-<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">dplyr</span>,</span>
+<span id="cb3-2">   <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">title</span> = {dplyr: A Grammar of Data Manipulation},</span>
+<span id="cb3-3">   <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">author</span> = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},</span>
+<span id="cb3-4">   <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">year</span> = {2023},</span>
+<span id="cb3-5">   <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">note</span> = {R package version 1.1.4},</span>
+<span id="cb3-6">   <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">url</span> = {https://CRAN.R-project.org/package=dplyr},</span>
+<span id="cb3-7"> }</span></code></pre></div>
+<p>I often keep my <code>.bib</code> file for academic work in one file and package entries in another file. This is not necessary, but it helps keep things organized. If you use two <code>.bib</code> files, you can include both of them in the front-matter of your Quarto document like this:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My document"</span></span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">author</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Me"</span></span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> html</span></span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bibliography</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> academic.bib</span></span>
+<span id="cb4-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> packages.bib</span></span></code></pre></div>
+</section>
+<section id="in-line-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="in-line-r-code">In-line R code</h2>
+<p>When you are writing a Quarto document, you may find that you want to include a value from an R object in the text. For example, you might want to say “The mean of the <code>n_char</code> column is 5.2”. You can add the ‘5.2’ manually based on the value you get from running R code earlier in the document, or you can include the value in the text using in-line R code. Say we have a data frame <code>df</code> with a column <code>n_char</code> and we want to include the mean of that column in the text. We can do this using the <code>`r expression`</code> syntax like this:</p>
+<pre class="quarto"><code>
+The mean of the `n_char` column is `r mean(df$n_char)`.
+</code></pre>
+<p>When you render the document, the in-line R code will be replaced with the value of the R expression. This is a very powerful feature of Quarto, and it allows you to keep your document up-to-date with the latest results from your R code.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>cool-stuff</category>
+  <category>r-sessions</category>
+  <category>quarto-render-sessions</category>
+  <category>citing-r-packages</category>
+  <category>in-line-r-code</category>
+  <guid>https://lin-380-s24.github.io/posts/cool-stuff-lab-02/</guid>
+  <pubDate>Sat, 10 Feb 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Cool stuff: Lab 01</title>
   <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-01/</link>
