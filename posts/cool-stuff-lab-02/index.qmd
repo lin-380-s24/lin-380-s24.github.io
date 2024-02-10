@@ -1,0 +1,102 @@
+---
+title: "Cool stuff: Lab 02"
+date: 2024-02-10
+categories: [cool-stuff, r-sessions, quarto-render-sessions, citing-r-packages, in-line-r-code]
+---
+
+In this cool stuff, I want to address the concept of R sessions and Quarto render sessions, how to cite R packages, and how to include in-line R code in a Quarto document.
+
+## R sessions and Quarto render sessions
+
+As we have now have a basic working knowledge of RStudio, Quarto, and R it is worth covering an important topic that is often confusing for beginners: the difference between R sessions and Quarto render sessions.
+
+### R sessions
+
+![](r-logo.png){style="float: right; width: 35%; margin-left: 1em;"}
+
+Each time you open RStudio, you are starting an R session. An R session keeps track of the objects you create, the packages you load, and the code you run --that goes through the Console!
+
+When you change RStudio projects, you are changing from one R session to another. This is important because each R session is independent of the others. This means that if you load a package in one R session, it will not be available in another R session. This modularity is a good thing. It helps us keep project code separate and avoid conflicts between different projects. It's one of the key reasons we have been creating R projects for each lab.
+
+### Quarto render sessions
+
+![](quarto-hex.png){style="float: right; width: 30%; margin-left: 1em;"}
+
+Quarto render sessions are used to render the document. When you click the 'Render' button in the Quarto pane, you are starting a Quarto render session. This session is also independent of the R session in your RStudio project. This means that if you load a package in the R session, it will not be available in the Quarto render session. This is why you need to include the packages you use in the Quarto document itself. Again, you must include all the necessary code in the Quarto document to ensure that the document can be rendered without errors.
+
+Again, this is a good thing. It means that the Quarto document is self-contained and can be shared with others without worrying about whether they have the necessary code to produce the same results.
+
+### Working with R and Quarto interactively
+
+When developing a Quarto document, you can run R code in the R session (Console) to test and explore the code. Once you are satisfied with the code, you can add it to the Quarto document in the Editor pane, and then render the document to see the results.
+
+Another approach is to add the code (in code blocks) in the Quarto document and run the code in the R session by clicking the `Run` button in the code block, or line-by-line by using the {{< kbd mac=Command+Enter win=Ctrl+Enter >}} on the line (or pipe sequence) you want to run.
+
+It is very natural to switch between the R session and the Quarto render session as you develop your document. You will often find yourself running code in the R session to test and explore, and then adding the code to the Quarto document to include in the final document. Just don't assume that since you've run some code in the R session, it will automatically be available in the Quarto render session!
+
+## Citing R packages
+
+When you use an R package in your Quarto document, you should cite the package. This is important for two reasons:
+
+- It gives credit to the authors of the package.
+- It helps others find the package if they want to use it.
+
+You can get the necessary BiBTeX citation for an R package by running the `citation()` function with the package name as the argument. For example, to get the citation for the `dplyr` package, you would run:
+
+```r
+citation("dplyr")
+```
+
+```
+To cite package ‘dplyr’ in publications use:
+
+  Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A
+  Grammar of Data Manipulation_. R package version 1.1.4,
+  <https://CRAN.R-project.org/package=dplyr>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {dplyr: A Grammar of Data Manipulation},
+    author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},
+    year = {2023},
+    note = {R package version 1.1.4},
+    url = {https://CRAN.R-project.org/package=dplyr},
+  }
+```
+
+You then copy/paste the BibTeX entry into a bibliography `.bib` file. Just
+ remember to check to make sure the entry has a citation key, and if does not (like the example above) create one. I usually use `R-` followed by the package name, so the citation key for `dplyr` would be `R-dplyr`.
+
+ ```bibtex
+  @Manual{R-dplyr,
+    title = {dplyr: A Grammar of Data Manipulation},
+    author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},
+    year = {2023},
+    note = {R package version 1.1.4},
+    url = {https://CRAN.R-project.org/package=dplyr},
+  }
+  ```
+
+ I often keep my `.bib` file for academic work in one file and package entries in another file. This is not necessary, but it helps keep things organized. If you use two `.bib` files, you can include both of them in the front-matter of your Quarto document like this:
+
+```yaml
+title: "My document"
+author: "Me"
+format: html
+bibliography:
+  - academic.bib
+  - packages.bib
+```
+
+## In-line R code
+
+When you are writing a Quarto document, you may find that you want to include a value from an R object in the text. For example, you might want to say "The mean of the `n_char` column is 5.2". You can add the '5.2' manually based on the value you get from running R code earlier in the document, or you can include the value in the text using in-line R code. Say we have a data frame `df` with a column `n_char` and we want to include the mean of that column in the text. We can do this using the `` `r expression` `` syntax like this:
+
+```quarto
+
+The mean of the `n_char` column is `r mean(df$n_char)`.
+
+```
+
+When you render the document, the in-line R code will be replaced with the value of the R expression. This is a very powerful feature of Quarto, and it allows you to keep your document up-to-date with the latest results from your R code.
