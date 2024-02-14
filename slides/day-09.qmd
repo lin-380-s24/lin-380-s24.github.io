@@ -1,0 +1,348 @@
+---
+title: "Research"
+subtitle: |
+  Framing and scaffolding the research process\
+  {{< fa heart >}}
+date: "2024-02-14"
+categories: [research, research-question, research-aim, research-statement, reproducible-research]
+---
+
+## Review
+
+![](images/fr-diki-hierarchy.png)
+
+## Overview
+
+![](images/research-drawio.png){.absolute top=100 width="60%"}
+
+## Research{.smaller}
+
+| Characteristic | Description |
+|----------------|-------------|
+| Purposive      | Based on identification of an issue or problem worthy and capable of investigation |
+| Inquisitive    | Seeking to acquire new knowledge |
+| Informed       | Conducted from an awareness of previous, related research |
+| Methodical     | Planned and carried out in a disciplined manner |
+| Communicable   | Generating and reporting results which are feasible and accessible by others |
+
+: Research characteristics [@Cross2006] {#tbl-research-chars tbl-colwidths="[20, 80]"}
+
+# Framing Research
+
+## Connect
+
+- Research area\
+*general area of interest where a researcher wants to derive insight and make a contribution to understanding*
+- Research problem\
+*highlights a particular topic of debate or uncertainty in existing knowledge which is worthy of study*
+
+## Research area
+
+Consider areas along:
+
+- Discipline
+- Language(s)
+- Methodology
+- Application
+
+:::{.notes}
+Examples:
+
+- Discipline: Sociolinguistics
+- Languages(s): English, Spanish
+- Methodology: Corpus linguistics
+- Application: Language policy
+:::
+
+## Research problem {.smaller}
+
+:::: {.columns}
+::: {.column width="30%"}
+**Comb the literature**
+
+Databases
+
+- [Google Scholar](https://scholar.google.com/)
+- [ZSR Library resources](https://zsr.wfu.edu/databases/linguistics/)
+- [Elicit](https://elicit.com/)
+
+Types of sources
+
+- Review articles
+- Position papers
+- Empirical studies
+:::
+
+::: {.column width="30%"}
+**Collect and reflect**
+
+- Research question
+- Data source(s)
+- Analytical approach
+- Main findings
+
+Reference management
+
+- [Zotero](https://www.zotero.org/)
+:::
+
+::: {.column width="30%"}
+**Identify gaps**
+
+- What are the debates?
+- What are the uncertainties?
+- What are the limitations?
+- What are the contradictions?
+:::
+::::
+
+## Define
+
+- Research aim\
+*frames the type of inquiry to be conducted:\
+explore, predict, or explain?*
+- Research question\
+*clearly defined statement which identifies an aspect of uncertainty and the particular relationships that this uncertainty concerns*
+
+## Research aim {.smaller}
+
+| RQ | Aim |
+|----|---------|
+| What kinds of collocations are unique to specific English dialects spoken in urban versus rural areas? | Explore |
+| French L2 learners will make more vocabulary errors in oral production than in written production. | ? |
+| Can the association strength between Mandarin words and their English translations predict translation difficulty for novice translators? | ? |
+| How common are gender-specific words in German-speaking communities on distinct online forums, and how does it reflect gender roles? | ? |
+| Can the frequency of function words used by Spanish L2 learners predict their stage in language acquisition? | ? |
+
+: {tbl-colwidths="[90, 10]"}
+
+## Research question {.smaller .scrollable}
+
+| RQ | Aim | Analysis | Observation |
+|----|---------| -------- | ----------- |
+| What kinds of collocations are unique to specific English dialects spoken in urban versus rural areas? | Explore | English dialects | Collocations |
+| French L2 learners will make more vocabulary errors in oral production than in written production. | Explain | ? | ? |
+| Can the association strength between Mandarin words and their English translations predict translation difficulty for novice translators? | Predict | ? | ? |
+| How common are gender-specific words in German-speaking communities on distinct online forums, and how does it reflect gender roles? | Explore | ? | ? |
+| Can the frequency of function words used by Spanish L2 learners predict their stage in language acquisition? | Predict | ? | ? |
+
+: {tbl-colwidths="[85, 5, 5, 5]" .striped}
+
+
+## Research question {.smaller .scrollable}
+
+| RQ | Aim | Analysis | Observation |
+|----|---------| -------- | ----------- |
+| What kinds of collocations are unique to specific English dialects spoken in urban versus rural areas? | Explore | English dialects | Collocations |
+| French L2 learners will make more vocabulary errors in oral production than in written production. | Explain | French L2 learners | Vocabulary errors |
+| Can the association strength between Mandarin words and their English translations predict translation difficulty for novice translators? | Predict | Mandarin words | Translation difficulty |
+| How common are gender-specific words in German-speaking communities on distinct online forums, and how does it reflect gender roles? | Explore | German-speaking online communities | Words |
+| Can the frequency of function words used by Spanish L2 learners predict their stage in language acquisition? | Predict | Spanish L2 learner stages | Function words |
+
+: {tbl-colwidths="[85, 5, 5, 5]"}
+
+## Summary
+
+![](images/research-drawio.png){.absolute top=100 width="60%"}
+
+# Blueprint Research
+
+## Blueprint
+
+- Plan\
+*links the conceptual framework to tangible research activities*
+- Scaffold\
+*provides a physical structure to support the research process*
+
+## Plan {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+| Component | Value |
+|-----------|-------|
+| Hypothesis |French L2 learners will make more vocabulary errors in oral production than in written production |
+| Aim | Explain |
+| Unit of analysis | French L2 learners |
+| Unit of observation | Vocabulary errors |
+
+: {tbl-colwidths="[45, 55]"}
+:::
+
+::: {.column width="40%"}
+| Step | Name | Activity |
+|------|----------|----------|
+| 2 | Data source(s) | Identify viable sources |
+| 3 | Key variables | Determine variables and operationalize |
+| 4 | Analysis method | Choose aim-aligned method |
+| 5 | Interpretation/ Evaluation | Establish criteria |
+
+: {tbl-colwidths="[5, 30, 65]"}
+:::
+::::
+
+## Plan {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+| Component | Value |
+|-----------|-------|
+| Research question | How common are gender-specific words in German-speaking communities on distinct online forums, and how does it reflect gender roles? |
+| Aim | Explore |
+| Unit of analysis | German-speaking online communities  |
+| Unit of observation | Words |
+
+: {tbl-colwidths="[45, 55]"}
+:::
+
+::: {.column width="40%"}
+| Step | Name | Activity |
+|------|----------|----------|
+| 2 | Data source(s) | Identify viable sources |
+| 3 | Key variables | Determine variables and operationalize |
+| 4 | Analysis method | Choose aim-aligned method |
+| 5 | Interpretation/ Evaluation | Establish criteria |
+
+: {tbl-colwidths="[5, 30, 65]"}
+:::
+::::
+
+
+## Scaffold
+
+:::: {.columns}
+::: {.column width="60%"}
+The physical structure to support the research process
+
+Focus: **Project structure**\
+component which supports:
+
+- Research process
+- Research write-up
+- Research sharing
+:::
+
+::: {.column width="40%"}
+![](images/nested-project.drawio.png)
+:::
+::::
+
+
+:::{.aside}
+Later we will introduce scaffolding for computational environments which includes addressing the hardware, operating system, and software.
+:::
+
+## Project structure {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Organization**
+
+- Clear separation between input, process, and output
+- Single purpose files, input and output independent
+
+**Reproducibility**
+
+- `DESCRIPTION` to provide metadata
+- `Makefile` to automate the process
+- `README` to guide the user
+
+**Compatibility**
+
+- Platform agnostic files
+:::
+
+::: {.column width="45%"}
+Example 1
+```{.bash style="font-size: 1.5em;"}
+project/
+├── input/
+│   └── ...
+|
+├── process/
+|   ├── acquire_data.R
+│   └── ...
+|
+├── output/
+│   └── ...
+|
+├── DESCRIPTION
+├── Makefile
+└── README
+```
+:::
+::::
+
+
+## Project structure {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Organization**
+
+- Clear separation between ~~input~~ data, ~~process~~ code, and ~~output~~ reports
+- Single purpose files, input and output independent
+
+**Reproducibility**
+
+- `DESCRIPTION` to provide metadata
+- ~~`Makefile`~~ `_quarto.yml` to automate the process
+- `README` to guide the user
+
+**Compatibility**
+
+- Platform agnostic files
+:::
+
+::: {.column width="45%"}
+Example 2
+```{.bash style="font-size: 1.5em;"}
+project/
+├── data/
+│   └── ...
+|
+├── code/
+|   ├── 1_acquire_data.qmd
+│   └── ...
+|
+├── reports/
+│   └── ...
+|
+├── DESCRIPTION
+├── _quarto.yml
+└── README
+```
+\
+[Class template](https://github.com/qtalr/project_web): `project_web`
+
+:::
+::::
+
+## Looking ahead
+
+Next class
+
+- Recipe 04: [Understanding the computing environment](https://qtalr.github.io/qtalrkit/articles/recipe-4.html)
+- Lab 04: [Scaffolding reproducible research](https://github.com/lin-380-s24/lab-04)
+
+Follow up
+
+- Workshop: Blueprinting research
+
+
+## References
+
+
+<!--
+
+Activity ideas:
+
+1. Brainstorm Research Topics: This activity helps students start thinking about potential areas of interest for their research. Encourage them to consider current events, personal interests, or gaps in existing research.
+2. Operationalizing Exercise: By operationalizing a concept, students learn to convert abstract ideas into measurable variables. This is a critical skill in quantitative research and helps in formulating clear, researchable questions.
+3. Technique Matching: This game-like activity encourages students to think about which text analysis techniques best fit different types of research questions. It can be done with flashcards or as a digital quiz.
+4. Drafting Research Questions: This activity consolidates the day's learning by having students apply their knowledge to draft their own research questions. Offering immediate feedback, either from peers or the instructor, can be highly beneficial.
+
+
+-->
+
