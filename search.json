@@ -322,11 +322,46 @@
     "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
   },
   {
+    "objectID": "posts/cool-stuff-lab-03/index.html",
+    "href": "posts/cool-stuff-lab-03/index.html",
+    "title": "Cool stuff: Lab 03",
+    "section": "",
+    "text": "In this cool stuff, I give you my advise for using AI to assist in learning to write code."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-03/index.html#ai-and-me-and-you",
+    "href": "posts/cool-stuff-lab-03/index.html#ai-and-me-and-you",
+    "title": "Cool stuff: Lab 03",
+    "section": "AI and me (and you)",
+    "text": "AI and me (and you)\n\nI am very much in favor of using AI to assist in writing code, when the goal is to learn how to write code or to reduce the time it takes to write code that is repetitive. Make sure that if/ when you use AI to assist in writing code, you are learning from the code that is generated. Play with the result and comment the code so that you can benefit from the code suggestions. Otherwise, it really is not worth it."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-03/index.html#using-ai-to-assist-in-writing-code-some-tips",
+    "href": "posts/cool-stuff-lab-03/index.html#using-ai-to-assist-in-writing-code-some-tips",
+    "title": "Cool stuff: Lab 03",
+    "section": "Using AI to assist in writing code: some tips",
+    "text": "Using AI to assist in writing code: some tips\nFor Quarto, AI is a little behind as the technology is new and most AI assistants have not been trained on it. You may find using the Quarto documentation better than using AI.\nFor R, make sure that you specify that you are using R, specifically the Tidyverse approach. This will help the AI assistant to provide you more relevant code (as you will most likely get a base R version which will not look like the code we are using in this course).\nIf you are using a particular R package, include that as part of the prompt. There are many ways to do things in R, and the AI assistant will not know which package you are using unless you tell it. You stand to learn much more if you are finding and implementing code that follows the strategies we are learning in the course."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-03/index.html#using-ai-to-understand",
+    "href": "posts/cool-stuff-lab-03/index.html#using-ai-to-understand",
+    "title": "Cool stuff: Lab 03",
+    "section": "Using AI to understand",
+    "text": "Using AI to understand\nAlways make sure that you understand the code that is generated. If you do not understand the code, you will not learn from it. If you do not learn from it, you are wasting your time.\nOne way to get some insight, is to as AI to explain the code. This will help give you a step-by-step understanding of the code. You can use follow up questions and ask for other examples."
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-03/index.html#some-ai-assistants",
+    "href": "posts/cool-stuff-lab-03/index.html#some-ai-assistants",
+    "title": "Cool stuff: Lab 03",
+    "section": "Some AI assistants",
+    "text": "Some AI assistants\nHere are some AI assistants that you can use to assist in writing code:\n\nChatGPT\nMicrosoft Copilot\nGoogle Gemini\nGitHub Copilot\nif you get an education account, you can use this for free inside of RStudio much like an autocomplete feature"
+  },
+  {
     "objectID": "news.html",
     "href": "news.html",
     "title": " News",
     "section": "",
-    "text": "Cool stuff: Lab 02\n\n\n\n\n\n\ncool-stuff\n\n\nr-sessions\n\n\nquarto-render-sessions\n\n\nciting-r-packages\n\n\nin-line-r-code\n\n\n\n\n\n\nFeb 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 01\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\ncitations\n\n\ncommenting\n\n\npython\n\n\ncsl-styles\n\n\n\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Cool stuff: Lab 03\n\n\n\n\n\n\ncool-stuff\n\n\nai\n\n\ncode-assistant\n\n\nlearning\n\n\nwriting-code\n\n\nunderstanding-code\n\n\n\n\n\n\nFeb 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 02\n\n\n\n\n\n\ncool-stuff\n\n\nr-sessions\n\n\nquarto-render-sessions\n\n\nciting-r-packages\n\n\nin-line-r-code\n\n\n\n\n\n\nFeb 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 01\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\ncitations\n\n\ncommenting\n\n\npython\n\n\ncsl-styles\n\n\n\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "guides/getting-started.html",

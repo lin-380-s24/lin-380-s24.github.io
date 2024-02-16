@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-13">
+<meta name="dcterms.date" content="2024-02-15">
 
 <title>Quantitative Text Analysis - Cool stuff: Lab 03</title>
 <style>
@@ -130,7 +130,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ai-and-me-and-you" id="toc-ai-and-me-and-you" class="nav-link active" data-scroll-target="#ai-and-me-and-you">AI and me (and you)</a></li>
+  <li><a href="#using-ai-to-assist-in-writing-code-some-tips" id="toc-using-ai-to-assist-in-writing-code-some-tips" class="nav-link" data-scroll-target="#using-ai-to-assist-in-writing-code-some-tips">Using AI to assist in writing code: some tips</a></li>
+  <li><a href="#using-ai-to-understand" id="toc-using-ai-to-understand" class="nav-link" data-scroll-target="#using-ai-to-understand">Using AI to understand</a></li>
+  <li><a href="#some-ai-assistants" id="toc-some-ai-assistants" class="nav-link" data-scroll-target="#some-ai-assistants">Some AI assistants</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -140,7 +149,11 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Cool stuff: Lab 03</h1>
   <div class="quarto-categories">
     <div class="quarto-category">cool-stuff</div>
-    <div class="quarto-category">namespace</div>
+    <div class="quarto-category">ai</div>
+    <div class="quarto-category">code-assistant</div>
+    <div class="quarto-category">learning</div>
+    <div class="quarto-category">writing-code</div>
+    <div class="quarto-category">understanding-code</div>
   </div>
   </div>
 
@@ -152,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 13, 2024</p>
+      <p class="date">February 15, 2024</p>
     </div>
   </div>
   
@@ -164,22 +177,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this cool stuff,</p>
-<ul>
-<li><p>namespace <code>package::function</code></p></li>
-<li><p>My approach to AI assistants for writing code</p></li>
-</ul>
+<p>In this cool stuff, I give you my advise for using AI to assist in learning to write code.</p>
+<section id="ai-and-me-and-you" class="level2">
+<h2 class="anchored" data-anchor-id="ai-and-me-and-you">AI and me (and you)</h2>
+<p><img src="ai-code-assistant.webp" class="img-fluid" style="float: right; width: 40%; margin: 10px;"></p>
 <p>I am very much in favor of using AI to assist in writing code, when the goal is to learn how to write code or to reduce the time it takes to write code that is repetitive. Make sure that if/ when you use AI to assist in writing code, you are learning from the code that is generated. Play with the result and comment the code so that you can benefit from the code suggestions. Otherwise, it really is not worth it.</p>
+</section>
+<section id="using-ai-to-assist-in-writing-code-some-tips" class="level2">
+<h2 class="anchored" data-anchor-id="using-ai-to-assist-in-writing-code-some-tips">Using AI to assist in writing code: some tips</h2>
+<p>For Quarto, AI is a little behind as the technology is new and most AI assistants have not been trained on it. You may find using the Quarto documentation better than using AI.</p>
+<p>For R, make sure that you specify that you are using R, specifically the Tidyverse approach. This will help the AI assistant to provide you more relevant code (as you will most likely get a base R version which will not look like the code we are using in this course).</p>
+<p>If you are using a particular R package, include that as part of the prompt. There are many ways to do things in R, and the AI assistant will not know which package you are using unless you tell it. You stand to learn much more if you are finding and implementing code that follows the strategies we are learning in the course.</p>
+</section>
+<section id="using-ai-to-understand" class="level2">
+<h2 class="anchored" data-anchor-id="using-ai-to-understand">Using AI to understand</h2>
+<p>Always make sure that you understand the code that is generated. If you do not understand the code, you will not learn from it. If you do not learn from it, you are wasting your time.</p>
+<p>One way to get some insight, is to as AI to explain the code. This will help give you a step-by-step understanding of the code. You can use follow up questions and ask for other examples.</p>
+</section>
+<section id="some-ai-assistants" class="level2">
+<h2 class="anchored" data-anchor-id="some-ai-assistants">Some AI assistants</h2>
+<p>Here are some AI assistants that you can use to assist in writing code:</p>
 <ul>
-<li>Using AI to assist in writing code: some tips
-<ul>
-<li>For Quarto, AI is a little behind as the technology is new and most AI assistants have not been trained on it. You may find using the Quarto documentation better than using AI.</li>
-<li>For R, make sure that you specify that you are using R, specifically the Tidyverse approach. This will help the AI assistant to provide you more relevant code (as you will most likely get a base R version which will not look like the code we are using in this course).</li>
-<li>If you are using a particular package, include that as part of the prompt. There are many ways to do things in R, and the AI assistant will not know which package you are using unless you tell it. You stand to learn much more if you are finding and implementing code that follows the strategies we are learning in the course.</li>
-</ul></li>
+<li><a href="https://chat.openai.com/">ChatGPT</a></li>
+<li><a href="https://copilot.microsoft.com/">Microsoft Copilot</a></li>
+<li><a href="https://gemini.google.com/">Google Gemini</a></li>
+<li><a href="https://copilot.github.com/">GitHub Copilot</a><br>
+<em>if you get an education account, you can use this for free inside of RStudio much like an autocomplete feature</em></li>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
