@@ -1,19 +1,39 @@
 ---
 title: "Cool stuff: Lab 03"
-date: 2024-02-13
-categories: [cool-stuff, namespace]
-draft: true
+date: 2024-02-15
+categories: [cool-stuff, ai, code-assistant, learning, writing-code, understanding-code]
 ---
 
-In this cool stuff,
+In this cool stuff, I give you my advise for using AI to assist in learning to write code.
 
-- namespace `package::function`
+## AI and me (and you)
 
-- My approach to AI assistants for writing code
+![](ai-code-assistant.webp){style="float: right; width: 40%; margin: 10px;"}
 
 I am very much in favor of using AI to assist in writing code, when the goal is to learn how to write code or to reduce the time it takes to write code that is repetitive. Make sure that if/ when you use AI to assist in writing code, you are learning from the code that is generated. Play with the result and comment the code so that you can benefit from the code suggestions. Otherwise, it really is not worth it.
 
-- Using AI to assist in writing code: some tips
-  - For Quarto, AI is a little behind as the technology is new and most AI assistants have not been trained on it. You may find using the Quarto documentation better than using AI.
-  - For R, make sure that you specify that you are using R, specifically the Tidyverse approach. This will help the AI assistant to provide you more relevant code (as you will most likely get a base R version which will not look like the code we are using in this course).
-  - If you are using a particular package, include that as part of the prompt. There are many ways to do things in R, and the AI assistant will not know which package you are using unless you tell it. You stand to learn much more if you are finding and implementing code that follows the strategies we are learning in the course.
+## Using AI to assist in writing code: some tips
+
+For Quarto, AI is a little behind as the technology is new and most AI assistants have not been trained on it. You may find using the Quarto documentation better than using AI.
+
+For R, make sure that you specify that you are using R, specifically the Tidyverse approach. This will help the AI assistant to provide you more relevant code (as you will most likely get a base R version which will not look like the code we are using in this course).
+
+If you are using a particular R package, include that as part of the prompt. There are many ways to do things in R, and the AI assistant will not know which package you are using unless you tell it. You stand to learn much more if you are finding and implementing code that follows the strategies we are learning in the course.
+
+## Using AI to understand
+
+Always make sure that you understand the code that is generated. If you do not understand the code, you will not learn from it. If you do not learn from it, you are wasting your time.
+
+One way to get some insight, is to as AI to explain the code. This will help give you a step-by-step understanding of the code. You can use follow up questions and ask for other examples.
+
+## Some AI assistants
+
+Here are some AI assistants that you can use to assist in writing code:
+
+- [ChatGPT](https://chat.openai.com/)
+- [Microsoft Copilot](https://copilot.microsoft.com/)
+- [Google Gemini](https://gemini.google.com/)
+- [GitHub Copilot](https://copilot.github.com/)\
+*if you get an education account, you can use this for free inside of RStudio much like an autocomplete feature*
+
+
