@@ -14,137 +14,179 @@
     "text": "References\n\n\n\n\nReading, inspecting, and writing datasets | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nEvert, Stephanie. 2023. Corpora: Statistics and Data Sets for Corpus Frequency Data. https://CRAN.R-project.org/package=corpora.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. Readr: Read Rectangular Text Data. https://CRAN.R-project.org/package=readr."
   },
   {
-    "objectID": "slides/day-09.html#references",
-    "href": "slides/day-09.html#references",
-    "title": "Research",
+    "objectID": "slides/day-07.html#references",
+    "href": "slides/day-07.html#references",
+    "title": "Analysis",
     "section": "References",
-    "text": "References\n\n\n\n\n\nResearch | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCross, Nigel. 2006. “Design as a Discipline.” Designerly Ways of Knowing, 95–103."
+    "text": "References\n\n\n\n\nAnalysis | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nWaring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. Skimr: Compact and Flexible Summaries of Data. https://CRAN.R-project.org/package=skimr.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr."
   },
   {
-    "objectID": "slides/day-02.html#footnotes",
-    "href": "slides/day-02.html#footnotes",
-    "title": "Writing with code",
+    "objectID": "guides/get-up-with-git.html",
+    "href": "guides/get-up-with-git.html",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "",
+    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
+    "href": "guides/get-up-with-git.html#what-is-git-and-github",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "What is Git and GitHub?",
+    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "First steps with Git and GitHub: cloning a repository",
+    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
+  },
+  {
+    "objectID": "guides/get-up-with-git.html#footnotes",
+    "href": "guides/get-up-with-git.html#footnotes",
+    "title": "Get up to speed with Git and GitHub",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nFootnote info…"
+    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
   },
   {
-    "objectID": "guides/getting-started.html",
-    "href": "guides/getting-started.html",
-    "title": "Getting started",
+    "objectID": "guides/managing-docker-rstudio.html",
+    "href": "guides/managing-docker-rstudio.html",
+    "title": "Managing Docker and RStudio Server",
     "section": "",
-    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
+    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
   },
   {
-    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "What is a virtual computing environment?",
-    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
+    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Stop Docker container and RStudio Server",
+    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
   },
   {
-    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Setting up the virtual computing environment",
-    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
+    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Restart Docker container and RStudio Server",
+    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
   },
   {
-    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Sharing files between your computer and the virtual computing environment",
-    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": " News",
+    "objectID": "posts/cool-stuff-lab-00/index.html",
+    "href": "posts/cool-stuff-lab-00/index.html",
+    "title": "Cool stuff: Lab 00",
     "section": "",
-    "text": "Cool stuff: Lab 02\n\n\n\n\n\n\ncool-stuff\n\n\nr-sessions\n\n\nquarto-render-sessions\n\n\nciting-r-packages\n\n\nin-line-r-code\n\n\n\n\n\n\nFeb 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 01\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\ncitations\n\n\ncommenting\n\n\npython\n\n\ncsl-styles\n\n\n\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.\nI’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here."
   },
   {
-    "objectID": "posts/eulc5/index.html",
-    "href": "posts/eulc5/index.html",
-    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "objectID": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "href": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
+    "title": "Cool stuff: Lab 00",
+    "section": "Changing Quarto document themes",
+    "text": "Changing Quarto document themes\nQuarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.\n---\ntitle: \"My Document\"\nformat:\n  html:\n    theme: cerulean\n---\n\n\n\nThemes are available for both HTML and PDF output, but they are not the same. Here you can find a list of HTML themes.\nFor PDF output, you need to specify the documentclass: in the front matter.\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    documentclass: report\n---\n\n\n\nThe options are more limited for PDF output given the nature of the output but you can read more here.\n\nPDF output gotcha\nWhen Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.\nOne of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like `verbatim text` is rendered as verbatim text. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.\nThe first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.\nSay we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: ![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html).\nIn a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block1.\n```markdown\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\n```\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\nIn many cases this will be enough to solve side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header:\n      - text: |\n          \\usepackage{fvextra}\n          \\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\\\\{\\},breaklines,breaknonspaceingroup,breakanywhere}\n---\nThis is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.\nIf more LaTeX customization is needed, you are best to create a new LaTeX document, say header.tex, and add the LaTeX code to that file. Then you can add the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header: header.tex\n---"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "href": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
+    "title": "Cool stuff: Lab 00",
+    "section": "Keyboard shortcuts in RStudio",
+    "text": "Keyboard shortcuts in RStudio\nRStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them here.\nFor starters, here are the ones I use the most to work with Quarto and R:\n\n\n\nSymbols used in keyboard shortcuts\n\n\n\n\n\n\nSymbol\nKey\n\n\n\n\nShiftShift\nShift key\n\n\nCtrlCtrl\nControl key\n\n\nCommandCommand\nCommand key\n(Mac only)\n\n\nAltAlt\nAlt key\n\n\nOptionOption\nOption key\n(Mac only)\n\n\nEscEsc\nEscape key\n\n\nTabTab\nTab key\n\n\nEnterEnter\nEnter key\n\n\n\n\nFor Quarto document elements\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nRender Quarto documents\n\n\n\nAdd a code block to a Quarto document\n\n\n\n\n\nFor R code\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nTo invoke code completion when typing R code\n\n\n\nRun current line or selection in the Console\n\n\n\nTo comment or uncomment a line or selection so that it is or is not run as R code\n\n\n\nTo insert the &lt;- operator to assign code output to a variable\n\n\n\nTo insert a |&gt; operator to pipe the output of one operation to the input of the next\n\n\n\nTo reformat R code so that indentation is more legible"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-00/index.html#footnotes",
+    "href": "posts/cool-stuff-lab-00/index.html#footnotes",
+    "title": "Cool stuff: Lab 00",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNote that a code block that has the language, markdown in this case, without curly braces {} means to show the code highlighting but not to execute the code. In some ways it is equivalent to #| eval: false.↩︎"
+  },
+  {
+    "objectID": "posts/first-day-hiccups/index.html",
+    "href": "posts/first-day-hiccups/index.html",
+    "title": "Sorting out first-day hiccups",
     "section": "",
-    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
+    "text": "I’m writing this post to address the fact that we did not get as far as we would have liked to on the first day of the course. Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn’t in class, most were able to do so after class.\nHowever, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.\nIn order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th."
   },
   {
-    "objectID": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
-    "href": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
-    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "objectID": "posts/first-day-hiccups/index.html#docker-desktop-rstudio",
+    "href": "posts/first-day-hiccups/index.html#docker-desktop-rstudio",
+    "title": "Sorting out first-day hiccups",
+    "section": "1. Docker Desktop + RStudio",
+    "text": "1. Docker Desktop + RStudio\n\nDownload the francojc/lin-380 image in Docker Desktop.\nRun the francojc/lin-380 image in Docker Desktop.\n\nPlease note that you will need to follow the Getting started guide to set up the correct configuration for the container.\n\nConnect to the container running in Docker Desktop by visiting localhost:8787 in your browser.\n\n\n\nThese steps are documented in detail in the Getting started guide."
+  },
+  {
+    "objectID": "posts/first-day-hiccups/index.html#hypothes.is-account",
+    "href": "posts/first-day-hiccups/index.html#hypothes.is-account",
+    "title": "Sorting out first-day hiccups",
+    "section": "2. Hypothes.is account",
+    "text": "2. Hypothes.is account\n\nCreate a Hypothes.is account\nJoin the course group lin-380-s24\nAccess the annotation layer on the readings (e.g textbook)\n\n\n\nSave your Hypothes.is username and password somewhere safe. You will need it to log in to Hypothes.is to be able to annotate readings."
+  },
+  {
+    "objectID": "posts/first-day-hiccups/index.html#github-account",
+    "href": "posts/first-day-hiccups/index.html#github-account",
+    "title": "Sorting out first-day hiccups",
+    "section": "3. GitHub account",
+    "text": "3. GitHub account\n\nCreate a GitHub account\n\n\n\n\n\nSave your GitHub username and password somewhere safe. You will need it to interact with GitHub."
+  },
+  {
+    "objectID": "posts/mac-m1-chip-workaround/index.html",
+    "href": "posts/mac-m1-chip-workaround/index.html",
+    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
     "section": "",
-    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
+    "text": "In this post, I will address the issue of Docker Desktop not being able to run containers on Mac M1-chip machines. If you have experienced an issue creating a container from the francojc/lin-380 image where when logging in to RStudio Server you get the error message below, then this post is for you."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Hello, World!",
+    "objectID": "posts/mac-m1-chip-workaround/index.html#the-issue",
+    "href": "posts/mac-m1-chip-workaround/index.html#the-issue",
+    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
+    "section": "The issue",
+    "text": "The issue\nThe issue is that the francojc/lin-380 image is built for the x86_64 architecture, but the M1-chip is an arm64 architecture (the nuts and bolts of the computer). This means that the image is not compatible with the M1-chip. The solution is to build the image for the arm64 architecture.\nRocker has alternative images for the arm64 architecture, but they are not as complete and so we will need to do some extra work to get the image to work like the original x86_64 image."
+  },
+  {
+    "objectID": "posts/mac-m1-chip-workaround/index.html#the-solution",
+    "href": "posts/mac-m1-chip-workaround/index.html#the-solution",
+    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
+    "section": "The solution",
+    "text": "The solution\n\nInstall Docker Desktop for Apple silicon\nMake sure you have installed Docker Desktop for Mac M1-chip machines (Apple silicon). If you have not, you can find the instructions here.\n\n\nPull the rocker/rstudio image\nPull the rocker/rstudio image. Open Docker Desktop, go to the search bar at the top and type rocker/rstudio. Click on the image and then click on the Pull button. Wait for the image to download.\n\n\nMake sure you delete all earlier containers and images from Docker Desktop. We want to start with a clean slate.\n\n\n\nPull rocker/rstudio\n\n\n\n\nCreate a new container from the rocker/rstudio image\n\nClick the Run button .\n\n\n\n\nRun rocker/rstudio image\n\n\n\nClick on the Optional settings dropdown.\n\nFill out these fields:\n\nContainer name: lin-380 (you choose the name, no spaces)\nHost port: 8787\nHost path: (use the Finder to select a folder on your Mac where you want to save your files)\nContainer path: /home/rstudio/Workspace (use this exact path!)\nEnvironment variables:\n\nVariable: PASSWORD, Value: (you choose the password, no spaces)\nVariable: ROOT, Value: true\n\n\n\n\n\nOptional settings\n\n\n\nClick the Run button to create the container. Wait for the container to be created.\n\n\n\nOpen RStudio Server in your browser\n\nClick on the 8787:8787 link to open RStudio Server in your browser.\nUse the rstudio username and the password you chose to log in to RStudio Server.\n\n\n\nThis is the point that you would normally see the error message. But because we are using the rocker/rstudio image, we shouldn’t see the error message. If you do, stop and contact me.\n\n\nConfigure RStudio Server\nYou should now be logged in to RStudio Server. And see something like this:\n\n\n\nFresh RStudio Server\n\n\nThis is where we will configure RStudio Server to work like the francojc/lin-380 image. We will need to do some one-time configuration in the Terminal. Click on the Terminal tab (between the ‘Console’ and ‘Background Jobs’ tabs) to open the Terminal.\n\n\n\nTerminal inside RStudio\n\n\n\nInstall Quarto\n\nType the following command in the Terminal and press Enter:\nquarto install tinytex\n\n\n\nInstall Quarto inside Terminal\n\n\n\nInstall the tidyverse packages\n\nType the following command in the Terminal and press Enter:\nsudo /rocker_scripts/install_tidyverse.sh\n\n\n\nInstall Tidyverse packages in Terminal\n\n\n\nAdd custom preferences to RStudio\n\nCreate a new file called rstudio-prefs.json in the Terminal by typing the following command and pressing Enter:\ntouch ~/rstudio-prefs.json\nThis file should appear in your home directory. Open the file by clicking on it in the Files tab. This will open the file in the Source tab.\nCopy and paste the following code into the file and save it:\n{\n  \"save_workspace\": \"never\",\n  \"remove_history_duplicates\": true,\n  \"reuse_sessions_for_project_links\": true,\n  \"posix_terminal_shell\": \"bash\",\n  \"initial_working_directory\": \"~\",\n  \"insert_native_pipe_operator\": true,\n  \"soft_wrap_r_files\": true,\n  \"strip_trailing_whitespace\": true,\n  \"highlight_selected_line\": true,\n  \"rainbow_parentheses\": true,\n  \"warn_variable_defined_but_not_used\": true,\n  \"default_encoding\": \"UTF-8\",\n  \"indent_guides\": \"rainbowlines\",\n  \"syntax_color_console\": true,\n  \"show_doc_outline_rmd\": true,\n  \"visual_markdown_code_editor_line_numbers\": true,\n  \"code_completion\": \"manual\",\n  \"rmd_viewer_type\": \"pane\",\n  \"rmd_auto_date\": true,\n  \"pdf_previewer\": \"system\",\n  \"default_latex_program\": \"XeLaTeX\",\n  \"use_tinytex\": true,\n  \"jobs_tab_visibility\": \"shown\",\n  \"default_project_location\": \"~/Workspace\",\n  \"panes\": {\n      \"quadrants\": [\n          \"Source\",\n          \"Console\",\n          \"TabSet1\",\n          \"TabSet2\"\n      ],\n      \"tabSet1\": [\n          \"Environment\",\n          \"History\",\n          \"Build\",\n          \"VCS\",\n          \"Tutorial\",\n          \"Presentation\"\n      ],\n      \"tabSet2\": [\n          \"Files\",\n          \"Plots\",\n          \"Packages\",\n          \"Help\",\n          \"Viewer\",\n          \"Presentations\"\n      ],\n      \"hiddenTabSet\": [\n          \"Connections\"\n      ],\n      \"console_left_on_top\": false,\n      \"console_right_on_top\": true,\n      \"additional_source_columns\": 0\n  }\n}\nNow you return to the Terminal and type the following command and press Enter:\ncp ~/rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json\n\n\n\nCopy RStudio preferences in Terminal"
+  },
+  {
+    "objectID": "posts/mac-m1-chip-workaround/index.html#congratulations",
+    "href": "posts/mac-m1-chip-workaround/index.html#congratulations",
+    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
+    "section": "Congratulations!",
+    "text": "Congratulations!\n\nYou have successfully created a container from the rocker/rstudio image and configured it to work much like the francojc/lin-380 image (we have some other R packages we will install as we need them).\nYou can now use this container for your LIN 380 assignments!"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-02/index.html",
+    "href": "posts/cool-stuff-lab-02/index.html",
+    "title": "Cool stuff: Lab 02",
     "section": "",
-    "text": "This is the first post!"
+    "text": "In this cool stuff, I want to address the concept of R sessions and Quarto render sessions, how to cite R packages, and how to include in-line R code in a Quarto document."
   },
   {
-    "objectID": "posts/cool-stuff-lab-01/index.html",
-    "href": "posts/cool-stuff-lab-01/index.html",
-    "title": "Cool stuff: Lab 01",
+    "objectID": "posts/cool-stuff-lab-02/index.html#r-sessions-and-quarto-render-sessions",
+    "href": "posts/cool-stuff-lab-02/index.html#r-sessions-and-quarto-render-sessions",
+    "title": "Cool stuff: Lab 02",
+    "section": "R sessions and Quarto render sessions",
+    "text": "R sessions and Quarto render sessions\nAs we have now have a basic working knowledge of RStudio, Quarto, and R it is worth covering an important topic that is often confusing for beginners: the difference between R sessions and Quarto render sessions.\n\nR sessions\n\nEach time you open RStudio, you are starting an R session. An R session keeps track of the objects you create, the packages you load, and the code you run –that goes through the Console!\nWhen you change RStudio projects, you are changing from one R session to another. This is important because each R session is independent of the others. This means that if you load a package in one R session, it will not be available in another R session. This modularity is a good thing. It helps us keep project code separate and avoid conflicts between different projects. It’s one of the key reasons we have been creating R projects for each lab.\n\n\nQuarto render sessions\n\nQuarto render sessions are used to render the document. When you click the ‘Render’ button in the Quarto pane, you are starting a Quarto render session. This session is also independent of the R session in your RStudio project. This means that if you load a package in the R session, it will not be available in the Quarto render session. This is why you need to include the packages you use in the Quarto document itself. Again, you must include all the necessary code in the Quarto document to ensure that the document can be rendered without errors.\nAgain, this is a good thing. It means that the Quarto document is self-contained and can be shared with others without worrying about whether they have the necessary code to produce the same results.\n\n\nWorking with R and Quarto interactively\nWhen developing a Quarto document, you can run R code in the R session (Console) to test and explore the code. Once you are satisfied with the code, you can add it to the Quarto document in the Editor pane, and then render the document to see the results.\nAnother approach is to add the code (in code blocks) in the Quarto document and run the code in the R session by clicking the Run button in the code block, or line-by-line by using the  on the line (or pipe sequence) you want to run.\nIt is very natural to switch between the R session and the Quarto render session as you develop your document. You will often find yourself running code in the R session to test and explore, and then adding the code to the Quarto document to include in the final document. Just don’t assume that since you’ve run some code in the R session, it will automatically be available in the Quarto render session!"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-02/index.html#citing-r-packages",
+    "href": "posts/cool-stuff-lab-02/index.html#citing-r-packages",
+    "title": "Cool stuff: Lab 02",
+    "section": "Citing R packages",
+    "text": "Citing R packages\nWhen you use an R package in your Quarto document, you should cite the package. This is important for two reasons:\n\nIt gives credit to the authors of the package.\nIt helps others find the package if they want to use it.\n\nYou can get the necessary BiBTeX citation for an R package by running the citation() function with the package name as the argument. For example, to get the citation for the dplyr package, you would run:\ncitation(\"dplyr\")\nTo cite package ‘dplyr’ in publications use:\n\n  Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A\n  Grammar of Data Manipulation_. R package version 1.1.4,\n  &lt;https://CRAN.R-project.org/package=dplyr&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Manual{,\n    title = {dplyr: A Grammar of Data Manipulation},\n    author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},\n    year = {2023},\n    note = {R package version 1.1.4},\n    url = {https://CRAN.R-project.org/package=dplyr},\n  }\nYou then copy/paste the BibTeX entry into a bibliography .bib file. Just remember to check to make sure the entry has a citation key, and if does not (like the example above) create one. I usually use R- followed by the package name, so the citation key for dplyr would be R-dplyr.\n @Manual{R-dplyr,\n   title = {dplyr: A Grammar of Data Manipulation},\n   author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},\n   year = {2023},\n   note = {R package version 1.1.4},\n   url = {https://CRAN.R-project.org/package=dplyr},\n }\nI often keep my .bib file for academic work in one file and package entries in another file. This is not necessary, but it helps keep things organized. If you use two .bib files, you can include both of them in the front-matter of your Quarto document like this:\ntitle: \"My document\"\nauthor: \"Me\"\nformat: html\nbibliography:\n  - academic.bib\n  - packages.bib"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-02/index.html#in-line-r-code",
+    "href": "posts/cool-stuff-lab-02/index.html#in-line-r-code",
+    "title": "Cool stuff: Lab 02",
+    "section": "In-line R code",
+    "text": "In-line R code\nWhen you are writing a Quarto document, you may find that you want to include a value from an R object in the text. For example, you might want to say “The mean of the n_char column is 5.2”. You can add the ‘5.2’ manually based on the value you get from running R code earlier in the document, or you can include the value in the text using in-line R code. Say we have a data frame df with a column n_char and we want to include the mean of that column in the text. We can do this using the `r expression` syntax like this:\n\nThe mean of the `n_char` column is `r mean(df$n_char)`.\n\nWhen you render the document, the in-line R code will be replaced with the value of the R expression. This is a very powerful feature of Quarto, and it allows you to keep your document up-to-date with the latest results from your R code."
+  },
+  {
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": " Guides",
     "section": "",
-    "text": "In this cool stuff, I just have a few things to share including, commenting in Quarto and R, literature search 2.0, bibliographies, citation and reference styles, Quarto + other languages, and a first look at figures.\nAs always, I hope you find this information helpful and interesting!"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#using-commenting-in-quarto-and-r",
-    "href": "posts/cool-stuff-lab-01/index.html#using-commenting-in-quarto-and-r",
-    "title": "Cool stuff: Lab 01",
-    "section": "Using commenting in Quarto and R",
-    "text": "Using commenting in Quarto and R\nWhen writing documents in Quarto, you will often find yourself in a situation in which you would like to write some comments in the prose that only you will see and that will not appear in the final document. Think of these comments as notes to yourself (or to your collaborators). It’s like ‘speaker notes’ for slide presentations.\nIn Markdown, you can use HTML comments to achieve this. For example, the following HTML comment will not appear in the final document:\n## This is a heading\n\n&lt;!-- This is a comment that will not appear in the final document --&gt;\n\nHere is my prose....\nIn your labs, project steps, and self-assessments these comments may be helpful to you as you work through the steps and document the questions you need to answer or ideas that you have that will help you complete the task.\nWhen we write in code block, the comments have a different purpose. They are used to explain the code to others (and to yourself in the future). The comments will appear (if you use the echo: true option) in the final document. Here is an example of a comment in R:\n# Print my name\nprint(\"My name is Jerid Francom\")\nI hope that these comments will help you as you work through the labs and projects!"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#literature-search-2.0",
-    "href": "posts/cool-stuff-lab-01/index.html#literature-search-2.0",
-    "title": "Cool stuff: Lab 01",
-    "section": "Literature search 2.0",
-    "text": "Literature search 2.0\nThe WFU ZSR Library provides access for the WFU community to a couple of research tools that can help you with your literature search. These tools use AI to help you find the most relevant articles for your research. They are called Elicit and Scite.\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\nFigure 1: AI tools for literature search\n\n\n\nCreate an account with your WFU email and start using these tools to find the most relevant articles for your research!"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#bibliographies",
-    "href": "posts/cool-stuff-lab-01/index.html#bibliographies",
-    "title": "Cool stuff: Lab 01",
-    "section": "Bibliographies",
-    "text": "Bibliographies\nIn the previous lab, we learned how to add citations to our documents. By first adding the bibliography: key to the YAML front matter with a *.bib file as the value and then adding the @ symbol followed by the citation key in the prose.\nThe somewhat more tricky aspect is getting the reference entries in the BiBTeX format. Once you have identified a source that you want to cite, you can sometimes find a link to create a BibTeX entry –but many times not.\nIn the latter case, you can use a DOI (Digital Object Identifier) and the doi2bib.org website to create the BiBTeX entry. Just identify the DOI, which generally appears in the article’s metadata and has the form 10.1234/5678 (or something similar) and paste it into the website. The website will generate the BiBTeX entry for you. You can copy and paste this entry into your *.bib file. Use the citation key in the @ symbol in the prose of your Quarto document."
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#citation-and-reference-styles",
-    "href": "posts/cool-stuff-lab-01/index.html#citation-and-reference-styles",
-    "title": "Cool stuff: Lab 01",
-    "section": "Citation and reference styles",
-    "text": "Citation and reference styles\nThe BibTeX format is only a storage format. The style of the citations and the bibliography is determined by the style file that you use. The default style file in Quarto is the Chicago Manual of Style.\nYou can change the style file by downloading a new style file (.csl), adding it to your project, and then using the csl: key in the front matter to specify the new style file.\n\n\n\n\n\n\nFigure 2: Adding a new .csl file to your project"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#quarto-other-languages",
-    "href": "posts/cool-stuff-lab-01/index.html#quarto-other-languages",
-    "title": "Cool stuff: Lab 01",
-    "section": "Quarto + other languages",
-    "text": "Quarto + other languages\nQuarto is a great tool for writing documents in which we combine prose (in Markdown) and R. But you should know that Quarto can also be used with other languages, such as Python, Julia, and Observable JavaScript. This is a great feature, as it allows you to use the best tool for the job, and to combine different languages in the same document!\n\n\n\nListing 1: R code\n\n\n\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 5, 6)\n\nx %*% y\n\n     [,1]\n[1,]   32\n\n\n\n\n\n\n\n\nListing 2: Python code\n\n\n\nimport numpy as np\n\nx = np.array([1, 2, 3])\ny = np.array([4, 5, 6])\n\nnp.dot(x, y)\n\n32\n\n\n\n\n\nAt the moment you have enough on your hands with Quarto + R. But it’s good to know that you can expand your horizons in the future!"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-01/index.html#first-look-figures",
-    "href": "posts/cool-stuff-lab-01/index.html#first-look-figures",
-    "title": "Cool stuff: Lab 01",
-    "section": "First look: figures",
-    "text": "First look: figures\nI know a lot of you are really excited to get to the point where you can add figures to your documents. We cover figures head on soon!\nFor now, I want to introduce you to the ggplot2 package, which is a great tool for creating figures in R. In Figure 3 I don’t expect you to understand this code, but if you are interested and have some time, you can take a look at the code and see if you can understand what it does.\n\n```{r}\n#| label: fig-brown-lob\n#| fig-cap: \"Passive voice in the Brown (AmE) and LOB (BrE) corpora\"\n\n# Load packages\nlibrary(ggplot2)      # for plotting\nlibrary(dplyr)        # for data manipulation\nlibrary(corpora)      # for the BrownLOBPassives dataset\n\n# Get the dataset\ndata &lt;- BrownLOBPassives |&gt; as_tibble()\n\n# Create boxplot\ndata |&gt;\n  ggplot(aes(\n    x = genre,\n    y = passive,\n    color = lang\n    )) +\n  geom_boxplot() +\n  labs(\n       x = \"Genre\",\n       y = \"Passive voice (count)\",\n       color = \"Language\"\n       ) +\n    coord_flip()\n```\n\n\n\n\n\n\n\nFigure 3: Passive voice in the Brown (AmE) and LOB (BrE) corpora"
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": " Slides",
-    "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nResearch\n\n\nFraming and scaffolding the research process\n \n\n\n\nresearch\n\n\nresearch-question\n\n\nresearch-aim\n\n\nresearch-statement\n\n\nreproducible-research\n\n\n\n\n\n\nFeb 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTrace the datascape\n\n\nDescriptive assessment of datasets\n\n\n\nggplot2\n\n\nskimr\n\n\njanitor\n\n\nknitr\n\n\nsummarize()\n\n\ngroup_by()\n\n\ncount()\n\n\ntabyl()\n\n\nkable()\n\n\ngeom_*()\n\n\n\n\n\n\nFeb 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis\n\n\nApproaching statistical thinking for text analysis.\n\n\n\ncentral-tendency\n\n\ndispersion\n\n\ndistribution\n\n\nassociation\n\n\nanalysis\n\n\ndocumentation\n\n\nr\n\n\nskimr\n\n\ndplyr\n\n\nggplot2\n\n\n\n\n\n\nFeb 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nDive into datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nTrace the datascape\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding reproducible research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nHarvesting research data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nTaming data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nDataset alchemy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n💧\n18\nMar 22\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
+    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -196,178 +238,143 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
-    "objectID": "guides.html",
-    "href": "guides.html",
-    "title": " Guides",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
     "section": "",
-    "text": "Getting started\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to set up your computer for this course using Docker containers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nManaging Docker and RStudio Server\n\n\n\nrstudio\n\n\ndocker\n\n\n\nHow to start, stop, and restart a Docker container and RStudio Server.\n\n\n\n\n\n\n\n\n\n\n\nGet up to speed with Git and GitHub\n\n\n\nrstudio\n\n\ngit\n\n\ngithub\n\n\n\nA short introduction to Git and GitHub repositories, and how to clone them to your computer.\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nDive into datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nTrace the datascape\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding reproducible research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nHarvesting research data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nTaming data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nDataset alchemy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n💧\n18\nMar 22\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n19\nMar 27\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nWrite-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
   },
   {
-    "objectID": "posts/cool-stuff-lab-02/index.html",
-    "href": "posts/cool-stuff-lab-02/index.html",
-    "title": "Cool stuff: Lab 02",
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": " Slides",
     "section": "",
-    "text": "In this cool stuff, I want to address the concept of R sessions and Quarto render sessions, how to cite R packages, and how to include in-line R code in a Quarto document."
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nScaffolding reproducible research\n\n\nA template for reproducible research\n\n\n\nresearch\n\n\nreproducible-research\n\n\ngit\n\n\ngithub\n\n\nfork\n\n\nclone\n\n\npush\n\n\n\n\n\n\nFeb 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch\n\n\nFraming and scaffolding the research process\n \n\n\n\nresearch\n\n\nresearch-question\n\n\nresearch-aim\n\n\nresearch-statement\n\n\nreproducible-research\n\n\n\n\n\n\nFeb 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTrace the datascape\n\n\nDescriptive assessment of datasets\n\n\n\nggplot2\n\n\nskimr\n\n\njanitor\n\n\nknitr\n\n\nsummarize()\n\n\ngroup_by()\n\n\ncount()\n\n\ntabyl()\n\n\nkable()\n\n\ngeom_*()\n\n\n\n\n\n\nFeb 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis\n\n\nApproaching statistical thinking for text analysis.\n\n\n\ncentral-tendency\n\n\ndispersion\n\n\ndistribution\n\n\nassociation\n\n\nanalysis\n\n\ndocumentation\n\n\nr\n\n\nskimr\n\n\ndplyr\n\n\nggplot2\n\n\n\n\n\n\nFeb 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/cool-stuff-lab-02/index.html#r-sessions-and-quarto-render-sessions",
-    "href": "posts/cool-stuff-lab-02/index.html#r-sessions-and-quarto-render-sessions",
-    "title": "Cool stuff: Lab 02",
-    "section": "R sessions and Quarto render sessions",
-    "text": "R sessions and Quarto render sessions\nAs we have now have a basic working knowledge of RStudio, Quarto, and R it is worth covering an important topic that is often confusing for beginners: the difference between R sessions and Quarto render sessions.\n\nR sessions\n\nEach time you open RStudio, you are starting an R session. An R session keeps track of the objects you create, the packages you load, and the code you run –that goes through the Console!\nWhen you change RStudio projects, you are changing from one R session to another. This is important because each R session is independent of the others. This means that if you load a package in one R session, it will not be available in another R session. This modularity is a good thing. It helps us keep project code separate and avoid conflicts between different projects. It’s one of the key reasons we have been creating R projects for each lab.\n\n\nQuarto render sessions\n\nQuarto render sessions are used to render the document. When you click the ‘Render’ button in the Quarto pane, you are starting a Quarto render session. This session is also independent of the R session in your RStudio project. This means that if you load a package in the R session, it will not be available in the Quarto render session. This is why you need to include the packages you use in the Quarto document itself. Again, you must include all the necessary code in the Quarto document to ensure that the document can be rendered without errors.\nAgain, this is a good thing. It means that the Quarto document is self-contained and can be shared with others without worrying about whether they have the necessary code to produce the same results.\n\n\nWorking with R and Quarto interactively\nWhen developing a Quarto document, you can run R code in the R session (Console) to test and explore the code. Once you are satisfied with the code, you can add it to the Quarto document in the Editor pane, and then render the document to see the results.\nAnother approach is to add the code (in code blocks) in the Quarto document and run the code in the R session by clicking the Run button in the code block, or line-by-line by using the  on the line (or pipe sequence) you want to run.\nIt is very natural to switch between the R session and the Quarto render session as you develop your document. You will often find yourself running code in the R session to test and explore, and then adding the code to the Quarto document to include in the final document. Just don’t assume that since you’ve run some code in the R session, it will automatically be available in the Quarto render session!"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-02/index.html#citing-r-packages",
-    "href": "posts/cool-stuff-lab-02/index.html#citing-r-packages",
-    "title": "Cool stuff: Lab 02",
-    "section": "Citing R packages",
-    "text": "Citing R packages\nWhen you use an R package in your Quarto document, you should cite the package. This is important for two reasons:\n\nIt gives credit to the authors of the package.\nIt helps others find the package if they want to use it.\n\nYou can get the necessary BiBTeX citation for an R package by running the citation() function with the package name as the argument. For example, to get the citation for the dplyr package, you would run:\ncitation(\"dplyr\")\nTo cite package ‘dplyr’ in publications use:\n\n  Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A\n  Grammar of Data Manipulation_. R package version 1.1.4,\n  &lt;https://CRAN.R-project.org/package=dplyr&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Manual{,\n    title = {dplyr: A Grammar of Data Manipulation},\n    author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},\n    year = {2023},\n    note = {R package version 1.1.4},\n    url = {https://CRAN.R-project.org/package=dplyr},\n  }\nYou then copy/paste the BibTeX entry into a bibliography .bib file. Just remember to check to make sure the entry has a citation key, and if does not (like the example above) create one. I usually use R- followed by the package name, so the citation key for dplyr would be R-dplyr.\n @Manual{R-dplyr,\n   title = {dplyr: A Grammar of Data Manipulation},\n   author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller and Davis Vaughan},\n   year = {2023},\n   note = {R package version 1.1.4},\n   url = {https://CRAN.R-project.org/package=dplyr},\n }\nI often keep my .bib file for academic work in one file and package entries in another file. This is not necessary, but it helps keep things organized. If you use two .bib files, you can include both of them in the front-matter of your Quarto document like this:\ntitle: \"My document\"\nauthor: \"Me\"\nformat: html\nbibliography:\n  - academic.bib\n  - packages.bib"
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-02/index.html#in-line-r-code",
-    "href": "posts/cool-stuff-lab-02/index.html#in-line-r-code",
-    "title": "Cool stuff: Lab 02",
-    "section": "In-line R code",
-    "text": "In-line R code\nWhen you are writing a Quarto document, you may find that you want to include a value from an R object in the text. For example, you might want to say “The mean of the n_char column is 5.2”. You can add the ‘5.2’ manually based on the value you get from running R code earlier in the document, or you can include the value in the text using in-line R code. Say we have a data frame df with a column n_char and we want to include the mean of that column in the text. We can do this using the `r expression` syntax like this:\n\nThe mean of the `n_char` column is `r mean(df$n_char)`.\n\nWhen you render the document, the in-line R code will be replaced with the value of the R expression. This is a very powerful feature of Quarto, and it allows you to keep your document up-to-date with the latest results from your R code."
-  },
-  {
-    "objectID": "posts/mac-m1-chip-workaround/index.html",
-    "href": "posts/mac-m1-chip-workaround/index.html",
-    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
+    "objectID": "posts/cool-stuff-lab-01/index.html",
+    "href": "posts/cool-stuff-lab-01/index.html",
+    "title": "Cool stuff: Lab 01",
     "section": "",
-    "text": "In this post, I will address the issue of Docker Desktop not being able to run containers on Mac M1-chip machines. If you have experienced an issue creating a container from the francojc/lin-380 image where when logging in to RStudio Server you get the error message below, then this post is for you."
+    "text": "In this cool stuff, I just have a few things to share including, commenting in Quarto and R, literature search 2.0, bibliographies, citation and reference styles, Quarto + other languages, and a first look at figures.\nAs always, I hope you find this information helpful and interesting!"
   },
   {
-    "objectID": "posts/mac-m1-chip-workaround/index.html#the-issue",
-    "href": "posts/mac-m1-chip-workaround/index.html#the-issue",
-    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
-    "section": "The issue",
-    "text": "The issue\nThe issue is that the francojc/lin-380 image is built for the x86_64 architecture, but the M1-chip is an arm64 architecture (the nuts and bolts of the computer). This means that the image is not compatible with the M1-chip. The solution is to build the image for the arm64 architecture.\nRocker has alternative images for the arm64 architecture, but they are not as complete and so we will need to do some extra work to get the image to work like the original x86_64 image."
+    "objectID": "posts/cool-stuff-lab-01/index.html#using-commenting-in-quarto-and-r",
+    "href": "posts/cool-stuff-lab-01/index.html#using-commenting-in-quarto-and-r",
+    "title": "Cool stuff: Lab 01",
+    "section": "Using commenting in Quarto and R",
+    "text": "Using commenting in Quarto and R\nWhen writing documents in Quarto, you will often find yourself in a situation in which you would like to write some comments in the prose that only you will see and that will not appear in the final document. Think of these comments as notes to yourself (or to your collaborators). It’s like ‘speaker notes’ for slide presentations.\nIn Markdown, you can use HTML comments to achieve this. For example, the following HTML comment will not appear in the final document:\n## This is a heading\n\n&lt;!-- This is a comment that will not appear in the final document --&gt;\n\nHere is my prose....\nIn your labs, project steps, and self-assessments these comments may be helpful to you as you work through the steps and document the questions you need to answer or ideas that you have that will help you complete the task.\nWhen we write in code block, the comments have a different purpose. They are used to explain the code to others (and to yourself in the future). The comments will appear (if you use the echo: true option) in the final document. Here is an example of a comment in R:\n# Print my name\nprint(\"My name is Jerid Francom\")\nI hope that these comments will help you as you work through the labs and projects!"
   },
   {
-    "objectID": "posts/mac-m1-chip-workaround/index.html#the-solution",
-    "href": "posts/mac-m1-chip-workaround/index.html#the-solution",
-    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
-    "section": "The solution",
-    "text": "The solution\n\nInstall Docker Desktop for Apple silicon\nMake sure you have installed Docker Desktop for Mac M1-chip machines (Apple silicon). If you have not, you can find the instructions here.\n\n\nPull the rocker/rstudio image\nPull the rocker/rstudio image. Open Docker Desktop, go to the search bar at the top and type rocker/rstudio. Click on the image and then click on the Pull button. Wait for the image to download.\n\n\nMake sure you delete all earlier containers and images from Docker Desktop. We want to start with a clean slate.\n\n\n\nPull rocker/rstudio\n\n\n\n\nCreate a new container from the rocker/rstudio image\n\nClick the Run button .\n\n\n\n\nRun rocker/rstudio image\n\n\n\nClick on the Optional settings dropdown.\n\nFill out these fields:\n\nContainer name: lin-380 (you choose the name, no spaces)\nHost port: 8787\nHost path: (use the Finder to select a folder on your Mac where you want to save your files)\nContainer path: /home/rstudio/Workspace (use this exact path!)\nEnvironment variables:\n\nVariable: PASSWORD, Value: (you choose the password, no spaces)\nVariable: ROOT, Value: true\n\n\n\n\n\nOptional settings\n\n\n\nClick the Run button to create the container. Wait for the container to be created.\n\n\n\nOpen RStudio Server in your browser\n\nClick on the 8787:8787 link to open RStudio Server in your browser.\nUse the rstudio username and the password you chose to log in to RStudio Server.\n\n\n\nThis is the point that you would normally see the error message. But because we are using the rocker/rstudio image, we shouldn’t see the error message. If you do, stop and contact me.\n\n\nConfigure RStudio Server\nYou should now be logged in to RStudio Server. And see something like this:\n\n\n\nFresh RStudio Server\n\n\nThis is where we will configure RStudio Server to work like the francojc/lin-380 image. We will need to do some one-time configuration in the Terminal. Click on the Terminal tab (between the ‘Console’ and ‘Background Jobs’ tabs) to open the Terminal.\n\n\n\nTerminal inside RStudio\n\n\n\nInstall Quarto\n\nType the following command in the Terminal and press Enter:\nquarto install tinytex\n\n\n\nInstall Quarto inside Terminal\n\n\n\nInstall the tidyverse packages\n\nType the following command in the Terminal and press Enter:\nsudo /rocker_scripts/install_tidyverse.sh\n\n\n\nInstall Tidyverse packages in Terminal\n\n\n\nAdd custom preferences to RStudio\n\nCreate a new file called rstudio-prefs.json in the Terminal by typing the following command and pressing Enter:\ntouch ~/rstudio-prefs.json\nThis file should appear in your home directory. Open the file by clicking on it in the Files tab. This will open the file in the Source tab.\nCopy and paste the following code into the file and save it:\n{\n  \"save_workspace\": \"never\",\n  \"remove_history_duplicates\": true,\n  \"reuse_sessions_for_project_links\": true,\n  \"posix_terminal_shell\": \"bash\",\n  \"initial_working_directory\": \"~\",\n  \"insert_native_pipe_operator\": true,\n  \"soft_wrap_r_files\": true,\n  \"strip_trailing_whitespace\": true,\n  \"highlight_selected_line\": true,\n  \"rainbow_parentheses\": true,\n  \"warn_variable_defined_but_not_used\": true,\n  \"default_encoding\": \"UTF-8\",\n  \"indent_guides\": \"rainbowlines\",\n  \"syntax_color_console\": true,\n  \"show_doc_outline_rmd\": true,\n  \"visual_markdown_code_editor_line_numbers\": true,\n  \"code_completion\": \"manual\",\n  \"rmd_viewer_type\": \"pane\",\n  \"rmd_auto_date\": true,\n  \"pdf_previewer\": \"system\",\n  \"default_latex_program\": \"XeLaTeX\",\n  \"use_tinytex\": true,\n  \"jobs_tab_visibility\": \"shown\",\n  \"default_project_location\": \"~/Workspace\",\n  \"panes\": {\n      \"quadrants\": [\n          \"Source\",\n          \"Console\",\n          \"TabSet1\",\n          \"TabSet2\"\n      ],\n      \"tabSet1\": [\n          \"Environment\",\n          \"History\",\n          \"Build\",\n          \"VCS\",\n          \"Tutorial\",\n          \"Presentation\"\n      ],\n      \"tabSet2\": [\n          \"Files\",\n          \"Plots\",\n          \"Packages\",\n          \"Help\",\n          \"Viewer\",\n          \"Presentations\"\n      ],\n      \"hiddenTabSet\": [\n          \"Connections\"\n      ],\n      \"console_left_on_top\": false,\n      \"console_right_on_top\": true,\n      \"additional_source_columns\": 0\n  }\n}\nNow you return to the Terminal and type the following command and press Enter:\ncp ~/rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json\n\n\n\nCopy RStudio preferences in Terminal"
+    "objectID": "posts/cool-stuff-lab-01/index.html#literature-search-2.0",
+    "href": "posts/cool-stuff-lab-01/index.html#literature-search-2.0",
+    "title": "Cool stuff: Lab 01",
+    "section": "Literature search 2.0",
+    "text": "Literature search 2.0\nThe WFU ZSR Library provides access for the WFU community to a couple of research tools that can help you with your literature search. These tools use AI to help you find the most relevant articles for your research. They are called Elicit and Scite.\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\nFigure 1: AI tools for literature search\n\n\n\nCreate an account with your WFU email and start using these tools to find the most relevant articles for your research!"
   },
   {
-    "objectID": "posts/mac-m1-chip-workaround/index.html#congratulations",
-    "href": "posts/mac-m1-chip-workaround/index.html#congratulations",
-    "title": "Workaround for Mac M1-chip users for Docker Desktop containers",
-    "section": "Congratulations!",
-    "text": "Congratulations!\n\nYou have successfully created a container from the rocker/rstudio image and configured it to work much like the francojc/lin-380 image (we have some other R packages we will install as we need them).\nYou can now use this container for your LIN 380 assignments!"
+    "objectID": "posts/cool-stuff-lab-01/index.html#bibliographies",
+    "href": "posts/cool-stuff-lab-01/index.html#bibliographies",
+    "title": "Cool stuff: Lab 01",
+    "section": "Bibliographies",
+    "text": "Bibliographies\nIn the previous lab, we learned how to add citations to our documents. By first adding the bibliography: key to the YAML front matter with a *.bib file as the value and then adding the @ symbol followed by the citation key in the prose.\nThe somewhat more tricky aspect is getting the reference entries in the BiBTeX format. Once you have identified a source that you want to cite, you can sometimes find a link to create a BibTeX entry –but many times not.\nIn the latter case, you can use a DOI (Digital Object Identifier) and the doi2bib.org website to create the BiBTeX entry. Just identify the DOI, which generally appears in the article’s metadata and has the form 10.1234/5678 (or something similar) and paste it into the website. The website will generate the BiBTeX entry for you. You can copy and paste this entry into your *.bib file. Use the citation key in the @ symbol in the prose of your Quarto document."
   },
   {
-    "objectID": "posts/first-day-hiccups/index.html",
-    "href": "posts/first-day-hiccups/index.html",
-    "title": "Sorting out first-day hiccups",
+    "objectID": "posts/cool-stuff-lab-01/index.html#citation-and-reference-styles",
+    "href": "posts/cool-stuff-lab-01/index.html#citation-and-reference-styles",
+    "title": "Cool stuff: Lab 01",
+    "section": "Citation and reference styles",
+    "text": "Citation and reference styles\nThe BibTeX format is only a storage format. The style of the citations and the bibliography is determined by the style file that you use. The default style file in Quarto is the Chicago Manual of Style.\nYou can change the style file by downloading a new style file (.csl), adding it to your project, and then using the csl: key in the front matter to specify the new style file.\n\n\n\n\n\n\nFigure 2: Adding a new .csl file to your project"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-01/index.html#quarto-other-languages",
+    "href": "posts/cool-stuff-lab-01/index.html#quarto-other-languages",
+    "title": "Cool stuff: Lab 01",
+    "section": "Quarto + other languages",
+    "text": "Quarto + other languages\nQuarto is a great tool for writing documents in which we combine prose (in Markdown) and R. But you should know that Quarto can also be used with other languages, such as Python, Julia, and Observable JavaScript. This is a great feature, as it allows you to use the best tool for the job, and to combine different languages in the same document!\n\n\n\nListing 1: R code\n\n\n\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 5, 6)\n\nx %*% y\n\n     [,1]\n[1,]   32\n\n\n\n\n\n\n\n\nListing 2: Python code\n\n\n\nimport numpy as np\n\nx = np.array([1, 2, 3])\ny = np.array([4, 5, 6])\n\nnp.dot(x, y)\n\n32\n\n\n\n\n\nAt the moment you have enough on your hands with Quarto + R. But it’s good to know that you can expand your horizons in the future!"
+  },
+  {
+    "objectID": "posts/cool-stuff-lab-01/index.html#first-look-figures",
+    "href": "posts/cool-stuff-lab-01/index.html#first-look-figures",
+    "title": "Cool stuff: Lab 01",
+    "section": "First look: figures",
+    "text": "First look: figures\nI know a lot of you are really excited to get to the point where you can add figures to your documents. We cover figures head on soon!\nFor now, I want to introduce you to the ggplot2 package, which is a great tool for creating figures in R. In Figure 3 I don’t expect you to understand this code, but if you are interested and have some time, you can take a look at the code and see if you can understand what it does.\n\n```{r}\n#| label: fig-brown-lob\n#| fig-cap: \"Passive voice in the Brown (AmE) and LOB (BrE) corpora\"\n\n# Load packages\nlibrary(ggplot2)      # for plotting\nlibrary(dplyr)        # for data manipulation\nlibrary(corpora)      # for the BrownLOBPassives dataset\n\n# Get the dataset\ndata &lt;- BrownLOBPassives |&gt; as_tibble()\n\n# Create boxplot\ndata |&gt;\n  ggplot(aes(\n    x = genre,\n    y = passive,\n    color = lang\n    )) +\n  geom_boxplot() +\n  labs(\n       x = \"Genre\",\n       y = \"Passive voice (count)\",\n       color = \"Language\"\n       ) +\n    coord_flip()\n```\n\n\n\n\n\n\n\nFigure 3: Passive voice in the Brown (AmE) and LOB (BrE) corpora"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Hello, World!",
     "section": "",
-    "text": "I’m writing this post to address the fact that we did not get as far as we would have liked to on the first day of the course. Luckily, many of you were able to get Docker Desktop installed and running. And those of you who didn’t in class, most were able to do so after class.\nHowever, we did not get to the point where we were able to run the first Docker container, nor were we able sign up for a Hypothes.is and GitHub account.\nIn order to get us back on track, please attempt to complete the following tasks before our next class on Friday, Jan 19th."
+    "text": "This is the first post!"
   },
   {
-    "objectID": "posts/first-day-hiccups/index.html#docker-desktop-rstudio",
-    "href": "posts/first-day-hiccups/index.html#docker-desktop-rstudio",
-    "title": "Sorting out first-day hiccups",
-    "section": "1. Docker Desktop + RStudio",
-    "text": "1. Docker Desktop + RStudio\n\nDownload the francojc/lin-380 image in Docker Desktop.\nRun the francojc/lin-380 image in Docker Desktop.\n\nPlease note that you will need to follow the Getting started guide to set up the correct configuration for the container.\n\nConnect to the container running in Docker Desktop by visiting localhost:8787 in your browser.\n\n\n\nThese steps are documented in detail in the Getting started guide."
-  },
-  {
-    "objectID": "posts/first-day-hiccups/index.html#hypothes.is-account",
-    "href": "posts/first-day-hiccups/index.html#hypothes.is-account",
-    "title": "Sorting out first-day hiccups",
-    "section": "2. Hypothes.is account",
-    "text": "2. Hypothes.is account\n\nCreate a Hypothes.is account\nJoin the course group lin-380-s24\nAccess the annotation layer on the readings (e.g textbook)\n\n\n\nSave your Hypothes.is username and password somewhere safe. You will need it to log in to Hypothes.is to be able to annotate readings."
-  },
-  {
-    "objectID": "posts/first-day-hiccups/index.html#github-account",
-    "href": "posts/first-day-hiccups/index.html#github-account",
-    "title": "Sorting out first-day hiccups",
-    "section": "3. GitHub account",
-    "text": "3. GitHub account\n\nCreate a GitHub account\n\n\n\n\n\nSave your GitHub username and password somewhere safe. You will need it to interact with GitHub."
-  },
-  {
-    "objectID": "posts/cool-stuff-lab-00/index.html",
-    "href": "posts/cool-stuff-lab-00/index.html",
-    "title": "Cool stuff: Lab 00",
+    "objectID": "posts/eulc5/index.html",
+    "href": "posts/eulc5/index.html",
+    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
     "section": "",
-    "text": "I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.\nI’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here."
+    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
   },
   {
-    "objectID": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
-    "href": "posts/cool-stuff-lab-00/index.html#changing-quarto-document-themes",
-    "title": "Cool stuff: Lab 00",
-    "section": "Changing Quarto document themes",
-    "text": "Changing Quarto document themes\nQuarto documents are styled using themes. Without specifiying, a default theme is used. But if you want to experiment with different themes, you can do so by specifying a theme in front matter.\n---\ntitle: \"My Document\"\nformat:\n  html:\n    theme: cerulean\n---\n\n\n\nThemes are available for both HTML and PDF output, but they are not the same. Here you can find a list of HTML themes.\nFor PDF output, you need to specify the documentclass: in the front matter.\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    documentclass: report\n---\n\n\n\nThe options are more limited for PDF output given the nature of the output but you can read more here.\n\nPDF output gotcha\nWhen Quarto documents are rendered to PDF, the output is generated using LaTeX. LaTeX is a typesetting language that is very powerful, but it can be a bit finicky and can produce some unexpected results.\nOne of the things that can be a bit confusing is how text that is wrapped in backticks is rendered. In LaTeX, text wrapped in backticks like `verbatim text` is rendered as verbatim text. This means that the text is rendered exactly as it is typed, including spaces and line breaks. This is not a problem until the text becomes too long to fit on a single line. When this happens, LaTeX will not wrap the text to the next line, but will instead render the text as a single line that extends beyond the page margins. Not what you expect.\nThe first piece of advice is to avoid wrapping long text in backticks that is part of a paragraph. Instead, separate the text into its own code formatted markdown block.\nSay we have a long piece of text that we want to render as a verbatim string, like a the markdown code to display a link like this one: ![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html).\nIn a paragraph, it will be too long and LaTeX will not wrap it to the next line. Instead, we can separate it into its own code block1.\n```markdown\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\n```\n![alt text](https://www.wfu.edu/this-is-a-really-long-url-i-guess-it-is-not-long-enough/index.html)\nIn many cases this will be enough to solve side-step the problem. But if your verbatim text is still too long, then we can add some LaTeX code to the front matter to tell LaTeX to wrap the in code blocks. This is done by adding the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header:\n      - text: |\n          \\usepackage{fvextra}\n          \\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\\\\{\\},breaklines,breaknonspaceingroup,breakanywhere}\n---\nThis is definitely a bit more advanced, but it is a good example of how you can customize the output of your Quarto documents.\nIf more LaTeX customization is needed, you are best to create a new LaTeX document, say header.tex, and add the LaTeX code to that file. Then you can add the following to the front matter:\n---\ntitle: \"My Document\"\nformat:\n  pdf:\n    include-in-header: header.tex\n---"
+    "objectID": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
+    "href": "posts/eulc5/index.html#emory-undergraduate-linguistics-conference-5-eulc5",
+    "title": "Conference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)",
+    "section": "",
+    "text": "Emory University’s Program in Linguistics is hosting the fifth annual Emory Undergraduate Linguistics Conference (EULC5) virtually. We are inviting undergraduate students and recent B.A./B.S. graduates to submit abstracts from all subfields of linguistics.\nAbstract submissions will be considered for poster and oral presentations. When submitting, you may indicate your preference for consideration for one or both types of presentations in the comment box. All abstracts will be reviewed anonymously. You may submit abstracts for projects that are either in progress or have been completed. Please ensure that your abstract is less than 500 words, excluding figures and references.\nDeadline for Abstracts: March 15th, 2024\nNotifications: By March 29th, 2024\nConference Date: April 19th, 2024 (One day virtual event)\nIf you have any questions, please email at eulc@emory.edu\nSubmissions open: Jan. 3, 2024 - March 20, 2024\nAbstract review period: March 16, 2024 - March 29, 2024\nhttps://easyabs.linguistlist.org/conference/EULC5"
   },
   {
-    "objectID": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
-    "href": "posts/cool-stuff-lab-00/index.html#keyboard-shortcuts-in-rstudio",
-    "title": "Cool stuff: Lab 00",
-    "section": "Keyboard shortcuts in RStudio",
-    "text": "Keyboard shortcuts in RStudio\nRStudio has a number of keyboard shortcuts that can be used to speed up your workflow. You can find a list of them here.\nFor starters, here are the ones I use the most to work with Quarto and R:\n\n\n\nSymbols used in keyboard shortcuts\n\n\n\n\n\n\nSymbol\nKey\n\n\n\n\nShiftShift\nShift key\n\n\nCtrlCtrl\nControl key\n\n\nCommandCommand\nCommand key\n(Mac only)\n\n\nAltAlt\nAlt key\n\n\nOptionOption\nOption key\n(Mac only)\n\n\nEscEsc\nEscape key\n\n\nTabTab\nTab key\n\n\nEnterEnter\nEnter key\n\n\n\n\nFor Quarto document elements\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nRender Quarto documents\n\n\n\nAdd a code block to a Quarto document\n\n\n\n\n\nFor R code\n\n\n\n\n\n\nDescription\nShortcut\n\n\n\n\nTo invoke code completion when typing R code\n\n\n\nRun current line or selection in the Console\n\n\n\nTo comment or uncomment a line or selection so that it is or is not run as R code\n\n\n\nTo insert the &lt;- operator to assign code output to a variable\n\n\n\nTo insert a |&gt; operator to pipe the output of one operation to the input of the next\n\n\n\nTo reformat R code so that indentation is more legible"
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": " News",
+    "section": "",
+    "text": "Cool stuff: Lab 02\n\n\n\n\n\n\ncool-stuff\n\n\nr-sessions\n\n\nquarto-render-sessions\n\n\nciting-r-packages\n\n\nin-line-r-code\n\n\n\n\n\n\nFeb 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 01\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\ncitations\n\n\ncommenting\n\n\npython\n\n\ncsl-styles\n\n\n\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCool stuff: Lab 00\n\n\n\n\n\n\ncool-stuff\n\n\nquarto\n\n\nthemes\n\n\nkeyboard-shortcuts\n\n\n\n\n\n\nJan 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWorkaround for Mac M1-chip users for Docker Desktop containers\n\n\n\n\n\n\nnews\n\n\ntech\n\n\ndocker\n\n\nmac\n\n\nm1\n\n\nterminal\n\n\n\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSorting out first-day hiccups\n\n\n\n\n\n\nnews\n\n\ntech\n\n\nguides\n\n\n\n\n\n\nJan 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nConference Announcement: Emory Undergraduate Linguistics Conference 5 (EULC5)\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\nresearch\n\n\n\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHello, World!\n\n\n\n\n\n\nnews\n\n\ntesting\n\n\n\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/cool-stuff-lab-00/index.html#footnotes",
-    "href": "posts/cool-stuff-lab-00/index.html#footnotes",
-    "title": "Cool stuff: Lab 00",
+    "objectID": "guides/getting-started.html",
+    "href": "guides/getting-started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
+  },
+  {
+    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "What is a virtual computing environment?",
+    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
+  },
+  {
+    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Setting up the virtual computing environment",
+    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
+  },
+  {
+    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Sharing files between your computer and the virtual computing environment",
+    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
+  },
+  {
+    "objectID": "slides/day-02.html#footnotes",
+    "href": "slides/day-02.html#footnotes",
+    "title": "Writing with code",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nNote that a code block that has the language, markdown in this case, without curly braces {} means to show the code highlighting but not to execute the code. In some ways it is equivalent to #| eval: false.↩︎"
+    "text": "Footnotes\n\n\nFootnote info…"
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html",
-    "href": "guides/managing-docker-rstudio.html",
-    "title": "Managing Docker and RStudio Server",
-    "section": "",
-    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
-  },
-  {
-    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Stop Docker container and RStudio Server",
-    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
-  },
-  {
-    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Restart Docker container and RStudio Server",
-    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html",
-    "href": "guides/get-up-with-git.html",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "",
-    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
-    "href": "guides/get-up-with-git.html#what-is-git-and-github",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "What is Git and GitHub?",
-    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "First steps with Git and GitHub: cloning a repository",
-    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#footnotes",
-    "href": "guides/get-up-with-git.html#footnotes",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
-  },
-  {
-    "objectID": "slides/day-07.html#references",
-    "href": "slides/day-07.html#references",
-    "title": "Analysis",
+    "objectID": "slides/day-09.html#references",
+    "href": "slides/day-09.html#references",
+    "title": "Research",
     "section": "References",
-    "text": "References\n\n\n\n\nAnalysis | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nWaring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. Skimr: Compact and Flexible Summaries of Data. https://CRAN.R-project.org/package=skimr.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr."
+    "text": "References\n\n\n\n\n\nResearch | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCross, Nigel. 2006. “Design as a Discipline.” Designerly Ways of Knowing, 95–103."
+  },
+  {
+    "objectID": "slides/day-10.html#references",
+    "href": "slides/day-10.html#references",
+    "title": "Scaffolding reproducible research",
+    "section": "References",
+    "text": "References\n\n\n\n\nScaffolding reproducible research | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCsárdi, Gábor. 2022. Gitcreds: Query ’Git’ Credentials from ’r’. https://CRAN.R-project.org/package=gitcreds.\n\n\nWickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. Usethis: Automate Package and Project Setup. https://CRAN.R-project.org/package=usethis."
   }
 ]
