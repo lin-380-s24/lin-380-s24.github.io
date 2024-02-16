@@ -1,0 +1,237 @@
+---
+title: "Scaffolding reproducible research"
+subtitle: "A template for reproducible research"
+date: "2024-02-16"
+categories: [research, reproducible-research, git, github, fork, clone, push]
+---
+
+## Overview
+
+:::: {.columns}
+::: {.column width="60%"}
+- GitHub account setup
+- Git and GitHub on RStudio setup
+- Complete [Lab 04](https://github.com/lin-380-s24/lab-04) using Git and GitHub
+:::
+
+::: {.column width="40%"}
+![](images/ladder.webp)
+:::
+::::
+
+# Setup
+
+## GitHub {.scrollable}
+
+:::: {.columns}
+::: {.column width="40%"}
+- [Create an account on GitHub](https://github.com/)
+- Use `@wfu.edu` email address
+- Create (and save) a strong password
+:::
+
+::: {.column width="60%"}
+![](images/git-account-1.gif)
+:::
+::::
+
+## GitHub {.scrollable}
+
+:::: {.columns}
+::: {.column width="40%"}
+- Get code in your email inbox
+- Select options (optional)
+:::
+
+::: {.column width="60%"}
+![](images/git-account-2.gif)\
+:::
+::::
+
+## Git on RStudio {.smaller}
+
+Git is already on your RStudio container. We *do* need to configure it.
+
+:::: {.columns}
+::: {.column width="50%"}
+1. Open the terminal.
+2. Copy/ paste (and edit) the following commands:
+
+```bash
+git config --global user.name "Your Name"
+```
+\
+```bash
+git config --global user.email "example.edu"
+```
+\
+```bash
+git config --global credential.helper 'cache --timeout=10000000'
+```
+\
+```bash
+git config --global --list
+```
+:::
+
+::: {.column width="50%"}
+![](images/rstudio-git-config.gif)
+
+Use the same email address as the one you used to create your GitHub account.
+:::
+::::
+
+## Git on RStudio {.smaller}
+
+Linking RStudio to GitHub
+
+:::: {.columns}
+::: {.column width="40%"}
+Open the Console tab and type:
+
+```r
+library(usethis)
+library(gitcreds)
+
+create_github_token()
+```
+
+Opens a browser window to create a token.
+
+Click "Generate token" and copy the token.
+
+In the Console tab, type:
+
+```r
+gitcreds_set()
+```
+
+Paste the token and press Enter.
+:::
+
+::: {.column width="60%"}
+![](images/rstudio-github-config.gif)
+:::
+::::
+
+::: {.aside}
+Install the `usethis` [@R-usethis] and `gitcreds` [@R-gitcreds] packages if they are not already installed. `install.packages()` or the "Packages" tab in RStudio can be used to install the packages.
+:::
+
+# Using Git and GitHub
+
+## Local/ Remote scenarios
+
+![](images/github-features-drawio.png)
+
+## Scenario B: Fork a repository
+
+:::: {.columns}
+::: {.column width="40%"}
+- Go to the [Lab 04](https://github.com/lin-380-s24/lab-04) repository
+- Click on the "Fork" button
+- (No need to change the repo name)
+- Click "Create Fork"
+:::
+
+::: {.column width="60%"}
+![](images/github-fork.gif)
+:::
+::::
+
+## Scenario B: Clone a repository
+
+:::: {.columns}
+::: {.column width="40%"}
+- Go to the repository you forked\
+*should happen automatically*
+- Copy the repo URL
+- Open RStudio
+- Create new project from version control
+:::
+
+::: {.column width="60%"}
+![](images/github-clone.gif)
+:::
+::::
+
+## Scenario B: Edit, commit, and push
+
+Test the setup by making a change to the `README.md` file.
+
+:::: {.columns}
+::: {.column width="40%"}
+- Edit the `README.md` file
+- Stage the changes
+- Commit the changes
+- Push the changes to the remote repository
+:::
+
+::: {.column width="60%"}
+![](images/github-push.gif)
+:::
+::::
+
+## Scenario B: Verify changes on GitHub
+
+We can see that our changes are reflected on GitHub
+
+:::: {.columns}
+::: {.column width="40%"}
+- Number of commits increases
+- The changed files show time of last change
+- The changes are visible in the `README.md` file
+:::
+
+::: {.column width="60%"}
+![](images/github-verify.gif)
+:::
+::::
+
+## Discussions/ Issues {.smaller}
+
+We have a course hub for Discussions. You can add Issues to repos.
+
+:::: {.columns}
+::: {.column width="40%"}
+[Discussion](https://github.com/orgs/lin-380-s24/discussions)
+
+- Ask questions
+- Share ideas
+- Get feedback
+
+Issues
+
+- Enable in the repo settings
+- Create issues/ problems/ bugs
+- Assign to collaborators
+- Reference lines of code
+- Reference commits
+:::
+
+::: {.column width="60%"}
+![](images/github-discussions.png)
+:::
+::::
+
+## GitHub roster
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflXb_zAduJTstWkCWrMMDeSfNqLkPZy2PaJRDpaq8u2p4aJQ/viewform?embedded=true" width="640" height="984" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+
+## Student Developer Pack (optional)
+
+:::: {.columns}
+::: {.column width="40%"}
+- [GitHub Student Developer Pack](https://education.github.com/pack)
+- Free access to the best developer tools in one place
+- Free offers for students
+:::
+
+::: {.column width="60%"}
+![](images/git-student-account-1.gif)
+:::
+::::
+
+## References
+
