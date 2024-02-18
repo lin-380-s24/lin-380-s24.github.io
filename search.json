@@ -410,6 +410,6 @@
     "href": "slides/day-10.html#references",
     "title": "Scaffolding reproducible research",
     "section": "References",
-    "text": "References\n\n\n\n\nScaffolding reproducible research | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCsárdi, Gábor. 2022. Gitcreds: Query ’Git’ Credentials from ’r’. https://CRAN.R-project.org/package=gitcreds.\n\n\nWickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. Usethis: Automate Package and Project Setup. https://CRAN.R-project.org/package=usethis."
+    "text": "References\n\n\n\n\nScaffolding reproducible research | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCsárdi, Gábor. 2022. Gitcreds: Query ’Git’ Credentials from ’r’. https://CRAN.R-project.org/package=gitcreds.\n\n\nOoms, Jeroen. 2023. Credentials: Tools for Managing SSH and Git Credentials. https://CRAN.R-project.org/package=credentials.\n\n\nWickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. Usethis: Automate Package and Project Setup. https://CRAN.R-project.org/package=usethis."
   }
 ]

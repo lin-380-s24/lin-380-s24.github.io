@@ -524,6 +524,41 @@ Dr.&nbsp;Jerid Francom
 
 <aside><div>
 <p>Install the <code>usethis</code> <span class="citation" data-cites="R-usethis">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2023</a>)</span> and <code>gitcreds</code> <span class="citation" data-cites="R-gitcreds">(<a href="#/references" role="doc-biblioref" onclick="">Csárdi 2022</a>)</span> packages if they are not already installed. <code>install.packages()</code> or the “Packages” tab in RStudio can be used to install the packages.</p>
+</div></aside></section>
+<section class="slide level2 smaller">
+<h2>Git on RStudio (alternative)</h2>
+<p>Getting your GitHub token (without <code>usethis</code>)</p>
+<ol type="1">
+<li>Go to the <a href="https://github.com/settings/tokens">Tokens (classic) page on GitHub</a>.</li>
+<li>Click “Generate new token”.
+<ol type="1">
+<li>Select “Generate new token (classic)”</li>
+</ol></li>
+<li>Complete the following:
+<ol type="1">
+<li>Name the token</li>
+<li>Change expiration to 90 days.</li>
+<li>Select <code>repo</code>, <code>workflow</code>, <code>gist</code>, and <code>user</code> scopes.</li>
+</ol></li>
+<li>Click “Generate token”.</li>
+<li>Copy the token to your clipboard.</li>
+</ol>
+</section>
+<section class="slide level2 smaller">
+<h2>Git on RStudio (alternative)</h2>
+<p>Setting your credentials in RStudio (without <code>gitcreds</code>)</p>
+<p>In the RStudio Console tab, type:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(credentials)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="fu">git_credential_ask</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Ignore the warning message after loading the package.</em></p>
+<ul>
+<li>In the username field, type your <strong>GitHub username</strong>.</li>
+<li>In the password field, paste the <strong>GitHub token</strong> you copied.</li>
+</ul>
+
+<aside><div>
+<p>Install the <code>credentials</code> <span class="citation" data-cites="R-credentials">(<a href="#/references" role="doc-biblioref" onclick="">Ooms 2023</a>)</span> package if it is not already installed. <code>install.packages()</code> or the “Packages” tab in RStudio can be used to install the package.</p>
 </div></aside></section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -652,6 +687,9 @@ Loading…
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-gitcreds" class="csl-entry" role="listitem">
 Csárdi, Gábor. 2022. <em>Gitcreds: Query ’Git’ Credentials from ’r’</em>. <a href="https://CRAN.R-project.org/package=gitcreds">https://CRAN.R-project.org/package=gitcreds</a>.
+</div>
+<div id="ref-R-credentials" class="csl-entry" role="listitem">
+Ooms, Jeroen. 2023. <em>Credentials: Tools for Managing SSH and Git Credentials</em>. <a href="https://CRAN.R-project.org/package=credentials">https://CRAN.R-project.org/package=credentials</a>.
 </div>
 <div id="ref-R-usethis" class="csl-entry" role="listitem">
 Wickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. <em>Usethis: Automate Package and Project Setup</em>. <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.
