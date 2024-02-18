@@ -118,6 +118,40 @@ Paste the token and press Enter.
 Install the `usethis` [@R-usethis] and `gitcreds` [@R-gitcreds] packages if they are not already installed. `install.packages()` or the "Packages" tab in RStudio can be used to install the packages.
 :::
 
+## Git on RStudio (alternative) {.smaller}
+
+Getting your GitHub token (without `usethis`)
+
+1. Go to the [Tokens (classic) page on GitHub](https://github.com/settings/tokens).
+2. Click "Generate new token".
+   1. Select "Generate new token (classic)"
+3. Complete the following:
+   1. Name the token
+   2. Change expiration to 90 days.
+   3. Select `repo`, `workflow`, `gist`, and `user` scopes.
+4. Click "Generate token".
+5. Copy the token to your clipboard.
+
+## Git on RStudio (alternative) {.smaller}
+
+Setting your credentials in RStudio (without `gitcreds`)
+
+In the RStudio Console tab, type:
+
+```r
+library(credentials)
+
+git_credential_ask()
+```
+*Ignore the warning message after loading the package.*
+
+- In the username field, type your **GitHub username**.
+- In the password field, paste the **GitHub token** you copied.
+
+::: {.aside}
+Install the `credentials` [@R-credentials] package if it is not already installed. `install.packages()` or the "Packages" tab in RStudio can be used to install the package.
+:::
+
 # Using Git and GitHub
 
 ## Local/ Remote scenarios
