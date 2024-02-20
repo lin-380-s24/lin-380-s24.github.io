@@ -16,7 +16,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Data</title>
+  <title>Quantitative Text Analysis - Project orientation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -399,8 +399,8 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Data</h1>
-  <p class="subtitle">Understanding data and information</p>
+  <h1 class="title">Project orientation</h1>
+  <p class="subtitle">A guide to setup and provide an overview of the project prospectus</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -410,532 +410,320 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Jan 31, 2024</p>
+  <p class="date">Feb 21, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>Up for today:</p>
 <ul>
-<li>Understanding data</li>
-<li>From data to information</li>
-<li>Documenting the process</li>
+<li>About the project</li>
+<li>Project scaffolding</li>
+<li>Repository workflow</li>
 </ul>
-<p>Looking ahead:</p>
-<ul>
-<li>Recipe and lab 02</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/data-information-abstract.png"></p>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Quick reminders</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><i class="fa-solid fa-bell" aria-label="bell"></i> <a href="https://lin-380-s24.github.io/schedule.html">Course schedule</a></p>
-<p><i class="fa-solid fa-note-sticky" aria-label="note-sticky"></i> <a href="https://qtalr.github.io/book/understanding-data.html">Lessons</a></p>
-<ul>
-<li>Intro to Swirl</li>
-<li>Workspace</li>
-<li>Vectors</li>
-<li>Objects</li>
-<li>Packages and functions</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> Keeping up with this work is in your best interest.<br>
-</p>
-<p><i class="fa-solid fa-hand-point-up" aria-label="hand-point-up"></i> Don’t forget the lessons! They are key to making sure you will be ready for upcoming <i class="fa-brands fa-r-project" aria-label="r-project"></i> programming portions of labs!</p>
-</div>
-</div>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Understanding data</h1>
-<p>The raw material of data science</p>
-</section>
-<section class="slide level2">
-<h2>Populations and samples</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Population</strong></p>
-<p>An idealized set of objects or events that share a common characteristic or belong to a specific category.</p>
-</div><div class="column" style="width:40%;">
-<p><strong>Sample</strong></p>
-<p>A finite set of objects or events from drawn from a defined population.</p>
-</div>
-</div>
+<h1>Project</h1>
 
-<img data-src="images/population-sample.drawio.png" class="r-stretch"></section>
+</section>
 <section class="slide level2">
-<h2>Sampling</h2>
-<p><strong>Sampling frame</strong> Defining the population of interest.</p>
+<h2>Description</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Representativeness</strong></p>
-<p>The degree to which a sample reflects the characteristics of the population from which it is drawn.</p>
+<div class="column" style="width:40%;">
+<ol type="1">
+<li><strong>Interest statement</strong></li>
+<li>Research statement</li>
+<li>Data preparation</li>
+<li>Data analysis</li>
+<li>Communication</li>
+</ol>
+</div><div class="column" style="font-size: 0.8em;">
 <ul>
-<li>All samples are biased to some extent.</li>
-<li>Some samples are more biased than others.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><em>Minimize</em> bias</p>
-<ul>
-<li>Size</li>
-<li>Randomization</li>
-<li>Stratification</li>
-<li>Balance</li>
+<li>Identify a topic or area of interest within Linguistics and language science that you are passionate about.</li>
+<li>Begin to explore the literature in the area to understand the current state of research.</li>
+<li>Explore why this topic is important and what potential insights or contributions your research could make.</li>
 </ul>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Corpora</h2>
-<div style="font-size: 0.8em;">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Sampling scope</th>
-<th style="text-align: left;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Reference</td>
-<td style="text-align: left;">General characteristics of a language population</td>
-<td style="text-align: left;"><a href="https://anc.org/">ANC</a><a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Specialized</td>
-<td style="text-align: left;">Specific populations, <em>e.g.</em> spoken language, academic writing, <em>etc.</em></td>
-<td style="text-align: left;"><a href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus">SBCSAE</a><a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Parallel</td>
-<td style="text-align: left;">Directly comparable texts in different languages (<em>i.e.</em> translations)</td>
-<td style="text-align: left;"><a href="https://www.statmt.org/europarl/">Europarl</a><a href="#/footnotes" class="footnote-ref" id="fnref3" role="doc-noteref" data-footnote-href="#/fn3" onclick=""><sup>3</sup></a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Comparable</td>
-<td style="text-align: left;">Indirectly comparable texts in different languages or language varieties (<em>i.e.</em> similar sampling frames)</td>
-<td style="text-align: left;"><a href="https://varieng.helsinki.fi/CoRD/corpora/BROWN/">Brown and LOB</a><a href="#/footnotes" class="footnote-ref" id="fnref4" role="doc-noteref" data-footnote-href="#/fn4" onclick=""><sup>4</sup></a></td>
-</tr>
-</tbody>
-</table>
+<h2>Description</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li>Interest statement</li>
+<li><strong>Research statement</strong></li>
+<li>Data preparation</li>
+<li>Data analysis</li>
+<li>Communication</li>
+</ol>
+</div><div class="column" style="font-size: 0.8em;">
+<ul>
+<li>Continue to refine your interest in a more specific area gathering and evaluating the literature</li>
+<li>Identify perceived gaps and potential areas of contribution.</li>
+<li>Define a research question or hypothesis.</li>
+<li>Outline the objectives of your research and the expected impact on the field or area.</li>
+</ul>
 </div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Description</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li>Interest statement</li>
+<li>Research statement</li>
+<li><strong>Data preparation</strong></li>
+<li>Data analysis</li>
+<li>Communication</li>
+</ol>
+</div><div class="column" style="font-size: 0.8em;">
+<ul>
+<li>Describe the sources of your data and the rationale for their selection.</li>
+<li>Discuss the steps you will take to acquire and organize the data in a tidy, tabular dataset.</li>
+<li>Explain any techniques you will use to enhance and enrich the quality of the dataset in preparation for analysis.</li>
+<li>Mention any computational tools (<em>e.g.</em> R packages) you will use to prepare the data for analysis.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Description</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li>Interest statement</li>
+<li>Research statement</li>
+<li>Data preparation</li>
+<li><strong>Data analysis</strong></li>
+<li>Communication</li>
+</ol>
+</div><div class="column" style="font-size: 0.8em;">
+<ul>
+<li>Describe the descriptive diagnostics and exploratory techniques you plan to use to verify and better understand the dataset.</li>
+<li>Describe the analytical techniques you plan to use to answer your research question and explain your choices.</li>
+<li>Mention any computational tools (e.g., R packages) you will use for analysis.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Description</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li>Interest statement</li>
+<li>Research statement</li>
+<li>Data preparation</li>
+<li>Data analysis</li>
+<li><strong>Communication</strong></li>
+</ol>
+</div><div class="column" style="font-size: 0.8em;">
+<ul>
+<li>Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.</li>
+<li>Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.</li>
+<li>Prepare and share a computational environment that scaffolds your planned research.</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Scaffolding</h1>
+
+</section>
+<section class="slide level2">
+<h2>Fork and clone</h2>
+<p>We will use the <a href="https://github.com/lin-380-s24/project_web"><code>project_web</code></a> repository as a template for our project.</p>
+<ul>
+<li>Navigate to the <a href="https://github.com/lin-380-s24/project_web"><code>project_web</code></a> repository on GitHub.</li>
+<li>Fork the repository to your GitHub account.</li>
+<li>Clone the repository to your RStudio as a new project.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Enable GitHub Pages</h2>
+<p>We will enable GitHub Pages to host the project website.</p>
+<ul>
+<li>Go to your repository settings</li>
+<li>Scroll down to the Pages section</li>
+<li>Select ‘Source’ as ‘Deploy from a branch’</li>
+<li>Select the <code>main</code> branch</li>
+<li>Select the <code>docs</code> folder</li>
+<li>Save this configuration</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Enable Issues and Discussions</h2>
+<p>We will enable Issues and Discussions to facilitate project management and communication.</p>
+<ul>
+<li>Go to the repository settings</li>
+<li>Scroll down to the General section</li>
+<li>Find the Features checkbox list</li>
+<li>Enable Issues and Discussions</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Repository</h1>
+
+</section>
+<section class="slide level2">
+<h2>Build</h2>
+<p>We will build and deploy the project website ‘as is’ to begin.</p>
+<ul>
+<li>Open the project repository in RStudio</li>
+<li>Open the <code>index.qmd</code> file</li>
+<li>Click the RENDER button to render the project website</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Deploy</h2>
+<p>We will deploy the project website to GitHub Pages</p>
+<p>On RStudio:</p>
+<ul>
+<li>Stage, commit, and push the changes to the repository.</li>
+</ul>
+<p>On GitHub:</p>
+<ul>
+<li>Go to the repository settings</li>
+<li>Scroll down to the GitHub Pages section</li>
+<li>Click the link to view the deployed website</li>
+<li>Add the URL to the ‘About’ section</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Customize</h2>
+<p>We will customize the project website to reflect some researcher-specific information.</p>
+<ul>
+<li>Open the project repository in RStudio</li>
+<li>Open the <code>_quarto.yml</code> file</li>
+<li>Edit the values for the following keys:
+<ul>
+<li><code>title:</code></li>
+<li><code>repo-url:</code></li>
+<li><code>site-url:</code></li>
+</ul></li>
+</ul>
 
 <aside><div>
-<p>Visit <a href="https://qtalr.github.io/qtalrkit/articles/guide-4.html">Identifying data and data sources</a> for more information on available corpora.</p>
+<p>Note: Build and deploy the project website to see the changes.</p>
 </div></aside></section>
-<section class="slide level2">
-<h2>Corpus formats</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Unstructured</a></li><li><a href="#tabset-1-2">Semi-structured</a></li><li><a href="#tabset-1-3">Structured</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<p>Plain text</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plain number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>The quick brown fox jumps over the lazy dog.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2">
-<p>XML</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a></a>&lt;<span class="kw">text</span><span class="ot"> id</span> <span class="ot">=</span> <span class="st">"1"</span>&gt;</span>
-<span id="cb2-2"><a></a>  &lt;<span class="kw">sentence</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;</span>
-<span id="cb2-3"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;The&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-4"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span>&gt;quick&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-5"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span>&gt;brown&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-6"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span>&gt;fox&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-7"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span>&gt;jumps&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-8"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"6"</span>&gt;over&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-9"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"7"</span>&gt;the&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-10"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"8"</span>&gt;lazy&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-11"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"9"</span>&gt;dog&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-12"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"10"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb2-13"><a></a>  &lt;/<span class="kw">sentence</span>&gt;</span>
-<span id="cb2-14"><a></a>&lt;/<span class="kw">text</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-3">
-<p>R data frame</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>   text_id sentence_id word_id  word
-1        1           1       1   The
-2        1           1       2 quick
-3        1           1       3 brown
-4        1           1       4   fox
-5        1           1       5 jumps
-6        1           1       6  over
-7        1           1       7   the
-8        1           1       8  lazy
-9        1           1       9   dog
-10       1           1      10     .</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>From data to information</h1>
-
-</section>
-<section class="slide level2">
-<h2>Tidy data</h2>
-<p>Physical structure <img data-src="images/ud-tidy.drawio.png"></p>
-</section>
-<section class="slide level2">
-<h2>Tidy data</h2>
-<p>Semantic structure</p>
-<div style="font-size: 0.8em;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a></a>   title             date modality domain          ref_num word       lemma      pos</span>
-<span id="cb4-2"><a></a>   &lt;<span class="kw">chr</span>&gt;            &lt;<span class="kw">dbl</span>&gt; &lt;<span class="kw">fct</span>&gt;    &lt;<span class="kw">chr</span>&gt;             &lt;<span class="kw">int</span>&gt; &lt;<span class="kw">chr</span>&gt;      &lt;<span class="kw">chr</span>&gt;      &lt;<span class="kw">chr</span>&gt;</span>
-<span id="cb4-3"><a></a> 1 Hotel California  2008 Writing  General Fiction       1 Sound      sound      NNP</span>
-<span id="cb4-4"><a></a> 2 Hotel California  2008 Writing  General Fiction       2 is         be         VBZ</span>
-<span id="cb4-5"><a></a> 3 Hotel California  2008 Writing  General Fiction       3 a          a          DT</span>
-<span id="cb4-6"><a></a> 4 Hotel California  2008 Writing  General Fiction       4 vibration  vibration  NN</span>
-<span id="cb4-7"><a></a> 5 Hotel California  2008 Writing  General Fiction       5 .          .          .</span>
-<span id="cb4-8"><a></a> 6 Hotel California  2008 Writing  General Fiction       6 Sound      sound      NNP</span>
-<span id="cb4-9"><a></a> 7 Hotel California  2008 Writing  General Fiction       7 travels    travel     VBZ</span>
-<span id="cb4-10"><a></a> 8 Hotel California  2008 Writing  General Fiction       8 as         as         IN</span>
-<span id="cb4-11"><a></a> 9 Hotel California  2008 Writing  General Fiction       9 a          a          DT</span>
-<span id="cb4-12"><a></a>10 Hotel California  2008 Writing  General Fiction      10 mechanical mechanical JJ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Levels of measurement</li>
-<li>Unit of observation</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Levels of measurement</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a></a>essay_id part_id sex    group tokens types   ttr prop_l2</span>
-<span id="cb5-2"><a></a>E1       L01     female T2        79    46 0.582   0.987</span>
-<span id="cb5-3"><a></a>E2       L02     female T1        18    18 1       0.667</span>
-<span id="cb5-4"><a></a>E7       L07     male   T3        98    60 0.612   1</span>
-<span id="cb5-5"><a></a>E3       L02     female T3       101    53 0.525   1</span>
-<span id="cb5-6"><a></a>E4       L05     female T1        20    17 0.85    0.9</span>
-<span id="cb5-7"><a></a>E8       L07     male   T4       134    84 0.627   0.978</span>
-<span id="cb5-8"><a></a>E5       L05     female T3       158    80 0.506   0.987</span>
-<span id="cb5-9"><a></a>E6       L05     female T4       184    94 0.511   0.995</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-What are the levels of measurement?</p>
-<div style="font-size: 0.6em;">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Level</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Question</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Categorical</td>
-<td style="text-align: left;">Mutually exclusive categories</td>
-<td style="text-align: left;">What?</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ordinal</td>
-<td style="text-align: left;">Ordered categorical</td>
-<td style="text-align: left;">What order?</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Numeric</td>
-<td style="text-align: left;">Ordinal intervals</td>
-<td style="text-align: left;">How much/ many?</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="slide level2">
-<h2>Unit of observation</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a></a>essay_id part_id sex    group tokens types   ttr prop_l2</span>
-<span id="cb6-2"><a></a>E1       L01     female T2        79    46 0.582   0.987</span>
-<span id="cb6-3"><a></a>E2       L02     female T1        18    18 1       0.667</span>
-<span id="cb6-4"><a></a>E7       L07     male   T3        98    60 0.612   1</span>
-<span id="cb6-5"><a></a>E3       L02     female T3       101    53 0.525   1</span>
-<span id="cb6-6"><a></a>E4       L05     female T1        20    17 0.85    0.9</span>
-<span id="cb6-7"><a></a>E8       L07     male   T4       134    84 0.627   0.978</span>
-<span id="cb6-8"><a></a>E5       L05     female T3       158    80 0.506   0.987</span>
-<span id="cb6-9"><a></a>E6       L05     female T4       184    94 0.511   0.995</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-What is the unit of observation?</p>
-</section>
-<section class="slide level2">
-<h2>Transformation</h2>
-<p>Reshaping</p>
-
-<img data-src="images/ud-transformations.drawio.png" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Types: preparation</h2>
-<p>Clean, standardize, and derive key attributes</p>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Normalization</a></li><li><a href="#tabset-2-2">Tokenization</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Case</td>
-<td style="text-align: left;">Lower, UPPER, Title Case</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Remove</td>
-<td style="text-align: left;">Punctuation, special characters</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Replace</td>
-<td style="text-align: left;">abbreviations, contractions</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="tabset-2-2">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Any linguistic unit that can be operationalized.</p>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  text_id word                 
-    &lt;dbl&gt; &lt;chr&gt;                
-1       1 tokenization enables 
-2       1 enables the          
-3       1 the quantitative     
-4       1 quantitative analysis
-5       1 analysis of          
-6       1 of text              </code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Types: enrichment</h2>
-<p>Augment the dataset with additional information</p>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Recoding</a></li><li><a href="#tabset-3-2">Generation</a></li><li><a href="#tabset-3-3">Integration</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Decrease levels</li>
-<li>Increase levels</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 3
-   word       pos   cat        
-   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;      
- 1 Recoding   NN    Noun       
- 2 transforms VBZ   Verb       
- 3 values     NNS   Noun       
- 4 to         TO    Preposition
- 5 new        JJ    Adjective  
- 6 values     NNS   Noun       
- 7 more       RBR   Adverb     
- 8 suitable   JJ    Adjective  
- 9 for        IN    Preposition
-10 analysis   NN    Noun       </code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-3-2">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11 × 6
-   sent_id token_id token    xpos  features                   syntactic_relation
-     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;             
- 1       1 1        Wow      UH    &lt;NA&gt;                       discourse         
- 2       1 2        ,        ,     &lt;NA&gt;                       punct             
- 3       1 3        this     DT    Number=Sing|PronType=Dem   nsubj             
- 4       1 4        is       VBZ   Mood=Ind|Number=Sing|Pers… cop               
- 5       1 5        a        DT    Definite=Ind|PronType=Art  det               
- 6       1 6        great    JJ    Degree=Pos                 amod              
- 7       1 7        tool     NN    Number=Sing                root              
- 8       1 8        for      IN    &lt;NA&gt;                       case              
- 9       1 9        text     NN    Number=Sing                compound          
-10       1 10       analysis NN    Number=Sing                nmod              
-11       1 11       !        .     &lt;NA&gt;                       punct             </code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-3-3">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Concatenate</p>
-<p><img data-src="images/integration-concat-visual.drawio.png"></p>
-</div><div class="column" style="width:50%;">
-<p>Join</p>
-<p><img data-src="images/integration-join-visual.drawio.png"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Documenting the process</h1>
-
-</section>
 <section class="slide level2 smaller">
-<h2>Data origin</h2>
-<div id="tbl-do" class="quarto-float">
-<figure class="quarto-float quarto-float-tbl">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Data origin template
-</figcaption>
-<div aria-describedby="tbl-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table>
-<colgroup>
-<col style="width: 35%">
-<col style="width: 65%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Information</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Resource name</td>
-<td>Name of the corpus resource.</td>
-</tr>
-<tr class="even">
-<td>Data source</td>
-<td>URL, DOI, <em>etc.</em></td>
-</tr>
-<tr class="odd">
-<td>Data sampling frame</td>
-<td>Language, language variety, modality, genre, <em>etc.</em></td>
-</tr>
-<tr class="even">
-<td>Data collection date(s)</td>
-<td>The date or date range of the data collection.</td>
-</tr>
-<tr class="odd">
-<td>Data format</td>
-<td>Plain text, XML, HTML, <em>etc.</em></td>
-</tr>
-<tr class="even">
-<td>Data schema</td>
-<td>Relationships between data elements: files, folders, <em>etc.</em></td>
-</tr>
-<tr class="odd">
-<td>License</td>
-<td>CC BY, CC BY-NC, <em>etc.</em></td>
-</tr>
-<tr class="even">
-<td>Attribution</td>
-<td>Citation information for the data source.</td>
-</tr>
-</tbody>
-</table>
+<h2>About</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>This repository structure scaffolds a reproducible research project that can be shared on the web.</p>
+<p>The project website is built using Quarto, a document authoring system that supports R and Python code execution, and can be hosted on GitHub Pages.</p>
+<p>The project website is built from a collection of Quarto Markdown (qmd) files that are organized into a directory structure that reflects the research process.</p>
+</div><div class="column" style="font-size: 1.4em;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">project_web/</span></span>
+<span id="cb1-2"><a></a>  <span class="ex">├──</span> README.md</span>
+<span id="cb1-3"><a></a>  <span class="ex">├──</span> DESCRIPTION</span>
+<span id="cb1-4"><a></a>  <span class="ex">├──</span> _quarto.yml</span>
+<span id="cb1-5"><a></a>  <span class="ex">├──</span> index.qmd</span>
+<span id="cb1-6"><a></a>  <span class="ex">├──</span> bibliography.bib</span>
+<span id="cb1-7"><a></a>  <span class="ex">├──</span> data/</span>
+<span id="cb1-8"><a></a>  <span class="ex">├──</span> process/</span>
+<span id="cb1-9"><a></a>  <span class="ex">│</span>   ├── 1_acquire.qmd</span>
+<span id="cb1-10"><a></a>  <span class="ex">│</span>   ├── 2_curate.qmd</span>
+<span id="cb1-11"><a></a>  <span class="ex">│</span>   ├── 3_transform.qmd</span>
+<span id="cb1-12"><a></a>  <span class="ex">│</span>   └── 4_analyze.qmd</span>
+<span id="cb1-13"><a></a>  <span class="ex">└──</span> reports/</span>
+<span id="cb1-14"><a></a>      <span class="ex">├──</span> article.qmd</span>
+<span id="cb1-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
+<span id="cb1-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
+<span id="cb1-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</figure>
 </div>
 </section>
 <section class="slide level2 smaller">
-<h2>Data dictionary</h2>
-<div id="tbl-dd" class="quarto-float">
-<figure class="quarto-float quarto-float-tbl">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Data dictionary template
-</figcaption>
-<div aria-describedby="tbl-dd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table>
-<colgroup>
-<col style="width: 35%">
-<col style="width: 65%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Information</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Variable name</td>
-<td>The name of the variable as it appears in the dataset, <em>e.g.</em> <code>participant_id</code>, <code>modality</code>, <em>etc.</em></td>
-</tr>
-<tr class="even">
-<td>Readable variable name</td>
-<td>A human-readable name for the variable, <em>e.g.</em> ‘Participant ID’, ‘Language modality’, <em>etc.</em></td>
-</tr>
-<tr class="odd">
-<td>Variable type</td>
-<td>The type of information that the variable contains, <em>e.g.</em> ‘categorical’, ‘ordinal’, <em>etc.</em></td>
-</tr>
-<tr class="even">
-<td>Variable description</td>
-<td>A prose description expanding on the readable name and can include measurement units, allowed values, <em>etc.</em></td>
-</tr>
-</tbody>
-</table>
+<h2>Description</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>README.md</code>: a file that contains information about the project</li>
+<li><code>DESCRIPTION</code>: a file that contains a description of the project and its software dependencies</li>
+<li><code>_quarto.yml</code>: a file that contains the project configuration</li>
+<li><code>index.qmd</code> file to serve as the landing page for the project website (web-facing <code>README</code>).</li>
+<li><code>prospectus.qmd</code> file to serve as the project prospectus.</li>
+</ul>
+</div><div class="column" style="font-size: 1.4em;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">project_web/</span></span>
+<span id="cb2-2"><a></a>  <span class="ex">├──</span> README.md</span>
+<span id="cb2-3"><a></a>  <span class="ex">├──</span> DESCRIPTION</span>
+<span id="cb2-4"><a></a>  <span class="ex">├──</span> _quarto.yml</span>
+<span id="cb2-5"><a></a>  <span class="ex">├──</span> index.qmd</span>
+<span id="cb2-6"><a></a>  <span class="ex">├──</span> bibliography.bib</span>
+<span id="cb2-7"><a></a>  <span class="ex">├──</span> data/</span>
+<span id="cb2-8"><a></a>  <span class="ex">├──</span> process/</span>
+<span id="cb2-9"><a></a>  <span class="ex">│</span>   ├── 1_acquire.qmd</span>
+<span id="cb2-10"><a></a>  <span class="ex">│</span>   ├── 2_curate.qmd</span>
+<span id="cb2-11"><a></a>  <span class="ex">│</span>   ├── 3_transform.qmd</span>
+<span id="cb2-12"><a></a>  <span class="ex">│</span>   └── 4_analyze.qmd</span>
+<span id="cb2-13"><a></a>  <span class="ex">└──</span> reports/</span>
+<span id="cb2-14"><a></a>      <span class="ex">├──</span> article.qmd</span>
+<span id="cb2-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
+<span id="cb2-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
+<span id="cb2-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</figure>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Project</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><code>prospectus.qmd</code><br>
+You can use this file to craft, draft, and finalize your project prospectus.</p>
+<p><code>data/</code> and <code>process/</code><br>
+These directories can be used to store data and code related to the project, if you choose to do so.</p>
+<p><code>reports/</code><br>
+This directory contains templates for articles and presentations that you can use to communicate your research.</p>
+</div><div class="column" style="font-size: 1.4em;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">project_web/</span></span>
+<span id="cb3-2"><a></a>  <span class="ex">├──</span> README.md</span>
+<span id="cb3-3"><a></a>  <span class="ex">├──</span> DESCRIPTION</span>
+<span id="cb3-4"><a></a>  <span class="ex">├──</span> _quarto.yml</span>
+<span id="cb3-5"><a></a>  <span class="ex">├──</span> index.qmd</span>
+<span id="cb3-6"><a></a>  <span class="ex">├──</span> bibliography.bib</span>
+<span id="cb3-7"><a></a>  <span class="ex">├──</span> data/</span>
+<span id="cb3-8"><a></a>  <span class="ex">├──</span> process/</span>
+<span id="cb3-9"><a></a>  <span class="ex">│</span>   ├── 1_acquire.qmd</span>
+<span id="cb3-10"><a></a>  <span class="ex">│</span>   ├── 2_curate.qmd</span>
+<span id="cb3-11"><a></a>  <span class="ex">│</span>   ├── 3_transform.qmd</span>
+<span id="cb3-12"><a></a>  <span class="ex">│</span>   └── 4_analyze.qmd</span>
+<span id="cb3-13"><a></a>  <span class="ex">└──</span> reports/</span>
+<span id="cb3-14"><a></a>      <span class="ex">├──</span> article.qmd</span>
+<span id="cb3-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
+<span id="cb3-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
+<span id="cb3-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Looking ahead</h1>
+<h1>Project steps</h1>
 
 </section>
 <section class="slide level2">
-<h2>Recipe and lab</h2>
-<ul>
-<li>Recipe 02: <a href="https://qtalr.github.io/qtalrkit/articles/recipe-2.html">Reading, inspecting, and writing datasets</a></li>
-<li>Lab 02: <a href="https://github.com/qtalr/lab-02">Dive into datasets</a></li>
-</ul>
-<!--
-Key points to address:
-
-- Data literacy:
-  - How populations, samples, and corpora align with research questions
-  - Nuances between data and information
-- Research skills:
-  - Understand the process of organizing and transforming data
-  - Importance of documenting data for design and implementation of research
-- Programming skills:
-  - Making connections with R-specific resources and tools (Lessons and Recipes)
--->
+<h2>Notice</h2>
+<p>The project steps aim to incrementally scaffold the project prospectus. These steps will often be revisited and revised as the project progresses. Just remember that the project prospectus is a living document. It will evolve as you learn more about your research area and as you refine your research question and objectives.</p>
+<p>Stage, commit, and push the changes to the repository periodically. Use the Issues and Discussions features to communicate and manage the project with peers and instructor.</p>
+</section>
+<section class="slide level2">
+<h2>Happy coding!</h2>
+<p><i class="fa-solid fa-smile fa-Huge" aria-label="smile"></i></p>
+</section>
+<section class="slide level2">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Data | Quantitative Text Analysis | Wake Forest University</p>
+<p>Project orientation | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
 </section></section>
-<section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>The OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.</p></li>
-<li id="fn2"><p>The Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.</p></li>
-<li id="fn3"><p>The Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.</p></li>
-<li id="fn4"><p>The Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples.</p></li>
-</ol>
-</section>
     </div>
   </div>
 
