@@ -1,0 +1,300 @@
+---
+title: "Project orientation"
+subtitle: "A guide to setup and provide an overview of the project prospectus"
+date: "2024-02-21"
+categories: [research, reproducible-research, git, github, fork, clone, push]
+---
+
+## Overview
+
+- About the project
+- Project scaffolding
+- Repository workflow
+
+# Project
+
+## Description
+
+:::: {.columns}
+::: {.column width="40%"}
+1. **Interest statement**
+2. Research statement
+3. Data preparation
+4. Data analysis
+5. Communication
+:::
+
+::: {.column width="60%" style="font-size: 0.8em;"}
+- Identify a topic or area of interest within Linguistics and language science that you are passionate about.
+- Begin to explore the literature in the area to understand the current state of research.
+- Explore why this topic is important and what potential insights or contributions your research could make.
+:::
+::::
+
+## Description
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Interest statement
+2. **Research statement**
+3. Data preparation
+4. Data analysis
+5. Communication
+:::
+
+::: {.column width="60%" style="font-size: 0.8em;"}
+- Continue to refine your interest in a more specific area gathering and evaluating the literature
+- Identify perceived gaps and potential areas of contribution.
+- Define a research question or hypothesis.
+- Outline the objectives of your research and the expected impact on the field or area.
+:::
+::::
+
+## Description
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Interest statement
+2. Research statement
+3. **Data preparation**
+4. Data analysis
+5. Communication
+:::
+
+::: {.column width="60%" style="font-size: 0.8em;"}
+- Describe the sources of your data and the rationale for their selection.
+- Discuss the steps you will take to acquire and organize the data in a tidy, tabular dataset.
+- Explain any techniques you will use to enhance and enrich the quality of the dataset in preparation for analysis.
+- Mention any computational tools (*e.g.* R packages) you will use to prepare the data for analysis.
+:::
+::::
+
+## Description
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Interest statement
+2. Research statement
+3. Data preparation
+4. **Data analysis**
+5. Communication
+:::
+
+::: {.column width="60%" style="font-size: 0.8em;"}
+- Describe the descriptive diagnostics and exploratory techniques you plan to use to verify and better understand the dataset.
+- Describe the analytical techniques you plan to use to answer your research question and explain your choices.
+- Mention any computational tools (e.g., R packages) you will use for analysis.
+:::
+::::
+
+## Description
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Interest statement
+2. Research statement
+3. Data preparation
+4. Data analysis
+5. **Communication**
+:::
+
+::: {.column width="60%" style="font-size: 0.8em;"}
+- Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.
+- Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.
+- Prepare and share a computational environment that scaffolds your planned research.
+:::
+::::
+
+
+# Scaffolding
+
+## Fork and clone
+
+We will use the [`project_web`](https://github.com/lin-380-s24/project_web) repository as a template for our project.
+
+- Navigate to the [`project_web`](https://github.com/lin-380-s24/project_web) repository on GitHub.
+- Fork the repository to your GitHub account.
+- Clone the repository to your RStudio as a new project.
+
+## Enable GitHub Pages
+
+We will enable GitHub Pages to host the project website.
+
+- Go to your repository settings
+- Scroll down to the Pages section
+- Select 'Source' as 'Deploy from a branch'
+- Select the `main` branch
+- Select the `docs` folder
+- Save this configuration
+
+## Enable Issues and Discussions
+
+We will enable Issues and Discussions to facilitate project management and communication.
+
+- Go to the repository settings
+- Scroll down to the General section
+- Find the Features checkbox list
+- Enable Issues and Discussions
+
+# Repository
+
+## Build
+
+We will build and deploy the project website 'as is' to begin.
+
+- Open the project repository in RStudio
+- Open the `index.qmd` file
+- Click the RENDER button to render the project website
+
+## Deploy
+
+We will deploy the project website to GitHub Pages
+
+On RStudio:
+
+- Stage, commit, and push the changes to the repository.
+
+On GitHub:
+
+- Go to the repository settings
+- Scroll down to the GitHub Pages section
+- Click the link to view the deployed website
+- Add the URL to the 'About' section
+
+## Customize
+
+We will customize the project website to reflect some researcher-specific information.
+
+- Open the project repository in RStudio
+- Open the `_quarto.yml` file
+- Edit the values for the following keys:
+  - `title:`
+  - `repo-url:`
+  - `site-url:`
+
+::: {.aside}
+Note: Build and deploy the project website to see the changes.
+:::
+
+## About {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+This repository structure scaffolds a reproducible research project that can be shared on the web.
+
+The project website is built using Quarto, a document authoring system that supports R and Python code execution, and can be hosted on GitHub Pages.
+
+The project website is built from a collection of Quarto Markdown (qmd) files that are organized into a directory structure that reflects the research process.
+:::
+
+::: {.column width="50%" style="font-size: 1.4em;"}
+```bash
+project_web/
+  ├── README.md
+  ├── DESCRIPTION
+  ├── _quarto.yml
+  ├── index.qmd
+  ├── bibliography.bib
+  ├── data/
+  ├── process/
+  │   ├── 1_acquire.qmd
+  │   ├── 2_curate.qmd
+  │   ├── 3_transform.qmd
+  │   └── 4_analyze.qmd
+  └── reports/
+      ├── article.qmd
+      ├── presentations.qmd
+      ├── prospectus.qmd
+      └── slides/
+```
+:::
+::::
+
+## Description {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- `README.md`: a file that contains information about the project
+- `DESCRIPTION`: a file that contains a description of the project and its software dependencies
+- `_quarto.yml`: a file that contains the project configuration
+- `index.qmd` file to serve as the landing page for the project website (web-facing `README`).
+- `prospectus.qmd` file to serve as the project prospectus.
+:::
+
+::: {.column width="50%" style="font-size: 1.4em;"}
+```bash
+project_web/
+  ├── README.md
+  ├── DESCRIPTION
+  ├── _quarto.yml
+  ├── index.qmd
+  ├── bibliography.bib
+  ├── data/
+  ├── process/
+  │   ├── 1_acquire.qmd
+  │   ├── 2_curate.qmd
+  │   ├── 3_transform.qmd
+  │   └── 4_analyze.qmd
+  └── reports/
+      ├── article.qmd
+      ├── presentations.qmd
+      ├── prospectus.qmd
+      └── slides/
+```
+:::
+::::
+
+## Project {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+`prospectus.qmd`\
+You can use this file to craft, draft, and finalize your project prospectus.
+
+`data/` and `process/`\
+These directories can be used to store data and code related to the project, if you choose to do so.
+
+`reports/`\
+This directory contains templates for articles and presentations that you can use to communicate your research.
+:::
+
+::: {.column width="50%" style="font-size: 1.4em;"}
+```bash
+project_web/
+  ├── README.md
+  ├── DESCRIPTION
+  ├── _quarto.yml
+  ├── index.qmd
+  ├── bibliography.bib
+  ├── data/
+  ├── process/
+  │   ├── 1_acquire.qmd
+  │   ├── 2_curate.qmd
+  │   ├── 3_transform.qmd
+  │   └── 4_analyze.qmd
+  └── reports/
+      ├── article.qmd
+      ├── presentations.qmd
+      ├── prospectus.qmd
+      └── slides/
+```
+:::
+::::
+
+# Project steps
+
+## Notice
+
+The project steps aim to incrementally scaffold the project prospectus. These steps will often be revisited and revised as the project progresses. Just remember that the project prospectus is a living document. It will evolve as you learn more about your research area and as you refine your research question and objectives.
+
+Stage, commit, and push the changes to the repository periodically. Use the Issues and Discussions features to communicate and manage the project with peers and instructor.
+
+## Happy coding!
+
+{{< fa smile size=Huge >}}
+
+## References
+
+
+
+

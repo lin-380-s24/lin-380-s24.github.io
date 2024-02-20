@@ -129,34 +129,35 @@ The steps are:
 
 1. <a id="interest">Interest statement</a>
 
-   - Identify a topic or area of interest within Linguistics and language science that you are passionate about.
-   - Begin to explore the literature in the area to understand the current state of research.
-   - Explore why this topic is important and what potential insights or contributions your research could make.
+- Identify a topic or area of interest within Linguistics and language science that you are passionate about.
+- Begin to explore the literature in the area to understand the current state of research.
+- Explore why this topic is important and what potential insights or contributions your research could make.
 
 2. <a id="statement">Research statement</a>
 
-   - Continue to refine your interest in a more specific area gathering more information from the literature and identifying perceived gaps and potential areas of contribution.
-   - Refine your interest into a specific research question or hypothesis.
-   - Outline the objectives of your research and the expected outcomes.
+- Continue to refine your interest in a more specific area gathering and evaluating the literature
+- Identify perceived gaps and potential areas of contribution.
+- Define a research question or hypothesis.
+- Outline the objectives of your research and the expected impact on the field or area.
 
 3. <a id="preparation">Data preparation: acquisition, organization, and enrichment</a>
 
-   - Describe the sources of your data and the rationale for their selection.
-   - Discuss the steps you will take to acquire and organize the data in a tidy, tabular dataset.
-   - Explain any techniques you will use to enhance and enrich the quality of the dataset in preparation for analysis.
+- Describe the sources of your data and the rationale for their selection.
+- Discuss the steps you will take to acquire and organize the data in a tidy, tabular dataset.
+- Explain any techniques you will use to enhance and enrich the quality of the dataset in preparation for analysis.
+- Mention any computational tools (*e.g.* R packages) you will use to prepare the data for analysis.
 
 4. <a id="analysis">Data analysis: selection, engineering, and modeling</a>
 
-   - Describe the descriptive diagnostics and exploratory techniques you plan to use to verify and better understand the dataset.
-   - Describe the analytical techniques you plan to use to answer your research question.
-   - Discuss how you will engineer features from the data and the rationale behind your methodological choices.
-   - Mention any computational tools (*e.g.*, R packages) you will use for analysis.
+- Describe the descriptive diagnostics and exploratory techniques you plan to use to verify and better understand the dataset.
+- Describe the analytical techniques you plan to use to answer your research question and explain your choices.
+- Mention any computational tools (e.g., R packages) you will use for analysis.
 
-5. <a id="communication">Communication: presentation and reporting</a>
+1. <a id="communication">Communication: presentation and reporting</a>
 
-   - Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.
-   - Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.
-   - Prepare and share a computational environment that scaffolds your planned research.
+- Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.
+- Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.
+- Prepare and share a computational environment that scaffolds your planned research.
 
 <a id="prospectus">**Prospectus template**</a>
 
