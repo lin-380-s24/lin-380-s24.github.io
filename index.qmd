@@ -1,12 +1,10 @@
 ---
 title: "{{< fa handshake >}} Syllabus"
 subtitle: "LIN 380/680: Quantitative Text Analysis for Linguistics"
-date: 2024-01-18
+date: 2024-02-20
 language:
   title-block-published: "Updated"
 ---
-
-<!-- ![]({{< var course.sticker >}}){width="150px" style="float: right;"} -->
 
 ## Instructor
 
@@ -24,13 +22,15 @@ Appointments: <a href='{{< var instructor.appointment_url >}}' target="_blank">{
 
 Are you curious about how to use technology to unlock hidden insights from text? Do you want to become a skilled researcher who can analyze textual data in a way that is rigorous, reproducible, and insightful? In this course, you will learn how to harness the power of computational tools to explore and interpret text in a way that supports meaningful research questions in Linguistics and language science.
 
+![]({{< var course.sticker >}}){width="150px" style="float: right; margin-right: 1em;"}
+
 Throughout the course, you will gain valuable skills in data analysis and interpretation, research design and implementation, programming, and collaboration. You will learn how to collect, organize, and analyze textual data in a way that ensures your findings are valid, reliable, and impactful. You will also gain hands-on experience with the R programming language, a powerful tool for conducting text analysis and automating data analysis processes.
 
 By the end of the course, you will be able to design and apply appropriate research designs to address research questions based on textual data, implement text analysis techniques using computational tools, and communicate your research findings effectively through written reports and oral presentations. You will also be able to collaborate with your peers and the research community through publicly sharing and implementing reproducible research projects.
 
 Join us for an exciting journey into the world of quantitative text analysis and unlock new insights into language, culture, and society!
 
-### Learning outcomes
+### Learning outcomes {#learning-outcomes}
 
 By the end of this course you will be able to:
 
@@ -57,7 +57,7 @@ C. Apply programmatic strategies to develop and collaborate on reproducible rese
 
 - Francom, J (forthcoming). *[An Introduction to Quantitative Text Analysis for Linguistics: Reproducible Research using R](https://qtalr.github.io/book)*. Routledge Press.
   - [R package and companion website](https://qtalr.github.io/qtalrkit/)
-- GitHub: A [free](https://education.github.com/pack/join) account (sign up for the Student Developer Pack).
+- GitHub: A [free](https://education.github.com/pack/join) account (*optional*, sign up for the Student Developer Pack).
 - Hypothes.is: A [free](https://web.hypothes.is/start/) account.
 
 ### Prerequisites
@@ -96,25 +96,100 @@ In line with my view that learning is a process, not a product, individual learn
 
 **Engagement discussions**
 
-These discussions will ask you to reflect on your preliminary reactions to the learning materials and collaborate with your peers to establish, clarify, and discover new connections.
+These discussions will ask you to reflect on your preliminary reactions to the learning materials ([textbook](https://qtalr.github.io/book) and [recipes](https://qtalr.github.io/qtalrkit/)) and collaborate with your peers to establish, clarify, and discover new connections.
 
 **Expansion activities**
 
-These will be a series of interactive coding ('swirl') and lab activities that aim to employ your conceptual knowledge and develop your R programming skills.
+These will be a series of [interactive coding](https://github.com/qtalr/lessons) ('swirl') and [lab activities](https://github.com/lin-380-s24?q=lab-&type=fork&language=&sort=name) that aim to employ your conceptual knowledge and develop your R programming skills.
 
 ### Project components
 
-**Project activities**
+**Project goals**
 
-These activities are aimed at developing students' research and technical implementation skills through a project on a specific topic determined by student interest.
+You'll develop a research [prospectus](#prospectus) (and [final project](#final-project)) to demonstrate your skills in quantitative text analysis and its application to language science. This project aligns with the course's learning outcomes, providing a chance to showcase your abilities in data analysis, research design, communication, and collaboration.
 
-**Project prospectus**
+The project aligns with the [course's learning outcomes](#learning-outcomes) in the following ways:
 
-The project prospectus is the culmination of the project activities and a demonstration of the student's ability to envision and document a text analysis research project of their own design. It contain a detailed protocol that clearly outlines the research question, methodology, and analysis plan including documentation of the data sources, the sampling strategy, and the statistical analysis which align with reproducible research practices.
+- A: Identify, interpret, and evaluate data analysis procedures and results\
+In the [Research statement](#statement) and [Data preparation](#preparation) and [analysis](#analysis) steps, you'll show how research decisions impact findings, interpret textual data analysis to support your questions, and assess the potential of your results to contribute to the field.
+- B: Design, implement, and communicate research\
+Your [Research statement](#statement) and [Data preparation](#preparation) and [analysis](#analysis) steps will outline your research design and how you plan to use computational tools for text analysis. The [Communication](#communication) step will detail how you'll share your findings through reports, presentations, and reproducible research practices.
+- C: Apply programmatic strategies to develop and collaborate on reproducible research projects\
+You'll demonstrate using R for text analysis and detail your methodology ([Data preparation](#preparation) and [analysis](#analysis) steps) for reproducible research. Your [Communication](#communication) plan will also include strategies for collaborating and sharing your prospectus with peers and the research community.
 
-**Final project** (*optional*)
+By completing this project, you'll show your ability to apply quantitative text analysis to language science research, design robust studies, and communicate your findings effectively. You'll also gain experience in using computational tools for reproducible research, a valuable skill for future research and professional work.
+
+**Project steps**
+
+Each step is designed to help you build a research prospectus that outlines a viable research plan that is reproducible and transparent.
+
+*Note that the project steps are iterative and you will likely revisit and refine your research question, data preparation, and analysis methods as you progress through the project.*
+
+The steps are:
+
+1. <a id="interest">Interest statement</a>
+
+   - Identify a topic or area of interest within Linguistics and language science that you are passionate about.
+   - Begin to explore the literature in the area to understand the current state of research.
+   - Explore why this topic is important and what potential insights or contributions your research could make.
+
+2. <a id="statement">Research statement</a>
+
+   - Continue to refine your interest in a more specific area gathering more information from the literature and identifying perceived gaps and potential areas of contribution.
+   - Refine your interest into a specific research question or hypothesis.
+   - Outline the objectives of your research and the expected outcomes.
+
+3. <a id="preparation">Data preparation: acquisition, organization, and enrichment</a>
+
+   - Describe the sources of your data and the rationale for their selection.
+   - Discuss the steps you will take to acquire and organize the data in a tidy, tabular dataset.
+   - Explain any techniques you will use to enhance and enrich the quality of the dataset in preparation for analysis.
+
+4. <a id="analysis">Data analysis: selection, engineering, and modeling</a>
+
+   - Describe the descriptive diagnostics and exploratory techniques you plan to use to verify and better understand the dataset.
+   - Describe the analytical techniques you plan to use to answer your research question.
+   - Discuss how you will engineer features from the data and the rationale behind your methodological choices.
+   - Mention any computational tools (*e.g.*, R packages) you will use for analysis.
+
+5. <a id="communication">Communication: presentation and reporting</a>
+
+   - Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.
+   - Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.
+   - Prepare and share a computational environment that scaffolds your planned research.
+
+<a id="prospectus">**Prospectus template**</a>
+
+The project steps will be used to scaffold the research prospectus. The prospectus will include the following sections:
+
+| Section | Description |
+|---------|-------------|
+| Title page | Includes the title of the prospectus, student's name, course name, and date |
+| Abstract | A brief summary of the research question, methods, and potential contributions of the study |
+| Introduction | Introduces the topic of interest, its relevance, and the specific research question or hypothesis |
+| Literature review | Summarizes previous research related to the topic and identifies gaps that the current study aims to address. |
+| Data preparation methods | Data acquisition, data organization, and data enrichment process |
+| Data analysis methods | Feature selection and engineering, analysis techniques, and evaluation process |
+| Expected results | Hypothesized findings based on the research question and analysis methods |
+| Communication plan | Reporting, presentation, reproducible research |
+| Conclusion | Summary of the research proposal and its potential impact on the field of Linguistics and language science |
+| References | List of sources cited |
+
+: Prospectus template {#tbl-prospectus-template tbl-colwidths="[30, 70]" .striped .sm}
+
+The research prospectus will be developed iteratively throughout the course, with each step contributing to the final prospectus document.
+
+<a id="final-project">**Final project** (*optional*)</a>
 
 The final project is a demonstration of the student's ability to bring to fruition a text analysis research project of their own design and implementation. In addition to the project prospectus, the final project will carry out the research plan outlined in the prospectus and include a written report communicating the findings.
+
+*If you choose to complete the final project, contact the instructor to discuss your research plan and receive guidance on the project's implementation at the outset!*
+
+For reference, in addition to the prospectus, the final project will demonstrate your ability to:
+
+- Implement the research plan outlined in the prospectus.
+- Communicate the findings of the research through a written report and oral presentation.
+- Share the research project and its computational environment with the research community.
 
 ## Policies
 
