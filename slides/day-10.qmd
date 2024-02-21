@@ -58,11 +58,11 @@ Git is already on your RStudio container. We *do* need to configure it.
 2. Copy/ paste (and edit) the following commands:
 
 ```bash
-git config --global user.name "Your Name"
+git config --global user.name "Your github username"
 ```
 \
 ```bash
-git config --global user.email "example.edu"
+git config --global user.email "your github email address"
 ```
 \
 ```bash
@@ -72,12 +72,16 @@ git config --global credential.helper 'cache --timeout=10000000'
 ```bash
 git config --global --list
 ```
+
+If `credential.helper` appears on two lines, one being `cache --timeout=3600`, then unset it with:
+
+```bash
+sudo git config --system --unset credential.helper
+```
 :::
 
 ::: {.column width="50%"}
 ![](images/rstudio-git-config.gif)
-
-Use the same email address as the one you used to create your GitHub account.
 :::
 ::::
 
