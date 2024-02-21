@@ -116,17 +116,6 @@ We will use the [`project_web`](https://github.com/lin-380-s24/project_web) repo
 - Fork the repository to your GitHub account.
 - Clone the repository to your RStudio as a new project.
 
-## Enable GitHub Pages
-
-We will enable GitHub Pages to host the project website.
-
-- Go to your repository settings
-- Scroll down to the Pages section
-- Select 'Source' as 'Deploy from a branch'
-- Select the `main` branch
-- Select the `docs` folder
-- Save this configuration
-
 # Repository
 
 ## Build
