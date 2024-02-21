@@ -552,16 +552,6 @@ Dr.&nbsp;Jerid Francom
 <li>Select the <code>docs</code> folder</li>
 <li>Save this configuration</li>
 </ul>
-</section>
-<section class="slide level2">
-<h2>Enable Issues and Discussions</h2>
-<p>We will enable Issues and Discussions to facilitate project management and communication.</p>
-<ul>
-<li>Go to the repository settings</li>
-<li>Scroll down to the General section</li>
-<li>Find the Features checkbox list</li>
-<li>Enable Issues and Discussions</li>
-</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -580,18 +570,37 @@ Dr.&nbsp;Jerid Francom
 <section class="slide level2">
 <h2>Deploy</h2>
 <p>We will deploy the project website to GitHub Pages</p>
-<p>On RStudio:</p>
-<ul>
-<li>Stage, commit, and push the changes to the repository.</li>
-</ul>
-<p>On GitHub:</p>
-<ul>
-<li>Go to the repository settings</li>
-<li>Scroll down to the GitHub Pages section</li>
-<li>Click the link to view the deployed website</li>
-<li>Add the URL to the ‘About’ section</li>
-</ul>
+<p>We will use the <code>set-publish-gh-pages</code> script to deploy the project website to GitHub Pages.</p>
+<ol type="1">
+<li>Make sure that all edits, saved, and committed to Git.</li>
+<li>Open the terminal in RStudio and run:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">./set-publish-gh-pages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Commit the new <code>.github</code> folder and push the changes to the repository.</li>
+</ol>
 </section>
+<section class="slide level2">
+<h2>Last GitHub steps</h2>
+<ul>
+<li>Go to the repository settings
+<ul>
+<li>Pages
+<ul>
+<li>Copy the URL of the deployed website</li>
+<li>Add it to the ‘About’ section (on main repo page)</li>
+</ul></li>
+<li>General section
+<ul>
+<li>Scroll down to the Features checkbox list</li>
+<li>Enable Issues and Discussions</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Issues and Discussions will facilitate project management and communication between peers and instructor.</p>
+</div></aside></section>
 <section class="slide level2">
 <h2>Customize</h2>
 <p>We will customize the project website to reflect some researcher-specific information.</p>
@@ -607,7 +616,7 @@ Dr.&nbsp;Jerid Francom
 </ul>
 
 <aside><div>
-<p>Note: Build and deploy the project website to see the changes.</p>
+<p>Note: Commit and push the project website to see the changes.</p>
 </div></aside></section>
 <section class="slide level2 smaller">
 <h2>About</h2>
@@ -616,38 +625,6 @@ Dr.&nbsp;Jerid Francom
 <p>This repository structure scaffolds a reproducible research project that can be shared on the web.</p>
 <p>The project website is built using Quarto, a document authoring system that supports R and Python code execution, and can be hosted on GitHub Pages.</p>
 <p>The project website is built from a collection of Quarto Markdown (qmd) files that are organized into a directory structure that reflects the research process.</p>
-</div><div class="column" style="font-size: 1.4em;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">project_web/</span></span>
-<span id="cb1-2"><a></a>  <span class="ex">├──</span> README.md</span>
-<span id="cb1-3"><a></a>  <span class="ex">├──</span> DESCRIPTION</span>
-<span id="cb1-4"><a></a>  <span class="ex">├──</span> _quarto.yml</span>
-<span id="cb1-5"><a></a>  <span class="ex">├──</span> index.qmd</span>
-<span id="cb1-6"><a></a>  <span class="ex">├──</span> bibliography.bib</span>
-<span id="cb1-7"><a></a>  <span class="ex">├──</span> data/</span>
-<span id="cb1-8"><a></a>  <span class="ex">├──</span> process/</span>
-<span id="cb1-9"><a></a>  <span class="ex">│</span>   ├── 1_acquire.qmd</span>
-<span id="cb1-10"><a></a>  <span class="ex">│</span>   ├── 2_curate.qmd</span>
-<span id="cb1-11"><a></a>  <span class="ex">│</span>   ├── 3_transform.qmd</span>
-<span id="cb1-12"><a></a>  <span class="ex">│</span>   └── 4_analyze.qmd</span>
-<span id="cb1-13"><a></a>  <span class="ex">└──</span> reports/</span>
-<span id="cb1-14"><a></a>      <span class="ex">├──</span> article.qmd</span>
-<span id="cb1-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
-<span id="cb1-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
-<span id="cb1-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller">
-<h2>Description</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>README.md</code>: a file that contains information about the project</li>
-<li><code>DESCRIPTION</code>: a file that contains a description of the project and its software dependencies</li>
-<li><code>_quarto.yml</code>: a file that contains the project configuration</li>
-<li><code>index.qmd</code> file to serve as the landing page for the project website (web-facing <code>README</code>).</li>
-<li><code>prospectus.qmd</code> file to serve as the project prospectus.</li>
-</ul>
 </div><div class="column" style="font-size: 1.4em;">
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">project_web/</span></span>
 <span id="cb2-2"><a></a>  <span class="ex">├──</span> README.md</span>
@@ -670,15 +647,16 @@ Dr.&nbsp;Jerid Francom
 </div>
 </section>
 <section class="slide level2 smaller">
-<h2>Project</h2>
+<h2>Description</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><code>prospectus.qmd</code><br>
-You can use this file to craft, draft, and finalize your project prospectus.</p>
-<p><code>data/</code> and <code>process/</code><br>
-These directories can be used to store data and code related to the project, if you choose to do so.</p>
-<p><code>reports/</code><br>
-This directory contains templates for articles and presentations that you can use to communicate your research.</p>
+<ul>
+<li><code>README.md</code>: a file that contains information about the project</li>
+<li><code>DESCRIPTION</code>: a file that contains a description of the project and its software dependencies</li>
+<li><code>_quarto.yml</code>: a file that contains the project configuration</li>
+<li><code>index.qmd</code> file to serve as the landing page for the project website (web-facing <code>README</code>).</li>
+<li><code>prospectus.qmd</code> file to serve as the project prospectus.</li>
+</ul>
 </div><div class="column" style="font-size: 1.4em;">
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">project_web/</span></span>
 <span id="cb3-2"><a></a>  <span class="ex">├──</span> README.md</span>
@@ -697,6 +675,37 @@ This directory contains templates for articles and presentations that you can us
 <span id="cb3-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
 <span id="cb3-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
 <span id="cb3-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Project</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><code>prospectus.qmd</code><br>
+You can use this file to craft, draft, and finalize your project prospectus.</p>
+<p><code>data/</code> and <code>process/</code><br>
+These directories can be used to store data and code related to the project, if you choose to do so.</p>
+<p><code>reports/</code><br>
+This directory contains templates for articles and presentations that you can use to communicate your research.</p>
+</div><div class="column" style="font-size: 1.4em;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">project_web/</span></span>
+<span id="cb4-2"><a></a>  <span class="ex">├──</span> README.md</span>
+<span id="cb4-3"><a></a>  <span class="ex">├──</span> DESCRIPTION</span>
+<span id="cb4-4"><a></a>  <span class="ex">├──</span> _quarto.yml</span>
+<span id="cb4-5"><a></a>  <span class="ex">├──</span> index.qmd</span>
+<span id="cb4-6"><a></a>  <span class="ex">├──</span> bibliography.bib</span>
+<span id="cb4-7"><a></a>  <span class="ex">├──</span> data/</span>
+<span id="cb4-8"><a></a>  <span class="ex">├──</span> process/</span>
+<span id="cb4-9"><a></a>  <span class="ex">│</span>   ├── 1_acquire.qmd</span>
+<span id="cb4-10"><a></a>  <span class="ex">│</span>   ├── 2_curate.qmd</span>
+<span id="cb4-11"><a></a>  <span class="ex">│</span>   ├── 3_transform.qmd</span>
+<span id="cb4-12"><a></a>  <span class="ex">│</span>   └── 4_analyze.qmd</span>
+<span id="cb4-13"><a></a>  <span class="ex">└──</span> reports/</span>
+<span id="cb4-14"><a></a>      <span class="ex">├──</span> article.qmd</span>
+<span id="cb4-15"><a></a>      <span class="ex">├──</span> presentations.qmd</span>
+<span id="cb4-16"><a></a>      <span class="ex">├──</span> prospectus.qmd</span>
+<span id="cb4-17"><a></a>      <span class="ex">└──</span> slides/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section>
