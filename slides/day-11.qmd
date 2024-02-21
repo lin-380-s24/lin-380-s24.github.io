@@ -127,15 +127,6 @@ We will enable GitHub Pages to host the project website.
 - Select the `docs` folder
 - Save this configuration
 
-## Enable Issues and Discussions
-
-We will enable Issues and Discussions to facilitate project management and communication.
-
-- Go to the repository settings
-- Scroll down to the General section
-- Find the Features checkbox list
-- Enable Issues and Discussions
-
 # Repository
 
 ## Build
@@ -150,16 +141,30 @@ We will build and deploy the project website 'as is' to begin.
 
 We will deploy the project website to GitHub Pages
 
-On RStudio:
+We will use the `set-publish-gh-pages` script to deploy the project website to GitHub Pages.
 
-- Stage, commit, and push the changes to the repository.
+1. Make sure that all edits, saved, and committed to Git.
+2. Open the terminal in RStudio and run:
 
-On GitHub:
+```bash
+./set-publish-gh-pages
+```
+
+3. Commit the new `.github` folder and push the changes to the repository.
+
+## Last GitHub steps
 
 - Go to the repository settings
-- Scroll down to the GitHub Pages section
-- Click the link to view the deployed website
-- Add the URL to the 'About' section
+  - Pages
+    - Copy the URL of the deployed website
+    - Add it to the 'About' section (on main repo page)
+  - General section
+    - Scroll down to the Features checkbox list
+    - Enable Issues and Discussions
+
+::: {.aside}
+Issues and Discussions will facilitate project management and communication between peers and instructor.
+:::
 
 ## Customize
 
@@ -173,7 +178,7 @@ We will customize the project website to reflect some researcher-specific inform
   - `site-url:`
 
 ::: {.aside}
-Note: Build and deploy the project website to see the changes.
+Note: Commit and push the project website to see the changes.
 :::
 
 ## About {.smaller}
