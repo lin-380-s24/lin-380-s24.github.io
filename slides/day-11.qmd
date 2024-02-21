@@ -2,7 +2,7 @@
 title: "Project orientation"
 subtitle: "A guide to setup and provide an overview of the project prospectus"
 date: "2024-02-21"
-categories: [research, reproducible-research, git, github, fork, clone, push]
+categories: [research, reproducible-research, quarto, git, github, project, prospectus]
 ---
 
 ## Overview
@@ -218,7 +218,7 @@ project_web/
 :::
 
 ::: {.column width="50%" style="font-size: 1.4em;"}
-```bash
+```{.bash code-line-numbers="2-5,7,17"}
 project_web/
   ├── README.md
   ├── DESCRIPTION
@@ -256,7 +256,7 @@ This directory contains templates for articles and presentations that you can us
 :::
 
 ::: {.column width="50%" style="font-size: 1.4em;"}
-```bash
+```{.bash code-line-numbers="8,9,14,17"}
 project_web/
   ├── README.md
   ├── DESCRIPTION
