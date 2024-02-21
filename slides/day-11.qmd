@@ -189,6 +189,7 @@ project_web/
   ├── _quarto.yml
   ├── index.qmd
   ├── bibliography.bib
+  ├── .gitignore
   ├── data/
   ├── process/
   │   ├── 1_acquire.qmd
@@ -213,6 +214,7 @@ project_web/
 - `_quarto.yml`: a file that contains the project configuration
 - `index.qmd` file to serve as the landing page for the project website (web-facing `README`).
 - `prospectus.qmd` file to serve as the project prospectus.
+- `.gitignore`: a file that contains a list of files and directories that should be ignored by Git.
 :::
 
 ::: {.column width="50%" style="font-size: 1.4em;"}
@@ -223,6 +225,7 @@ project_web/
   ├── _quarto.yml
   ├── index.qmd
   ├── bibliography.bib
+  ├── .gitignore
   ├── data/
   ├── process/
   │   ├── 1_acquire.qmd
@@ -260,6 +263,7 @@ project_web/
   ├── _quarto.yml
   ├── index.qmd
   ├── bibliography.bib
+  ├── .gitignore
   ├── data/
   ├── process/
   │   ├── 1_acquire.qmd
