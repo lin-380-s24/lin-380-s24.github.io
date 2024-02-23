@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Trace the datascape</title>
+  <title>Quantitative Text Analysis - Acquire</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -97,7 +97,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -535,7 +555,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['dplyr', 'knitr', 'ggplot2', 'skimr', 'corpora', 'janitor', 'kableExtra'];
+  globalThis.qwebrInstallRPackagesList = ['dplyr', 'stringr', 'gutenbergr', 'curl'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -557,7 +577,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"id":1,"code":"\n# Read the dataset from the `corpora` package\nbrown_fam_df <-\n  corpora::PassiveBrownFam |> # reference the dataset\n  as_tibble() # convert to a tibble\n\n# Rename variables\nbrown_fam_df <-\n  brown_fam_df |> # pass the original dataset\n  rename( # rename variables: new_name = old_name\n    variety = lang,\n    num_words = n.words,\n    act_verbs = act,\n    pass_verbs = pass,\n    verbs = verbs,\n    pct_passive = p.pass\n  ) |>\n  select(-corpus, -section, -period, -id) |>\n  mutate(id = row_number(), genre = stringr::str_to_title(genre)) |>\n  select(id, everything())","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-1","context":"setup","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":2,"code":"# Use skim() to get all variables\nbrown_fam_df |>\n  skim()\n\n# Use skim() |> yank(\"var_type\") to get specific types (e.g. \"character\", \"numeric\", etc.)\nbrown_fam_df |>\n  skim() |>\n  yank(\"numeric\")","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-2","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":3,"code":"# Use summarize() to get summary statistics\nbrown_fam_df |>\n  summarize(\n    mean = mean(num_words),\n    sd = sd(num_words),\n    median = median(num_words),\n    iqr = IQR(num_words)\n  )","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-3","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":4,"code":"# Use count() to get frequency tables\nbrown_fam_df |>\n  count(genre, variety)","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-4","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":5,"code":"# Use tabyl() to get contingency tables\nbrown_fam_df |>\n  tabyl(genre, variety)","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-5","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":6,"code":"# Use group_by() + summarize() to get pivot tables\nbrown_fam_df |>\n  group_by(genre) |>\n  summarize(\n    mean_words = mean(num_words),\n    sd_words = sd(num_words)\n  )","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-6","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":7,"code":"variety_word_stats <-\n  brown_fam_df |>\n  group_by(variety) |>\n  summarize(\n    mean_words = mean(num_words),\n    sd_words = sd(num_words)\n  )\n\nvariety_word_stats |>\n  kable()","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-7","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":8,"code":"# Use geom_density() to visualize the distribution of num_words\nbrown_fam_df |>\n  ggplot(aes(x = num_words)) +   # specify the x-axis variable\n  geom_density()","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-8","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":9,"code":"# Use geom_density() to visualize the distribution of num_words by variety\nbrown_fam_df |>\n  ggplot(aes(x = num_words, fill = variety)) + # specify the x-axis and fill variables\n  geom_density(alpha = 0.5)                   # specify alpha for transparency","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-9","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":10,"code":"# Use geom_boxplot() to visualize the distribution of pass_verbs\nbrown_fam_df |>\n  ggplot(aes(x = pass_verbs)) + # specify the x-axis\n  geom_boxplot()                # create the boxplot","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-10","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":11,"code":"# Use geom_boxplot() to visualize the distribution of pass_verbs by variety\nbrown_fam_df |>\n  ggplot(aes(x = variety, y = pass_verbs)) + # specify the x-axis and y-axis\n  geom_boxplot()                            # create the boxplot","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-11","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":12,"code":"# Use geom_point() to visualize the relationship between num_words and verbs\nbrown_fam_df |>\n  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis\n  geom_point()                                # create the scatterplot","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-12","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}},{"id":13,"code":"# Use geom_point() and geom_smooth() to visualize the relationship between num_words and verbs\nbrown_fam_df |>\n  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis\n  geom_point() +                              # create the scatterplot\n  geom_smooth(method = \"lm\")                  # add a trend line","options":{"warning":"true","out-height":"","classes":"","fig-cap":"","output":"true","label":"unnamed-chunk-13","context":"interactive","message":"true","out-width":"700px","comment":"","results":"markup","fig-width":7,"dpi":72,"fig-height":5}}];
+  globalThis.qwebrCellDetails = [{"code":"# View metadata for all works\ngutenberg_metadata\n\n# Show LCC subjects\ngutenberg_subjects","id":1,"options":{"comment":"","results":"markup","label":"unnamed-chunk-1","fig-width":7,"message":"true","context":"interactive","output":"true","fig-height":5,"out-height":"","classes":"","warning":"true","fig-cap":"","dpi":72,"out-width":"700px"}}];
 
   </script>
   <script type="module">
@@ -1455,8 +1475,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Trace the datascape</h1>
-  <p class="subtitle">Descriptive assessment of datasets</p>
+  <h1 class="title">Acquire</h1>
+  <p class="subtitle">Source, acquisition, and documentation of data</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1466,177 +1486,369 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Feb 9, 2024</p>
+  <p class="date">Feb 23, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>Statistical overviews</li>
-<li>Data summaries</li>
-<li>Visual summaries</li>
-<li>Lab 03: Trace the datascape</li>
+<li>Available data sources</li>
+<li>Data acquisition</li>
+<li>Data storage and documentation</li>
 </ul>
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section class="slide level2 smaller scrollable">
-<h2>Statistical overviews</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">skim()</a></li><li><a href="#tabset-1-2">summarize()</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-1-2">
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Data summaries</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">count()</a></li><li><a href="#tabset-2-2">tabyl()</a></li><li><a href="#tabset-2-3">group_by() + summarize()</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-2-2">
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-2-3">
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Data summaries to tables</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">kable()</a></li><li><a href="#tabset-3-2">kable() results</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-3-2">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a></a><span class="in">#| label: tbl-kable-results</span></span>
-<span id="cb1-3"><a></a><span class="in">#| tbl-cap: "Variety word statistics"</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="in">variety_word_stats |&gt;</span></span>
-<span id="cb1-6"><a></a><span class="in">  kable()</span></span>
-<span id="cb1-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div id="tbl-kable-results" class="cell quarto-float">
-<figure class="quarto-float quarto-float-tbl">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kable-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Variety word statistics
-</figcaption>
-<div aria-describedby="tbl-kable-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="do-not-create-environment cell">
+<section class="slide level2 smaller">
+<h2>Refresh</h2>
+<table>
+<caption>Topics touched upon so far…</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">variety</th>
-<th style="text-align: right;">mean_words</th>
-<th style="text-align: right;">sd_words</th>
+<th>Chapter</th>
+<th>Topic</th>
+<th>Lessons</th>
+<th>Recipes/ Labs</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">AmE</td>
-<td style="text-align: right;">2166.765</td>
-<td style="text-align: right;">126.19290</td>
+<td>0</td>
+<td>Preface</td>
+<td>Intro to swirl</td>
+<td>Quarto basics</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">BrE</td>
-<td style="text-align: right;">2164.112</td>
-<td style="text-align: right;">72.92651</td>
+<td>1</td>
+<td>Text analysis</td>
+<td>Workspace, Vectors</td>
+<td>Academic Quarto</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Data</td>
+<td>Objects, Packages and functions</td>
+<td>Reading, writing, and inspecting datasets</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Analysis</td>
+<td>Summarizing data, Visual summaries</td>
+<td>Descriptive assessments of datasets</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Research</td>
+<td>Project environment</td>
+<td>Understanding the computing environment</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Density plots</p>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">One variable</a></li><li><a href="#tabset-4-2">Two variables</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-4-2">
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Boxplots</p>
-<div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">One variable</a></li><li><a href="#tabset-5-2">Two variables</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1">
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-5-2">
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Scatterplots</p>
-<div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Two variables</a></li><li><a href="#tabset-6-2">Two variables with trend line</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1">
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-6-2">
-<div id="qwebr-insertion-location-13"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
+
+<aside><div>
+<p>If you haven’t already, complete the lessons and review the recipes and labs in the previous chapters. We begin with the assumption that you have a basic understanding of the R programming language and the Quarto document format.</p>
+</div></aside></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Lab 03: Trace the datascape</h1>
+<h1>Available data sources</h1>
 
 </section>
 <section class="slide level2">
-<h2>Setup</h2>
+<h2>Types</h2>
+<p>Published sources:</p>
 <ul>
-<li>Clone the repository to RStudio as a new project</li>
-<li>Follow the instructions in the <code>README.md</code> file</li>
+<li><a href="https://www.ldc.upenn.edu/">Repositories</a></li>
+<li><a href="https://web-archive.southampton.ac.uk/langsnap.soton.ac.uk/">Corpus</a> and <a href="https://datasetsearch.research.google.com/">dataset</a> pages</li>
 </ul>
+<p>Unpublished sources:</p>
+<ul>
+<li>APIs (<a href="https://ivan-rivera.r-universe.dev/RedditExtractoR">Reddit</a>, <a href="https://docs.ropensci.org/gutenbergr/">Project Gutenberg</a>, etc.)</li>
+<li>Web scraping (with permission)</li>
+<li>Document scanning (OCR)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Corpora</h2>
+<p>Published data sources:</p>
+<p><a href="https://qtalr.github.io/qtalrkit/articles/guide-4.html">Identifying data and data sources</a> guide.</p>
+<p><a href="https://guides.zsr.wfu.edu/c.php?g=34575&amp;p=221095">WFU Guide</a></p>
+<ul>
+<li><a href="https://wfu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%22linguistic%20data%20consortium%22&amp;tab=LibraryCatalog&amp;search_scope=ZSR&amp;vid=01WAKE_INST:ZSR&amp;lang=en&amp;offset=0">Linguistic datasets</a>
+<ul>
+<li><a href="https://www.ldc.upenn.edu/">Linguistic Data Consortium</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Data acquisition</h1>
+
+</section>
+<section class="slide level2">
+<h2>Downloading files</h2>
+<p><strong>Manual approach</strong></p>
+<p>Some data sources require human intervention</p>
+<ul>
+<li>Web forms</li>
+<li>Captchas</li>
+<li>User authentication</li>
+</ul>
+<p><strong>Programmatic approach</strong></p>
+<p>Other data sources can be accessed programmatically</p>
+<ul>
+<li>Open data repositories</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>File types</h2>
+<ul>
+<li>Individual files (<em>e.g</em> .csv, .txt, .xlsx)</li>
+<li>Archive files (<em>e.g.</em> .zip, .tar, .tar.gz)</li>
+</ul>
+<p>To clarify, archive files can be individual files or a folder structure that has been grouped together and compressed. This makes downloading and transferring files more efficient.</p>
+</section>
+<section class="slide level2">
+<h2><code>download.file()</code> function</h2>
+<p>An extensible base R function for individual and archive files.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">download.file</span>(</span>
+<span id="cb1-2"><a></a>  <span class="at">url =</span> <span class="st">""</span>, <span class="co"># link to the file on the web</span></span>
+<span id="cb1-3"><a></a>  <span class="at">destfile =</span> <span class="st">""</span> <span class="co"># path to the file on your computer (to write)</span></span>
+<span id="cb1-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+<h2>Access files</h2>
+<p>Archive files need to be ‘unarchived’ to access the individual files and folders. The function to use depends on the archive file type:</p>
+<ul>
+<li><code>.zip</code> files: <code>unzip()</code></li>
+<li><code>.tar</code> and <code>.tar.gz</code> files: <code>untar()</code></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Stepwise view (basic)</h2>
+<ul>
+<li>Download the file</li>
+<li>Unarchive the file to the <code>data/original/</code> directory.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Stepwise view (improved)</h2>
+<ul>
+<li><span class="fragment fade-in"><em>If the file doesn’t exist…</em></span></li>
+<li><span class="fragment fade-in"><em>Create temporary directory</em></span></li>
+<li>Download the file <span class="fragment fade-in"><em>to the temporary directory</em></span></li>
+<li>Unarchive the file to the <code>data/original/</code> directory.</li>
+</ul>
+<div class="fragment fade-in">
+<p>If the data cannot be shared on the web, add it to the <code>.gitignore</code> file before pushing to GitHub.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">data/original/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Code view</h2>
+<div class="sourceCode" id="cb3" data-code-line-numbers="|1-2|4-5|7,8,21|10-11|13-17|19-20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Load package</span></span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(fs)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># Set path to directory</span></span>
+<span id="cb3-5"><a></a>data_dir <span class="ot">&lt;-</span> <span class="st">"data/original/corpus-name/"</span></span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="co"># If the file doesn't exist...</span></span>
+<span id="cb3-8"><a></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir_exists</span>(data_dir)) {</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a>  <span class="co"># Create temporary directory</span></span>
+<span id="cb3-11"><a></a>  temp_file <span class="ot">&lt;-</span> <span class="fu">path_temp</span>(<span class="st">"corpus-name"</span>)</span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a>  <span class="co"># Download file to temporary directory</span></span>
+<span id="cb3-14"><a></a>  <span class="fu">download.file</span>(</span>
+<span id="cb3-15"><a></a>    <span class="at">url =</span> <span class="st">"https://link-to-file.zip"</span>,</span>
+<span id="cb3-16"><a></a>    <span class="at">destfile =</span> temp_file</span>
+<span id="cb3-17"><a></a>  )</span>
+<span id="cb3-18"><a></a></span>
+<span id="cb3-19"><a></a>  <span class="co"># Unarchive file to `data_dir`</span></span>
+<span id="cb3-20"><a></a>  <span class="fu">unzip</span>(temp_file, <span class="at">exdir =</span> data_dir)</span>
+<span id="cb3-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<aside><div>
+<p>The <code>fs</code> package <span class="citation" data-cites="R-fs">(<a href="#/references" role="doc-biblioref" onclick="">Hester, Wickham, and Csárdi 2023</a>)</span> is used to create and manage files.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>API interaction</h2>
+<p>APIs are a way to programmatically interact with a web service. They are a set of rules and protocols that allow different software applications to communicate with each other.</p>
+<p>The R community has developed packages to interact with various APIs.</p>
+<ul>
+<li><a href="https://ivan-rivera.r-universe.dev/RedditExtractoR">RedditExtractoR</a></li>
+<li><a href="https://docs.ropensci.org/gutenbergr/">gutenbergr</a></li>
+<li><a href="https://github.com/TalkBank/TBDBr/">TBDBr</a></li>
+<li><em>etc.</em></li>
+</ul>
+<p>Each API has its own set of functions and parameters to interact with the data. Furthermore, some APIs require authentication and sometimes a subscription.</p>
+</section>
+<section class="slide level2">
+<h2><code>gutenbergr</code> package</h2>
+<p>The <code>gutenbergr</code> package <span class="citation" data-cites="R-gutenbergr">(<a href="#/references" role="doc-biblioref" onclick="">Johnston and Robinson 2023</a>)</span> provides access to the Project Gutenberg collection of public domain books.</p>
+<p>Some key metadata objects:</p>
+<ul>
+<li><code>gutenberg_metadata</code>: Show metadata for all works</li>
+<li><code>gutenberg_subjects</code>: Show LCC subjects</li>
+<li><code>gutenberg_authors</code>: Get author information</li>
+</ul>
+<p>Some key functions:</p>
+<ul>
+<li><code>gutenberg_works()</code>: Search for works</li>
+<li><code>gutenberg_download()</code>: Download a work</li>
+</ul>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2><code>gutenbergr</code> example</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Download a work</span></span>
+<span id="cb4-2"><a></a><span class="fu">gutenberg_download</span>(</span>
+<span id="cb4-3"><a></a>  gutenberg_id <span class="sc">==</span> <span class="dv">33</span>,</span>
+<span id="cb4-4"><a></a>  <span class="at">meta_fields =</span> <span class="fu">c</span>(<span class="st">"title"</span>, <span class="st">"author"</span>, <span class="st">"gutenberg_id"</span>)</span>
+<span id="cb4-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:30%;">
+<p>To run this code we need to identify the <code>gutenberg_id</code> or set of <code>gutenberg_id</code>s for the works we want to download.</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2><code>gutenbergr</code> example</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div><div class="column" style="width:30%;">
+<p>These metadata objects are useful for finding works and authors.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Data storage and documentation</h1>
+
+</section>
+<section class="slide level2">
+<h2>File formats</h2>
+<p>It is key to make sure that the data is in a format that can be read by R, and provide the most flexibility for future use (and future users).</p>
+<p>Common file formats:</p>
+<ul>
+<li>Plain files (TXT)</li>
+<li>Structured data (XML, JSON)</li>
+<li>Plain text datasets (CSV, TSV)</li>
+<li>Compressed files (ZIP, TAR, GZ, <em>etc</em>.)</li>
+</ul>
+<p>We avoid proprietary or software-specific formats.</p>
+</section>
+<section class="slide level2">
+<h2>Data storage</h2>
+<p>The file structure should be organized and well-documented.</p>
+<p>Original data files are to be separate from derived and analysis files.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">data/</span></span>
+<span id="cb5-2"><a></a>  <span class="ex">├──</span> analysis/</span>
+<span id="cb5-3"><a></a>  <span class="ex">├──</span> derived/</span>
+<span id="cb5-4"><a></a>  <span class="ex">└──</span> original/</span>
+<span id="cb5-5"><a></a>      <span class="ex">├──</span> corpus-name/</span>
+<span id="cb5-6"><a></a>      <span class="ex">│</span>   ├── file1.csv</span>
+<span id="cb5-7"><a></a>      <span class="ex">│</span>   ├── file2.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Data in <code>original/</code> should be left untouched. Any changes or derived data should be stored in <code>derived/</code>.</p>
+</section>
+<section class="slide level2 smaller">
+<h2>Data documentation</h2>
+<p>The data doesn’t speak for itself. It is important to document the data to provide context and understanding.</p>
+<table>
+<caption>Data origin file information</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Information</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Resource name</td>
+<td>Name of the corpus resource.</td>
+</tr>
+<tr class="even">
+<td>Data source</td>
+<td>URL, DOI, <em>etc.</em></td>
+</tr>
+<tr class="odd">
+<td>Data sampling frame</td>
+<td>Language, language variety, modality, genre, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Data collection date(s)</td>
+<td>The date or date range of the data collection.</td>
+</tr>
+<tr class="odd">
+<td>Data format</td>
+<td>Plain text, XML, HTML, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Data schema</td>
+<td>Relationships between data elements: files, folders, <em>etc.</em></td>
+</tr>
+<tr class="odd">
+<td>License</td>
+<td>CC BY, CC BY-NC, <em>etc.</em></td>
+</tr>
+<tr class="even">
+<td>Attribution</td>
+<td>Citation information for the data source.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2 smaller">
+<h2>Looking ahead</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><strong>Recipe 05: Collecting and documenting data</strong><br>
+We will cover the following topics:</p>
+<ul>
+<li>Finding data sources</li>
+<li>Data collection strategies</li>
+<li>Data documentation</li>
+</ul></li>
+<li><p><strong>Lab 05: Collecting and documenting data</strong><br>
+You will have a choice of data source to acquire data from. Before you start the lab, you should consider which data source you would like to use, what strategy you will use to acquire the data, and what data you will acquire. You should also consider the information you need to document the data collection process.</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><strong>Skills to be covered</strong></p>
+<ul>
+<li>Identifying data sources</li>
+<li>Acquiring data through manual and programmatic downloads and APIs</li>
+<li>Creating a data acquisition plan</li>
+<li>Documenting the data collection process</li>
+<li>Using Control statments and/ or writing a custom function</li>
+<li>Documenting the data source with a data origin file</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2 smaller scrollable" id="references">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Trace the datascape | Quantitative Text Analysis | Wake Forest University</p>
+<p>Acquire | Quantitative Text Analysis | Wake Forest University</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-fs" class="csl-entry" role="listitem">
+Hester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. <em>Fs: Cross-Platform File System Operations Based on Libuv</em>. <a href="https://fs.r-lib.org">https://fs.r-lib.org</a>.
+</div>
+<div id="ref-R-gutenbergr" class="csl-entry" role="listitem">
+Johnston, Myfanwy, and David Robinson. 2023. <em>Gutenbergr: Download and Process Public Domain Works from Project Gutenberg</em>. <a href="https://docs.ropensci.org/gutenbergr/">https://docs.ropensci.org/gutenbergr/</a>.
 </div>
 </div>
 </section></section>

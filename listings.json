@@ -1,20 +1,16 @@
 [
   {
-    "listing": "/news.html",
+    "listing": "/guides.html",
     "items": [
-      "/posts/cool-stuff-lab-03/index.html",
-      "/posts/cool-stuff-lab-02/index.html",
-      "/posts/cool-stuff-lab-01/index.html",
-      "/posts/cool-stuff-lab-00/index.html",
-      "/posts/mac-m1-chip-workaround/index.html",
-      "/posts/first-day-hiccups/index.html",
-      "/posts/eulc5/index.html",
-      "/posts/welcome/index.html"
+      "/guides/getting-started.html",
+      "/guides/managing-docker-rstudio.html",
+      "/guides/get-up-with-git.html"
     ]
   },
   {
     "listing": "/slides.html",
     "items": [
+      "/slides/day-12.html",
       "/slides/day-11.html",
       "/slides/day-10.html",
       "/slides/day-09.html",
@@ -29,11 +25,16 @@
     ]
   },
   {
-    "listing": "/guides.html",
+    "listing": "/news.html",
     "items": [
-      "/guides/getting-started.html",
-      "/guides/managing-docker-rstudio.html",
-      "/guides/get-up-with-git.html"
+      "/posts/cool-stuff-lab-03/index.html",
+      "/posts/cool-stuff-lab-02/index.html",
+      "/posts/cool-stuff-lab-01/index.html",
+      "/posts/cool-stuff-lab-00/index.html",
+      "/posts/mac-m1-chip-workaround/index.html",
+      "/posts/first-day-hiccups/index.html",
+      "/posts/eulc5/index.html",
+      "/posts/welcome/index.html"
     ]
   }
 ]
