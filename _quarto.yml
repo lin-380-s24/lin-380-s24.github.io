@@ -3,7 +3,6 @@ project:
   preview:
     port: 4321
 
-
 execute:
   freeze: auto
   message: false

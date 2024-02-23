@@ -1,0 +1,297 @@
+---
+title: "Acquire"
+subtitle: "Source, acquisition, and documentation of data"
+date: "2024-02-23"
+categories: [acquire, download, api, data, web, functions, r, control-statements, csv, compressed-files, readr, fs, dplyr, tidyr, guenbergr]
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'stringr', 'gutenbergr', 'curl']
+  message: false
+---
+
+## Overview
+
+- Available data sources
+- Data acquisition
+- Data storage and documentation
+
+## Refresh {.smaller}
+
+| Chapter | Topic | Lessons | Recipes/ Labs |
+| --- | --- | --- | --- |
+| 0 | Preface | Intro to swirl | Quarto basics |
+| 1 | Text analysis | Workspace, Vectors | Academic Quarto |
+| 2 | Data | Objects, Packages and functions | Reading, writing, and inspecting datasets |
+| 3 | Analysis | Summarizing data, Visual summaries | Descriptive assessments of datasets |
+| 4 | Research | Project environment | Understanding the computing environment |
+
+: Topics touched upon so far... {tbl-colwidths="[10, 20, 30, 40]"}
+
+::: {.aside}
+If you haven't already, complete the lessons and review the recipes and labs in the previous chapters. We begin with the assumption that you have a basic understanding of the R programming language and the Quarto document format.
+:::
+
+# Available data sources
+
+## Types
+
+Published sources:
+
+- [Repositories](https://www.ldc.upenn.edu/)
+- [Corpus](https://web-archive.southampton.ac.uk/langsnap.soton.ac.uk/) and [dataset](https://datasetsearch.research.google.com/) pages
+
+Unpublished sources:
+
+- APIs ([Reddit](https://ivan-rivera.r-universe.dev/RedditExtractoR), [Project Gutenberg](https://docs.ropensci.org/gutenbergr/), etc.)
+- Web scraping (with permission)
+- Document scanning (OCR)
+
+## Corpora
+
+Published data sources:
+
+[Identifying data and data sources](https://qtalr.github.io/qtalrkit/articles/guide-4.html) guide.
+
+[WFU Guide](https://guides.zsr.wfu.edu/c.php?g=34575&p=221095)
+
+- [Linguistic datasets](https://wfu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%22linguistic%20data%20consortium%22&tab=LibraryCatalog&search_scope=ZSR&vid=01WAKE_INST:ZSR&lang=en&offset=0)
+  - [Linguistic Data Consortium](https://www.ldc.upenn.edu/)
+
+# Data acquisition
+
+## Downloading files
+
+**Manual approach**
+
+Some data sources require human intervention
+
+- Web forms
+- Captchas
+- User authentication
+
+**Programmatic approach**
+
+Other data sources can be accessed programmatically
+
+- Open data repositories
+
+## File types
+
+- Individual files (*e.g* .csv, .txt, .xlsx)
+- Archive files (*e.g.* .zip, .tar, .tar.gz)
+
+To clarify, archive files can be individual files or a folder structure that has been grouped together and compressed. This makes downloading and transferring files more efficient.
+
+## `download.file()` function
+
+An extensible base R function for individual and archive files.
+
+```r
+download.file(
+  url = "", # link to the file on the web
+  destfile = "" # path to the file on your computer (to write)
+)
+```
+
+## Access files
+
+Archive files need to be 'unarchived' to access the individual files and folders. The function to use depends on the archive file type:
+
+- `.zip` files: `unzip()`
+- `.tar` and `.tar.gz` files: `untar()`
+
+## Stepwise view (basic)
+
+- Download the file
+- Unarchive the file to the `data/original/` directory.
+
+## Stepwise view (improved)
+
+- [*If the file doesn't exist...*]{.fragment .fade-in}
+- [*Create temporary directory*]{.fragment .fade-in}
+- Download the file [*to the temporary directory*]{.fragment .fade-in}
+- Unarchive the file to the `data/original/` directory.
+
+::: {.fragment .fade-in}
+If the data cannot be shared on the web, add it to the `.gitignore` file before pushing to GitHub.
+```bash
+data/original/
+```
+:::
+
+## Code view {.smaller .scrollable}
+
+```{.r code-line-numbers="|1-2|4-5|7,8,21|10-11|13-17|19-20"}
+# Load package
+library(fs)
+
+# Set path to directory
+data_dir <- "data/original/corpus-name/"
+
+# If the file doesn't exist...
+if(!dir_exists(data_dir)) {
+
+  # Create temporary directory
+  temp_file <- path_temp("corpus-name")
+
+  # Download file to temporary directory
+  download.file(
+    url = "https://link-to-file.zip",
+    destfile = temp_file
+  )
+
+  # Unarchive file to `data_dir`
+  unzip(temp_file, exdir = data_dir)
+}
+
+```
+
+::: {.aside}
+The `fs` package [@R-fs] is used to create and manage files.
+:::
+
+## API interaction
+
+APIs are a way to programmatically interact with a web service. They are a set of rules and protocols that allow different software applications to communicate with each other.
+
+The R community has developed packages to interact with various APIs.
+
+- [RedditExtractoR](https://ivan-rivera.r-universe.dev/RedditExtractoR)
+- [gutenbergr](https://docs.ropensci.org/gutenbergr/)
+- [TBDBr](https://github.com/TalkBank/TBDBr/)
+- *etc.*
+
+Each API has its own set of functions and parameters to interact with the data. Furthermore, some APIs require authentication and sometimes a subscription.
+
+## `gutenbergr` package
+
+The `gutenbergr` package [@R-gutenbergr] provides access to the Project Gutenberg collection of public domain books.
+
+Some key metadata objects:
+
+- `gutenberg_metadata`: Show metadata for all works
+- `gutenberg_subjects`: Show LCC subjects
+- `gutenberg_authors`: Get author information
+
+Some key functions:
+
+- `gutenberg_works()`: Search for works
+- `gutenberg_download()`: Download a work
+
+## `gutenbergr` example {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="70%"}
+```r
+# Download a work
+gutenberg_download(
+  gutenberg_id == 33,
+  meta_fields = c("title", "author", "gutenberg_id")
+  )
+```
+:::
+
+::: {.column width="30%"}
+To run this code we need to identify the `gutenberg_id` or set of `gutenberg_id`s for the works we want to download.
+:::
+::::
+
+
+## `gutenbergr` example
+
+:::: {.columns}
+::: {.column width="70%"}
+```{webr-r}
+# View metadata for all works
+gutenberg_metadata
+
+# Show LCC subjects
+gutenberg_subjects
+```
+:::
+
+::: {.column width="30%"}
+These metadata objects are useful for finding works and authors.
+:::
+::::
+
+# Data storage and documentation
+
+## File formats
+
+It is key to make sure that the data is in a format that can be read by R, and provide the most flexibility for future use (and future users).
+
+Common file formats:
+
+- Plain files (TXT)
+- Structured data (XML, JSON)
+- Plain text datasets (CSV, TSV)
+- Compressed files (ZIP, TAR, GZ, *etc*.)
+
+We avoid proprietary or software-specific formats.
+
+## Data storage
+
+The file structure should be organized and well-documented.
+
+Original data files are to be separate from derived and analysis files.
+
+```bash
+data/
+  ├── analysis/
+  ├── derived/
+  └── original/
+      ├── corpus-name/
+      │   ├── file1.csv
+      │   ├── file2.csv
+```
+
+Data in `original/` should be left untouched. Any changes or derived data should be stored in `derived/`.
+
+## Data documentation {.smaller}
+
+The data doesn't speak for itself. It is important to document the data to provide context and understanding.
+
+| Information | Description |
+| --- | --- |
+| Resource name | Name of the corpus resource. |
+| Data source | URL, DOI, *etc.* |
+| Data sampling frame | Language, language variety, modality, genre, *etc.* |
+| Data collection date(s) | The date or date range of the data collection. |
+| Data format | Plain text, XML, HTML, *etc.* |
+| Data schema | Relationships between data elements: files, folders, *etc.* |
+| License | CC BY, CC BY-NC, *etc.* |
+| Attribution | Citation information for the data source. |
+
+: Data origin file information {tbl-colwidths="[30, 70]"}
+
+## Looking ahead {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Recipe 05: Collecting and documenting data**\
+We will cover the following topics:
+
+  - Finding data sources
+  - Data collection strategies
+  - Data documentation
+
+
+- **Lab 05: Collecting and documenting data**\
+You will have a choice of data source to acquire data from. Before you start the lab, you should consider which data source you would like to use, what strategy you will use to acquire the data, and what data you will acquire. You should also consider the information you need to document the data collection process.
+:::
+
+::: {.column width="40%"}
+**Skills to be covered**
+
+- Identifying data sources
+- Acquiring data through manual and programmatic downloads and APIs
+- Creating a data acquisition plan
+- Documenting the data collection process
+- Using Control statments and/ or writing a custom function
+- Documenting the data source with a data origin file
+
+:::
+::::
+
+## References
