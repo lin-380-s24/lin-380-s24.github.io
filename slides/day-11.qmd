@@ -287,6 +287,51 @@ The project steps aim to incrementally scaffold the project prospectus. These st
 
 Stage, commit, and push the changes to the repository periodically. Use the Issues and Discussions features to communicate and manage the project with peers and instructor.
 
+# Project workflow
+
+## Workflow {.smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Make edits, save, commit, and push to the repository as needed.
+2. Use the Issues and Discussions features to communicate and manage the project with peers and instructor.
+3. Notify me when you want me to review your project (e.g., by creating an issue or starting a discussion).
+:::
+
+::: {.column width="60%"}
+![](images/rstudio-before-pr.png)
+:::
+::::
+
+## Workflow {.smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+1. I will review your code and content and provide feeback
+2. My feedback will be a Pull Request (PR) with comments and suggestions embedded in your documents.
+3. Review and merge the PR to incorporate the feedback into your project.
+:::
+
+::: {.column width="60%"}
+![](images/review-merge-pr.gif)
+:::
+::::
+
+## Workflow {.smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+1. After merging the PR, return to RStudio.
+2. Before making any changes, pull the changes from the repository to your local project.
+3. Then you can continue the cycle of making edits, saving, committing, and pushing to the repository. Getting feedback and syncing with the repository.
+:::
+
+::: {.column width="60%"}
+![](images/rstudio-pull-changes.gif)
+:::
+::::
+
+
 ## Happy coding!
 
 {{< fa smile size=Huge >}}

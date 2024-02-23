@@ -121,29 +121,30 @@ data/original/
 
 ## Code view {.smaller .scrollable}
 
-```{.r code-line-numbers="|1-2|4-5|7,8,21|10-11|13-17|19-20"}
-# Load package
+Add comments to describe the code and its steps
+
+```{webr-r}
+#
 library(fs)
 
-# Set path to directory
+#
 data_dir <- "data/original/corpus-name/"
 
-# If the file doesn't exist...
+#
 if(!dir_exists(data_dir)) {
 
-  # Create temporary directory
+  #
   temp_file <- path_temp("corpus-name")
 
-  # Download file to temporary directory
+  #
   download.file(
     url = "https://link-to-file.zip",
     destfile = temp_file
   )
 
-  # Unarchive file to `data_dir`
+  #
   unzip(temp_file, exdir = data_dir)
-}
-
+} #
 ```
 
 ::: {.aside}
@@ -214,6 +215,49 @@ gutenberg_subjects
 These metadata objects are useful for finding works and authors.
 :::
 ::::
+
+## Custom functions
+
+Custom functions can be written to group a set of coding instructions into one process.
+
+In R, a function includes:
+
+- A name `do_this_thing <- `
+- The function call `function()`
+- The names of arguments `function(arg_1, arg_2)`
+- The inclusion of optional arguments `function(arg_1, arg_2 = "default")`
+- The body of the function `{}`
+
+
+## Example custom function {.smaller .scrollable}
+
+Add comments to describe the function and its steps
+
+```{webr-r}
+get_talkbank_data <-
+  function(corpus_name, corpus_path, target_dir, force = FALSE) {
+  # Function: This function ...
+
+  #
+  dir_create(target_dir)
+
+  #
+  utterances_file  <- path(target_dir, "utterances.csv")
+
+  #
+  if(!file_exists(utterances_file) | force) {
+
+    #
+    getUtterances(corpusName = corpus_name, corpora = corpus_path) |>
+
+      #
+      unnest(cols = everything()) |>
+
+      #
+      write_csv(utterances_file)
+  } #
+} #
+```
 
 # Data storage and documentation
 
