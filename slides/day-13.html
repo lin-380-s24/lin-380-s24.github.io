@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Writing with code</title>
+  <title>Quantitative Text Analysis - Harvesting research data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,71 +32,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="css/custom.scss">
@@ -398,8 +333,8 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Writing with code</h1>
-  <p class="subtitle">An introduction to Literate Programming with R and Quarto</p>
+  <h1 class="title">Harvesting research data</h1>
+  <p class="subtitle">Acquiring research-aligned data</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -409,171 +344,209 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Jan 19, 2024</p>
+  <p class="date">Feb 28, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>Literate Programming</li>
-<li>Quarto</li>
-<li>Lab 00: Writing with code</li>
+<li>Identifying data sources</li>
+<li>Acquiring data</li>
+<li>Documenting data</li>
 </ul>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Literate Programming</h1>
+<h1>Identifying data sources</h1>
 
 </section>
 <section class="slide level2">
-<h2>Literate Programming</h2>
-<p>Literate programming is an approach to programming in which code, documentation, and results are all interwoven into a single document.</p>
+<h2>Methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Encourages stating the problem and solution in plain language</li>
-<li>Encourages writing code that is easy to read and understand</li>
-<li>Includes more explicit documentation than traditional code comments</li>
-<li>Facilitates reproducible research</li>
+<li>Empirical research</li>
+<li>Part of the research gap</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/empirical-dataset-id-1.png" class="absolute border" style="top: 50px; right: 110px; width: 40%; "> <img data-src="images/empirical-dataset-id-2.png" class="absolute border" style="top: 200px; right: 0px; width: 35%; "></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Data sources</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Repositories</li>
+<li>APIs</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/api-talkbank.png" class="absolute border" style="top: 50px; right: 110px; width: 40%; "> <img data-src="images/repo-opus.png" class="absolute border" style="top: 200px; right: 0px; width: 35%; "></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Criteria</h2>
+<ul>
+<li>Data quality</li>
+<li>Data availability</li>
+<li>Data access/ usage rights
+<ul>
+<li><a href="https://creativecommons.org/share-your-work/cclicenses/">Creative Commons</a> licenses</li>
+</ul></li>
+<li>Data format/ documentation</li>
 </ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Quarto</h1>
+<h1>Acquiring data</h1>
 
 </section>
 <section class="slide level2">
-<h2>Quarto</h2>
-<p><a href="https://quarto.org/docs/gallery/">Quarto</a> is a document generation system that supports literate programming. It is designed to support a wide range of document types (HTML, PDF, Word, etc.) and programming languages (R, Python, Julia, etc.).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="co">---</span></span>
-<span id="cb1-2"><a></a><span class="an">title:</span><span class="co"> "My First Quarto Document"</span></span>
-<span id="cb1-3"><a></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a></a><span class="co">---</span></span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="fu">## Intro to Quarto</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a>This is a code block which simply prints a message.</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="in">```{r}</span></span>
-<span id="cb1-11"><a></a><span class="in">#| label: example-code</span></span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="in">print("My name is Quarto")</span></span>
-<span id="cb1-14"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h2>Methods</h2>
+<ul>
+<li>Manual download</li>
+<li>Programmatic download</li>
+<li>API access</li>
+</ul>
 </section>
 <section class="slide level2">
-<h2>Quarto + Markdown</h2>
-<p>In Quarto, prose is written in <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a>. Markdown is a lightweight markup language that is easy to read and write.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Markdown</th>
-<th>HTML</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code># Heading</code></td>
-<td>Heading</td>
-</tr>
-<tr class="even">
-<td><code>**bold**</code></td>
-<td><strong>bold</strong></td>
-</tr>
-<tr class="odd">
-<td><code>footnote^[Footnote info...]</code></td>
-<td>footnote<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></td>
-</tr>
-<tr class="even">
-<td><code>- bullets</code></td>
-<td>- bullets</td>
-</tr>
-<tr class="odd">
-<td><code>[links](https://quarto.org)</code></td>
-<td><a href="https://quarto.org">links</a></td>
-</tr>
-</tbody>
-</table>
-<aside></aside></section>
+<h2>R support</h2>
+<ul>
+<li><code>download.file()</code></li>
+<li>API interfaces (<em>e.g.</em>, <code>tuber</code>, <code>rtweet</code>, <code>rtoot</code>, <code>gutenbergr</code>, <code>TBDBr</code>, <code>jstor</code>)</li>
+<li>Control statements (<code>if</code>)</li>
+<li>Custom functions (<code>function(...) { ... }</code>)</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Documenting data</h1>
+
+</section>
 <section class="slide level2">
-<h2>Quarto + R</h2>
-<p><a href="https://quarto.org/docs/computations/r.html#code-blocks">Code blocks</a> in Quarto introduce sections where code can be executed.</p>
+<h2>Methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Literate programming</li>
+<li>Research scaffold</li>
+<li>Data origin</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/acquire-scaffold.png" class="absolute border" style="top: 50px; right: 160px; width: 40%; "> <img data-src="images/acquire-data-origin.png" class="absolute border" style="top: 200px; right: 50px; width: 35%; "> <img data-src="images/hex-quarto.png" class="absolute" style="top: 50px; right: 0px; width: 10%; "></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>R support</h2>
+<ul>
+<li>(Un)Archive files (<code>unzip()</code>, <code>untar()</code>)</li>
+<li>Data frames to disk (<code>write_csv()</code>)</li>
+<li>Template for data origin (<code>qtalrkit::create_data_origin()</code>)</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Acquiring data is a crucial part of the research process
+<ul>
+<li>Data is the foundation of empirical research</li>
+<li>Data quality is essential</li>
+</ul></li>
+<li>Quarto/ R provides a variety of tools to support the acquisition and documentation of data
+<ul>
+<li>Literate programming</li>
+<li>Control statements</li>
+<li>Custom functions</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Lab 05: Harvesting research data</h1>
+
+</section>
+<section class="slide level2">
+<h2>Overview</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown quarto number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a></a><span class="in">#| label: fig-example-plot</span></span>
-<span id="cb2-3"><a></a><span class="in">#| fig-cap: A simple plot</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="in">ggplot(</span></span>
-<span id="cb2-6"><a></a><span class="in">  data,</span></span>
-<span id="cb2-7"><a></a><span class="in">  aes(x = cat, y = passive)</span></span>
-<span id="cb2-8"><a></a><span class="in">) +</span></span>
-<span id="cb2-9"><a></a><span class="in">  geom_col() +</span></span>
-<span id="cb2-10"><a></a><span class="in">  labs(</span></span>
-<span id="cb2-11"><a></a><span class="in">    x = "Categories",</span></span>
-<span id="cb2-12"><a></a><span class="in">    y = "Passives (count)"</span></span>
-<span id="cb2-13"><a></a><span class="in">  )</span></span>
-<span id="cb2-14"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column r-stretch" style="width:40%;">
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-example-code-show" class="quarto-figure quarto-figure-center quarto-float">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-example-code-show-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="day-02_files/figure-html/fig-example-code-show-1.png" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-code-show-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A simple plot
-</figcaption>
-</figure>
+<ul>
+<li>Fork, clone, and open the lab project</li>
+<li>Follow the instructions in the <code>README.md</code> file</li>
+<li>Submit your work to GitHub</li>
+<li>Notify me via Canvas with a link to your repository</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/lab-05.png"></p>
 </div>
 </div>
-</div>
-</div><p>The code here generates the plot in <a href="#/fig-example-code-show" class="quarto-xref">Figure&nbsp;1</a>.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Lab 00: Writing with code</h1>
-
 </section>
 <section class="slide level2">
-<h2>Setup</h2>
-<p>In <a href="https://github.com/lin-380-s24/lab-00">lab 00</a>, you will create a basic Quarto document and explore some of the features of Quarto.</p>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Clone the lab</a></li><li><a href="#tabset-1-2">Complete the lab</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<ul>
-<li>Copy the clone URL for the lab 00 repository</li>
-<li>Open RStudio (with Docker Desktop running)</li>
-<li>Create a new project from version control</li>
-<li>Paste the clone URL into the repository URL field</li>
-</ul>
+<h2>References</h2>
+<!--
 
-</div>
-<div id="tabset-1-2">
-<ul>
-<li>Follow the instructions in the README.md file</li>
-</ul>
-</div>
-</div>
-</div>
+Downloads
 
+- ANC (American National Corpus)
+- ENNTT (Europarl Corpus of Native, Non-native, and Translated Texts)
+- SBCSAE (Santa Barbara Corpus of Spoken American English)
+- SDAC (Switchboard Dialog Act Corpus, LDC open access)
+- [ICE](https://www.ice-corpora.uzh.ch/en.html) (International Corpus of English, restricted access)
+- BNC (British National Corpus, restricted access)
+- COCA (Corpus of Contemporary American English, restricted access)
+
+Language specific
+
+- ACTIV-ES (Subtitle corpus for Argentine, Mexican, and Peninsular Spanish)
+
+
+Domain specific
+
+L2 learner corpora
+
+- Langsnap (Spanish, French learner corpora)
+- CEDEL2 (Corpus Escrito del Español como L2)
+
+Translation corpora
+
+- [OPUS](https://opus.nlpl.eu/) (Open Parallel Corpus)
+
+R APIs for text analysis
+
+- `tuber` (YouTube)
+- `rtweet` (Twitter)
+- `rtoot` (Mastodon)
+- `gutenbergr` (Project Gutenberg)
+- `TBDBr` (TalkBank Database)
+- `jstor` (JSTOR Data for Research)
+  - [JSTOR Data for Research (DfR)](https://about.jstor.org/whats-in-jstor/text-mining-support/) provides access to the data behind the research on the JSTOR digital library.
+
+Other useful data packages
+
+- `textdata` (Text data for text analysis)
+- `fivethirtyeight` (Data from the FiveThirtyEight website)
+- `lingtypology` (Linguistic typology data)
+
+GitHub repositories
+
+- [Kaggle](https://www.kaggle.com/datasets)
+- [Tidytuesday](https://github.com/rfordatascience/tidytuesday)
+
+-->
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Writing with code | Quantitative Text Analysis | Wake Forest University</p>
+<p>Harvesting research data | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
-<aside><div>
-<p>See <a href="../guides/get-up-with-git.html">Get up to speed with Git and GitHub</a></p>
-</div><div>
-<p>Remember you can use the <a href="https://qtalr.github.io/qtalrkit/articles/recipe-0.html">Recipe 00</a> as a reference, or even other documentation on the <a href="https://quarto.org/">Quarto website</a>.</p>
-</div></aside></section></section>
-<section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Footnote info…</p></li>
-</ol>
-</section>
+</section></section>
     </div>
   </div>
 
