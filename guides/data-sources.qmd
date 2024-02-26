@@ -1,0 +1,77 @@
+---
+title: "Data sources"
+description: "A guide to popular data sources for text analysis."
+categories: [data, corpora, r, api, download, repositories]
+date: 2024-02-26
+date-format: "Spring YYYY"
+---
+
+![](data-sources/files.png){style="float: right; width: 20%"}
+
+In this guide, I list some data sources for text analysis. The list is short and clearly incomplete, but it provides a starting point for researchers who are looking for text data to analyze. The list includes general corpora, language-specific corpora, domain-specific corpora, and R APIs for text analysis.
+
+::: {.callout}
+**{{< fa exclamation-triangle >}} Warning**
+
+Web resources are always changing. Some of the corpora listed below may no longer be available. I will do my best to keep this list up to date, but I cannot guarantee that all of the links will work.
+:::
+
+Some of the corpora listed below are open access, while others are restricted access. Open access corpora are freely available to the public, while restricted access corpora require a subscription or a license to access.
+
+## Downloads
+
+### English
+
+- ANC (American National Corpus)
+- ENNTT (Europarl Corpus of Native, Non-native, and Translated Texts)
+- SBCSAE (Santa Barbara Corpus of Spoken American English)
+- SDAC (Switchboard Dialog Act Corpus, LDC open access)
+- [ICE](https://www.ice-corpora.uzh.ch/en.html) (International Corpus of English, restricted access)
+- BNC (British National Corpus, restricted access)
+- COCA (Corpus of Contemporary American English, restricted access)
+- ... (suggest more!)
+
+### Other languages
+
+- [LCMC](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2474) (Lancaster Corpus of Mandarin Chinese)
+- [SCC](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2481) (Sheffield Corpus of Chinese)
+- [ACTIV-ES](https://github.com/francojc/activ-es) (Film/TV dialog corpus for Argentine, Mexican, and Peninsular Spanish)
+- ...
+
+## Domain specific
+
+### L2 learner corpora
+
+- Langsnap (Spanish, French learner corpora)
+- CEDEL2 (Corpus Escrito del Español como L2)
+- ...
+
+### Translation corpora
+
+- [OPUS](https://opus.nlpl.eu/) (Open Parallel Corpus)
+- ...
+
+## R APIs
+
+- `tuber` (YouTube)
+- `rtweet` (Twitter)
+- `rtoot` (Mastodon)
+- `gutenbergr` (Project Gutenberg)
+- `TBDBr` (TalkBank Database)
+- `jstor` (JSTOR Data for Research)
+  - [JSTOR Data for Research (DfR)](https://about.jstor.org/whats-in-jstor/text-mining-support/) provides access to the data behind the research on the JSTOR digital library.
+- `lingtypology` (Linguistic typology data)
+- ...
+
+## R packages
+
+- `textdata` (Text data for text analysis)
+- `fivethirtyeight` (Data from the FiveThirtyEight website)
+- `quanteda.corpora` (Corpora for the `quanteda` package)
+- `corpora` (Corpora for the `corpora` package)
+- ...
+
+## Other repositories
+
+- [Kaggle](https://www.kaggle.com/datasets)
+- [Tidytuesday](https://github.com/rfordatascience/tidytuesday)
