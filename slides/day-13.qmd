@@ -1,0 +1,171 @@
+---
+title: "Harvesting research data"
+subtitle: "Acquiring research-aligned data"
+date: "2024-02-28"
+categories: [data, control-statements, custom-functions, downloads, api]
+---
+
+## Overview
+
+- Identifying data sources
+- Acquiring data
+- Documenting data
+
+# Identifying data sources
+
+## Methods
+
+:::: {.columns}
+::: {.column width="50%"}
+- Empirical research
+- Part of the research gap
+:::
+
+::: {.column width="50%"}
+![](images/empirical-dataset-id-1.png){.absolute top=50 right=110 width="40%" .border}
+![](images/empirical-dataset-id-2.png){.absolute top=200 right=0 width="35%" .border}
+:::
+::::
+
+## Data sources
+
+:::: {.columns}
+::: {.column width="50%"}
+- Repositories
+- APIs
+:::
+
+::: {.column width="50%"}
+![](images/api-talkbank.png){.absolute top=50 right=110 width="40%" .border}
+![](images/repo-opus.png){.absolute top=200 right=0 width="35%" .border}
+:::
+::::
+
+## Criteria
+
+- Data quality
+- Data availability
+- Data access/ usage rights
+  - [Creative Commons](https://creativecommons.org/share-your-work/cclicenses/) licenses
+- Data format/ documentation
+
+# Acquiring data
+
+## Methods
+
+- Manual download
+- Programmatic download
+- API access
+
+## R support
+
+- `download.file()`
+- API interfaces (*e.g.*, `tuber`, `rtweet`, `rtoot`, `gutenbergr`, `TBDBr`, `jstor`)
+- Control statements (`if`)
+- Custom functions (`function(...) { ... }`)
+
+# Documenting data
+
+## Methods
+
+:::: {.columns}
+::: {.column width="50%"}
+- Literate programming
+- Research scaffold
+- Data origin
+:::
+
+::: {.column width="50%"}
+![](images/acquire-scaffold.png){.absolute top=50 right=160 width="40%" .border}
+![](images/acquire-data-origin.png){.absolute top=200 right=50 width="35%" .border}
+![](images/hex-quarto.png){.absolute top=50 right=0 width="10%"}
+:::
+::::
+
+## R support
+
+- (Un)Archive files (`unzip()`, `untar()`)
+- Data frames to disk (`write_csv()`)
+- Template for data origin (`qtalrkit::create_data_origin()`)
+
+# Conclusion
+
+## Summary
+
+- Acquiring data is a crucial part of the research process
+  - Data is the foundation of empirical research
+  - Data quality is essential
+- Quarto/ R provides a variety of tools to support the acquisition and documentation of data
+  - Literate programming
+  - Control statements
+  - Custom functions
+
+# Lab 05: Harvesting research data
+
+## Overview
+
+:::: {.columns}
+::: {.column width="60%"}
+- Fork, clone, and open the lab project
+- Follow the instructions in the `README.md` file
+- Submit your work to GitHub
+- Notify me via Canvas with a link to your repository
+:::
+
+::: {.column width="40%"}
+![](images/lab-05.png)
+:::
+::::
+
+## References
+
+<!--
+
+Downloads
+
+- ANC (American National Corpus)
+- ENNTT (Europarl Corpus of Native, Non-native, and Translated Texts)
+- SBCSAE (Santa Barbara Corpus of Spoken American English)
+- SDAC (Switchboard Dialog Act Corpus, LDC open access)
+- [ICE](https://www.ice-corpora.uzh.ch/en.html) (International Corpus of English, restricted access)
+- BNC (British National Corpus, restricted access)
+- COCA (Corpus of Contemporary American English, restricted access)
+
+Language specific
+
+- ACTIV-ES (Subtitle corpus for Argentine, Mexican, and Peninsular Spanish)
+
+
+Domain specific
+
+L2 learner corpora
+
+- Langsnap (Spanish, French learner corpora)
+- CEDEL2 (Corpus Escrito del Español como L2)
+
+Translation corpora
+
+- [OPUS](https://opus.nlpl.eu/) (Open Parallel Corpus)
+
+R APIs for text analysis
+
+- `tuber` (YouTube)
+- `rtweet` (Twitter)
+- `rtoot` (Mastodon)
+- `gutenbergr` (Project Gutenberg)
+- `TBDBr` (TalkBank Database)
+- `jstor` (JSTOR Data for Research)
+  - [JSTOR Data for Research (DfR)](https://about.jstor.org/whats-in-jstor/text-mining-support/) provides access to the data behind the research on the JSTOR digital library.
+
+Other useful data packages
+
+- `textdata` (Text data for text analysis)
+- `fivethirtyeight` (Data from the FiveThirtyEight website)
+- `lingtypology` (Linguistic typology data)
+
+GitHub repositories
+
+- [Kaggle](https://www.kaggle.com/datasets)
+- [Tidytuesday](https://github.com/rfordatascience/tidytuesday)
+
+-->
