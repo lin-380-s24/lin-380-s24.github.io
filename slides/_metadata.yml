@@ -2,6 +2,7 @@ author: "{{< var instructor.name >}}"
 date-format: medium
 format:
   revealjs:
+    css: css/custom.scss
     theme: [simple]
     logo: images/logo-sm.jpg
     code-overflow: wrap
