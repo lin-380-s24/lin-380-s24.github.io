@@ -1,0 +1,459 @@
+---
+title: "Curate"
+subtitle: "Data to information"
+date: "2024-03-01"
+categories: [data, information, tidy-data, data-curation, regular-expressions, datasets, stringr, purrr, tidyr, readr, fs]
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'fs', 'readr', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tibble']
+  message: false
+---
+
+## Overview
+
+- Data to information
+- Curate data
+- Documenting datasets
+
+# Data to information
+
+```{webr-r}
+#| context: setup
+
+dir_create("data/original/")
+dir_create("data/derived/")
+dir_create("data/analyis/")
+
+download.file("https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc.txt", "data/original/masc.txt")
+
+download.file("https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.txt", "data/original/masc_pos.txt")
+
+download.file("https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.xml", "data/original/masc_pos.xml")
+
+download.file("https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.csv", "data/original/masc_pos.csv")
+```
+
+## Data
+
+:::: {.columns}
+::: {.column width="50%"}
+- Un/semi-structured
+- Non-tabular
+:::
+
+::: {.column width="50%"}
+
+<!-- Plain text -->
+::: {.fragment .fade-in-then-out .absolute top=100 right=100 width="50%" style="font-size: 0.5em;"}
+Plain text\
+`Sound is a vibration. Sound travels as a mechanical wave through a medium, and in space, there is no medium. So when my shuttle malfunctioned and the airlocks didn't keep the air in, I heard nothing. After the first whoosh of the air being sucked away, there was lightning, but no thunder. Eyes bulging in panic, but no screams. Quiet and peaceful, right? Such a relief to never again hear my crewmate Jesse natter about his girl back on Earth and that all-expenses-paid vacation-for-two she won last time he was on leave. I swore, if I ever had to see a photo of him in a skimpy bathing suit again, giving the camera a cheesy thumbs-up from a lounge chair on one of those white sandy beaches, I'd kiss a monkey. Metaphorically, of course.`
+:::
+
+<!-- XML -->
+
+::: {.fragment .fade-in-then-out .absolute top=100 right=100 width="50%" style="font-size: 0.5em;"}
+<!-- Create a XML file with doc_id, sent_id, word_id, modality, and word for the first words of the previous plain text -->
+XML\
+```xml
+<document>
+  <sent id="1">
+    <word id="1" modality="written">Sound</word>
+    <word id="2" modality="written">is</word>
+    <word id="3" modality="written">a</word>
+    <word id="4" modality="written">vibration</word>
+    <word id="5" modality="written">.</word>
+  </sent>
+  <sent id="2">
+    <word id="1" modality="written">Sound</word>
+    <word id="2" modality="written">travels</word>
+    <word id="3" modality="written">as</word>
+    <word id="4" modality="written">a</word>
+    <word id="5" modality="written">mechanical</word>
+    <word id="6" modality="written">wave</word>
+    <word id="7" modality="written">through</word>
+    <word id="8" modality="written">a</word>
+    <word id="9" modality="written">medium</word>
+    <word id="10" modality="written">,</word>
+    <word id="11" modality="written">and</word>
+    <word id="12" modality="written">in</word>
+    <word id="13" modality="written">space</word>
+    <word id="14" modality="written">,</word>
+    <word id="15" modality="written">there</word>
+    <word id="16" modality="written">is</word>
+    <word id="17" modality="written">no</word>
+    <word id="18" modality="written">medium</word>
+    <word id="19" modality="written">.</word>
+  </sent>
+</document>
+```
+:::
+
+::: {.fragment .fade-in .absolute top=100 right=100 width="50%" style="font-size: 0.5em;"}
+<!-- Create a JSON file of the XML representation above -->
+JSON\
+```json
+{
+  "document": {
+    "sent": [
+      {
+        "id": "1",
+        "word": [
+          {
+            "id": "1",
+            "modality": "written",
+            "word": "Sound"
+          },
+          {
+            "id": "2",
+            "modality": "written",
+            "word": "is"
+          },
+          {
+            "id": "3",
+            "modality": "written",
+            "word": "a"
+          },
+          {
+            "id": "4",
+            "modality": "written",
+            "word": "vibration"
+          },
+          {
+            "id": "5",
+            "modality": "written",
+            "word": "."
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "word": [
+          {
+            "id": "1",
+            "modality": "written",
+            "word": "Sound"
+          },
+          {
+            "id": "2",
+            "modality": "written",
+            "word": "travels"
+          },
+          {
+            "id": "3",
+            "modality": "written",
+            "word": "as"
+          }]
+      }
+  }
+}
+```
+:::
+
+:::
+::::
+
+
+## Information
+
+![](images/ud-tidy.drawio.png)
+
+[**Physical**]{.absolute top=100 left=100}
+[**Semantic**]{.absolute top=100 right=100}
+
+
+# Curate data
+
+## Common R packages {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="40%"}
+- `fs`: File system operations
+- `readr`: Read plain text, csv, tsv, and other delimited files
+- `stringr`: String manipulation, find/ replace (regular expressions)
+- `tidyr`: Tidy data, reshape data (more transformational)
+:::
+
+::: {.column width="60%"}
+
+```{webr-r}
+# Load packages
+library(dplyr)     # Data manipulation
+library(fs)        # File system operations
+library(readr)     # Read files
+library(stringr)   # String manipulation
+library(tidyr)     # Reshape datasets
+```
+
+::: {.aside}
+WebR has issues with reading files with `readr`. We will be using the base R functions for reading files.
+:::
+
+:::
+
+::::
+
+## Structured data {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Characteristics
+
+- Tabular
+- Relational
+- Hierarchical
+
+Already tidy!
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+# Show the directory tree
+fs::dir_tree()
+
+# Read the CSV file
+# Your approach with `readr`
+# read_csv("data/original/masc_pos.csv")
+
+# Using base R for WebR demo
+masc_pos_tbl <-
+  read.csv("data/original/masc_pos.csv") |>
+  as_tibble()
+
+# Preview
+glimpse(masc_pos_tbl)
+```
+:::
+::::
+
+## Unstructured data {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Characteristics
+
+- No structure
+- No schema
+
+Requires tidying!
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+# Show the directory tree
+fs::dir_tree()
+
+# Read the plain text file
+# Your approach with `readr`
+# masc_chr <- readr::read_lines("data/original/masc.txt")
+
+# Using base R for WebR demo
+masc_chr <- readLines("data/original/masc.txt")
+
+# Preview
+masc_chr
+```
+:::
+::::
+
+## Unstructured data: tidy {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Approaches
+
+- Regular expressions
+- String manipulation
+- File/ directory manipulation
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+masc_chr
+
+# Create a tibble with the text
+masc_tbl <- tibble(text = masc_chr)
+
+# If you have metadata, add it to the tibble
+masc_tbl <-
+  masc_tbl |>
+  mutate(sent_id = 1:nrow(masc_tbl),
+         file = "masc.txt",
+         modality = "written")
+
+# Preview
+glimpse(masc_tbl)
+```
+:::
+::::
+
+## Semi-structured data {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Characteristics
+
+- Non-tabular
+- A schema or structure
+
+Requires tidying!
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+# Show the directory tree
+fs::dir_tree()
+
+# Read the plain text file
+# Your approach with `readr`
+# text_chr <- readr::read_lines("data/original/masc_pos.txt")
+
+# Using base R for WebR demo
+masc_pos_chr <- readLines("data/original/masc_pos.txt")
+
+# Preview
+glimpse(masc_pos_chr)
+```
+:::
+::::
+
+## Semi-structured data: tidy {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Approaches
+
+- Format-specific packages
+- Regular expressions
+- String manipulation
+- File/ directory manipulation
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+masc_pos_chr
+
+# Create a tibble with the text
+masc_pos_tbl <- tibble(text = masc_pos_chr)
+
+# If you have metadata, add it to the tibble
+masc_pos_tbl <-
+  masc_pos_tbl |>
+  mutate(sent_id = 1:nrow(masc_pos_tbl),
+         file = "masc_pos.txt",
+         modality = "written")
+
+# Preview
+glimpse(masc_pos_tbl)
+```
+:::
+::::
+
+## Semi-structured data: tidy {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+Approaches
+
+- Format-specific packages
+- Regular expressions
+- String manipulation
+- File/ directory manipulation
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+masc_pos_tbl
+
+# Split the text by whitespace
+masc_pos_tbl <-
+  masc_pos_tbl |>
+  mutate(word_pos = str_split(text, pattern = "\\s+")) |>
+  unnest(cols = word_pos)
+
+# Split the word_pos column by the underscore
+masc_pos_tbl <-
+  masc_pos_tbl |>
+  separate(word_pos, into = c("word", "pos"), sep = "/")
+
+# Preview
+glimpse(masc_pos_tbl)
+```
+:::
+::::
+
+# Documenting datasets {.smaller .scrollable}
+
+## Write the data
+
+:::: {.columns}
+::: {.column width="30%"}
+- Quarto prose and code comments
+- Predictable file names
+- Logical directory structure
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+# Show the directory tree
+dir_tree()
+
+# Write the data to a new directory
+# Your approach with `readr`
+# masc_pos_tbl |>
+#  write_csv("data/derived/masc_pos.csv")
+
+# Using base R for WebR demo
+masc_pos_tbl |>
+  write.csv("data/derived/masc_pos.csv", row.names = FALSE)
+```
+:::
+::::
+
+## Data dictionaries {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="30%"}
+- Variable names
+- Variable friendly names
+- Variable descriptions
+- Variable types
+:::
+
+::: {.column width="70%"}
+```{webr-r}
+# Create a data dictionary
+dd_tbl <- tribble(
+  ~variable, ~friendly_name, ~description, ~type,
+  "sent_id", "Sentence ID", "The sentence number", "integer",
+  "text", "Text", "The text of the sentence", "character",
+  "file", "File", "The file name", "character",
+  "modality", "Modality", "The modality of the text", "character",
+  "word", "Word", "The word in the sentence", "character",
+  "pos", "Part of speech", "The part of speech of the word", "character"
+)
+
+# Preview
+dd_tbl
+
+# Write the data dictionary
+# Your approach with `readr`
+# dd_tbl |>
+#  write_csv("data/derived/masc_pos_dd.csv")
+
+# Using base R for WebR demo
+dd_tbl |>
+  write.csv("data/derived/masc_pos_dd.csv", row.names = FALSE)
+
+# Show the directory tree
+dir_tree()
+```
+:::
+::::
+
+
+
+## Summary
+
+- Data to information
+- Types of data
+- Documenting datasets
