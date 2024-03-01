@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sentences>
+    <sentence id="s1">
+        <token id="s1t1" pos="NNP">Sound</token>
+        <token id="s1t2" pos="VBZ">is</token>
+        <token id="s1t3" pos="DT">a</token>
+        <token id="s1t4" pos="NN">vibration</token>
+        <token id="s1t5" pos=".">.</token>
+    </sentence>
+    <sentence id="s2">
+        <token id="s2t1" pos="NNP">Sound</token>
+        <token id="s2t2" pos="VBZ">travels</token>
+        <token id="s2t3" pos="IN">as</token>
+        <token id="s2t4" pos="DT">a</token>
+        <token id="s2t5" pos="JJ">mechanical</token>
+        <token id="s2t6" pos="NN">wave</token>
+        <token id="s2t7" pos="IN">through</token>
+        <token id="s2t8" pos="DT">a</token>
+        <token id="s2t9" pos="NN">medium</token>
+        <token id="s2t10" pos=",">,</token>
+        <token id="s2t11" pos="CC">and</token>
+        <token id="s2t12" pos="IN">in</token>
+        <token id="s2t13" pos="NN">space</token>
+        <token id="s2t14" pos=","">,</token>
+        <token id="s2t15" pos="EX">there</token>
+        <token id="s2t16" pos="VBZ">is</token>
+        <token id="s2t17" pos="DT">no</token>
+        <token id="s2t18" pos="NN">medium</token>
+        <token id="s2t19" pos="."">.</token>
+    </sentence>
+    <sentence id="s3">
+        <token id="s3t1" pos="RB">So</token>
+        <token id="s3t2" pos="WRB">when</token>
+        <token id="s3t3" pos="PRP$">my</token>
+        <token id="s3t4" pos="NN">shuttle</token>
+        <token id="s3t5" pos="JJ">malfunctioned</token>
+        <token id="s3t6" pos="CC">and</token>
+        <token id="s3t7" pos="DT">the</token>
+        <token id="s3t8" pos="NNS">airlocks</token>
+        <token id="s3t9" pos="VBD">did</token>
+        <token id="s3t10" pos="RB">n't</token>
+        <token id="s3t11" pos="VB">keep</token>
+        <token id="s3t12" pos="DT">the</token>
+        <token id="s3t13" pos="NN">air</token>
+        <token id="s3t14" pos="IN">in</token>
+        <token id="s3t15" pos=",">,</token>
+        <token id="s3t16" pos="PRP">I</token>
+        <token id="s3t17" pos="VBD">heard</token>
+        <token id="s3t18" pos="NN">nothing</token>
+        <token id="s3t19" pos=".">.</token>
+    </sentence>
+</sentences>
