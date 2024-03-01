@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Trace the datascape</title>
+  <title>Quantitative Text Analysis - Curate</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -536,7 +536,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['dplyr', 'knitr', 'ggplot2', 'skimr', 'corpora', 'janitor', 'kableExtra'];
+  globalThis.qwebrInstallRPackagesList = ['dplyr', 'fs', 'readr', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tibble'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -558,7 +558,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"options":{"message":"true","warning":"true","fig-height":5,"context":"setup","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-1","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"\n# Read the dataset from the `corpora` package\nbrown_fam_df <-\n  corpora::PassiveBrownFam |> # reference the dataset\n  as_tibble() # convert to a tibble\n\n# Rename variables\nbrown_fam_df <-\n  brown_fam_df |> # pass the original dataset\n  rename( # rename variables: new_name = old_name\n    variety = lang,\n    num_words = n.words,\n    act_verbs = act,\n    pass_verbs = pass,\n    verbs = verbs,\n    pct_passive = p.pass\n  ) |>\n  select(-corpus, -section, -period, -id) |>\n  mutate(id = row_number(), genre = stringr::str_to_title(genre)) |>\n  select(id, everything())","id":1},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-2","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use skim() to get all variables\nbrown_fam_df |>\n  skim()\n\n# Use skim() |> yank(\"var_type\") to get specific types (e.g. \"character\", \"numeric\", etc.)\nbrown_fam_df |>\n  skim() |>\n  yank(\"numeric\")","id":2},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-3","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use summarize() to get summary statistics\nbrown_fam_df |>\n  summarize(\n    mean = mean(num_words),\n    sd = sd(num_words),\n    median = median(num_words),\n    iqr = IQR(num_words)\n  )","id":3},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-4","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use count() to get frequency tables\nbrown_fam_df |>\n  count(genre, variety)","id":4},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-5","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use tabyl() to get contingency tables\nbrown_fam_df |>\n  tabyl(genre, variety)","id":5},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-6","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use group_by() + summarize() to get pivot tables\nbrown_fam_df |>\n  group_by(genre) |>\n  summarize(\n    mean_words = mean(num_words),\n    sd_words = sd(num_words)\n  )","id":6},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-7","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"variety_word_stats <-\n  brown_fam_df |>\n  group_by(variety) |>\n  summarize(\n    mean_words = mean(num_words),\n    sd_words = sd(num_words)\n  )\n\nvariety_word_stats |>\n  kable()","id":7},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-8","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_density() to visualize the distribution of num_words\nbrown_fam_df |>\n  ggplot(aes(x = num_words)) +   # specify the x-axis variable\n  geom_density()","id":8},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-9","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_density() to visualize the distribution of num_words by variety\nbrown_fam_df |>\n  ggplot(aes(x = num_words, fill = variety)) + # specify the x-axis and fill variables\n  geom_density(alpha = 0.5)                   # specify alpha for transparency","id":9},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-10","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_boxplot() to visualize the distribution of pass_verbs\nbrown_fam_df |>\n  ggplot(aes(x = pass_verbs)) + # specify the x-axis\n  geom_boxplot()                # create the boxplot","id":10},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-11","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_boxplot() to visualize the distribution of pass_verbs by variety\nbrown_fam_df |>\n  ggplot(aes(x = variety, y = pass_verbs)) + # specify the x-axis and y-axis\n  geom_boxplot()                            # create the boxplot","id":11},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-12","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_point() to visualize the relationship between num_words and verbs\nbrown_fam_df |>\n  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis\n  geom_point()                                # create the scatterplot","id":12},{"options":{"message":"true","warning":"true","fig-height":5,"context":"interactive","fig-cap":"","out-height":"","output":"true","results":"markup","fig-width":7,"label":"unnamed-chunk-13","dpi":72,"classes":"","out-width":"700px","comment":""},"code":"# Use geom_point() and geom_smooth() to visualize the relationship between num_words and verbs\nbrown_fam_df |>\n  ggplot(aes(x = num_words, y = verbs)) + # specify the x-axis and y-axis\n  geom_point() +                              # create the scatterplot\n  geom_smooth(method = \"lm\")                  # add a trend line","id":13}];
+  globalThis.qwebrCellDetails = [{"id":1,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-1","context":"setup","results":"markup","fig-cap":""},"code":"\ndir_create(\"data/original/\")\ndir_create(\"data/derived/\")\ndir_create(\"data/analyis/\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc.txt\", \"data/original/masc.txt\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.txt\", \"data/original/masc_pos.txt\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.xml\", \"data/original/masc_pos.xml\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.csv\", \"data/original/masc_pos.csv\")"},{"id":2,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-2","context":"interactive","results":"markup","fig-cap":""},"code":"# Load packages\nlibrary(dplyr)     # Data manipulation\nlibrary(fs)        # File system operations\nlibrary(readr)     # Read files\nlibrary(stringr)   # String manipulation\nlibrary(tidyr)     # Reshape datasets"},{"id":3,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-3","context":"interactive","results":"markup","fig-cap":""},"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the CSV file\n# Your approach with `readr`\n# read_csv(\"data/original/masc_pos.csv\")\n\n# Using base R for WebR demo\nmasc_pos_tbl <-\n  read.csv(\"data/original/masc_pos.csv\") |>\n  as_tibble()\n\n# Preview\nglimpse(masc_pos_tbl)"},{"id":4,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-4","context":"interactive","results":"markup","fig-cap":""},"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the plain text file\n# Your approach with `readr`\n# masc_chr <- readr::read_lines(\"data/original/masc.txt\")\n\n# Using base R for WebR demo\nmasc_chr <- readLines(\"data/original/masc.txt\")\n\n# Preview\nmasc_chr"},{"id":5,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-5","context":"interactive","results":"markup","fig-cap":""},"code":"masc_chr\n\n# Create a tibble with the text\nmasc_tbl <- tibble(text = masc_chr)\n\n# If you have metadata, add it to the tibble\nmasc_tbl <-\n  masc_tbl |>\n  mutate(sent_id = 1:nrow(masc_tbl),\n         file = \"masc.txt\",\n         modality = \"written\")\n\n# Preview\nglimpse(masc_tbl)"},{"id":6,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-6","context":"interactive","results":"markup","fig-cap":""},"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the plain text file\n# Your approach with `readr`\n# text_chr <- readr::read_lines(\"data/original/masc_pos.txt\")\n\n# Using base R for WebR demo\nmasc_pos_chr <- readLines(\"data/original/masc_pos.txt\")\n\n# Preview\nglimpse(masc_pos_chr)"},{"id":7,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-7","context":"interactive","results":"markup","fig-cap":""},"code":"masc_pos_chr\n\n# Create a tibble with the text\nmasc_pos_tbl <- tibble(text = masc_pos_chr)\n\n# If you have metadata, add it to the tibble\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  mutate(sent_id = 1:nrow(masc_pos_tbl),\n         file = \"masc_pos.txt\",\n         modality = \"written\")\n\n# Preview\nglimpse(masc_pos_tbl)"},{"id":8,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-8","context":"interactive","results":"markup","fig-cap":""},"code":"masc_pos_tbl\n\n# Split the text by whitespace\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  mutate(word_pos = str_split(text, pattern = \"\\\\s+\")) |>\n  unnest(cols = word_pos)\n\n# Split the word_pos column by the underscore\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  separate(word_pos, into = c(\"word\", \"pos\"), sep = \"/\")\n\n# Preview\nglimpse(masc_pos_tbl)"},{"id":9,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-9","context":"interactive","results":"markup","fig-cap":""},"code":"# Show the directory tree\ndir_tree()\n\n# Write the data to a new directory\n# Your approach with `readr`\n# masc_pos_tbl |>\n#  write_csv(\"data/derived/masc_pos.csv\")\n\n# Using base R for WebR demo\nmasc_pos_tbl |>\n  write.csv(\"data/derived/masc_pos.csv\", row.names = FALSE)"},{"id":10,"options":{"out-width":"700px","fig-height":5,"output":"true","comment":"","message":"true","classes":"","dpi":72,"warning":"true","out-height":"","fig-width":7,"label":"unnamed-chunk-10","context":"interactive","results":"markup","fig-cap":""},"code":"# Create a data dictionary\ndd_tbl <- tribble(\n  ~variable, ~friendly_name, ~description, ~type,\n  \"sent_id\", \"Sentence ID\", \"The sentence number\", \"integer\",\n  \"text\", \"Text\", \"The text of the sentence\", \"character\",\n  \"file\", \"File\", \"The file name\", \"character\",\n  \"modality\", \"Modality\", \"The modality of the text\", \"character\",\n  \"word\", \"Word\", \"The word in the sentence\", \"character\",\n  \"pos\", \"Part of speech\", \"The part of speech of the word\", \"character\"\n)\n\n# Preview\ndd_tbl\n\n# Write the data dictionary\n# Your approach with `readr`\n# dd_tbl |>\n#  write_csv(\"data/derived/masc_pos_dd.csv\")\n\n# Using base R for WebR demo\ndd_tbl |>\n  write.csv(\"data/derived/masc_pos_dd.csv\", row.names = FALSE)\n\n# Show the directory tree\ndir_tree()"}];
 
   </script>
   <script type="module">
@@ -1456,8 +1456,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Trace the datascape</h1>
-  <p class="subtitle">Descriptive assessment of datasets</p>
+  <h1 class="title">Curate</h1>
+  <p class="subtitle">Data to information</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1467,177 +1467,310 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Feb 9, 2024</p>
+  <p class="date">Mar 1, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>Statistical overviews</li>
-<li>Data summaries</li>
-<li>Visual summaries</li>
-<li>Lab 03: Trace the datascape</li>
+<li>Data to information</li>
+<li>Curate data</li>
+<li>Documenting datasets</li>
 </ul>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Data to information</h1>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
+<section class="slide level2">
+<h2>Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Un/semi-structured</li>
+<li>Non-tabular</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<!-- Plain text -->
+<div class="fragment fade-in-then-out absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
+<p>Plain text<br>
+<code>Sound is a vibration. Sound travels as a mechanical wave through a medium, and in space, there is no medium. So when my shuttle malfunctioned and the airlocks didn't keep the air in, I heard nothing. After the first whoosh of the air being sucked away, there was lightning, but no thunder. Eyes bulging in panic, but no screams. Quiet and peaceful, right? Such a relief to never again hear my crewmate Jesse natter about his girl back on Earth and that all-expenses-paid vacation-for-two she won last time he was on leave. I swore, if I ever had to see a photo of him in a skimpy bathing suit again, giving the camera a cheesy thumbs-up from a lounge chair on one of those white sandy beaches, I'd kiss a monkey. Metaphorically, of course.</code></p>
+</div>
+<!-- XML -->
+<div class="fragment fade-in-then-out absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
+<!-- Create a XML file with doc_id, sent_id, word_id, modality, and word for the first words of the previous plain text -->
+<p>XML<br>
+</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a></a>&lt;<span class="kw">document</span>&gt;</span>
+<span id="cb1-2"><a></a>  &lt;<span class="kw">sent</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;</span>
+<span id="cb1-3"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;Sound&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-4"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;is&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-5"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-6"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;vibration&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-7"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-8"><a></a>  &lt;/<span class="kw">sent</span>&gt;</span>
+<span id="cb1-9"><a></a>  &lt;<span class="kw">sent</span><span class="ot"> id=</span><span class="st">"2"</span>&gt;</span>
+<span id="cb1-10"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;Sound&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-11"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;travels&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-12"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;as&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-13"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-14"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;mechanical&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-15"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"6"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;wave&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-16"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"7"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;through&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-17"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"8"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-18"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"9"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;medium&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-19"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"10"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;,&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-20"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"11"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;and&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-21"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"12"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;in&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-22"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"13"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;space&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-23"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"14"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;,&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-24"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"15"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;there&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-25"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"16"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;is&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-26"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"17"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;no&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-27"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"18"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;medium&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-28"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"19"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
+<span id="cb1-29"><a></a>  &lt;/<span class="kw">sent</span>&gt;</span>
+<span id="cb1-30"><a></a>&lt;/<span class="kw">document</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-in absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
+<!-- Create a JSON file of the XML representation above -->
+<p>JSON<br>
+</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a></a><span class="fu">{</span></span>
+<span id="cb2-2"><a></a>  <span class="dt">"document"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a></a>    <span class="dt">"sent"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-4"><a></a>      <span class="fu">{</span></span>
+<span id="cb2-5"><a></a>        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb2-6"><a></a>        <span class="dt">"word"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-7"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-8"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb2-9"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-10"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"Sound"</span></span>
+<span id="cb2-11"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-12"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-13"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
+<span id="cb2-14"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-15"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"is"</span></span>
+<span id="cb2-16"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-17"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-18"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
+<span id="cb2-19"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-20"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"a"</span></span>
+<span id="cb2-21"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-22"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-23"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"4"</span><span class="fu">,</span></span>
+<span id="cb2-24"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-25"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"vibration"</span></span>
+<span id="cb2-26"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-27"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-28"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"5"</span><span class="fu">,</span></span>
+<span id="cb2-29"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-30"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"."</span></span>
+<span id="cb2-31"><a></a>          <span class="fu">}</span></span>
+<span id="cb2-32"><a></a>        <span class="ot">]</span></span>
+<span id="cb2-33"><a></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-34"><a></a>      <span class="fu">{</span></span>
+<span id="cb2-35"><a></a>        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
+<span id="cb2-36"><a></a>        <span class="dt">"word"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-37"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-38"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb2-39"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-40"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"Sound"</span></span>
+<span id="cb2-41"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-42"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-43"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
+<span id="cb2-44"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-45"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"travels"</span></span>
+<span id="cb2-46"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-47"><a></a>          <span class="fu">{</span></span>
+<span id="cb2-48"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
+<span id="cb2-49"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
+<span id="cb2-50"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"as"</span></span>
+<span id="cb2-51"><a></a>          <span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb2-52"><a></a>      <span class="fu">}</span></span>
+<span id="cb2-53"><a></a>  <span class="er">}</span></span>
+<span id="cb2-54"><a></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Information</h2>
+
+<img data-src="images/ud-tidy.drawio.png" class="r-stretch"><p><span class="absolute" style="top: 100px; left: 100px; "><strong>Physical</strong></span> <span class="absolute" style="top: 100px; right: 100px; "><strong>Semantic</strong></span></p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Curate data</h1>
+
+</section>
 <section class="slide level2 smaller scrollable">
-<h2>Statistical overviews</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">skim()</a></li><li><a href="#tabset-1-2">summarize()</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+<h2>Common R packages</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><code>fs</code>: File system operations</li>
+<li><code>readr</code>: Read plain text, csv, tsv, and other delimited files</li>
+<li><code>stringr</code>: String manipulation, find/ replace (regular expressions)</li>
+<li><code>tidyr</code>: Tidy data, reshape data (more transformational)</li>
+</ul>
+</div><div class="column" style="width:60%;">
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+
 </div>
-<div id="tabset-1-2">
+</div>
+<aside><div>
+<p>WebR has issues with reading files with <code>readr</code>. We will be using the base R functions for reading files.</p>
+</div></aside></section>
+<section class="slide level2 smaller scrollable">
+<h2>Structured data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Characteristics</p>
+<ul>
+<li>Tabular</li>
+<li>Relational</li>
+<li>Hierarchical</li>
+</ul>
+<p>Already tidy!</p>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
-</div>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Data summaries</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">count()</a></li><li><a href="#tabset-2-2">tabyl()</a></li><li><a href="#tabset-2-3">group_by() + summarize()</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
+<h2>Unstructured data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Characteristics</p>
+<ul>
+<li>No structure</li>
+<li>No schema</li>
+</ul>
+<p>Requires tidying!</p>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-2-2">
+</div>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Unstructured data: tidy</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Approaches</p>
+<ul>
+<li>Regular expressions</li>
+<li>String manipulation</li>
+<li>File/ directory manipulation</li>
+</ul>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-2-3">
+</div>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Semi-structured data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Characteristics</p>
+<ul>
+<li>Non-tabular</li>
+<li>A schema or structure</li>
+</ul>
+<p>Requires tidying!</p>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
-</div>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Data summaries to tables</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">kable()</a></li><li><a href="#tabset-3-2">kable() results</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
+<h2>Semi-structured data: tidy</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Approaches</p>
+<ul>
+<li>Format-specific packages</li>
+<li>Regular expressions</li>
+<li>String manipulation</li>
+<li>File/ directory manipulation</li>
+</ul>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-3-2">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a></a><span class="in">#| label: tbl-kable-results</span></span>
-<span id="cb1-3"><a></a><span class="in">#| tbl-cap: "Variety word statistics"</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="in">variety_word_stats |&gt;</span></span>
-<span id="cb1-6"><a></a><span class="in">  kable()</span></span>
-<span id="cb1-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div id="tbl-kable-results" class="cell quarto-float">
-<figure class="quarto-float quarto-float-tbl">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kable-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Variety word statistics
-</figcaption>
-<div aria-describedby="tbl-kable-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="do-not-create-environment cell">
-<thead>
-<tr class="header">
-<th style="text-align: left;">variety</th>
-<th style="text-align: right;">mean_words</th>
-<th style="text-align: right;">sd_words</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">AmE</td>
-<td style="text-align: right;">2166.765</td>
-<td style="text-align: right;">126.19290</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">BrE</td>
-<td style="text-align: right;">2164.112</td>
-<td style="text-align: right;">72.92651</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</div>
-</div>
 </div>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Density plots</p>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">One variable</a></li><li><a href="#tabset-4-2">Two variables</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
+<h2>Semi-structured data: tidy</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Approaches</p>
+<ul>
+<li>Format-specific packages</li>
+<li>Regular expressions</li>
+<li>String manipulation</li>
+<li>File/ directory manipulation</li>
+</ul>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-4-2">
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 smaller scrollable center">
+<h1>Documenting datasets</h1>
+
+</section>
+<section class="slide level2">
+<h2>Write the data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Quarto prose and code comments</li>
+<li>Predictable file names</li>
+<li>Logical directory structure</li>
+</ul>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
-</div>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Boxplots</p>
-<div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">One variable</a></li><li><a href="#tabset-5-2">Two variables</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1">
+<h2>Data dictionaries</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Variable names</li>
+<li>Variable friendly names</li>
+<li>Variable descriptions</li>
+<li>Variable types</li>
+</ul>
+</div><div class="column" style="width:70%;">
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-5-2">
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Visual summaries</h2>
-<p>Scatterplots</p>
-<div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Two variables</a></li><li><a href="#tabset-6-2">Two variables with trend line</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1">
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-6-2">
-<div id="qwebr-insertion-location-13"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-</section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Lab 03: Trace the datascape</h1>
-
 </section>
 <section class="slide level2">
-<h2>Setup</h2>
+<h2>Summary</h2>
 <ul>
-<li>Clone the repository to RStudio as a new project</li>
-<li>Follow the instructions in the <code>README.md</code> file</li>
+<li>Data to information</li>
+<li>Types of data</li>
+<li>Documenting datasets</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Trace the datascape | Quantitative Text Analysis | Wake Forest University</p>
+<p>Curate | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
 </section></section>
