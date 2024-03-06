@@ -1,0 +1,72 @@
+---
+title: "Taming data"
+subtitle: "The process of curating data"
+date: "2024-03-06"
+categories: [data, curate, process, data-dictionary, readr, dplyr, tidyr, readtext, qtalrkit]
+---
+
+## Overview
+
+- Setup
+- Orientation
+- Preparation
+- Implementation
+- Documentation
+
+## Setup
+
+- [Lab-06](https://github.com/lin-380-s24/lab-06): Fork, clone, and create RStudio project
+- Create `2_curate.qmd` file in `process/` directory
+- Prepare front-matter
+- Prepare sections
+
+## Orientation
+
+- Data origin?
+  - Sampling frame, data collection, schema design
+- [Data type](https://qtalr.github.io/book/curate-datasets.html)?
+  - (Un/semi)structured
+- Data format?
+  - Standardized (CSV, JSON, XML, etc.) or non-standardized
+- Metadata?
+  - Inline, external, file/ directory structure
+
+## Preparation
+
+- Idealized structure
+  - What would be the ideal structured data?
+    - How many columns, what types, what names, etc.?
+- Steps to achieve idealized structure
+  - Create an outline
+  - Add comments, notes, and questions
+  - Identify packages, strategies, and tools
+
+## Implementation
+
+- Typical steps
+  - Read data (`readr`, `readtext`, etc.)
+  - Clean dataset (`dplyr`, `tidyr`, `stringr` etc.)
+  - Organize dataset (`dplyr`, `tidyr`, `stringr` etc.)
+  - Write dataset (`readr`)
+
+## Documentation {.smaller}
+
+Separate data/ datasets
+
+- Read-only data (data/original/)
+- Derived data (data/derived/)
+
+Dataset documentation
+
+- Quarto process and code block comments
+- Data versioning/ naming
+- Data dictionary (`qtalrkit`)
+
+Secure data sharing
+
+- Data sharing (`.gitignore` file)
+
+## Next steps
+
+- [Chapter 7: Transform](https://qtalr.github.io/book/transform-datasets.html)
+- Lessons (Swirl): Reshape datasets by rows and columns
