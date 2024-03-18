@@ -10,7 +10,95 @@
 <atom:link href="https://lin-380-s24.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for LIN 380: Quantitative Text Analysis, Spring 2024</description>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Thu, 15 Feb 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 18 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>LIN 380: Version 1.2</title>
+  <link>https://lin-380-s24.github.io/posts/lin380-v.1.2/</link>
+  <description><![CDATA[ 
+
+
+
+
+<!--
+
+- [ ] Approach to out-of-class readings
+  - Hypothes.is comments required for all readings
+  - 2 comments per reading
+  - 1 question, 1 comment
+- [ ] Approach to labs
+  - Read recipe, review lab key before class
+  - In-class "live coding" of lab
+    - I will code, you will watch (experiment with code)
+    - Questions are welcome!
+  - Self-assessment of lab:
+    - Geared towards understanding, not completion
+- [ ] Project (prospectus)
+  - Project will continue as planned
+    - Incorporate learning, ideas, and tools from class
+    - Continue to refine your project prospectus
+      - Project steps are prompts to help you think through your project
+
+- [ ] For Mac users
+  - Continue to finish RStudio environment setup
+    - [ ] include instructions
+-->
+<p>Over the break I gave some thought about the trajectory of the course and considered ways to make sure that the learning goals are achieved without overwhelming you and risking losing the big picture for the details. I’ve made some adjustments to how we prepare for classes and how we approach the labs, primarily. The project will continue as planned and completing the interactive coding (swirl) lessons is highly recommended.</p>
+<p>Here’s a summary of the changes.</p>
+<section id="out-of-class-readings" class="level2">
+<h2 class="anchored" data-anchor-id="out-of-class-readings">Out-of-class readings</h2>
+<div class="halfsize callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong><i class="fa-regular fa-hand-point-up" aria-label="hand-point-up"></i> Tip</strong></p>
+<p>You can use Hypothes.is to ask questions about the readings, to highlight and annotate the text, and to respond to other students’ posts.</p>
+<p>You need a free Hypothes.is account to use the tool.</p>
+<ul>
+<li>Sign up: <a href="https://hypothes.is/signup">hypothes.is/signup</a>.</li>
+<li>Join the class group: <a href="https://hypothes.is/groups/4Zk3YJv3/lin-380-s24"><code>lin-380-s24</code></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>I’ve decided to require that you make at least two posts on each reading (both chapters and recipes) using Hypothes.is. One of the posts should be a <em>question</em> and the other should be a <em>comment</em>. This will help you engage with the readings and also help me understand where you might be getting stuck or where you might need more clarification.</p>
+<p>Both the textbook and the recipe readings have the Hypothes.is tool embedded in them at the right margin. Just click on this tool, login, select our <code>lin-380-s24</code> group, and start posting.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lin-380-s24.github.io/posts/lin380-v.1.2/hypothes.is.gif" class="img-fluid figure-img"></p>
+<figcaption>Hypothes.is tool</figcaption>
+</figure>
+</div>
+<p>I will review and respond to your posts before class. This will help me gauge what to address in class to maximize the effectiveness of our time together in class.</p>
+</section>
+<section id="labs" class="level2">
+<h2 class="anchored" data-anchor-id="labs">Labs</h2>
+<p>I’ve also decided to change the way we approach the labs. As I alluded to in class the week before spring break, instead of having you perform the lab activities in class, <em>I will code the labs live in class</em>. You will watch me code and experiment with the code as I go. You are welcome to ask questions as I code. This will allow us to cover more ground and also allow you to focus on understanding the code rather than getting bogged down with the details of the code and missing the big picture.</p>
+<p>I will also provide a lab key for each lab before class. Before class, you should fork and clone the lab repository to your RStudio environment. Then review the lab key and the lab recipe. This will help you follow along with the live coding and also help you understand the code better.</p>
+<div class="halfsize callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong><i class="fa-regular fa-hand-point-up" aria-label="hand-point-up"></i> Tip</strong></p>
+<p>After class, I encourage you to go through the lab recipe and the lab key again and try to code the lab on your own. This will help you solidify your understanding of the code and the concepts covered in the lab. This, however, is an optional activity.</p>
+</div>
+</div>
+</div>
+<p><em>The self-assessments for the labs will be geared towards understanding the code rather than on completing the lab activities</em>. I still want you to provide your feedback to these self-assessment questions as this is a vital part of the learning process.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>course</category>
+  <category>guides</category>
+  <guid>https://lin-380-s24.github.io/posts/lin380-v.1.2/</guid>
+  <pubDate>Mon, 18 Mar 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Cool stuff: Lab 03</title>
   <link>https://lin-380-s24.github.io/posts/cool-stuff-lab-03/</link>
@@ -508,7 +596,6 @@ Figure&nbsp;3: Passive voice in the Brown (AmE) and LOB (BrE) corpora
 
 
 
-<p>I want to start a series of posts that I will call “Cool stuff” that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.</p>
 <p>I’ll highlight a couple of things here, but I’d love to hear from you all about what you are doing with Quarto. If you have something you’d like to share, please let me know and I’ll highlight it here.</p>
 <section id="changing-quarto-document-themes" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="changing-quarto-document-themes">Changing Quarto document themes</h2>
@@ -1469,25 +1556,6 @@ Conference Date: April 19th, 2024 (One day virtual event)</p>
   <category>research</category>
   <guid>https://lin-380-s24.github.io/posts/eulc5/</guid>
   <pubDate>Tue, 16 Jan 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hello, World!</title>
-  <dc:creator>Jerid Francom</dc:creator>
-  <link>https://lin-380-s24.github.io/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This is the first post!</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>testing</category>
-  <guid>https://lin-380-s24.github.io/posts/welcome/</guid>
-  <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
