@@ -1,11 +1,11 @@
 ---
 title: "Cool stuff: Lab 00"
+description: |
+  I want to start a series of posts that I will call "Cool stuff" that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.
 date: 2024-01-23
 date-modified: 2024-01-24
 categories: [cool-stuff, quarto, themes, keyboard-shortcuts]
 ---
-
-I want to start a series of posts that I will call "Cool stuff" that highlights some of the cool things you all are doing with Quarto, and some of the cool things you can do with Quarto.
 
 I'll highlight a couple of things here, but I'd love to hear from you all about what you are doing with Quarto. If you have something you'd like to share, please let me know and I'll highlight it here.
 

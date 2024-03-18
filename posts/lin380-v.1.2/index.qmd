@@ -1,0 +1,69 @@
+---
+title: "LIN 380: Version 1.2"
+date: "2024-03-18"
+categories: [news, course, guides]
+---
+
+<!--
+
+- [ ] Approach to out-of-class readings
+  - Hypothes.is comments required for all readings
+  - 2 comments per reading
+  - 1 question, 1 comment
+- [ ] Approach to labs
+  - Read recipe, review lab key before class
+  - In-class "live coding" of lab
+    - I will code, you will watch (experiment with code)
+    - Questions are welcome!
+  - Self-assessment of lab:
+    - Geared towards understanding, not completion
+- [ ] Project (prospectus)
+  - Project will continue as planned
+    - Incorporate learning, ideas, and tools from class
+    - Continue to refine your project prospectus
+      - Project steps are prompts to help you think through your project
+
+- [ ] For Mac users
+  - Continue to finish RStudio environment setup
+    - [ ] include instructions
+-->
+
+Over the break I gave some thought about the trajectory of the course and considered ways to make sure that the learning goals are achieved without overwhelming you and risking losing the big picture for the details. I've made some adjustments to how we prepare for classes and how we approach the labs, primarily. The project will continue as planned and completing the interactive coding (swirl) lessons is highly recommended.
+
+Here's a summary of the changes.
+
+## Out-of-class readings
+
+::: {.callout .halfsize}
+**{{< fa regular hand-point-up >}} Tip**
+
+You can use Hypothes.is to ask questions about the readings, to highlight and annotate the text, and to respond to other students' posts.
+
+You need a free Hypothes.is account to use the tool.
+
+- Sign up: [hypothes.is/signup](https://hypothes.is/signup).
+- Join the class group: [`lin-380-s24`](https://hypothes.is/groups/4Zk3YJv3/lin-380-s24).
+:::
+
+I've decided to require that you make at least two posts on each reading (both chapters and recipes) using Hypothes.is. One of the posts should be a *question* and the other should be a *comment*. This will help you engage with the readings and also help me understand where you might be getting stuck or where you might need more clarification.
+
+Both the textbook and the recipe readings have the Hypothes.is tool embedded in them at the right margin. Just click on this tool, login, select our `lin-380-s24` group, and start posting.
+
+![Hypothes.is tool](hypothes.is.gif)
+
+I will review and respond to your posts before class. This will help me gauge what to address in class to maximize the effectiveness of our time together in class.
+
+## Labs
+
+I've also decided to change the way we approach the labs. As I alluded to in class the week before spring break, instead of having you perform the lab activities in class, *I will code the labs live in class*. You will watch me code and experiment with the code as I go. You are welcome to ask questions as I code. This will allow us to cover more ground and also allow you to focus on understanding the code rather than getting bogged down with the details of the code and missing the big picture.
+
+I will also provide a lab key for each lab before class. Before class, you should fork and clone the lab repository to your RStudio environment. Then review the lab key and the lab recipe. This will help you follow along with the live coding and also help you understand the code better.
+
+::: {.callout .halfsize}
+**{{< fa regular hand-point-up >}} Tip**
+
+After class, I encourage you to go through the lab recipe and the lab key again and try to code the lab on your own. This will help you solidify your understanding of the code and the concepts covered in the lab. This, however, is an optional activity.
+:::
+
+*The self-assessments for the labs will be geared towards understanding the code rather than on completing the lab activities*. I still want you to provide your feedback to these self-assessment questions as this is a vital part of the learning process.
+

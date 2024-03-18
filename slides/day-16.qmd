@@ -1,0 +1,33 @@
+---
+title: "Transformation"
+subtitle: "Prepare and enrich datasets"
+date: "2024-03-20"
+categories: [data, information, tidy-data, data-transformation, regular-expressions, datasets, stringr, purrr, tidyr, readr, fs]
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'fs', 'readr', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tibble']
+  message: false
+draft: true
+---
+
+## Overview
+
+- Enhancing datasets
+- Regular expressions
+- String manipulation
+- Tidy data
+- Data transformation
+
+## Enhancing datasets
+
+- **Data transformation** is the process of converting data from one format or structure into another format or structure.
+
+- **Data enrichment** is the process of enhancing datasets with additional information.
+
+## Regular expressions
+
+- **Regular expressions** are a powerful tool for matching and manipulating strings.
+
+
+
+## References
