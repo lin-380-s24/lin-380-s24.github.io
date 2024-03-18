@@ -1,5 +1,25 @@
 [
   {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/day-15.html",
+      "/slides/day-14.html",
+      "/slides/day-13.html",
+      "/slides/day-12.html",
+      "/slides/day-11.html",
+      "/slides/day-10.html",
+      "/slides/day-09.html",
+      "/slides/day-08.html",
+      "/slides/day-07.html",
+      "/slides/day-06.html",
+      "/slides/day-05.html",
+      "/slides/day-04.html",
+      "/slides/day-03.html",
+      "/slides/day-02.html",
+      "/slides/day-01.html"
+    ]
+  },
+  {
     "listing": "/guides.html",
     "items": [
       "/guides/getting-started.html",
@@ -19,26 +39,6 @@
       "/posts/first-day-hiccups/index.html",
       "/posts/eulc5/index.html",
       "/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/slides.html",
-    "items": [
-      "/slides/day-15.html",
-      "/slides/day-14.html",
-      "/slides/day-13.html",
-      "/slides/day-12.html",
-      "/slides/day-11.html",
-      "/slides/day-10.html",
-      "/slides/day-09.html",
-      "/slides/day-08.html",
-      "/slides/day-07.html",
-      "/slides/day-06.html",
-      "/slides/day-05.html",
-      "/slides/day-04.html",
-      "/slides/day-03.html",
-      "/slides/day-02.html",
-      "/slides/day-01.html"
     ]
   }
 ]
