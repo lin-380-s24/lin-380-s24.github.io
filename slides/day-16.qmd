@@ -4,30 +4,398 @@ subtitle: "Prepare and enrich datasets"
 date: "2024-03-20"
 categories: [data, information, tidy-data, data-transformation, regular-expressions, datasets, stringr, purrr, tidyr, readr, fs]
 webr:
+  channel-type: "shared-array-buffer"
   show-startup-message: false
-  packages: ['dplyr', 'fs', 'readr', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tibble']
+  packages: ['dplyr', 'fs', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tidytext', 'tokenizers', 'udpipe', 'rsyntax', textdata, kaggler]
   message: false
 draft: true
 ---
 
 ## Overview
 
-- Enhancing datasets
-- Regular expressions
-- String manipulation
-- Tidy data
-- Data transformation
+:::: {.columns}
+::: {.column width="40%"}
 
-## Enhancing datasets
+Preparation
 
-- **Data transformation** is the process of converting data from one format or structure into another format or structure.
+- Normalization
+- Tokenization
 
-- **Data enrichment** is the process of enhancing datasets with additional information.
+Enrichment
 
-## Regular expressions
+- Recoding
+- Generation
+- Integration
+:::
 
-- **Regular expressions** are a powerful tool for matching and manipulating strings.
+::: {.column width="60%"}
+![](images/ud-transformations.drawio.png)
+:::
+::::
+
+```{webr-r}
+#| context: setup
+
+sent_df <- tibble(
+  doc_id = 1:5,
+  text = c(
+    "This sentence    has inconsistent whitespace.",
+    "Does this sentence.have non-sentence punctuation?",
+    "This sentence has an abbreviation i.e. an abbr.",
+    "THIS SENTENCE IS IN ALL CAPS.",
+    "[Non-text annotation]: This is a sentence."
+  )
+)
+```
+
+## Process
+
+![The Big Picture](images/qtal-big-picture.png)
+
+![](images/you-are-here.drawio.png){.absolute top=50 right=500}
+
+# Preparation
+
+## Normalization {.smaller}
+
+**Sanitize and standardize:** Removing artififacts, coding anomalies, and other inconsistencies.
+
+| Description | Examples |
+|:---|:---|
+| Non-speech annotations | `(Abucheos)`, `(A4-0247/98)`, `(The sitting was opened at 09:00)` |
+| Inconsistent whitespace | `5 % ,`, <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>, `Palacio' s` |
+| Non-sentence punctuation | ` - ` |
+| Abbreviations | `Mr.`, `Sr.`, `Mme.`, `Mr`, `Sr`, `Mme`, `Mister`, `Señor`, `Madam` |
+| Text case | `The`, `the`, `White`, `white` |
+
+: Characteristics of the Europarl Corpus dataset that may require normalization. {#tbl-td-europarl-normalization tbl-colwidths="[30, 70]" .sm .striped}
+
+:::{.aside}
+The `stringr` [@R-stringr] package is popular for string manipulation tasks.
+:::
+
+## Normalizing: example {.smaller}
+
+```{webr-r}
+# View the `df` tibble
+sent_df
+
+```
+
+:::{.notes}
+```r
+sent_df
+str_view(sent_df$text, pattern = "\\s{2,}")
+str_view(sent_df$text, "\\w\\.\\b")
+str_view(sent_df$text, "^\\[.*?\\]")
+
+sent_df |>
+  mutate(
+    text = str_replace_all(text, "\\s{2,}", " "),
+    text = str_replace_all(text, "(\\w)\\.(\\w)", "\\1 \\2"),
+    text = str_remove(text, "^\\[.*\\]:\\s"),
+    text = str_to_sentence(text)
+  )
+```
+:::
+
+## Tokenization {.smaller}
+
+**Change linguistic unit:** larger, smaller, or groupings.
+
+> It was the esscence of life itself.
+
+| Description | Examples |
+|:---|:---|
+| Unigrams | `It`, `was`, `the`, `essence`, `of`, `life`, `itself` |
+| Bigrams | `It was`, `was the`, `the essence`, `essence of`, `of life`, `life itself` |
+| Trigrams | `It was the`, `was the essence`, `the essence of`, `essence of life`, `of life itself` |
+
+: Word tokens {#tbl-td-word-tokens .sm .striped tbl-colwidths="[10, 90]"}
+
+:::{.aside}
+The `tidytext` [@R-tidytext] and `tokenizers` [@R-tokenizers] packages are popular for tokenization tasks.
+:::
+
+## Tokenization {.smaller}
+
+**Change linguistic unit:** larger, smaller, or groupings.
+
+> It was the esscence of life itself.
+
+| Description | Examples |
+|:---|:---|
+| Unigrams | `I`, `t`, `w`, `a`, `s`, `t`, `h`, `e`, `e`, `s`, `s`, `e`, `n`, `c`, `e`, `o`, `f`, `l`, `i`, `f`, `e`, `i`, `t`, `s`, `e`, `l`, `f` |
+| Bigrams | `It`, `tw`, `as`, `th`, `e_`, `es`, `se`, `en`, `nc`, `ce`, `of`, `f_`, `li`, `if`, `fe`, `ei`, `it`, `ts`, `se`, `el`, `lf` |
+| Trigrams | `It_`, `was`, `the`, `ess`, `enc`, `eof`, `lif`, `e_i`, `tse`, `lfi`, `tse`, `lf` |
+
+: Character tokens {#tbl-td-char-tokens .sm .striped tbl-colwidths="[10, 90]"}
 
 
+**Note:** It is also possible to reconstruct the larger tokens from the smaller ones (*i.e* words from characters, sentences from words).
+
+## Tokenization: case {.smaller}
+
+Consider the following paragraph:
+
+> "As the sun dipped below the horizon, the sky was set ablaze with shades of orange-red, illuminating the landscape. It's a sight Mr. Johnson, a long-time observer, never tired of. On the lakeside, he'd watch with friends, enjoying the ever-changing hues—especially those around 6:30 p.m.—and reflecting on nature's grand display. Even in the half-light, the water's glimmer, coupled with the echo of distant laughter, created a timeless scene. The so-called 'magic hour' was indeed magical, yet fleeting, like a well-crafted poem; it was the essence of life itself."
+
+What text conventions would pose issues for word tokenization based on a whitespace critieron?
+
+```{webr-r}
+#| context: setup
+
+para_df <- tibble(
+  doc_id = 1,
+  text = "As the sun dipped below the horizon, the sky was set ablaze with shades of orange-red, illuminating the landscape. It's a sight Mr. Johnson, a long-time observer, never tired of. On the lakeside, he'd watch with friends, enjoying the ever-changing hues—especially those around 6:30 p.m.—and reflecting on nature's grand display. Even in the half-light, the water's glimmer, coupled with the echo of distant laughter, created a timeless scene. The so-called 'magic hour' was indeed magical, yet fleeting, like a well-crafted poem; it was the essence of life itself."
+)
+```
+
+## Tokenization: example {.smaller}
+
+```{webr-r}
+# View `para_df`
+para_df
+```
+
+:::{.notes}
+```r
+para_df
+
+# `tokenizers` package
+args(tokenize_words)
+
+tokenize_words(para_df$text)
+tokenize_sentences(para_df$text)
+
+# Manually nest/ unnest
+para_df |>
+  mutate(
+    sents = tokenize_sentences(text)
+  ) |>
+  unnest(cols = sents) |>
+  select(doc_id, sents)
+
+# `tidytext` package
+args(unnest_tokens)
+
+# Unnesting by words
+para_df |>
+  unnest_tokens(token, text) |>
+  pull(token)
+
+# Unnesting by sentences
+para_df |>
+  unnest_tokens(token, text, token = "sentences") |>
+  pull(token)
+```
+:::
+
+```{webr-r}
+#| context: setup
+
+# Tokenize by sentences (but adjust for sentence-internal punctuation)
+sent_df <-
+  para_df |>
+  mutate(
+    text = str_replace_all(text, "[r]\\.", "r"),
+    text = str_replace_all(text, "p\\.m\\.(.)", "pm \\1"),
+    # sents = tokenize_sentences(text),
+    sents = tokenize_regex(text, "(?<=[;.])\\s")
+  ) |>
+  unnest(cols = sents) |>
+  select(doc_id, text = sents) |>
+  mutate(
+    text = str_replace(text, "^[a-z]", toupper(str_sub(text, 1, 1)))
+  ) |>
+  # Add sentence number, to avoid paragraph-level confusion
+  mutate(
+    doc_id = row_number()
+  )
+
+```
+
+# Enrichment
+
+## Generation
+
+**Derive attributes:** from implicit information in the dataset.
+
+- Lemmatization
+- Part-of-speech tagging
+- Morphological analysis
+- Named entity recognition
+- Sentiment analysis
+- Dependency parsing
+- ...
+
+:::{.aside}
+The `udpipe` package [@R-udpipe] is a popular package for natural language processing tasks.
+:::
+
+## Generation: example {.smaller}
+
+- Part-of-speech tagging, lemmatization, and morphological analysis
+
+```{webr-r}
+#| context: setup
+
+# Set up `udpipe` model for English
+library(udpipe)
+
+en_mdl <- udpipe_download_model(language = "english", udpipe_model_repo = "bnosac/udpipe.models.ud")
+
+en_mdl <- udpipe_load_model(en_mdl$file_model)
+
+```
+
+```{webr-r}
+# View the `sent_df` tibble
+sent_df
+
+# `udpipe` package for POS, lemma, and morph feats
+
+```
+
+:::{.notes}
+```r
+
+# Full annotation
+sent_ann <-
+  udpipe(x = sent_df, object = en_mdl) |>
+  as_tibble()
+
+# Part-of-speech tagging
+sent_tok <-
+  udpipe_annotate(
+    object = en_mdl,
+    x = sent_df$text,
+    tagger = "default",
+    parser = "none") |>
+    as_tibble()
+```
+:::
+
+## Recoding
+
+**Recast values:** to make explicit more accessible.
+
+*a different grouping, scale, or measure*
+
+- Type: Numeric > ordinal > categorical
+
+- Scale:
+  - Logarithmic transformation
+  - Standardization
+
+- Measures: Results from a calculation
+
+```{webr-r}
+#| context: setup
+
+# Part-of-speech tagging
+sent_tok <-
+  udpipe_annotate(
+    object = en_mdl,
+    x = sent_df$text,
+    tagger = "default",
+    parser = "none") |>
+    as_tibble() |>
+    select(doc_id, sentence_id, token_id, token, lemma, upos, xpos, feats)
+```
+
+## Recoding: example {.smaller}
+
+```{webr-r}
+# View `sent_tok`
+sent_tok
+
+
+```
+
+::: {.notes}
+```r
+# Recode `feats` to `tense`
+sent_tok_tense <-
+  sent_tok |>
+  mutate(
+    tense = case_when(
+      str_detect(feats, "Tense=Past") ~ "Past",
+      str_detect(feats, "Tense=Pres") ~ "Present",
+      TRUE ~ "other"
+    )
+  )
+```
+:::
+
+## Integration
+
+**Juxapose datasets:** to create a new dataset.
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Join**: to add columns or rows based on a common key.
+- **Concatenate**: to add rows to a common set of columns.
+:::
+
+::: {.column width="50%"}
+
+![](images/integration-join-visual.drawio.png){.absolute top=135 right=200}
+
+![](images/integration-concat-visual.drawio.png){.absolute top=350 right=220}
+
+:::
+::::
+
+::: {.aside}
+The `dplyr` [@R-dplyr] package has a number of `*_join` and `*_bind` functions for integration tasks.
+:::
+
+
+```{webr-r}
+#| context: setup
+
+# Create the tokenized dataset
+doc_id <- c(rep(1, 31))
+sent_id <- c(rep(1, 5), rep(2, 8), rep(3, 8), rep(4, 10))
+token <- c("The", "movie", "was", "fantastic", "!", "I", "loved", "the", "acting", "and", "the", "storyline", ".", "However", ",", "the", "ending", "was", "a", "bit", "disappointing", ".", "Overall", ",", "it", "was", "a", "great", "movie", "experience", ".")
+lemma <- c("the", "movie", "be", "fantastic", "!", "I", "love", "the", "acting", "and", "the", "storyline", ".", "however", ",", "the", "ending", "be", "a", "bit", "disappointing", ".", "overall", ",", "it", "be", "a", "great", "movie", "experience", ".")
+
+tokens_tbl <- data.frame(doc_id, sent_id, token, lemma)
+
+# Create the sentiment lexicon
+word <- c("fantastic", "loved", "great", "good", "okay", "bad", "horrible", "amazing", "excellent", "disappointing", "terrible", "awesome", "boring", "exciting", "dull", "interesting", "hate", "like", "love", "average", "wonderful", "enjoyable", "poor", "brilliant", "fascinating", "engaging", "monotonous", "thrilling", "captivating", "superb")
+score <- c(3, 3, 2, 1, 0, -1, -3, 3, 2, -2, -3, 3, -2, 2, -1, 1, -3, 1, 3, 0, 3, 2, -2, 3, 2, 2, -2, 3, 3, 3)
+
+sentiment_tbl <- data.frame(word, score)
+```
+
+## Joining: example {.smaller .scrollable}
+
+- Sentiment lexicon
+
+```{webr-r}
+# View the `tokens_tbl` tibble
+tokens_tbl
+
+# View the `sentiment_tbl` tibble
+sentiment_tbl
+
+```
+
+## Concatenating: example {.smaller}
+
+- Two populations
+
+```{webr-r}
+
+```
+
+## Final thoughts
+
+- Transformation is a critical step in the data analysis process.
+- It builds on the curated dataset to create one or more datasets that are more in-line with the analysis goals.
+- It is a process that is iterative.
+- Diagnostics and validation are important to apply as you go along.
 
 ## References
