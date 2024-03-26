@@ -16,7 +16,7 @@
   <meta name="generator" content="quarto-1.4.552">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Text analysis in context</title>
+  <title>Quantitative Text Analysis - Explore</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -349,18 +349,14 @@
       margin-right: 0; 
     }
   </style>
-  <meta name="mermaid-theme" content="default">
-  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Text analysis in context</h1>
-  <p class="subtitle">Where science, data, and linguistics meet.</p>
+  <h1 class="title">Explore</h1>
+  <p class="subtitle"></p><p>“The data speaks for itself, but only if you are willing to listen. - Nate Silver”</p><p></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -370,230 +366,168 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Jan 24, 2024</p>
+  <p class="date">Mar 27, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
-<blockquote>
-<p>“Everything about science is changing because of the impact of information technology and the data deluge.”<br>
-- Jim Gray</p>
-</blockquote>
-<div class="columns">
-<div class="column" style="width:60%;">
 <ul>
-<li>Science</li>
-<li>Data science</li>
-<li>Text analysis</li>
-<li>The plan</li>
+<li>Orientation</li>
+<li>Descriptive analysis</li>
+<li>Unsupervised learning</li>
 </ul>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/data-deluge.jpg" class="absolute" style="top: 250px; right: 90px; width: 35%; "></p>
+<p><img data-src="images/fig-eda-masc-vsm-word2vec-manner-motion-compare-1.png" class="absolute" style="top: 320px; right: 10px; width: 550px; "></p>
+<p><img data-src="images/fig-eda-masc-verb-part-network-1.png" class="absolute" style="top: 50px; right: 50px; width: 475px; "></p>
+</section>
+<section class="slide level2">
+<h2>Process</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/qtal-big-picture.png"></p>
+<figcaption>The Big Picture</figcaption>
+</figure>
 </div>
-</div>
+<p><img data-src="images/you-are-here.drawio.png" class="absolute" style="top: 50px; right: 400px; "></p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Science</h1>
+<h1>Orientation</h1>
 
 </section>
 <section class="slide level2">
-<h2>Why science?</h2>
+<h2>Exploratory data analysis</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p>Humans are inherently limited in their ability to understand the world as it is. In what ways?</p>
+<div class="column" style="width:33%;">
+<p><strong>Goals</strong></p>
 <ul>
-<li class="fragment">Our individual experiences are limited and not representative of the whole.</li>
-<li class="fragment">Our cognition is not free from bias. Memory and recall are not perfect.</li>
+<li>Discover patterns</li>
+<li>Describe emerging relationships</li>
+<li>Posit hypotheses</li>
 </ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/human-limits.jpg" class="quarto-figure quarto-figure-center"></p>
+</div><div class="column" style="width:33%;">
+<p><strong>When to use</strong></p>
+<ul>
+<li>Literature is scarce</li>
+<li>Gap in knowledge is wide</li>
+<li>New territory</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>How to use</strong></p>
+<ul>
+<li>Identify, Inspect, Interrogate, Interpret</li>
+<li>Iterative process
+<ul>
+<li>Update: unit of observation, variables, methods</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Descriptive analysis</h1>
+
+</section>
+<section class="slide level2">
+<h2>Frequency analysis: what is it?</h2>
+<p>Simply put, its counting tokens.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 60%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Raw frequency</td>
+<td>Number of occurrences of a token within a corpus</td>
+<td><p><i class="fa-solid fa-arrows-up-down" aria-label="arrows-up-down"></i></p></td>
+</tr>
+<tr class="even">
+<td>Dispersion</td>
+<td>Distribution of a token across a corpus</td>
+<td><p><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i></p></td>
+</tr>
+<tr class="odd">
+<td>Relative frequency</td>
+<td>Proportion of a token in relation to the total number of tokens in a corpus</td>
+<td><p><i class="fa-solid fa-arrow-down-up-across-line" aria-label="arrow-down-up-across-line"></i></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>What can a frequency analysis tell us?</h2>
+<ul>
+<li>Varying usage and distributin of tokens can signal:
+<ul>
+<li>Different populations of speakers</li>
+<li>Different topics, genres, registers, etc.</li>
+<li>Cognitive processes (entrenchment, salience)</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Things to consider</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Tokenization</li>
+<li>Operationalization</li>
+<li>Zipf distribution</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="fig-zipf-distribution" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-zipf-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-zipf-distribution" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-zipf-distribution-1" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-zipf-distribution-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-zipf-distribution-1.png" data-ref-parent="fig-zipf-distribution" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-zipf-distribution-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Original
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-zipf-distribution" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-zipf-distribution-2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-zipf-distribution-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-zipf-distribution-2.png" data-ref-parent="fig-zipf-distribution" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-zipf-distribution-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Log-transformed
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>What is science?</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>A process for understanding the world as it is.</p>
-<ul>
-<li>Systematic</li>
-<li>Meticulous</li>
-<li>Replicable</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p>Scientific workflow</p>
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  subgraph Science
-    direction TB
-    B[Question] --&gt; C&gt;Collect data]
-    C --&gt; D&gt;Analyze data]
-    D --&gt; E&gt;Interpret results]
-    E --&gt; F[Report]
-  end
-  A((Observation)) --&gt; Science --&gt; G((Insight))
-</pre>
 </div>
-<p></p></figure><p></p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zipf-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Zipf distribution (N = 100)
+</figcaption>
+</figure>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Data science</h1>
-
-</section>
-<section class="slide level2">
-<h2>Emergence</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Computing power</li>
-<li>Data availability</li>
-<li>Data storage</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Data science workflow</p>
-<div class="cell" data-reveal="true" data-fig-height="5" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  subgraph two ["Data science"]
-    direction TB
-    C --&gt; C1(Diverse sources) --&gt; C2
-    C2[(Data storage)] --&gt; D
-    D --&gt; D1{Algorithms} --&gt; E
-    subgraph one [Science]
-      direction TB
-      B[Question] --&gt; C&gt;Collect data]
-      C .-&gt; D&gt;Analyze data]
-      D .-&gt; E&gt;Interpret results]
-      E --&gt; F[Report]
-    end
-  end
-  A((Observation)) --&gt; two --&gt; G((Insight))
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>The data science toolbelt</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li>Computing:<br>
-execute the research process</li>
-<li>Statistics:<br>
-identifying patterns</li>
-<li>Domain knowledge:<br>
-understanding the context</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/ta-ds-venn.drawio.png"></p>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Ubiquity</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Professional</strong></p>
-<ul>
-<li>Business</li>
-<li>Medicine</li>
-<li>Government</li>
-<li>Law</li>
-<li>Journalism</li>
-<li><em>etc.</em></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Academic</strong></p>
-<ul>
-<li>Formal sciences</li>
-<li>Natural sciences</li>
-<li>Social sciences</li>
-<li>Humanities</li>
-<li><em>etc.</em></li>
-</ul>
-</div>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Text analysis</h1>
-
-</section>
-<section class="slide level2 smaller">
-<h2>Language research</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<div class="cell" data-reveal="true" data-fig-width="100%" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A[Methods] --&gt; B[Qualitative]
-  B ----&gt; B1[Ethnolinguistics]
-  B ----&gt; B2[Discourse analysis]
-  A --&gt; C[Quantitative]
-  C --&gt; D[Experimental]
-  D ----&gt; D1[Psycholinguistics]
-  D ----&gt; D2[Phonetics]
-  C --&gt; E[Observational]
-  E ----&gt; E1[Computational linguistics]
-  E ----&gt; E2[Corpus linguistics]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:30%;">
-<p><strong>Text analysis</strong> the process of extracting information from observed language data.</p>
-<p>It can be used as a tool for research or a method of inquiry in its own right.</p>
-</div>
-</div>
-<div class="fragment fade-up">
-<p>We will approach text analysis as a method of inquiry.</p>
-</div>
-</section>
-<section class="slide level2 smaller">
-<h2>Cases</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><span class="citation" data-cites="Bychkovska2017">Bychkovska and Lee (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> investigates possible differences between L1-English and L1-Chinese undergraduate students’ use of lexical bundles, multiword sequences which are extended collocations (<em>i.e.</em> as the result of), in argumentative essays. The authors used the Michigan Corpus of Upper-Level Student Papers (MICUSP) corpus using the argumentative essay section for L1-English and the Corpus of Ohio Learner and Teacher English (COLTE) for the L1-Chinese English essays. They found that L1-Chinese writers used more than 2 times as many bundle types than L1-English peers which they attribute to L1-Chinese writers attempt to avoid uncommon expressions and/or due to their lack of register awareness (conversation has more bundles than writing, generally).</p>
-</div><div class="column" style="width:40%;">
-<p><strong>Questions</strong></p>
-<ul>
-<li>What is the area of research?</li>
-<li>What is the research question?</li>
-<li>What is the data?</li>
-<li>What is the method?</li>
-<li>What is the finding?</li>
-</ul>
 </div>
 </div>
 <aside class="notes">
-<p>L2 writing. Are there differences between L1 and L2 writers in the use of lexical bundles in argumentative essays? MICUSP (L1 English) and COLTE (L1 Chinese) corpora. 2x as many bundle types in L1 Chinese English.</p>
+<ul>
+<li>Define what constitutes a token</li>
+<li>Balancing frequency and importance</li>
+<li>Zipf distribution: a small number of tokens are very frequent, while the majority are rare</li>
+<li>Log-transformed data can help decompress the distribution</li>
+<li>Zipf’s law: the frequency of a token is inversely proportional to its rank</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -606,24 +540,66 @@ understanding the context</li>
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2 smaller">
-<h2>Cases</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><span class="citation" data-cites="Olohan2008">Olohan (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> investigate the extent to which translated texts differ from native texts. In particular the author explores the notion of explicitation in translated texts (the tendency to make information in the source text explicit in the target translation). The study makes use of the Translational English Corpus (TEC) for translation samples and comparable sections of the British National Corpus (BNC) for the native samples. The results suggest that there is a tendency for syntactic explicitation in the translational corpus (TEC) which is assumed to be a subconscious process employed unwittingly by translators.</p>
-</div><div class="column" style="width:40%;">
-<p><strong>Questions</strong></p>
+<section class="slide level2">
+<h2>Co-occurrence analysis: what is it?</h2>
+<p>Identify patterns of association between tokens</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 60%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n-grams</td>
+<td>Sequence of n tokens</td>
+<td><p><i class="fa-solid fa-ellipsis" aria-label="ellipsis"></i></p></td>
+</tr>
+<tr class="even">
+<td>Collocation</td>
+<td>Tokens that frequently co-occur</td>
+<td><p><i class="fa-solid fa-street-view" aria-label="street-view"></i></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>What can a co-occurrence analysis tell us?</h2>
+<p>Patterns of association between tokens can signal:</p>
 <ul>
-<li>What is the area of research?</li>
-<li>What is the research question?</li>
-<li>What is the data?</li>
-<li>What is the method?</li>
-<li>What is the finding?</li>
+<li>Grammatical structures</li>
+<li>Semantic relationships</li>
+<li>Formulaic/ Idomatic expressions</li>
 </ul>
-</div>
-</div>
+</section>
+<section class="slide level2">
+<h2>Things to consider</h2>
+<ul>
+<li>Operationalization</li>
+<li>Context window</li>
+<li>Measures of association
+<ul>
+<li>Pointwise mutual information</li>
+<li>Log-likelihood ratio</li>
+</ul></li>
+</ul>
 <aside class="notes">
-<p>Translation studies. Do translated texts differ from native texts? TEC (translated) and BNC (native) corpora. Syntactic explicitation in translated texts.</p>
+<ul>
+<li>Define what type of association you are interested in</li>
+<li>Context window: the number of tokens before and after the target token</li>
+<li>Measures trade-offs:
+<ul>
+<li>PMI: strong and frequent associations, sensitive to rare tokens</li>
+<li>LLR: unexpected and rare associations.</li>
+</ul></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -635,145 +611,346 @@ understanding the context</li>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section class="slide level2 smaller">
-<h2>Other cases?</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><img data-src="images/student-thinking.jpg" style="width:50.0%"></p>
-<p>Brainstorm some ideas you may have in which text analysis could be used as a method of inquiry.</p>
-</div><div class="column" style="width:40%;">
-<p><strong>Questions to consider</strong></p>
-<ul>
-<li>What is the area of research?</li>
-<li>What is the research question?</li>
-<li>What is the data?</li>
-<li>What is the method?</li>
-<li>What is the finding?</li>
-</ul>
-</div>
-</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The plan</h1>
+<h1>Unsupervised learning</h1>
 
 </section>
-<section class="slide level2 smaller">
-<h2>The plan</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><img data-src="images/p-diki.drawio.png"></p>
-</div><div class="column" style="width:45%;">
-<blockquote>
-<p><strong>Foundations</strong><br>
-Establish a fundamental understanding of the characteristics of each of the levels in the “Data, Information, Knowledge, and Insight Hierarchy (DIKI)”</p>
-</blockquote>
-</div>
-</div>
-<!--  vectors, data frames, functions, packages, summaries, and plots
-
- Quarto, Markdown, YAML, code blocks, citations, and cross-references, and RStudio projects
-
- repos, cloning, edits, and commits -->
-<p>You will be able to <span class="rn">read, write, and manipulate text data</span> in R including creating statistical summary tables and plots. You will also have the foundational skills to <span class="rn">frame research questions and design studies</span> that use text analysis.</p>
+<section class="slide level2">
+<h2>Clustering: what is it?</h2>
+<p>Bottom-up approach to grouping similar data points</p>
+<table>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 56%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>K-means</td>
+<td>Partition data into k clusters</td>
+<td><p><i class="fa-solid fa-circle-nodes" aria-label="circle-nodes"></i></p></td>
+</tr>
+<tr class="even">
+<td>Hierarchical clustering</td>
+<td>Build a tree of clusters</td>
+<td><p><i class="fa-solid fa-sitemap" aria-label="sitemap"></i></p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section class="slide level2 smaller">
-<h2>The plan</h2>
+<section class="slide level2">
+<h2>What can clustering tell us?</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
-<p><img data-src="images/p-diki.drawio.png"></p>
-</div><div class="column" style="width:45%;">
-<blockquote>
-<p><strong>Preparation</strong><br>
-Implement data acquistion, curation, and transformation steps.</p>
-</blockquote>
-</div>
-</div>
-<!--  control statments, regular expressions, custom functions, and shaping and reshaping datasets by rows and columns.
-
- Reproducible projects, data documentation, reusing code, and project organization
-
- forking, pushing, issues, and pulling -->
-<p>You will be able to <span class="rn">acquire, curate, and transform text data</span> in R. You will also have the skills to <span class="rn">design and implement data collection procedures</span> for text analysis.</p>
-</section>
-<section class="slide level2 smaller">
-<h2>The plan</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><img data-src="images/p-diki.drawio.png"></p>
-</div><div class="column" style="width:45%;">
-<blockquote>
-<p><strong>Analysis</strong><br>
-Perform analysis of datasets, the evaluation of results, and the interpretation of the findings for exploratory, predictive, and inferential purposes.</p>
-</blockquote>
-</div>
-</div>
-<!--  lists, matrices, advanced plotting, and advanced summary tables
-
- freezing, caching, and parallel processing
-
- branching, merging, and pull requests -->
-<p>You will be able to <span class="rn">analyze text data</span> in R and interpret findings in context. You will also have the skills to <span class="rn">design, implement, and critique data analysis procedures</span> for text analysis.</p>
-</section>
-<section class="slide level2 smaller">
-<h2>The plan</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><img data-src="images/p-diki.drawio.png"></p>
-</div><div class="column" style="width:45%;">
-<blockquote>
-<p><strong>Communication</strong><br>
-Demonstrate the presentation of research either as a prospectus of a viable research plan (prospectus) or as a implemented research project (final project).</p>
-</blockquote>
-</div>
-</div>
-<!--  reproducible environments
-
- reproducible reports, presentations, and websites
-
- publishing, actions, and continuous integration -->
-<p>You will be able to <span class="rn">communicate research findings</span> in a reproducible manner. You will also have the skills to <span class="rn">create and share reproducible computing environments</span> for data analysis projects.</p>
-</section>
-<section class="slide level2 smaller">
-<h2>Final thoughts</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:40%;">
 <ul>
-<li><strong>Science</strong> is a process for understanding the world as it is.</li>
-<li><strong>Data science</strong> enhances science using computing, statistics, and domain knowledge.</li>
-<li><strong>Text analysis</strong> employs data science to extract and analyze information from observed language usage.</li>
+<li>Patterns of similarity/ dissimilarity</li>
+<li>Number of groups</li>
+<li>Homogeneity within groups</li>
+<li>Heterogeneity between groups</li>
 </ul>
-<p>This course is designed to provide you with the skills to use text analysis as a method of inquiry.</p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/data-deluge.jpg"></p>
+</div><div class="column" style="width:60%;">
+<div id="fig-kmeans-hclust-examples" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-kmeans-hclust-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kmeans-hclust-examples" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kmeans-hclust-examples-1" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-kmeans-hclust-examples-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-kmeans-hclust-examples-1.png" data-ref-parent="fig-kmeans-hclust-examples" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kmeans-hclust-examples-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) K-means
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kmeans-hclust-examples" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kmeans-hclust-examples-2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-kmeans-hclust-examples-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-kmeans-hclust-examples-2.png" data-ref-parent="fig-kmeans-hclust-examples" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kmeans-hclust-examples-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Hierarchical clustering
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeans-hclust-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Examples of K-means and hierarchical clustering
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 
 <aside><div>
-<p><strong>Next time:</strong><br>
-We will discuss <a href="https://qtalr.github.io/qtalrkit/articles/recipe-1.html">Recipe 1 “Academic writing with Quarto”</a> and work on <a href="https://github.com/qtalr/lab-01">Lab 01</a>“<br>
-<strong>Remember:</strong><br>
-Do readings and use Hypothes.is to socially annotate the readings. This helps us generate discussion that we can pick up in class.</p>
-</div></aside></section></section>
-<section class="title-slide slide level1 smaller scrollable" id="references">
-<h1>References</h1>
+<p>The <code>factoextra</code> package <span class="citation" data-cites="R-factoextra">(<a href="#/references" role="doc-biblioref" onclick="">Kassambara and Mundt 2020</a>)</span> provides functions to visualize clustering results.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Things to consider</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Previous knowledge</li>
+<li>Number of clusters</li>
+<li>Distance metric (Heirarchical clustering)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/fig-eda-masc-pos-kmeans-elbow-1.png"></p>
+</div>
+</div>
+
+<aside class="notes">
+<ul>
+<li>Previous knowledge can help determine the number of clusters to compare to</li>
+<li>The elbow method can help determine the optimal number of clusters</li>
+<li>Distance metrics:
+<ul>
+<li>Cosine similarity: measures the cosine of the angle between two vectors (reduces the effect of magnitude, in Zipfian distribution cases)</li>
+<li>Euclidean distance: straight-line distance between two points</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>The <code>proxy</code> package <span class="citation" data-cites="R-proxy">(<a href="#/references" role="doc-biblioref" onclick="">Meyer and Buchta 2022</a>)</span> provides a <code>dist()</code> function which includes the cosine distance metric which is useful for Zipfian distribution cases.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Dimensionality reduction: what is it?</h2>
+<p>Operation to reduce the number of variables in a dataset, while preserving as much information as possible</p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 60%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PCA</td>
+<td>Linear transformation to reduce dimensionality</td>
+<td><i class="fa-solid fa-person-walking-arrow-right" aria-label="person-walking-arrow-right"></i> <i class="fa-solid fa-table" aria-label="table"></i></td>
+</tr>
+<tr class="even">
+<td>t-SNE</td>
+<td>Non-linear transformation to visualize high-dimensional data</td>
+<td><i class="fa-solid fa-person-walking-arrow-loop-left" aria-label="person-walking-arrow-loop-left"></i> <i class="fa-solid fa-table" aria-label="table"></i></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>What can dimensionality reduction tell us?</h2>
+<ul>
+<li>How variables are related</li>
+<li>How redundant variables are</li>
+<li>Identify dimensions that explain the most variance</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Things to consider</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Interpretability</li>
+<li>Number of dimensions</li>
+<li>Overfitting/ Underfitting</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div id="fig-kmeans-with-and-without-pca" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-kmeans-with-and-without-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kmeans-with-and-without-pca" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kmeans-with-and-without-pca-1" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-kmeans-with-and-without-pca-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-kmeans-with-and-without-pca-1.png" data-ref-parent="fig-kmeans-with-and-without-pca" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kmeans-with-and-without-pca-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Without PCA
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kmeans-with-and-without-pca" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kmeans-with-and-without-pca-2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-kmeans-with-and-without-pca-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="day-18_files/figure-revealjs/fig-kmeans-with-and-without-pca-2.png" data-ref-parent="fig-kmeans-with-and-without-pca" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kmeans-with-and-without-pca-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) With PCA
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeans-with-and-without-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: K-means clustering with and without PCA
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+<aside class="notes">
+<ul>
+<li>Interpretability: is the reduced dimensionality still interpretable?</li>
+<li>Number of dimensions: how many dimensions are needed to explain the most variance?</li>
+<li>Overfitting: is the model too complex? Can it generalize to new data? PCA can help reduce overfitting, but may lead to underfitting.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p><code>factoextra</code> also provides functions to visualize PCA results.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Word embeddings: what is it?</h2>
+<p>Use of distributed representations of words in a continuous vector space where words with similar contextual distributions are closer together</p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 60%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Word2Vec</td>
+<td>Popular word embedding model</td>
+<td><i class="fa-solid fa-street-view" aria-label="street-view"></i> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <i class="fa-solid fa-layer-group" aria-label="layer-group"></i></td>
+</tr>
+<tr class="even">
+<td>GloVe</td>
+<td>Global vectors for word representation</td>
+<td><i class="fa-solid fa-street-view" aria-label="street-view"></i> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <i class="fa-solid fa-layer-group" aria-label="layer-group"></i></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 0.5em;">Note: word embedding models are highly contingent on the size of the corpus, the algorithm used, and parameters set.</span></p>
+
+<aside><div>
+<p>The <code>word2vec</code> package <span class="citation" data-cites="R-word2vec">(<a href="#/references" role="doc-biblioref" onclick="">Wijffels and Watanabe 2023</a>)</span> provides functions to train and use Word2Vec models.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>What can word embeddings tell us?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Semantic relationships between words</li>
+<li>Grammatical relationships between words</li>
+<li>Analogies between words</li>
+<li>Clustering of words based on context</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/fig-eda-masc-vsm-word2vec-manner-motion-compare-1.png"></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Things to consider</h2>
+<ul>
+<li>Context window</li>
+<li>Number of dimensions</li>
+<li>Pre-trained models vs.&nbsp;training your own model</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Context window: the number of tokens before and after the target token</li>
+<li>Number of dimensions: how many dimensions are needed to explain the most variance?</li>
+<li>Training data: pre-trained models are useful for general tasks, but training your own model can be more specific to your data (size of the corpus, domain-specific vocabulary)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Wrap-up</h1>
+
+</section>
+<section class="slide level2">
+<h2>Final thoughts</h2>
+<ul>
+<li>Exploratory data analysis covers a wide range of methods and techniques.</li>
+<li>Of the three approaches we will cover, it requires the most creativity and flexibility.</li>
+<li>The evaluative process is iterative and associative, and the results are often open to interpretation.</li>
+</ul>
+</section>
+<section class="slide level2 smaller scrollable" id="references">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Text analysis in context | Quantitative Text Analysis | Wake Forest University</p>
+<p>Explore | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Bychkovska2017" class="csl-entry" role="listitem">
-Bychkovska, Tetyana, and Joseph J. Lee. 2017. <span>“At the Same Time: Lexical Bundles in L1 and L2 University Student Argumentative Writing.”</span> <em>Journal of English for Academic Purposes</em> 30 (November): 38–52. <a href="https://doi.org/10.1016/j.jeap.2017.10.008">https://doi.org/10.1016/j.jeap.2017.10.008</a>.
+<div id="ref-R-factoextra" class="csl-entry" role="listitem">
+Kassambara, Alboukadel, and Fabian Mundt. 2020. <em>Factoextra: Extract and Visualize the Results of Multivariate Data Analyses</em>. <a href="https://CRAN.R-project.org/package=factoextra">https://CRAN.R-project.org/package=factoextra</a>.
 </div>
-<div id="ref-Olohan2008" class="csl-entry" role="listitem">
-Olohan, Maeve. 2008. <span>“Leave It Out! Using a Comparable Corpus to Investigate Aspects of Explicitation in Translation.”</span> <em>Cadernos de Tradu<span>ç</span><span>ã</span>o</em>, 153–69.
+<div id="ref-R-proxy" class="csl-entry" role="listitem">
+Meyer, David, and Christian Buchta. 2022. <em>Proxy: Distance and Similarity Measures</em>. <a href="https://CRAN.R-project.org/package=proxy">https://CRAN.R-project.org/package=proxy</a>.
+</div>
+<div id="ref-R-word2vec" class="csl-entry" role="listitem">
+Wijffels, Jan, and Kohei Watanabe. 2023. <em>Word2vec: Distributed Representations of Words</em>. <a href="https://CRAN.R-project.org/package=word2vec">https://CRAN.R-project.org/package=word2vec</a>.
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -987,6 +1164,44 @@ Olohan, Maeve. 2008. <span>“Leave It Out! Using a Comparable Corpus to Investi
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

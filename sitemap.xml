@@ -2,130 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lin-380-s24.github.io/guides/getting-started.html</loc>
-    <lastmod>2024-03-20T14:58:10.371Z</lastmod>
+    <lastmod>2024-03-26T18:17:18.134Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/managing-docker-rstudio.html</loc>
-    <lastmod>2024-03-20T14:58:10.907Z</lastmod>
+    <lastmod>2024-03-26T18:17:18.662Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-07.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/slides/day-16.html</loc>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-15.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-13.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-06.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-14.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-01.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-03.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/news.html</loc>
-    <lastmod>2024-03-20T14:58:10.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/guides.html</loc>
-    <lastmod>2024-03-20T14:58:10.183Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/lin380-v.1.2/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.267Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/first-day-hiccups/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.175Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.275Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-01/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/index.html</loc>
-    <lastmod>2024-03-20T14:58:10.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/eulc5/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-03/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-02/index.html</loc>
-    <lastmod>2024-03-20T14:58:11.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/schedule.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lin-380-s24.github.io/slides.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-04.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/slides.html</loc>
+    <lastmod>2024-03-26T18:17:19.210Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/schedule.html</loc>
+    <lastmod>2024-03-26T18:17:19.210Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-02/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-03/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/eulc5/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-00/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.718Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/cool-stuff-lab-01/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/mac-m1-chip-workaround/index.html</loc>
+    <lastmod>2024-03-26T18:17:19.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/first-day-hiccups/index.html</loc>
+    <lastmod>2024-03-26T18:17:18.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/posts/lin380-v.1.2/index.html</loc>
+    <lastmod>2024-03-26T18:17:19.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/guides.html</loc>
+    <lastmod>2024-03-26T18:17:17.946Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/news.html</loc>
+    <lastmod>2024-03-26T18:17:18.718Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lin-380-s24.github.io/slides/day-18.html</loc>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-05.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-10.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-02.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-12.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-09.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-11.html</loc>
-    <lastmod>2024-03-20T14:58:11.467Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/slides/day-08.html</loc>
-    <lastmod>2024-03-20T14:58:11.463Z</lastmod>
+    <lastmod>2024-03-26T18:17:19.214Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/index.html</loc>
-    <lastmod>2024-03-20T14:58:10.963Z</lastmod>
+    <lastmod>2024-03-26T18:17:18.718Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/data-sources.html</loc>
-    <lastmod>2024-03-20T14:58:10.183Z</lastmod>
+    <lastmod>2024-03-26T18:17:17.946Z</lastmod>
   </url>
   <url>
     <loc>https://lin-380-s24.github.io/guides/get-up-with-git.html</loc>
-    <lastmod>2024-03-20T14:58:10.183Z</lastmod>
+    <lastmod>2024-03-26T18:17:17.946Z</lastmod>
   </url>
 </urlset>
