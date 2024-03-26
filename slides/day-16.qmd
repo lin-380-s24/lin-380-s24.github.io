@@ -8,7 +8,6 @@ webr:
   show-startup-message: false
   packages: ['dplyr', 'fs', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tidytext', 'tokenizers', 'udpipe', 'rsyntax', textdata, kaggler]
   message: false
-draft: true
 ---
 
 ## Overview

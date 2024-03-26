@@ -1,0 +1,393 @@
+---
+title: "Explore"
+subtitle: |
+  "The data speaks for itself, but only if you are willing to listen.
+  - Nate Silver"
+date: "2024-03-27"
+categories: [analysis]
+webr:
+  show-startup-message: false
+  packages: ['dplyr', 'fs', 'stringr', 'ggplot2']
+  message: false
+---
+
+## Overview
+
+- Orientation
+- Descriptive analysis
+- Unsupervised learning
+
+![](images/fig-eda-masc-vsm-word2vec-manner-motion-compare-1.png){.absolute top=320 right=10 width=550}
+
+![](images/fig-eda-masc-verb-part-network-1.png){.absolute top=50 right=50 width=475}
+
+## Process
+
+![The Big Picture](images/qtal-big-picture.png)
+
+![](images/you-are-here.drawio.png){.absolute top=50 right=400}
+
+# Orientation
+
+## Exploratory data analysis
+
+:::: {.columns}
+::: {.column width="33%"}
+**Goals**
+
+- Discover patterns
+- Describe emerging relationships
+- Posit hypotheses
+:::
+
+::: {.column width="33%"}
+**When to use**
+
+- Literature is scarce
+- Gap in knowledge is wide
+- New territory
+:::
+
+::: {.column width="33%"}
+**How to use**
+
+- Identify, Inspect, Interrogate, Interpret
+- Iterative process
+  - Update: unit of observation, variables, methods
+:::
+::::
+
+# Descriptive analysis
+
+## Frequency analysis: what is it?
+
+Simply put, its counting tokens.
+
+| Method | Description | |
+|--------|-------------|--|
+| Raw frequency | Number of occurrences of a token within a corpus | {{< fa arrows-up-down >}} |
+| Dispersion | Distribution of a token across a corpus | {{< fa arrows-left-right >}} |
+| Relative frequency | Proportion of a token in relation to the total number of tokens in a corpus | {{< fa arrow-down-up-across-line >}} |
+
+: {tbl-colwidths="[30, 60, 10]"}
+
+## What can a frequency analysis tell us?
+
+- Varying usage and distributin of tokens can signal:
+  - Different populations of speakers
+  - Different topics, genres, registers, etc.
+  - Cognitive processes (entrenchment, salience)
+
+## Things to consider
+
+:::: {.columns}
+::: {.column width="50%"}
+- Tokenization
+- Operationalization
+- Zipf distribution
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: fig-zipf-distribution
+#| fig-cap: Zipf distribution (N = 100)
+#| fig-subcap:
+#|  - Original
+#|  - Log-transformed
+#| layout-ncol: 2
+#| echo: false
+
+library(ggplot2)
+library(dplyr)
+
+# Generate data
+set.seed(123)
+
+zipf_data <- tibble(
+  rank = 1:100,
+  frequency = 1000 / rank
+)
+
+# Plot
+zipf_data |>
+  ggplot(aes(rank, frequency)) +
+  geom_point() +
+  labs(x = "Rank",
+       y = "Frequency")
+
+zipf_data |>
+  ggplot(aes(rank, frequency)) +
+  geom_point() +
+  scale_y_log10() +
+  labs(x = "Rank",
+       y = "Frequency (log)")
+```
+:::
+::::
+
+::: {.notes}
+- Define what constitutes a token
+- Balancing frequency and importance
+- Zipf distribution: a small number of tokens are very frequent, while the majority are rare
+- Log-transformed data can help decompress the distribution
+- Zipf's law: the frequency of a token is inversely proportional to its rank
+:::
+
+## Co-occurrence analysis: what is it?
+
+Identify patterns of association between tokens
+
+| Method | Description | |
+|--------|-------------|--|
+| n-grams | Sequence of n tokens | {{< fa ellipsis >}} |
+| Collocation | Tokens that frequently co-occur | {{< fa street-view >}} |
+
+: {tbl-colwidths="[30, 60, 10]"}
+
+
+## What can a co-occurrence analysis tell us?
+
+Patterns of association between tokens can signal:
+
+- Grammatical structures
+- Semantic relationships
+- Formulaic/ Idomatic expressions
+
+## Things to consider
+
+- Operationalization
+- Context window
+- Measures of association
+  - Pointwise mutual information
+  - Log-likelihood ratio
+
+::: {.notes}
+- Define what type of association you are interested in
+- Context window: the number of tokens before and after the target token
+- Measures trade-offs:
+  - PMI: strong and frequent associations, sensitive to rare tokens
+  - LLR: unexpected and rare associations.
+:::
+
+# Unsupervised learning
+
+## Clustering: what is it?
+
+Bottom-up approach to grouping similar data points
+
+| Method | Description | |
+|--------|-------------|--|
+| K-means | Partition data into k clusters | {{< fa circle-nodes >}} |
+| Hierarchical clustering | Build a tree of clusters | {{< fa sitemap >}} |
+
+## What can clustering tell us?
+
+:::: {.columns}
+::: {.column width="40%"}
+- Patterns of similarity/ dissimilarity
+- Number of groups
+- Homogeneity within groups
+- Heterogeneity between groups
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| label: fig-kmeans-hclust-examples
+#| fig-cap: Examples of K-means and hierarchical clustering
+#| fig-subcap:
+#|  - K-means
+#|  - Hierarchical clustering
+#| layout-ncol: 2
+#| echo: false
+#| message: false
+
+library(factoextra)
+
+# Generate data
+set.seed(123)
+
+data <- tibble(
+  x = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  y = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  z = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  w = c(rnorm(50, 0, 1), rnorm(50, 5, 1))
+)
+
+# K-means
+kmeans_clusters <- kmeans(data, centers = 3)
+
+# Hierarchical clustering
+hclust_clusters <- hclust(proxy::dist(data, method = "cosine"))
+
+# Plot
+fviz_cluster(kmeans_clusters, data = data)
+
+fviz_dend(hclust_clusters)
+```
+:::
+::::
+
+::: {.aside}
+The `factoextra` package [@R-factoextra] provides functions to visualize clustering results.
+:::
+
+## Things to consider
+
+:::: {.columns}
+::: {.column width="50%"}
+- Previous knowledge
+- Number of clusters
+- Distance metric (Heirarchical clustering)
+:::
+
+::: {.column width="50%"}
+![](images/fig-eda-masc-pos-kmeans-elbow-1.png)
+:::
+::::
+
+::: {.aside}
+The `proxy` package [@R-proxy] provides a `dist()` function which includes the cosine distance metric which is useful for Zipfian distribution cases.
+:::
+
+::: {.notes}
+- Previous knowledge can help determine the number of clusters to compare to
+- The elbow method can help determine the optimal number of clusters
+- Distance metrics:
+  - Cosine similarity: measures the cosine of the angle between two vectors (reduces the effect of magnitude, in Zipfian distribution cases)
+  - Euclidean distance: straight-line distance between two points
+:::
+
+## Dimensionality reduction: what is it?
+
+Operation to reduce the number of variables in a dataset, while preserving as much information as possible
+
+| Method | Description | |
+|--------|-------------|--|
+| PCA | Linear transformation to reduce dimensionality | {{< fa person-walking-arrow-right >}} {{< fa table >}} |
+| t-SNE | Non-linear transformation to visualize high-dimensional data | {{< fa person-walking-arrow-loop-left >}} {{< fa table >}} |
+
+: {tbl-colwidths="[20, 60, 20]"}
+
+## What can dimensionality reduction tell us?
+
+- How variables are related
+- How redundant variables are
+- Identify dimensions that explain the most variance
+
+## Things to consider
+
+:::: {.columns}
+::: {.column width="40%"}
+- Interpretability
+- Number of dimensions
+- Overfitting/ Underfitting
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| label: fig-kmeans-with-and-without-pca
+#| fig-cap: K-means clustering with and without PCA
+#| fig-subcap:
+#|  - Without PCA
+#|  - With PCA
+#| layout-ncol: 2
+#| echo: false
+
+library(factoextra)
+
+# Generate data
+set.seed(123)
+
+data <- tibble(
+  x = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  y = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  z = c(rnorm(50, 0, 1), rnorm(50, 5, 1)),
+  w = c(rnorm(50, 0, 1), rnorm(50, 5, 1))
+)
+
+# K-means
+kmeans_clusters <- kmeans(data, centers = 3)
+
+# Without PCA
+fviz_cluster(kmeans_clusters, data = data)
+
+# With PCA
+# PCA
+pca_data <- prcomp(data)
+
+# K-means
+kmeans_clusters_pca <- kmeans(pca_data$x[, 1:2], centers = 3)
+
+# Plot
+fviz_cluster(kmeans_clusters_pca, data = pca_data$x[, 1:2])
+```
+:::
+::::
+
+::: {.aside}
+`factoextra` also provides functions to visualize PCA results.
+:::
+
+::: {.notes}
+- Interpretability: is the reduced dimensionality still interpretable?
+- Number of dimensions: how many dimensions are needed to explain the most variance?
+- Overfitting: is the model too complex? Can it generalize to new data? PCA can help reduce overfitting, but may lead to underfitting.
+:::
+
+## Word embeddings: what is it?
+
+Use of distributed representations of words in a continuous vector space where words with similar contextual distributions are closer together
+
+| Method | Description | |
+|--------|-------------|--|
+| Word2Vec | Popular word embedding model | {{< fa street-view >}} {{< fa arrow-right >}} {{< fa layer-group >}} |
+| GloVe | Global vectors for word representation | {{< fa street-view >}} {{< fa arrow-right >}} {{< fa layer-group >}} |
+
+: {tbl-colwidths="[20, 60, 20]"}
+
+[Note: word embedding models are highly contingent on the size of the corpus, the algorithm used, and parameters set.]{style="font-size: 0.5em;"}
+
+::: {.aside}
+The `word2vec` package [@R-word2vec] provides functions to train and use Word2Vec models.
+:::
+
+## What can word embeddings tell us?
+
+:::: {.columns}
+::: {.column width="50%"}
+- Semantic relationships between words
+- Grammatical relationships between words
+- Analogies between words
+- Clustering of words based on context
+:::
+
+::: {.column width="50%"}
+![](images/fig-eda-masc-vsm-word2vec-manner-motion-compare-1.png)
+:::
+::::
+
+## Things to consider
+
+- Context window
+- Number of dimensions
+- Pre-trained models vs. training your own model
+
+::: {.notes}
+- Context window: the number of tokens before and after the target token
+- Number of dimensions: how many dimensions are needed to explain the most variance?
+- Training data: pre-trained models are useful for general tasks, but training your own model can be more specific to your data (size of the corpus, domain-specific vocabulary)
+:::
+
+# Wrap-up
+
+## Final thoughts
+
+- Exploratory data analysis covers a wide range of methods and techniques.
+- Of the three approaches we will cover, it requires the most creativity and flexibility.
+- The evaluative process is iterative and associative, and the results are often open to interpretation.
+
+## References
+
