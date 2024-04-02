@@ -1,14 +1,10 @@
 ---
 title: "Explore"
 subtitle: |
-  "The data speaks for itself, but only if you are willing to listen.
-  - Nate Silver"
+  "The data speaks for itself, but only if you are willing to listen."\
+  --- Nate Silver"
 date: "2024-03-27"
-categories: [analysis]
-webr:
-  show-startup-message: false
-  packages: ['dplyr', 'fs', 'stringr', 'ggplot2']
-  message: false
+categories: [analysis, frequency analysis, co-occurrence analysis, clustering, dimensionality reduction, word embeddings]
 ---
 
 ## Overview
@@ -390,4 +386,3 @@ The `word2vec` package [@R-word2vec] provides functions to train and use Word2Ve
 - The evaluative process is iterative and associative, and the results are often open to interpretation.
 
 ## References
-

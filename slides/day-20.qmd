@@ -1,0 +1,847 @@
+---
+title: "Predict"
+subtitle: |
+  "All models are wrong, but some are useful."\
+  --- George E.P. Box
+date: "2024-04-03"
+categories: [analysis]
+webr:
+  show-startup-message: false
+  packages: ['tidymodels', 'fs', 'stringr', 'textrecipes', 'LiblineaR', 'ranger']
+  message: false
+---
+
+## Overview
+
+- Orientation
+- Predictive modeling
+  - Workflow with `tidymodels`
+
+```{=html}
+<style>
+table {
+  font-size: 0.8em;
+}
+</style>
+```
+
+```{r}
+#| eval: false
+#| include: false
+
+# Save the data to the repository
+text::Language_based_assessment_data_8  |>
+readr::write_csv("slides/data/satisfaction-harmony-data.csv")
+```
+
+```{webr-r}
+#| context: setup
+
+download.file(
+  "https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/satisfaction-harmony-data.csv", "satisfaction-harmony-data.csv"
+)
+
+tbl <- read.csv("satisfaction-harmony-data.csv")
+
+satis_tbl <-
+  tbl |>
+  select(
+    gender,
+    age,
+    text = satisfactiontexts
+  ) |>
+  mutate(
+    gender = factor(gender),
+    text = str_trim(text)
+  )
+```
+
+
+## Process
+
+![The Big Picture](images/qtal-big-picture.png)
+
+![](images/you-are-here.drawio.png){.absolute top=50 right=310}
+
+# Orientation
+
+## Predictive Data Analysis
+
+:::: {.columns}
+::: {.column width="33%"}
+**Goals**
+
+- Prescribe actions
+- Examine outcome-predictor relationship
+- Assess hypotheses
+:::
+
+::: {.column width="33%"}
+**When to use**
+
+- To perform tasks
+- Specific knowledge gap
+- Alternative to inference
+:::
+
+::: {.column width="33%"}
+**How to use**
+
+- Identify, Inspect, Interrogate, Interpret
+- Iterative:
+  - Features, Model
+:::
+::::
+
+# Predictive modeling
+
+## Classification vs. Regression tasks {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Classification**: Predicting a categorical variable
+:::
+
+::: {.column width="50%"}
+- **Regression**: Predicting a continuous variable
+:::
+::::
+```{webr-r}
+# View dataset
+
+glimpse(satis_tbl)
+```
+
+## Features: tokenization {.smaller .scrollable}
+
+In text analysis, features are often linguistic units (tokens).
+
+```{webr-r}
+#| context: setup
+
+view_rec <- function(rec, n = 5) {
+  rec |>
+    prep() |>
+    bake(new_data = NULL) |>
+    slice_head(n = n)
+}
+```
+
+```{webr-r}
+# Tokenization
+recipe(
+    formula = gender ~ text,      #<1> outcome ~ predictors
+    data = satis_tbl) |>
+    step_tokenize(text) |>        #<2> default words
+    step_tokenfilter(text, max_tokens = 5) |>
+    step_tf(text) |>              #<3> term frequency (relative)
+  view_rec()                      #<4> custom function
+```
+
+## Features: metadata {.smaller .scrollable}
+
+ But they can also be other types of variables such as metadata.
+
+```{webr-r}
+# Metadata features
+recipe(
+    formula = gender ~ age + text, #<1> outcome ~ predictors
+    data = satis_tbl) |>
+  view_rec()                       #<2> custom function
+```
+
+## Features: text features {.smaller .scrollable}
+
+Or derived features.
+
+```{webr-r}
+# Text features
+# ?count_functions                #<0> list of possible features
+recipe(
+    formula = gender ~ text,      #<1> outcome ~ predictors
+    data = satis_tbl) |>
+  step_textfeature(text) |>       #<2> default features
+  view_rec()                      #<3> custom function
+```
+
+## Workflow with `tidymodels` {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**A. Identify**
+
+- Variables
+- Splits
+- Recipe
+
+**B. Inspect**
+
+- Features
+:::
+
+::: {.column width="50%"}
+**C. Interrogate**
+
+- Model
+- Tune
+- Fit
+- Evaluate
+
+**D. Interpret**
+
+- Predict
+- Evaluate
+- Explore
+:::
+::::
+
+## Identify: variables {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Outcome variable**: The variable you want to predict
+- **Predictor variables**: The variables you will use to make the prediction
+:::
+
+::: {.column width="50%"}
+| Variable | Type | Description |
+|----------|------|-------------|
+| `gender` | Outcome | Aim to predict 'female' or 'male' |
+| `text` | Predictor | Text data to predict `gender` |
+:::
+::::
+
+```{webr-r}
+# Prep data
+cls_tbl <-
+  satis_tbl |>
+  select(outcome = gender, text)
+
+# Preview
+glimpse(cls_tbl)
+```
+
+```{webr-r}
+#| context: setup
+# Prep data
+cls_tbl <-
+  satis_tbl |>
+  select(outcome = gender, text)
+```
+
+## Identify: Splits  {.smaller .scrollable}
+
+- **Training set**: Used to train, tune, and evaluate the model
+- **Testing set**: Used to evaluate the final model
+
+```{webr-r}
+# Split data
+cls_split <-
+  initial_split(                     #<1> split data
+    data = cls_tbl,
+    prop = 0.75,                     #<2> proportion
+    strata = outcome                 #<3> stratify by `gender`
+)
+cls_trn <- training(cls_split)       #<4> training set
+cls_tst <- testing(cls_split)        #<5> testing set
+
+# Preview splits
+cls_trn |> count(outcome)
+cls_tst |> count(outcome)
+```
+
+```{webr-r}
+#| context: setup
+# Split data
+cls_split <-
+  initial_split(                     #<1> split data
+    data = cls_tbl,
+    prop = 0.75,                     #<2> proportion
+    strata = outcome                 #<3> stratify by `gender`
+)
+
+cls_trn <- training(cls_split)       #<4> training set
+cls_tst <- testing(cls_split)        #<5> testing set
+```
+
+## Identify: Recipe {.smaller .scrollable}
+
+- **Recipe**: A blueprint for how to process the data
+
+```{webr-r}
+# Recipe
+base_rec <-
+  recipe(
+    formula = outcome ~ text,        #<1> outcome ~ predictors
+    data = cls_trn
+  )
+
+# Preview
+base_rec
+```
+```{webr-r}
+#| context: setup
+# Recipe
+base_rec <-
+  recipe(
+    formula = outcome ~ text,        #<1> outcome ~ predictors
+    data = cls_trn
+  )
+```
+
+## Identify: Recipe {.smaller .scrollable}
+
+- **Feature selection**: Choosing the most relevant variables
+
+```{webr-r}
+# Feature selection
+token_rec <-
+  base_rec |>
+  step_tokenize(text)        #<1> features: tokenized text (by words)
+
+# Preview
+token_rec
+```
+
+```{webr-r}
+#| context: setup
+# Feature selection
+token_rec <-
+  base_rec |>
+  step_tokenize(text)        #<1> features: tokenized text (by words)
+```
+
+<!-- TF-IDF word tokens (150 tuned) -->
+
+## Identify: Recipe {.smaller .scrollable}
+
+- **Feature engineering**: Deriving new variables and transforming existing ones
+
+```{webr-r}
+# Feature engineering
+tfidf_rec <-
+  token_rec |>
+  step_tokenfilter(text, max_tokens = tune()) |> #<1> limit features
+  step_tfidf(text)                               #<2> feature values (tf-idf)
+
+# Preview
+tfidf_rec
+```
+```{webr-r}
+#| context: setup
+# Feature engineering
+tfidf_rec <-
+  token_rec |>
+  step_tokenfilter(text, max_tokens = tune()) |> #<1> limit features
+  step_tfidf(text)                               #<2> feature values (tf-idf)
+```
+
+## Interrogate: Model selection {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="40%"}
+- **Model specification**: A blueprint for the model
+- **Model family**: The type of model to use (e.g., logistic regression, random forest)
+- **Engine**: The software that will fit the model (e.g., `LiblineaR`, `ranger`)
+- **Hyperparameters**: Settings that control the model's behavior (e.g., number of trees in a random forest)
+:::
+
+::: {.column width="60%"}
+| Model | Family | Engine |
+|-------|--------|--------|
+| `logistic_reg()` | Logistic regression | `LiblineaR` |
+| `decision_tree()` | Decision tree | `C5.0` |
+| `random_forest()` | Random forest | `ranger` |
+| `svm_linear()` | Support vector machine | `LiblineaR` |
+
+Each model has hyperparameters that can be tuned to improve performance.
+
+```{webr-r}
+# View hyperparameters
+parsnip::model_db |>
+  filter(mode == "classification") |>
+  filter(model == "decision_tree") |>
+  unnest(cols = parameters) |>
+  select(model, engine, package, parameter)
+```
+:::
+::::
+
+## Interrogate: Model selection {.smaller .scrollable}
+
+- **Model specification**: A blueprint for the model
+
+The `logistic_reg()` model has a `penalty` hyperparameter that controls the minimum number of observations in a node. Tuning this parameter and the `max_tokens()` filter will help the model generalize better.
+
+:::: {.columns}
+::: {.column width="50%"}
+```{webr-r}
+# Model specification
+cls_spec <-
+  logistic_reg() |>
+  set_engine("LiblineaR")
+
+# Preview
+cls_spec
+```
+:::
+
+::: {.column width="50%"}
+```{webr-r}
+# Model specification
+cls_spec <-
+  logistic_reg(penalty = tune(), mixture = 1) |>
+  set_engine("LiblineaR")
+
+# Preview
+cls_spec
+```
+:::
+::::
+
+```{webr-r}
+#| context: setup
+# Model specification
+cls_spec <-
+  logistic_reg(penalty = tune(), mixture = 1) |>
+  set_engine("LiblineaR")
+```
+
+## Interrogate: Model selection {.smaller .scrollable}
+
+Create a workflow that combines the recipe and model specification.
+
+```{webr-r}
+# Workflow
+cls_wflow <-
+  workflow() |>
+  add_recipe(tfidf_rec) |>
+  add_model(cls_spec)
+
+# Preview
+cls_wflow
+```
+```{webr-r}
+#| context: setup
+
+# Workflow
+cls_wflow <-
+  workflow() |>
+  add_recipe(tfidf_rec) |>
+  add_model(cls_spec)
+```
+
+## Interrogate: Model tuning {.smaller .scrollable}
+
+- **Hyperparameter tuning**: Finding the best settings for the model
+- **Resampling**: Using the training set to estimate how well the model will perform on new (slices of) data
+
+```{webr-r}
+# Grid
+p <- parameters(
+  max_tokens(range = c(50, 250)),
+  penalty()
+)
+cls_grid <- grid_regular(p, levels = 5) #<1> hyperparameter range
+
+# Resampling
+set.seed(1234)
+cls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+```
+```{webr-r}
+#| context: setup
+p <- parameters(
+  max_tokens(range = c(50, 250)),
+  penalty()
+)
+cls_grid <- grid_regular(p, levels = 5) #<1> hyperparameter range
+
+# Resampling
+set.seed(1234)
+cls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+```
+
+## Interrogate: Model tuning {.smaller .scrollable}
+
+Choose the best hyperparameters and finalize the workflow.
+
+```{webr-r}
+# Visualize tuning results
+cls_tune |> autoplot()
+
+# Show/ select best hyperparameters
+cls_tune |> show_best(metric = "roc_auc")
+cls_best <- select_best(cls_tune, metric = "roc_auc")
+
+# Finalize workflow
+cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+```
+```{webr-r}
+#| context: setup
+# Visualize tuning results
+cls_tune |> autoplot()
+
+# Show/ select best hyperparameters
+cls_tune |> show_best(metric = "roc_auc")
+cls_best <- select_best(cls_tune, metric = "roc_auc")
+
+# Finalize workflow
+cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+```
+
+## Interrogate: Fit the model {.smaller .scrollable}
+
+- **Fit the model**: Train the model on the training set
+- **Cross-validation**: Repeatedly train and evaluate the model on different slices of the training set
+
+```{webr-r}
+# Fit the model
+cls_fit_cv <-
+  cls_tune_wflow |>
+  fit_resamples(
+    resamples = cls_vfold,
+    control = control_resamples(save_pred = TRUE)
+  )
+```
+```{webr-r}
+#| context: setup
+# Fit the model
+cls_fit_cv <-
+  cls_tune_wflow |>
+  fit_resamples(
+    resamples = cls_vfold,
+    control = control_resamples(save_pred = TRUE)
+  )
+```
+
+## Interrogate: Evaluate the model {.smaller .scrollable}
+
+**Performance metrics**: Measures of how well the model is doing
+
+:::: {.columns}
+::: {.column width="50%"}
+Classification
+
+- **Confusion matrix**: A table showing the model's predictions versus the actual outcomes
+- **ROC curve**: A graph showing the trade-off between true positive rate and false positive rate
+:::
+
+::: {.column width="50%"}
+Regression
+
+- **RMSE**: Root mean squared error
+- **Standard deviation of residuals**: How much the model's predictions deviate from the actual outcomes
+:::
+::::
+
+```{webr-r}
+# Collect metrics
+cls_fit_cv |>
+  collect_metrics()
+
+# Confusion matrix
+cls_fit_cv |>
+  conf_mat_resampled(tidy = FALSE) |>
+  autoplot(type = "heatmap")
+```
+
+<!-- Textfeatures ONLY -->
+
+## Identify: Recipe (x2) {.smaller .scrollable}
+
+Our previous feature selection:
+
+- Tokenization: words
+- Feature engineering: tf-idf
+- Feature selection: 150 tokens
+
+```{webr-r}
+# Updated recipe
+cls_rec <-
+  recipe(
+    formula = outcome ~ text,
+    data = cls_trn) |>
+  step_textfeature(text) |>         #<1> default features
+  step_zv(all_predictors()) |>      #<2> remove zero variance
+  step_normalize(all_predictors())  #<3> normalize
+
+cls_rec
+```
+```{webr-r}
+#| context: setup
+# Updated recipe
+cls_rec <-
+  recipe(
+    formula = outcome ~ text,
+    data = cls_trn) |>
+  step_textfeature(text) |>         #<1> default features
+  step_zv(all_predictors()) |>      #<2> remove zero variance
+  step_normalize(all_predictors())  #<3> normalize
+
+cls_rec
+```
+
+## Interrogate: Model selection (x2) {.smaller .scrollable}
+
+Update the workflow with the new recipe.
+
+```{webr-r}
+# Update workflow
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+
+cls_wflow
+```
+```{webr-r}
+#| context: setup
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+
+cls_wflow
+```
+
+## Interrogate: Model tuning (x2) {.smaller .scrollable}
+
+Update the grid and resampling.
+
+```{webr-r}
+# Grid
+p <- parameters(penalty())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+
+cls_tune |> autoplot()
+cls_tune |> show_best(metric = "roc_auc")
+```
+```{webr-r}
+#| context: setup
+# Grid
+p <- parameters(penalty())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+```
+
+## Interrogate: Fit the model (x2) {.smaller .scrollable}
+
+- **Fit the model**: Train the model on the training set
+- **Cross-validation**: Repeatedly train and evaluate the model on different slices of the training set
+
+```{webr-r}
+# Select best hyperparameters
+cls_best <- select_best(cls_tune, metric = "roc_auc")
+
+# Finalize workflow
+cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+
+# Fit the model
+cls_fit_cv <-
+  cls_tune_wflow |>
+  fit_resamples(
+    resamples = cls_vfold,
+    control = control_resamples(save_pred = TRUE)
+  )
+```
+
+## Interrogate: Evaluate the model (x2) {.smaller .scrollable}
+
+**Performance metrics**: Measures of how well the model is doing
+
+```{webr-r}
+# Collect metrics
+cls_fit_cv |> collect_metrics()
+
+# Confusion matrix
+cls_fit_cv |> conf_mat_resampled(tidy = FALSE) |> autoplot(type = "heatmap")
+```
+
+<!-- Tokens and textfeatures -->
+
+## Identify: Recipe (x3) {.smaller .scrollable}
+
+Our previous feature selection:
+
+- Tokenization: words
+- Feature engineering: tf-idf
+- Feature selection: 150 tokens
+
+```{webr-r}
+# Updated recipe
+cls_rec <-
+  recipe(
+    formula = outcome ~ text,
+    data = cls_trn) |>
+  step_mutate(text_copy = text) |>
+  step_textfeature(text_copy) |>
+  step_zv(all_predictors()) |>
+  step_tokenize(text) |>
+  step_tokenfilter(text, max_tokens = 150) |>
+  step_tfidf(text) |>
+  step_normalize(all_predictors())
+
+cls_rec |> view_rec()
+```
+```{webr-r}
+#| context: setup
+# Updated recipe
+cls_rec <-
+  recipe(
+    formula = outcome ~ text,
+    data = cls_trn) |>
+  step_mutate(text_copy = text) |>
+  step_textfeature(text_copy) |>
+  step_zv(all_predictors()) |>
+  step_tokenize(text) |>
+  step_tokenfilter(text, max_tokens = 150) |>
+  step_tfidf(text) |>
+  step_normalize(all_predictors())
+
+cls_rec |> view_rec()
+```
+
+## Interrogate: Model selection (x3) {.smaller .scrollable}
+
+Update the workflow with the new recipe.
+
+```{webr-r}
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+
+cls_wflow
+```
+```{webr-r}
+#| context: setup
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+```
+
+## Interrogate: Model tuning (x3) {.smaller .scrollable}
+
+Update the grid and resampling.
+
+```{webr-r}
+# Grid
+p <- parameters(penalty())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+
+cls_tune |> autoplot()
+cls_tune |> show_best(metric = "roc_auc")
+```
+```{webr-r}
+#| context: setup
+# Grid
+p <- parameters(penalty())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+```
+
+## Interrogate: Model selection (x4) {.smaller .scrollable}
+
+Update the model specification. Let's use a random forest model.
+
+```{webr-r}
+# Model specification
+cls_spec <-
+  rand_forest(trees = tune()) |>
+  set_engine("ranger") |>
+  set_mode("classification")
+
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+
+cls_wflow
+```
+```{webr-r}
+#| context: setup
+# Model specification
+cls_spec <-
+  rand_forest(trees = tune()) |>
+  set_engine("ranger") |>
+  set_mode("classification")
+
+cls_wflow <-
+  workflow() |>
+  add_recipe(cls_rec) |>
+  add_model(cls_spec)
+```
+
+## Interrogate: Model tuning (x4) {.smaller .scrollable}
+
+Update the grid and resampling.
+
+```{webr-r}
+# Grid
+p <- parameters(trees())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+
+cls_tune |> autoplot()
+cls_tune |> show_best(metric = "roc_auc")
+```
+```{webr-r}
+#| context: setup
+# Grid
+p <- parameters(trees())
+cls_grid <- grid_regular(p, levels = 10)
+
+# Tuning
+set.seed(1234)
+cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+```
+
+## 8. Predict with the model {.smaller}
+
+- **Predictions**: Using the model to make predictions on new data (test set)
+
+## 9. Evaluate the model on test set
+
+- **Generalization**: How well the model performs on new data
+  - **Overfitting**: When the model performs well on the training set but poorly on new data
+  - **Underfitting**: When the model performs poorly on both the training set and new data
+
+## 10. Explore the model
+
+- **Feature importance**: Which variables are most important for the model's predictions
+- **Partial dependence plots**: How the model's predictions change as a single variable changes (?)
+
+# Wrap-up
+
+## Final thoughts
+
+- Predictive modeling is a powerful tool for examining relationships in data which can perform tasks (as AI) or provide insights into features that are important for the outcome.
+- The `tidymodels` package provides a consistent and flexible framework for building and evaluating models
+
+## References
