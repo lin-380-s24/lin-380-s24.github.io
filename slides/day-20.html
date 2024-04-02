@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.4.552">
 
   <meta name="author" content="Dr.&nbsp;Jerid Francom">
-  <title>Quantitative Text Analysis - Curate</title>
+  <title>Quantitative Text Analysis - Predict</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,71 +32,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="css/custom.scss">
@@ -536,7 +471,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['dplyr', 'fs', 'readr', 'stringr', 'ggplot2', 'tidyr', 'purrr', 'tibble'];
+  globalThis.qwebrInstallRPackagesList = ['tidymodels', 'fs', 'stringr', 'textrecipes', 'LiblineaR', 'ranger'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -558,7 +493,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"setup","dpi":72,"fig-width":7,"comment":""},"id":1,"code":"\ndir_create(\"data/original/\")\ndir_create(\"data/derived/\")\ndir_create(\"data/analyis/\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc.txt\", \"data/original/masc.txt\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.txt\", \"data/original/masc_pos.txt\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.xml\", \"data/original/masc_pos.xml\")\n\ndownload.file(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/assets/data/masc_pos.csv\", \"data/original/masc_pos.csv\")"},{"options":{"label":"unnamed-chunk-2","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":2,"code":"# Load packages\nlibrary(dplyr)     # Data manipulation\nlibrary(fs)        # File system operations\nlibrary(readr)     # Read files\nlibrary(stringr)   # String manipulation\nlibrary(tidyr)     # Reshape datasets"},{"options":{"label":"unnamed-chunk-3","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":3,"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the CSV file\n# Your approach with `readr`\n# read_csv(\"data/original/masc_pos.csv\")\n\n# Using base R for WebR demo\nmasc_pos_tbl <-\n  read.csv(\"data/original/masc_pos.csv\") |>\n  as_tibble()\n\n# Preview\nglimpse(masc_pos_tbl)"},{"options":{"label":"unnamed-chunk-4","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":4,"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the plain text file\n# Your approach with `readr`\n# masc_chr <- readr::read_lines(\"data/original/masc.txt\")\n\n# Using base R for WebR demo\nmasc_chr <- readLines(\"data/original/masc.txt\")\n\n# Preview\nmasc_chr"},{"options":{"label":"unnamed-chunk-5","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":5,"code":"masc_chr\n\n# Create a tibble with the text\nmasc_tbl <- tibble(text = masc_chr)\n\n# If you have metadata, add it to the tibble\nmasc_tbl <-\n  masc_tbl |>\n  mutate(sent_id = 1:nrow(masc_tbl),\n         file = \"masc.txt\",\n         modality = \"written\")\n\n# Preview\nglimpse(masc_tbl)"},{"options":{"label":"unnamed-chunk-6","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":6,"code":"# Show the directory tree\nfs::dir_tree()\n\n# Read the plain text file\n# Your approach with `readr`\n# text_chr <- readr::read_lines(\"data/original/masc_pos.txt\")\n\n# Using base R for WebR demo\nmasc_pos_chr <- readLines(\"data/original/masc_pos.txt\")\n\n# Preview\nglimpse(masc_pos_chr)"},{"options":{"label":"unnamed-chunk-7","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":7,"code":"masc_pos_chr\n\n# Create a tibble with the text\nmasc_pos_tbl <- tibble(text = masc_pos_chr)\n\n# If you have metadata, add it to the tibble\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  mutate(sent_id = 1:nrow(masc_pos_tbl),\n         file = \"masc_pos.txt\",\n         modality = \"written\")\n\n# Preview\nglimpse(masc_pos_tbl)"},{"options":{"label":"unnamed-chunk-8","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":8,"code":"masc_pos_tbl\n\n# Split the text by whitespace\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  mutate(word_pos = str_split(text, pattern = \"\\\\s+\")) |>\n  unnest(cols = word_pos)\n\n# Split the word_pos column by the underscore\nmasc_pos_tbl <-\n  masc_pos_tbl |>\n  separate(word_pos, into = c(\"word\", \"pos\"), sep = \"/\")\n\n# Preview\nglimpse(masc_pos_tbl)"},{"options":{"label":"unnamed-chunk-9","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":9,"code":"# Show the directory tree\ndir_tree()\n\n# Write the data to a new directory\n# Your approach with `readr`\n# masc_pos_tbl |>\n#  write_csv(\"data/derived/masc_pos.csv\")\n\n# Using base R for WebR demo\nmasc_pos_tbl |>\n  write.csv(\"data/derived/masc_pos.csv\", row.names = FALSE)"},{"options":{"label":"unnamed-chunk-10","out-height":"","message":"true","warning":"true","output":"true","classes":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"context":"interactive","dpi":72,"fig-width":7,"comment":""},"id":10,"code":"# Create a data dictionary\ndd_tbl <- tribble(\n  ~variable, ~friendly_name, ~description, ~type,\n  \"sent_id\", \"Sentence ID\", \"The sentence number\", \"integer\",\n  \"text\", \"Text\", \"The text of the sentence\", \"character\",\n  \"file\", \"File\", \"The file name\", \"character\",\n  \"modality\", \"Modality\", \"The modality of the text\", \"character\",\n  \"word\", \"Word\", \"The word in the sentence\", \"character\",\n  \"pos\", \"Part of speech\", \"The part of speech of the word\", \"character\"\n)\n\n# Preview\ndd_tbl\n\n# Write the data dictionary\n# Your approach with `readr`\n# dd_tbl |>\n#  write_csv(\"data/derived/masc_pos_dd.csv\")\n\n# Using base R for WebR demo\ndd_tbl |>\n  write.csv(\"data/derived/masc_pos_dd.csv\", row.names = FALSE)\n\n# Show the directory tree\ndir_tree()"}];
+  globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-1","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"\ndownload.file(\n  \"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/satisfaction-harmony-data.csv\", \"satisfaction-harmony-data.csv\"\n)\n\ntbl <- read.csv(\"satisfaction-harmony-data.csv\")\n\nsatis_tbl <-\n  tbl |>\n  select(\n    gender,\n    age,\n    text = satisfactiontexts\n  ) |>\n  mutate(\n    gender = factor(gender),\n    text = str_trim(text)\n  )"},{"id":2,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-2","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# View dataset\n\nglimpse(satis_tbl)"},{"id":3,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-3","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"\nview_rec <- function(rec, n = 5) {\n  rec |>\n    prep() |>\n    bake(new_data = NULL) |>\n    slice_head(n = n)\n}"},{"id":4,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-4","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Tokenization\nrecipe(\n    formula = gender ~ text,      #<1> outcome ~ predictors\n    data = satis_tbl) |>\n    step_tokenize(text) |>        #<2> default words\n    step_tokenfilter(text, max_tokens = 5) |>\n    step_tf(text) |>              #<3> term frequency (relative)\n  view_rec()                      #<4> custom function"},{"id":5,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-5","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Metadata features\nrecipe(\n    formula = gender ~ age + text, #<1> outcome ~ predictors\n    data = satis_tbl) |>\n  view_rec()                       #<2> custom function"},{"id":6,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-6","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Text features\n# ?count_functions                #<0> list of possible features\nrecipe(\n    formula = gender ~ text,      #<1> outcome ~ predictors\n    data = satis_tbl) |>\n  step_textfeature(text) |>       #<2> default features\n  view_rec()                      #<3> custom function"},{"id":7,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-7","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Prep data\ncls_tbl <-\n  satis_tbl |>\n  select(outcome = gender, text)\n\n# Preview\nglimpse(cls_tbl)"},{"id":8,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-8","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Prep data\ncls_tbl <-\n  satis_tbl |>\n  select(outcome = gender, text)"},{"id":9,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-9","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Split data\ncls_split <-\n  initial_split(                     #<1> split data\n    data = cls_tbl,\n    prop = 0.75,                     #<2> proportion\n    strata = outcome                 #<3> stratify by `gender`\n)\ncls_trn <- training(cls_split)       #<4> training set\ncls_tst <- testing(cls_split)        #<5> testing set\n\n# Preview splits\ncls_trn |> count(outcome)\ncls_tst |> count(outcome)"},{"id":10,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-10","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Split data\ncls_split <-\n  initial_split(                     #<1> split data\n    data = cls_tbl,\n    prop = 0.75,                     #<2> proportion\n    strata = outcome                 #<3> stratify by `gender`\n)\n\ncls_trn <- training(cls_split)       #<4> training set\ncls_tst <- testing(cls_split)        #<5> testing set"},{"id":11,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-11","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Recipe\nbase_rec <-\n  recipe(\n    formula = outcome ~ text,        #<1> outcome ~ predictors\n    data = cls_trn\n  )\n\n# Preview\nbase_rec"},{"id":12,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-12","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Recipe\nbase_rec <-\n  recipe(\n    formula = outcome ~ text,        #<1> outcome ~ predictors\n    data = cls_trn\n  )"},{"id":13,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-13","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Feature selection\ntoken_rec <-\n  base_rec |>\n  step_tokenize(text)        #<1> features: tokenized text (by words)\n\n# Preview\ntoken_rec"},{"id":14,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-14","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Feature selection\ntoken_rec <-\n  base_rec |>\n  step_tokenize(text)        #<1> features: tokenized text (by words)"},{"id":15,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-15","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Feature engineering\ntfidf_rec <-\n  token_rec |>\n  step_tokenfilter(text, max_tokens = tune()) |> #<1> limit features\n  step_tfidf(text)                               #<2> feature values (tf-idf)\n\n# Preview\ntfidf_rec"},{"id":16,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-16","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Feature engineering\ntfidf_rec <-\n  token_rec |>\n  step_tokenfilter(text, max_tokens = tune()) |> #<1> limit features\n  step_tfidf(text)                               #<2> feature values (tf-idf)"},{"id":17,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-17","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# View hyperparameters\nparsnip::model_db |>\n  filter(mode == \"classification\") |>\n  filter(model == \"decision_tree\") |>\n  unnest(cols = parameters) |>\n  select(model, engine, package, parameter)"},{"id":18,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-18","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Model specification\ncls_spec <-\n  logistic_reg() |>\n  set_engine(\"LiblineaR\")\n\n# Preview\ncls_spec"},{"id":19,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-19","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Model specification\ncls_spec <-\n  logistic_reg(penalty = tune(), mixture = 1) |>\n  set_engine(\"LiblineaR\")\n\n# Preview\ncls_spec"},{"id":20,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-20","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Model specification\ncls_spec <-\n  logistic_reg(penalty = tune(), mixture = 1) |>\n  set_engine(\"LiblineaR\")"},{"id":21,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-21","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Workflow\ncls_wflow <-\n  workflow() |>\n  add_recipe(tfidf_rec) |>\n  add_model(cls_spec)\n\n# Preview\ncls_wflow"},{"id":22,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-22","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"\n# Workflow\ncls_wflow <-\n  workflow() |>\n  add_recipe(tfidf_rec) |>\n  add_model(cls_spec)"},{"id":23,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-23","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(\n  max_tokens(range = c(50, 250)),\n  penalty()\n)\ncls_grid <- grid_regular(p, levels = 5) #<1> hyperparameter range\n\n# Resampling\nset.seed(1234)\ncls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)"},{"id":24,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-24","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"p <- parameters(\n  max_tokens(range = c(50, 250)),\n  penalty()\n)\ncls_grid <- grid_regular(p, levels = 5) #<1> hyperparameter range\n\n# Resampling\nset.seed(1234)\ncls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)"},{"id":25,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-25","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Visualize tuning results\ncls_tune |> autoplot()\n\n# Show/ select best hyperparameters\ncls_tune |> show_best(metric = \"roc_auc\")\ncls_best <- select_best(cls_tune, metric = \"roc_auc\")\n\n# Finalize workflow\ncls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)"},{"id":26,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-26","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Visualize tuning results\ncls_tune |> autoplot()\n\n# Show/ select best hyperparameters\ncls_tune |> show_best(metric = \"roc_auc\")\ncls_best <- select_best(cls_tune, metric = \"roc_auc\")\n\n# Finalize workflow\ncls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)"},{"id":27,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-27","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Fit the model\ncls_fit_cv <-\n  cls_tune_wflow |>\n  fit_resamples(\n    resamples = cls_vfold,\n    control = control_resamples(save_pred = TRUE)\n  )"},{"id":28,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-28","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Fit the model\ncls_fit_cv <-\n  cls_tune_wflow |>\n  fit_resamples(\n    resamples = cls_vfold,\n    control = control_resamples(save_pred = TRUE)\n  )"},{"id":29,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-29","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Collect metrics\ncls_fit_cv |>\n  collect_metrics()\n\n# Confusion matrix\ncls_fit_cv |>\n  conf_mat_resampled(tidy = FALSE) |>\n  autoplot(type = \"heatmap\")"},{"id":30,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-30","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Updated recipe\ncls_rec <-\n  recipe(\n    formula = outcome ~ text,\n    data = cls_trn) |>\n  step_textfeature(text) |>         #<1> default features\n  step_zv(all_predictors()) |>      #<2> remove zero variance\n  step_normalize(all_predictors())  #<3> normalize\n\ncls_rec"},{"id":31,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-31","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Updated recipe\ncls_rec <-\n  recipe(\n    formula = outcome ~ text,\n    data = cls_trn) |>\n  step_textfeature(text) |>         #<1> default features\n  step_zv(all_predictors()) |>      #<2> remove zero variance\n  step_normalize(all_predictors())  #<3> normalize\n\ncls_rec"},{"id":32,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-32","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Update workflow\ncls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)\n\ncls_wflow"},{"id":33,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-33","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"cls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)\n\ncls_wflow"},{"id":34,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-34","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(penalty())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)\n\ncls_tune |> autoplot()\ncls_tune |> show_best(metric = \"roc_auc\")"},{"id":35,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-35","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(penalty())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)"},{"id":36,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-36","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Select best hyperparameters\ncls_best <- select_best(cls_tune, metric = \"roc_auc\")\n\n# Finalize workflow\ncls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)\n\n# Fit the model\ncls_fit_cv <-\n  cls_tune_wflow |>\n  fit_resamples(\n    resamples = cls_vfold,\n    control = control_resamples(save_pred = TRUE)\n  )"},{"id":37,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-37","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Collect metrics\ncls_fit_cv |> collect_metrics()\n\n# Confusion matrix\ncls_fit_cv |> conf_mat_resampled(tidy = FALSE) |> autoplot(type = \"heatmap\")"},{"id":38,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-38","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Updated recipe\ncls_rec <-\n  recipe(\n    formula = outcome ~ text,\n    data = cls_trn) |>\n  step_mutate(text_copy = text) |>\n  step_textfeature(text_copy) |>\n  step_zv(all_predictors()) |>\n  step_tokenize(text) |>\n  step_tokenfilter(text, max_tokens = 150) |>\n  step_tfidf(text) |>\n  step_normalize(all_predictors())\n\ncls_rec |> view_rec()"},{"id":39,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-39","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Updated recipe\ncls_rec <-\n  recipe(\n    formula = outcome ~ text,\n    data = cls_trn) |>\n  step_mutate(text_copy = text) |>\n  step_textfeature(text_copy) |>\n  step_zv(all_predictors()) |>\n  step_tokenize(text) |>\n  step_tokenfilter(text, max_tokens = 150) |>\n  step_tfidf(text) |>\n  step_normalize(all_predictors())\n\ncls_rec |> view_rec()"},{"id":40,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-40","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"cls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)\n\ncls_wflow"},{"id":41,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-41","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"cls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)"},{"id":42,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-42","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(penalty())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)\n\ncls_tune |> autoplot()\ncls_tune |> show_best(metric = \"roc_auc\")"},{"id":43,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-43","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(penalty())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)"},{"id":44,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-44","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Model specification\ncls_spec <-\n  rand_forest(trees = tune()) |>\n  set_engine(\"ranger\") |>\n  set_mode(\"classification\")\n\ncls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)\n\ncls_wflow"},{"id":45,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-45","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Model specification\ncls_spec <-\n  rand_forest(trees = tune()) |>\n  set_engine(\"ranger\") |>\n  set_mode(\"classification\")\n\ncls_wflow <-\n  workflow() |>\n  add_recipe(cls_rec) |>\n  add_model(cls_spec)"},{"id":46,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"interactive","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-46","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(trees())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)\n\ncls_tune |> autoplot()\ncls_tune |> show_best(metric = \"roc_auc\")"},{"id":47,"options":{"fig-width":7,"message":"true","results":"markup","comment":"","context":"setup","output":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-47","classes":"","out-width":"700px","warning":"true","dpi":72,"out-height":""},"code":"# Grid\np <- parameters(trees())\ncls_grid <- grid_regular(p, levels = 10)\n\n# Tuning\nset.seed(1234)\ncls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)"}];
 
   </script>
   <script type="module">
@@ -1456,8 +1391,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Curate</h1>
-  <p class="subtitle">Data to information</p>
+  <h1 class="title">Predict</h1>
+  <p class="subtitle"></p><p>“All models are wrong, but some are useful.”<br>
+— George E.P. Box</p><p></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1467,310 +1403,478 @@ Dr.&nbsp;Jerid Francom
 </div>
 </div>
 
-  <p class="date">Mar 1, 2024</p>
+  <p class="date">Apr 3, 2024</p>
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
 <ul>
-<li>Data to information</li>
-<li>Curate data</li>
-<li>Documenting datasets</li>
+<li>Orientation</li>
+<li>Predictive modeling
+<ul>
+<li>Workflow with <code>tidymodels</code></li>
+</ul></li>
 </ul>
-</section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Data to information</h1>
+<style>
+table {
+  font-size: 0.8em;
+}
+</style>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section class="slide level2">
-<h2>Data</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Un/semi-structured</li>
-<li>Non-tabular</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<!-- Plain text -->
-<div class="fragment fade-in-then-out absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
-<p>Plain text<br>
-<code>Sound is a vibration. Sound travels as a mechanical wave through a medium, and in space, there is no medium. So when my shuttle malfunctioned and the airlocks didn't keep the air in, I heard nothing. After the first whoosh of the air being sucked away, there was lightning, but no thunder. Eyes bulging in panic, but no screams. Quiet and peaceful, right? Such a relief to never again hear my crewmate Jesse natter about his girl back on Earth and that all-expenses-paid vacation-for-two she won last time he was on leave. I swore, if I ever had to see a photo of him in a skimpy bathing suit again, giving the camera a cheesy thumbs-up from a lounge chair on one of those white sandy beaches, I'd kiss a monkey. Metaphorically, of course.</code></p>
+<h2>Process</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/qtal-big-picture.png"></p>
+<figcaption>The Big Picture</figcaption>
+</figure>
 </div>
-<!-- XML -->
-<div class="fragment fade-in-then-out absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
-<!-- Create a XML file with doc_id, sent_id, word_id, modality, and word for the first words of the previous plain text -->
-<p>XML<br>
-</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a></a>&lt;<span class="kw">document</span>&gt;</span>
-<span id="cb1-2"><a></a>  &lt;<span class="kw">sent</span><span class="ot"> id=</span><span class="st">"1"</span>&gt;</span>
-<span id="cb1-3"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;Sound&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-4"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;is&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-5"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-6"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;vibration&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-7"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-8"><a></a>  &lt;/<span class="kw">sent</span>&gt;</span>
-<span id="cb1-9"><a></a>  &lt;<span class="kw">sent</span><span class="ot"> id=</span><span class="st">"2"</span>&gt;</span>
-<span id="cb1-10"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;Sound&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-11"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;travels&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-12"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;as&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-13"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-14"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;mechanical&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-15"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"6"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;wave&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-16"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"7"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;through&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-17"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"8"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;a&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-18"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"9"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;medium&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-19"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"10"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;,&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-20"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"11"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;and&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-21"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"12"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;in&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-22"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"13"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;space&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-23"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"14"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;,&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-24"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"15"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;there&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-25"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"16"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;is&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-26"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"17"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;no&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-27"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"18"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;medium&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-28"><a></a>    &lt;<span class="kw">word</span><span class="ot"> id=</span><span class="st">"19"</span><span class="ot"> modality=</span><span class="st">"written"</span>&gt;.&lt;/<span class="kw">word</span>&gt;</span>
-<span id="cb1-29"><a></a>  &lt;/<span class="kw">sent</span>&gt;</span>
-<span id="cb1-30"><a></a>&lt;/<span class="kw">document</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment fade-in absolute" style="font-size: 0.5em;top: 100px; right: 100px; width: 50%; ">
-<!-- Create a JSON file of the XML representation above -->
-<p>JSON<br>
-</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a></a><span class="fu">{</span></span>
-<span id="cb2-2"><a></a>  <span class="dt">"document"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-3"><a></a>    <span class="dt">"sent"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-4"><a></a>      <span class="fu">{</span></span>
-<span id="cb2-5"><a></a>        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb2-6"><a></a>        <span class="dt">"word"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-7"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-8"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb2-9"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-10"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"Sound"</span></span>
-<span id="cb2-11"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-12"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-13"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
-<span id="cb2-14"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-15"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"is"</span></span>
-<span id="cb2-16"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-17"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-18"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
-<span id="cb2-19"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-20"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"a"</span></span>
-<span id="cb2-21"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-22"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-23"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"4"</span><span class="fu">,</span></span>
-<span id="cb2-24"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-25"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"vibration"</span></span>
-<span id="cb2-26"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-27"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-28"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"5"</span><span class="fu">,</span></span>
-<span id="cb2-29"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-30"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"."</span></span>
-<span id="cb2-31"><a></a>          <span class="fu">}</span></span>
-<span id="cb2-32"><a></a>        <span class="ot">]</span></span>
-<span id="cb2-33"><a></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-34"><a></a>      <span class="fu">{</span></span>
-<span id="cb2-35"><a></a>        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
-<span id="cb2-36"><a></a>        <span class="dt">"word"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-37"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-38"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb2-39"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-40"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"Sound"</span></span>
-<span id="cb2-41"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-42"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-43"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
-<span id="cb2-44"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-45"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"travels"</span></span>
-<span id="cb2-46"><a></a>          <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-47"><a></a>          <span class="fu">{</span></span>
-<span id="cb2-48"><a></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
-<span id="cb2-49"><a></a>            <span class="dt">"modality"</span><span class="fu">:</span> <span class="st">"written"</span><span class="fu">,</span></span>
-<span id="cb2-50"><a></a>            <span class="dt">"word"</span><span class="fu">:</span> <span class="st">"as"</span></span>
-<span id="cb2-51"><a></a>          <span class="fu">}</span><span class="ot">]</span></span>
-<span id="cb2-52"><a></a>      <span class="fu">}</span></span>
-<span id="cb2-53"><a></a>  <span class="er">}</span></span>
-<span id="cb2-54"><a></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
+<p><img data-src="images/you-are-here.drawio.png" class="absolute" style="top: 50px; right: 310px; "></p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Orientation</h1>
+
 </section>
 <section class="slide level2">
-<h2>Information</h2>
-
-<img data-src="images/ud-tidy.drawio.png" class="r-stretch"><p><span class="absolute" style="top: 100px; left: 100px; "><strong>Physical</strong></span> <span class="absolute" style="top: 100px; right: 100px; "><strong>Semantic</strong></span></p>
+<h2>Predictive Data Analysis</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Goals</strong></p>
+<ul>
+<li>Prescribe actions</li>
+<li>Examine outcome-predictor relationship</li>
+<li>Assess hypotheses</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>When to use</strong></p>
+<ul>
+<li>To perform tasks</li>
+<li>Specific knowledge gap</li>
+<li>Alternative to inference</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>How to use</strong></p>
+<ul>
+<li>Identify, Inspect, Interrogate, Interpret</li>
+<li>Iterative:
+<ul>
+<li>Features, Model</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Curate data</h1>
+<h1>Predictive modeling</h1>
 
 </section>
+<section class="slide level2 smaller">
+<h2>Classification vs.&nbsp;Regression tasks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Classification</strong>: Predicting a categorical variable</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Regression</strong>: Predicting a continuous variable</li>
+</ul>
+</div>
+</div>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
 <section class="slide level2 smaller scrollable">
-<h2>Common R packages</h2>
+<h2>Features: tokenization</h2>
+<p>In text analysis, features are often linguistic units (tokens).</p>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Features: metadata</h2>
+<p>But they can also be other types of variables such as metadata.</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Features: text features</h2>
+<p>Or derived features.</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller">
+<h2>Workflow with <code>tidymodels</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>A. Identify</strong></p>
+<ul>
+<li>Variables</li>
+<li>Splits</li>
+<li>Recipe</li>
+</ul>
+<p><strong>B. Inspect</strong></p>
+<ul>
+<li>Features</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>C. Interrogate</strong></p>
+<ul>
+<li>Model</li>
+<li>Tune</li>
+<li>Fit</li>
+<li>Evaluate</li>
+</ul>
+<p><strong>D. Interpret</strong></p>
+<ul>
+<li>Predict</li>
+<li>Evaluate</li>
+<li>Explore</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: variables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Outcome variable</strong>: The variable you want to predict</li>
+<li><strong>Predictor variables</strong>: The variables you will use to make the prediction</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>gender</code></td>
+<td>Outcome</td>
+<td>Aim to predict ‘female’ or ‘male’</td>
+</tr>
+<tr class="even">
+<td><code>text</code></td>
+<td>Predictor</td>
+<td>Text data to predict <code>gender</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Splits</h2>
+<ul>
+<li><strong>Training set</strong>: Used to train, tune, and evaluate the model</li>
+<li><strong>Testing set</strong>: Used to evaluate the final model</li>
+</ul>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Recipe</h2>
+<ul>
+<li><strong>Recipe</strong>: A blueprint for how to process the data</li>
+</ul>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-12"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Recipe</h2>
+<ul>
+<li><strong>Feature selection</strong>: Choosing the most relevant variables</li>
+</ul>
+<div id="qwebr-insertion-location-13"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-14"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<!-- TF-IDF word tokens (150 tuned) -->
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Recipe</h2>
+<ul>
+<li><strong>Feature engineering</strong>: Deriving new variables and transforming existing ones</li>
+</ul>
+<div id="qwebr-insertion-location-15"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-16"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model selection</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li><code>fs</code>: File system operations</li>
-<li><code>readr</code>: Read plain text, csv, tsv, and other delimited files</li>
-<li><code>stringr</code>: String manipulation, find/ replace (regular expressions)</li>
-<li><code>tidyr</code>: Tidy data, reshape data (more transformational)</li>
+<li><strong>Model specification</strong>: A blueprint for the model</li>
+<li><strong>Model family</strong>: The type of model to use (e.g., logistic regression, random forest)</li>
+<li><strong>Engine</strong>: The software that will fit the model (e.g., <code>LiblineaR</code>, <code>ranger</code>)</li>
+<li><strong>Hyperparameters</strong>: Settings that control the model’s behavior (e.g., number of trees in a random forest)</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-
-</div>
-</div>
-<aside><div>
-<p>WebR has issues with reading files with <code>readr</code>. We will be using the base R functions for reading files.</p>
-</div></aside></section>
-<section class="slide level2 smaller scrollable">
-<h2>Structured data</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Characteristics</p>
-<ul>
-<li>Tabular</li>
-<li>Relational</li>
-<li>Hierarchical</li>
-</ul>
-<p>Already tidy!</p>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Unstructured data</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Characteristics</p>
-<ul>
-<li>No structure</li>
-<li>No schema</li>
-</ul>
-<p>Requires tidying!</p>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-4"></div>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Family</th>
+<th>Engine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>logistic_reg()</code></td>
+<td>Logistic regression</td>
+<td><code>LiblineaR</code></td>
+</tr>
+<tr class="even">
+<td><code>decision_tree()</code></td>
+<td>Decision tree</td>
+<td><code>C5.0</code></td>
+</tr>
+<tr class="odd">
+<td><code>random_forest()</code></td>
+<td>Random forest</td>
+<td><code>ranger</code></td>
+</tr>
+<tr class="even">
+<td><code>svm_linear()</code></td>
+<td>Support vector machine</td>
+<td><code>LiblineaR</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each model has hyperparameters that can be tuned to improve performance.</p>
+<div id="qwebr-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Unstructured data: tidy</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Approaches</p>
+<h2>Interrogate: Model selection</h2>
 <ul>
-<li>Regular expressions</li>
-<li>String manipulation</li>
-<li>File/ directory manipulation</li>
+<li><strong>Model specification</strong>: A blueprint for the model</li>
 </ul>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-5"></div>
+<p>The <code>logistic_reg()</code> model has a <code>penalty</code> hyperparameter that controls the minimum number of observations in a node. Tuning this parameter and the <code>max_tokens()</code> filter will help the model generalize better.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="qwebr-insertion-location-18"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div><div class="column" style="width:50%;">
+<div id="qwebr-insertion-location-19"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
+<div id="qwebr-insertion-location-20"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Semi-structured data</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Characteristics</p>
-<ul>
-<li>Non-tabular</li>
-<li>A schema or structure</li>
-</ul>
-<p>Requires tidying!</p>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-6"></div>
+<h2>Interrogate: Model selection</h2>
+<p>Create a workflow that combines the recipe and model specification.</p>
+<div id="qwebr-insertion-location-21"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
+<div id="qwebr-insertion-location-22"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Semi-structured data: tidy</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Approaches</p>
+<h2>Interrogate: Model tuning</h2>
 <ul>
-<li>Format-specific packages</li>
-<li>Regular expressions</li>
-<li>String manipulation</li>
-<li>File/ directory manipulation</li>
+<li><strong>Hyperparameter tuning</strong>: Finding the best settings for the model</li>
+<li><strong>Resampling</strong>: Using the training set to estimate how well the model will perform on new (slices of) data</li>
 </ul>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-7"></div>
+<div id="qwebr-insertion-location-23"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
+<div id="qwebr-insertion-location-24"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section class="slide level2 smaller scrollable">
-<h2>Semi-structured data: tidy</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>Approaches</p>
-<ul>
-<li>Format-specific packages</li>
-<li>Regular expressions</li>
-<li>String manipulation</li>
-<li>File/ directory manipulation</li>
-</ul>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-8"></div>
+<h2>Interrogate: Model tuning</h2>
+<p>Choose the best hyperparameters and finalize the workflow.</p>
+<div id="qwebr-insertion-location-25"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-26"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Fit the model</h2>
+<ul>
+<li><strong>Fit the model</strong>: Train the model on the training set</li>
+<li><strong>Cross-validation</strong>: Repeatedly train and evaluate the model on different slices of the training set</li>
+</ul>
+<div id="qwebr-insertion-location-27"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-28"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Evaluate the model</h2>
+<p><strong>Performance metrics</strong>: Measures of how well the model is doing</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Classification</p>
+<ul>
+<li><strong>Confusion matrix</strong>: A table showing the model’s predictions versus the actual outcomes</li>
+<li><strong>ROC curve</strong>: A graph showing the trade-off between true positive rate and false positive rate</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Regression</p>
+<ul>
+<li><strong>RMSE</strong>: Root mean squared error</li>
+<li><strong>Standard deviation of residuals</strong>: How much the model’s predictions deviate from the actual outcomes</li>
+</ul>
 </div>
 </div>
+<div id="qwebr-insertion-location-29"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<!-- Textfeatures ONLY -->
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Recipe (x2)</h2>
+<p>Our previous feature selection:</p>
+<ul>
+<li>Tokenization: words</li>
+<li>Feature engineering: tf-idf</li>
+<li>Feature selection: 150 tokens</li>
+</ul>
+<div id="qwebr-insertion-location-30"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-31"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model selection (x2)</h2>
+<p>Update the workflow with the new recipe.</p>
+<div id="qwebr-insertion-location-32"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-33"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model tuning (x2)</h2>
+<p>Update the grid and resampling.</p>
+<div id="qwebr-insertion-location-34"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-35"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Fit the model (x2)</h2>
+<ul>
+<li><strong>Fit the model</strong>: Train the model on the training set</li>
+<li><strong>Cross-validation</strong>: Repeatedly train and evaluate the model on different slices of the training set</li>
+</ul>
+<div id="qwebr-insertion-location-36"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Evaluate the model (x2)</h2>
+<p><strong>Performance metrics</strong>: Measures of how well the model is doing</p>
+<div id="qwebr-insertion-location-37"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<!-- Tokens and textfeatures -->
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Identify: Recipe (x3)</h2>
+<p>Our previous feature selection:</p>
+<ul>
+<li>Tokenization: words</li>
+<li>Feature engineering: tf-idf</li>
+<li>Feature selection: 150 tokens</li>
+</ul>
+<div id="qwebr-insertion-location-38"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-39"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model selection (x3)</h2>
+<p>Update the workflow with the new recipe.</p>
+<div id="qwebr-insertion-location-40"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-41"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model tuning (x3)</h2>
+<p>Update the grid and resampling.</p>
+<div id="qwebr-insertion-location-42"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-43"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model selection (x4)</h2>
+<p>Update the model specification. Let’s use a random forest model.</p>
+<div id="qwebr-insertion-location-44"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-45"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Interrogate: Model tuning (x4)</h2>
+<p>Update the grid and resampling.</p>
+<div id="qwebr-insertion-location-46"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-47"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section class="slide level2 smaller">
+<h2>8. Predict with the model</h2>
+<ul>
+<li><strong>Predictions</strong>: Using the model to make predictions on new data (test set)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>9. Evaluate the model on test set</h2>
+<ul>
+<li><strong>Generalization</strong>: How well the model performs on new data
+<ul>
+<li><strong>Overfitting</strong>: When the model performs well on the training set but poorly on new data</li>
+<li><strong>Underfitting</strong>: When the model performs poorly on both the training set and new data</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>10. Explore the model</h2>
+<ul>
+<li><strong>Feature importance</strong>: Which variables are most important for the model’s predictions</li>
+<li><strong>Partial dependence plots</strong>: How the model’s predictions change as a single variable changes (?)</li>
+</ul>
 </section></section>
 <section>
-<section class="title-slide slide level1 smaller scrollable center">
-<h1>Documenting datasets</h1>
+<section class="title-slide slide level1 center">
+<h1>Wrap-up</h1>
 
 </section>
 <section class="slide level2">
-<h2>Write the data</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
+<h2>Final thoughts</h2>
 <ul>
-<li>Quarto prose and code comments</li>
-<li>Predictable file names</li>
-<li>Logical directory structure</li>
+<li>Predictive modeling is a powerful tool for examining relationships in data which can perform tasks (as AI) or provide insights into features that are important for the outcome.</li>
+<li>The <code>tidymodels</code> package provides a consistent and flexible framework for building and evaluating models</li>
 </ul>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Data dictionaries</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<ul>
-<li>Variable names</li>
-<li>Variable friendly names</li>
-<li>Variable descriptions</li>
-<li>Variable types</li>
-</ul>
-</div><div class="column" style="width:70%;">
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
 </section>
 <section class="slide level2">
-<h2>Summary</h2>
-<ul>
-<li>Data to information</li>
-<li>Types of data</li>
-<li>Documenting datasets</li>
-</ul>
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-sm.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Curate | Quantitative Text Analysis | Wake Forest University</p>
+<p>Predict | Quantitative Text Analysis | Wake Forest University</p>
 </div>
 </div>
 </section></section>
@@ -1987,6 +2091,44 @@ Dr.&nbsp;Jerid Francom
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
