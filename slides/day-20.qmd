@@ -504,7 +504,7 @@ cls_tune_wflow_1 <- finalize_workflow(cls_wflow_1, cls_best)
 
 ```{webr-r}
 # Fit the model
-cls_fit_cv <-
+cls_fit_cv_1 <-
   cls_tune_wflow_1 |>
   fit_resamples(
     resamples = cls_vfold,
@@ -544,13 +544,10 @@ Regression
 
 ```{webr-r}
 # Collect metrics
-cls_fit_cv_1 |>
-  collect_metrics()
+cls_fit_cv_1 |>  collect_metrics()
 
 # Confusion matrix
-cls_fit_cv_1 |>
-  conf_mat_resampled(tidy = FALSE) |>
-  autoplot(type = "heatmap")
+cls_fit_cv_1 |> conf_mat_resampled(tidy = FALSE) |> autoplot(type = "heatmap")
 ```
 
 <!-- Textfeatures ONLY -->
@@ -781,16 +778,20 @@ cls_tune <- tune_grid(cls_wflow_3, resamples = cls_vfold, grid = cls_grid)
 
 - **Predictions**: Using the model to make predictions on new data (test set)
 
-## 9. Evaluate the model on test set
-
-- **Generalization**: How well the model performs on new data
-  - **Overfitting**: When the model performs well on the training set but poorly on new data
-  - **Underfitting**: When the model performs poorly on both the training set and new data
-
 ```{webr-r}
 # Predict
 cls_final_fit <- last_fit(cls_tune_wflow_2, cls_split)
+```
 
+## 9. Evaluate the model on test set
+
+- **Generalization**: How well the model performs on new data
+
+| **Overfitting** | **Underfitting** |
+|-------------|--------------|
+| When the model performs well on the training set but poorly on new data | When the model performs poorly on both the training set and new data |
+
+```{webr-r}
 # Metrics
 cls_final_fit |> collect_metrics()
 
@@ -799,13 +800,13 @@ cls_final_fit |> collect_predictions() |> conf_mat(truth = outcome, estimate = .
 
 # ROC curve
 cls_final_fit |> collect_predictions() |> roc_curve(truth = outcome, .pred_female) |> autoplot()
-
 ```
 
 ## 10. Explore the model
 
 - **Feature importance**: Which variables are most important for the model's predictions
-- **Partial dependence plots**: How the model's predictions change as a single variable changes (?)
+
+For linear models we get coefficients, for tree-based models we get variable importance.
 
 ```{webr-r}
 # Feature importance
@@ -820,6 +821,8 @@ cls_coefs <-
 
 ## 10. Explore the model
 
+We need to standardize the coefficients to compare them.
+
 ```{webr-r}
 aes_coefs_z <-
   cls_coefs |>
@@ -832,7 +835,6 @@ aes_coefs_z |>
   geom_point() +
   labs(title = "Feature importance", x = "Z-score", y = "Feature")
 ```
-
 
 # Wrap-up
 
