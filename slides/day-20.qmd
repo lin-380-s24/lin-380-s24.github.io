@@ -413,19 +413,19 @@ Create a workflow that combines the recipe and model specification.
 
 ```{webr-r}
 # Workflow
-cls_wflow <-
+cls_wflow_1 <-
   workflow() |>
   add_recipe(tfidf_rec) |>
   add_model(cls_spec)
 
 # Preview
-cls_wflow
+cls_wflow_1
 ```
 ```{webr-r}
 #| context: setup
 
 # Workflow
-cls_wflow <-
+cls_wflow_1 <-
   workflow() |>
   add_recipe(tfidf_rec) |>
   add_model(cls_spec)
@@ -450,7 +450,7 @@ cls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_1, resamples = cls_vfold, grid = cls_grid)
 ```
 ```{webr-r}
 #| context: setup
@@ -466,7 +466,7 @@ cls_vfold <- vfold_cv(cls_trn, v = 5)  #<2> 5-fold cross-validation
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_1, resamples = cls_vfold, grid = cls_grid)
 ```
 
 ## Interrogate: Model tuning {.smaller .scrollable}
@@ -482,7 +482,7 @@ cls_tune |> show_best(metric = "roc_auc")
 cls_best <- select_best(cls_tune, metric = "roc_auc")
 
 # Finalize workflow
-cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+cls_tune_wflow_1 <- finalize_workflow(cls_wflow_1, cls_best)
 ```
 ```{webr-r}
 #| context: setup
@@ -494,7 +494,7 @@ cls_tune |> show_best(metric = "roc_auc")
 cls_best <- select_best(cls_tune, metric = "roc_auc")
 
 # Finalize workflow
-cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+cls_tune_wflow_1 <- finalize_workflow(cls_wflow_1, cls_best)
 ```
 
 ## Interrogate: Fit the model {.smaller .scrollable}
@@ -505,7 +505,7 @@ cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
 ```{webr-r}
 # Fit the model
 cls_fit_cv <-
-  cls_tune_wflow |>
+  cls_tune_wflow_1 |>
   fit_resamples(
     resamples = cls_vfold,
     control = control_resamples(save_pred = TRUE)
@@ -514,8 +514,8 @@ cls_fit_cv <-
 ```{webr-r}
 #| context: setup
 # Fit the model
-cls_fit_cv <-
-  cls_tune_wflow |>
+cls_fit_cv_1 <-
+  cls_tune_wflow_1 |>
   fit_resamples(
     resamples = cls_vfold,
     control = control_resamples(save_pred = TRUE)
@@ -544,11 +544,11 @@ Regression
 
 ```{webr-r}
 # Collect metrics
-cls_fit_cv |>
+cls_fit_cv_1 |>
   collect_metrics()
 
 # Confusion matrix
-cls_fit_cv |>
+cls_fit_cv_1 |>
   conf_mat_resampled(tidy = FALSE) |>
   autoplot(type = "heatmap")
 ```
@@ -595,21 +595,19 @@ Update the workflow with the new recipe.
 
 ```{webr-r}
 # Update workflow
-cls_wflow <-
+cls_wflow_2 <-
   workflow() |>
   add_recipe(cls_rec) |>
   add_model(cls_spec)
 
-cls_wflow
+cls_wflow_2
 ```
 ```{webr-r}
 #| context: setup
-cls_wflow <-
+cls_wflow_2 <-
   workflow() |>
   add_recipe(cls_rec) |>
   add_model(cls_spec)
-
-cls_wflow
 ```
 
 ## Interrogate: Model tuning (x2) {.smaller .scrollable}
@@ -623,7 +621,7 @@ cls_grid <- grid_regular(p, levels = 10)
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_2, resamples = cls_vfold, grid = cls_grid)
 
 cls_tune |> autoplot()
 cls_tune |> show_best(metric = "roc_auc")
@@ -636,7 +634,7 @@ cls_grid <- grid_regular(p, levels = 10)
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_2, resamples = cls_vfold, grid = cls_grid)
 ```
 
 ## Interrogate: Fit the model (x2) {.smaller .scrollable}
@@ -649,11 +647,27 @@ cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
 cls_best <- select_best(cls_tune, metric = "roc_auc")
 
 # Finalize workflow
-cls_tune_wflow <- finalize_workflow(cls_wflow, cls_best)
+cls_tune_wflow_2 <- finalize_workflow(cls_wflow_2, cls_best)
 
 # Fit the model
-cls_fit_cv <-
-  cls_tune_wflow |>
+cls_fit_cv_2 <-
+  cls_tune_wflow_2 |>
+  fit_resamples(
+    resamples = cls_vfold,
+    control = control_resamples(save_pred = TRUE)
+  )
+```
+```{webr-r}
+#| context: setup
+# Select best hyperparameters
+cls_best <- select_best(cls_tune, metric = "roc_auc")
+
+# Finalize workflow
+cls_tune_wflow_2 <- finalize_workflow(cls_wflow_2, cls_best)
+
+# Fit the model
+cls_fit_cv_2 <-
+  cls_tune_wflow_2 |>
   fit_resamples(
     resamples = cls_vfold,
     control = control_resamples(save_pred = TRUE)
@@ -666,10 +680,10 @@ cls_fit_cv <-
 
 ```{webr-r}
 # Collect metrics
-cls_fit_cv |> collect_metrics()
+cls_fit_cv_2 |> collect_metrics()
 
 # Confusion matrix
-cls_fit_cv |> conf_mat_resampled(tidy = FALSE) |> autoplot(type = "heatmap")
+cls_fit_cv_2 |> conf_mat_resampled(tidy = FALSE) |> autoplot(type = "heatmap")
 ```
 
 <!-- Tokens and textfeatures -->
@@ -721,16 +735,16 @@ cls_rec |> view_rec()
 Update the workflow with the new recipe.
 
 ```{webr-r}
-cls_wflow <-
+cls_wflow_3 <-
   workflow() |>
   add_recipe(cls_rec) |>
   add_model(cls_spec)
 
-cls_wflow
+cls_wflow_3
 ```
 ```{webr-r}
 #| context: setup
-cls_wflow <-
+cls_wflow_3 <-
   workflow() |>
   add_recipe(cls_rec) |>
   add_model(cls_spec)
@@ -747,7 +761,7 @@ cls_grid <- grid_regular(p, levels = 10)
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_3, resamples = cls_vfold, grid = cls_grid)
 
 cls_tune |> autoplot()
 cls_tune |> show_best(metric = "roc_auc")
@@ -760,66 +774,7 @@ cls_grid <- grid_regular(p, levels = 10)
 
 # Tuning
 set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
-```
-
-## Interrogate: Model selection (x4) {.smaller .scrollable}
-
-Update the model specification. Let's use a random forest model.
-
-```{webr-r}
-# Model specification
-cls_spec <-
-  rand_forest(trees = tune()) |>
-  set_engine("ranger") |>
-  set_mode("classification")
-
-cls_wflow <-
-  workflow() |>
-  add_recipe(cls_rec) |>
-  add_model(cls_spec)
-
-cls_wflow
-```
-```{webr-r}
-#| context: setup
-# Model specification
-cls_spec <-
-  rand_forest(trees = tune()) |>
-  set_engine("ranger") |>
-  set_mode("classification")
-
-cls_wflow <-
-  workflow() |>
-  add_recipe(cls_rec) |>
-  add_model(cls_spec)
-```
-
-## Interrogate: Model tuning (x4) {.smaller .scrollable}
-
-Update the grid and resampling.
-
-```{webr-r}
-# Grid
-p <- parameters(trees())
-cls_grid <- grid_regular(p, levels = 10)
-
-# Tuning
-set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
-
-cls_tune |> autoplot()
-cls_tune |> show_best(metric = "roc_auc")
-```
-```{webr-r}
-#| context: setup
-# Grid
-p <- parameters(trees())
-cls_grid <- grid_regular(p, levels = 10)
-
-# Tuning
-set.seed(1234)
-cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
+cls_tune <- tune_grid(cls_wflow_3, resamples = cls_vfold, grid = cls_grid)
 ```
 
 ## 8. Predict with the model {.smaller}
@@ -832,10 +787,52 @@ cls_tune <- tune_grid(cls_wflow, resamples = cls_vfold, grid = cls_grid)
   - **Overfitting**: When the model performs well on the training set but poorly on new data
   - **Underfitting**: When the model performs poorly on both the training set and new data
 
+```{webr-r}
+# Predict
+cls_final_fit <- last_fit(cls_tune_wflow_2, cls_split)
+
+# Metrics
+cls_final_fit |> collect_metrics()
+
+# Confusion matrix
+cls_final_fit |> collect_predictions() |> conf_mat(truth = outcome, estimate = .pred_class) |> autoplot(type = "heatmap")
+
+# ROC curve
+cls_final_fit |> collect_predictions() |> roc_curve(truth = outcome, .pred_female) |> autoplot()
+
+```
+
 ## 10. Explore the model
 
 - **Feature importance**: Which variables are most important for the model's predictions
 - **Partial dependence plots**: How the model's predictions change as a single variable changes (?)
+
+```{webr-r}
+# Feature importance
+
+cls_coefs <-
+  cls_final_fit |>
+  extract_fit_parsnip() |>
+  tidy() |>
+  filter(term != "(Intercept)") |>
+  mutate(term = str_remove(term, "textfeature_text_"))
+```
+
+## 10. Explore the model
+
+```{webr-r}
+aes_coefs_z <-
+  cls_coefs |>
+  mutate(z_score = as.vector(scale(estimate)))
+```
+
+```{webr-r}
+aes_coefs_z |>
+  ggplot(aes(x = z_score, y = reorder(term, z_score))) +
+  geom_point() +
+  labs(title = "Feature importance", x = "Z-score", y = "Feature")
+```
+
 
 # Wrap-up
 
