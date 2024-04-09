@@ -4,7 +4,7 @@ subtitle: |
   "All models are wrong, but some are useful."\
   --- George E.P. Box
 date: "2024-04-03"
-categories: [analysis]
+categories: [analysis, prediction, supervised-learning, machine-learning, text-analysis, tidymodels]
 webr:
   show-startup-message: false
   packages: ['tidymodels', 'fs', 'stringr', 'textrecipes', 'LiblineaR', 'ranger']
@@ -194,6 +194,10 @@ recipe(
 - Explore
 :::
 ::::
+
+::: {.aside}
+{tidymodels} [@R-tidymodels] is a collection of packages for modeling and machine learning using the tidyverse.
+:::
 
 ## Identify: variables {.smaller .scrollable}
 
@@ -774,7 +778,7 @@ set.seed(1234)
 cls_tune <- tune_grid(cls_wflow_3, resamples = cls_vfold, grid = cls_grid)
 ```
 
-## 8. Predict with the model {.smaller}
+## Interpret: predict {.smaller}
 
 - **Predictions**: Using the model to make predictions on new data (test set)
 
@@ -783,7 +787,7 @@ cls_tune <- tune_grid(cls_wflow_3, resamples = cls_vfold, grid = cls_grid)
 cls_final_fit <- last_fit(cls_tune_wflow_2, cls_split)
 ```
 
-## 9. Evaluate the model on test set
+## Interpret: Evaluate
 
 - **Generalization**: How well the model performs on new data
 
@@ -802,7 +806,7 @@ cls_final_fit |> collect_predictions() |> conf_mat(truth = outcome, estimate = .
 cls_final_fit |> collect_predictions() |> roc_curve(truth = outcome, .pred_female) |> autoplot()
 ```
 
-## 10. Explore the model
+## Interpret: Evaluate
 
 - **Feature importance**: Which variables are most important for the model's predictions
 
@@ -819,7 +823,7 @@ cls_coefs <-
   mutate(term = str_remove(term, "textfeature_text_"))
 ```
 
-## 10. Explore the model
+## Interpret: Evaluate
 
 We need to standardize the coefficients to compare them.
 

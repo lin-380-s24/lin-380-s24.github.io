@@ -1,0 +1,180 @@
+---
+title: "Infer"
+subtitle: |
+  "People generally see what they look for, and hear what they listen for."\
+  --- Harper Lee, To Kill a Mockingbird
+date: "2024-04-10"
+categories: [analysis, inference, simulation, infer]
+webr:
+  show-startup-message: false
+  packages: ['infer']
+  message: false
+---
+
+## Overview
+
+- Orientation
+- Statistical inference
+  - Workflow with `infer`
+
+```{=html}
+<style>
+table {
+  font-size: 0.8em;
+}
+</style>
+```
+
+## Process
+
+![The Big Picture](images/qtal-big-picture.png)
+
+![](images/you-are-here.drawio.png){.absolute top=50 right=225}
+
+# Orientation
+
+## Inferential Data Analysis
+
+:::: {.columns}
+::: {.column width="33%"}
+**Goal~~s~~**
+
+- Assess hypotheses
+:::
+
+::: {.column width="33%"}
+**When to use**
+
+- To make inferences about a population\
+*generalize from a sample*
+:::
+
+::: {.column width="33%"}
+**How to use**
+
+- Identify, Inspect, Interrogate, Interpret
+- Non-iterative
+:::
+::::
+
+# Statistical inference
+
+## Paradigm
+
+**Null Hypothesis Significance Testing (NHST)**
+
+- $H_0$ **Null hypothesis**: no effect\
+*assumed true from the outset*
+- $H_1$ **Alternative hypothesis**: effect exists\
+*only if we have evidence to reject the null hypothesis*
+
+**Evidence**: the likelihood of the observed statistic(s) if the null hypothesis is true is below some pre-specified threshold (significance level).
+
+## Approaches {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**Theory-based NHST**
+
+- Classical
+- Based on theoretical distributions
+  - Requires assumptions about the data (*ex.* parametric, non-parametric)
+- Relies on conceptual understanding of mathematical properties
+  - Tends to be more difficult to understand (for non-statisticians)
+:::
+
+::: {.column width="50%"}
+**Simulation-based NHST**
+
+- Empirical
+- Based on resampling methods
+  - Does not require assumptions about the data
+- Frames the problem in terms of the data
+  - Easier to understand (for non-statisticians)
+:::
+::::
+
+The `infer` [@R-infer] package is a simulation-based approach to NHST.
+
+## Workflow with `infer` {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**A. Identify**
+
+- Map the hypothesis to the response and explanatory variable(s)
+- Determine the information types and relationship(s) between the variables.
+- Choose the relevant test statistic and significance level
+
+**B. Inspect**
+
+- Summarize and visualize the relationship(s) between the variables
+- Check assumptions (if necessary)
+- Choose resampling method (bootstrap, permutation, *etc*.)
+
+:::
+
+::: {.column width="50%"}
+**C. Interrogate**
+
+- Generate the null distribution
+  - Specify the relationship(s)
+- Calculate the observed test statistic
+- Calculate the p-value
+- Generate the resampling distribution of the test statistic
+- Calculate the confidence interval
+
+**D. Interpret**
+
+- Evaluate p-value and confidence interval
+- Evaluate evidence in the context of the research question
+
+:::
+::::
+
+## Case study
+
+**Research question**: TBD
+
+
+## Identify
+
+- Define the research question
+- Identify the population of interest
+- Define the parameter of interest
+- Define the null and alternative hypotheses
+- Choose the significance level
+- Choose the test statistic
+
+## Inspect
+
+- Collect the data
+- Summarize the data
+- Visualize the data
+- Check the assumptions (not necessary for simulation-based NHST)
+- Choose the resampling method
+
+## Interrogate
+
+- Generate the null distribution
+- Calculate the observed test statistic
+- Calculate the p-value
+- Generate a resampling distribution of the test statistic
+- Calculate the confidence interval
+
+## Interpret
+
+- Evaluate the p-value
+- Evaluate the confidence interval
+- Make a decision in the context of the research question
+
+# Wrap-up
+
+## Final thoughts
+
+- Inferential data analysis is a powerful tool for making inferences about a population based on a sample.
+- The `infer` package provides a simulation-based approach to NHST that is easier to understand than classical methods.
+
+## References
+
+
