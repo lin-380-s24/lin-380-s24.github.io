@@ -126,109 +126,95 @@
     "text": "In-line R code\nWhen you are writing a Quarto document, you may find that you want to include a value from an R object in the text. For example, you might want to say “The mean of the n_char column is 5.2”. You can add the ‘5.2’ manually based on the value you get from running R code earlier in the document, or you can include the value in the text using in-line R code. Say we have a data frame df with a column n_char and we want to include the mean of that column in the text. We can do this using the `r expression` syntax like this:\n\nThe mean of the `n_char` column is `r mean(df$n_char)`.\n\nWhen you render the document, the in-line R code will be replaced with the value of the R expression. This is a very powerful feature of Quarto, and it allows you to keep your document up-to-date with the latest results from your R code."
   },
   {
-    "objectID": "slides/day-10.html#references",
-    "href": "slides/day-10.html#references",
-    "title": "Scaffolding reproducible research",
+    "objectID": "slides/day-20.html#references",
+    "href": "slides/day-20.html#references",
+    "title": "Predict",
     "section": "References",
-    "text": "References\n\n\n\n\nScaffolding reproducible research | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCsárdi, Gábor. 2022. Gitcreds: Query ’Git’ Credentials from ’r’. https://CRAN.R-project.org/package=gitcreds.\n\n\nOoms, Jeroen. 2023. Credentials: Tools for Managing SSH and Git Credentials. https://CRAN.R-project.org/package=credentials.\n\n\nWickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. Usethis: Automate Package and Project Setup. https://CRAN.R-project.org/package=usethis."
+    "text": "References\n\n\n\n\nPredict | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nKuhn, Max, and Hadley Wickham. 2020. Tidymodels: A Collection of Packages for Modeling and Machine Learning Using Tidyverse Principles. https://www.tidymodels.org."
   },
   {
-    "objectID": "slides/day-16.html#references",
-    "href": "slides/day-16.html#references",
-    "title": "Transformation",
+    "objectID": "slides/day-22.html#references",
+    "href": "slides/day-22.html#references",
+    "title": "Infer",
     "section": "References",
-    "text": "References\n\n\n\n\nTransformation | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nMullen, Lincoln A., Kenneth Benoit, Os Keyes, Dmitry Selivanov, and Jeffrey Arnold. 2018. “Fast, Consistent Tokenization of Natural Language Text.” Journal of Open Source Software 3: 655. https://doi.org/10.21105/joss.00655.\n\n\nSilge, Julia, and David Robinson. 2016. “Tidytext: Text Mining and Analysis Using Tidy Data Principles in r.” JOSS 1 (3). https://doi.org/10.21105/joss.00037.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWijffels, Jan. 2023. Udpipe: Tokenization, Parts of Speech Tagging, Lemmatization and Dependency Parsing with the ’UDPipe’ ’NLP’ Toolkit. https://CRAN.R-project.org/package=udpipe."
+    "text": "References\n\n\n\n\nInfer | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCouch, Simon P., Andrew P. Bray, Chester Ismay, Evgeni Chasnovski, Benjamin S. Baumer, and Mine Çetinkaya-Rundel. 2021. “infer: An R Package for Tidyverse-Friendly Statistical Inference.” Journal of Open Source Software 6 (65): 3661. https://doi.org/10.21105/joss.03661."
   },
   {
-    "objectID": "slides/day-12.html#references",
-    "href": "slides/day-12.html#references",
-    "title": "Acquire",
-    "section": "References",
-    "text": "References\n\n\n\n\nAcquire | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nHester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. Fs: Cross-Platform File System Operations Based on Libuv. https://fs.r-lib.org.\n\n\nJohnston, Myfanwy, and David Robinson. 2023. Gutenbergr: Download and Process Public Domain Works from Project Gutenberg. https://docs.ropensci.org/gutenbergr/."
-  },
-  {
-    "objectID": "slides/day-06.html#references",
-    "href": "slides/day-06.html#references",
-    "title": "Reading, inspecting, and writing datasets",
-    "section": "References",
-    "text": "References\n\n\n\n\nReading, inspecting, and writing datasets | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nEvert, Stephanie. 2023. Corpora: Statistics and Data Sets for Corpus Frequency Data. https://CRAN.R-project.org/package=corpora.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. Readr: Read Rectangular Text Data. https://CRAN.R-project.org/package=readr."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nDive into datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nTrace the datascape\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding reproducible research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nHarvesting research data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nTaming data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n18\nMar 22\nDataset alchemy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n🌿\n19\nMar 27\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
-  },
-  {
-    "objectID": "guides/data-sources.html",
-    "href": "guides/data-sources.html",
-    "title": "Data sources",
-    "section": "",
-    "text": "In this guide, I list some data sources for text analysis. The list is short and clearly incomplete, but it provides a starting point for researchers who are looking for text data to analyze. The list includes general corpora, language-specific corpora, domain-specific corpora, and R APIs for text analysis.\nSome of the corpora listed below are open access, while others are restricted access. Open access corpora are freely available to the public, while restricted access corpora require a subscription or a license to access."
-  },
-  {
-    "objectID": "guides/data-sources.html#downloads",
-    "href": "guides/data-sources.html#downloads",
-    "title": "Data sources",
-    "section": "Downloads",
-    "text": "Downloads\n\nEnglish\n\nANC (American National Corpus)\nENNTT (Europarl Corpus of Native, Non-native, and Translated Texts)\nSBCSAE (Santa Barbara Corpus of Spoken American English)\nSDAC (Switchboard Dialog Act Corpus, LDC open access)\nICE (International Corpus of English, restricted access)\nBNC (British National Corpus, restricted access)\nCOCA (Corpus of Contemporary American English, restricted access)\n… (suggest more!)\n\n\n\nOther languages\n\nLCMC (Lancaster Corpus of Mandarin Chinese)\nSCC (Sheffield Corpus of Chinese)\nACTIV-ES (Film/TV dialog corpus for Argentine, Mexican, and Peninsular Spanish)\n…"
-  },
-  {
-    "objectID": "guides/data-sources.html#domain-specific",
-    "href": "guides/data-sources.html#domain-specific",
-    "title": "Data sources",
-    "section": "Domain specific",
-    "text": "Domain specific\n\nL2 learner corpora\n\nLangsnap (Spanish, French learner corpora)\nCEDEL2 (Corpus Escrito del Español como L2)\n…\n\n\n\nTranslation corpora\n\nOPUS (Open Parallel Corpus)\n…"
-  },
-  {
-    "objectID": "guides/data-sources.html#r-apis",
-    "href": "guides/data-sources.html#r-apis",
-    "title": "Data sources",
-    "section": "R APIs",
-    "text": "R APIs\n\ntuber (YouTube)\nrtweet (Twitter)\nrtoot (Mastodon)\ngutenbergr (Project Gutenberg)\nTBDBr (TalkBank Database)\njstor (JSTOR Data for Research)\n\nJSTOR Data for Research (DfR) provides access to the data behind the research on the JSTOR digital library.\n\nlingtypology (Linguistic typology data)\n…"
-  },
-  {
-    "objectID": "guides/data-sources.html#r-packages",
-    "href": "guides/data-sources.html#r-packages",
-    "title": "Data sources",
-    "section": "R packages",
-    "text": "R packages\n\ntextdata (Text data for text analysis)\nfivethirtyeight (Data from the FiveThirtyEight website)\nquanteda.corpora (Corpora for the quanteda package)\ncorpora (Corpora for the corpora package)\n…"
-  },
-  {
-    "objectID": "guides/data-sources.html#other-repositories",
-    "href": "guides/data-sources.html#other-repositories",
-    "title": "Data sources",
-    "section": "Other repositories",
-    "text": "Other repositories\n\nKaggle\nTidytuesday"
-  },
-  {
-    "objectID": "guides/get-up-with-git.html",
-    "href": "guides/get-up-with-git.html",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "",
-    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
-    "href": "guides/get-up-with-git.html#what-is-git-and-github",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "What is Git and GitHub?",
-    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
-    "title": "Get up to speed with Git and GitHub",
-    "section": "First steps with Git and GitHub: cloning a repository",
-    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
-  },
-  {
-    "objectID": "guides/get-up-with-git.html#footnotes",
-    "href": "guides/get-up-with-git.html#footnotes",
-    "title": "Get up to speed with Git and GitHub",
+    "objectID": "slides/day-02.html#footnotes",
+    "href": "slides/day-02.html#footnotes",
+    "title": "Writing with code",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
+    "text": "Footnotes\n\n\nFootnote info…"
+  },
+  {
+    "objectID": "slides/day-05.html#footnotes",
+    "href": "slides/day-05.html#footnotes",
+    "title": "Data",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.\nThe Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.\nThe Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.\nThe Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples."
+  },
+  {
+    "objectID": "slides/day-09.html#references",
+    "href": "slides/day-09.html#references",
+    "title": "Research",
+    "section": "References",
+    "text": "References\n\n\n\n\n\nResearch | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCross, Nigel. 2006. “Design as a Discipline.” Designerly Ways of Knowing, 95–103."
+  },
+  {
+    "objectID": "slides/day-18.html#references",
+    "href": "slides/day-18.html#references",
+    "title": "Explore",
+    "section": "References",
+    "text": "References\n\n\n\n\nExplore | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nKassambara, Alboukadel, and Fabian Mundt. 2020. Factoextra: Extract and Visualize the Results of Multivariate Data Analyses. https://CRAN.R-project.org/package=factoextra.\n\n\nMeyer, David, and Christian Buchta. 2022. Proxy: Distance and Similarity Measures. https://CRAN.R-project.org/package=proxy.\n\n\nWijffels, Jan, and Kohei Watanabe. 2023. Word2vec: Distributed Representations of Words. https://CRAN.R-project.org/package=word2vec."
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html",
+    "href": "guides/managing-docker-rstudio.html",
+    "title": "Managing Docker and RStudio Server",
+    "section": "",
+    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Stop Docker container and RStudio Server",
+    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
+  },
+  {
+    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
+    "title": "Managing Docker and RStudio Server",
+    "section": "Restart Docker container and RStudio Server",
+    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
+  },
+  {
+    "objectID": "guides/getting-started.html",
+    "href": "guides/getting-started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
+  },
+  {
+    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "What is a virtual computing environment?",
+    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
+  },
+  {
+    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Setting up the virtual computing environment",
+    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
+  },
+  {
+    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
+    "title": "Getting started",
+    "section": "Sharing files between your computer and the virtual computing environment",
+    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
   },
   {
     "objectID": "index.html",
@@ -280,81 +266,109 @@
     "text": "Policies\n\nProfessionalism\nWe abide by the WFU Honor System in this course; academic dishonesty is not tolerated and will be handled according to the policies in the student handbook.\n\n\nAccommodations\nWake Forest University provides reasonable accommodations to students with disabilities. If you are in need of an accommodation, then please contact me privately as early in the term as possible. Retroactive accommodations will not be provided. Students requiring accommodations must also consult the Center for Learning, Access, and Student Success (118 Reynolda Hall, 336-758-5929)."
   },
   {
-    "objectID": "guides/getting-started.html",
-    "href": "guides/getting-started.html",
-    "title": "Getting started",
+    "objectID": "guides/get-up-with-git.html",
+    "href": "guides/get-up-with-git.html",
+    "title": "Get up to speed with Git and GitHub",
     "section": "",
-    "text": "In this course, we will be using a virtual computing envionment to set up the resources and tools we need. This will allow us to work in a consistent environment, where we can be sure that all the tools we need are available and working."
+    "text": "In this guide, you’ll learn how to use Git and GitHub to gain access to materials for this course."
   },
   {
-    "objectID": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "href": "guides/getting-started.html#what-is-a-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "What is a virtual computing environment?",
-    "text": "What is a virtual computing environment?\n\nA virtual computing environment is a way of setting up a computer that is isolated from your main computer. This means that you can install software and make changes to the environment without affecting your main computer. It also means that you can share your environment with others, so that they can use the same tools and resources as you.\nI have build and will share with you a virtual computing environment that contains all the tools we need for this course. This environment is based on Docker, which is a tool for creating and managing virtual computing environments.\nTo be able to use this environment, you will need to install Docker on your computer. Navigate to the Docker website and follow the instructions for installing Docker on your computer.\n\nMac instructions\nWindows instructions"
+    "objectID": "guides/get-up-with-git.html#what-is-git-and-github",
+    "href": "guides/get-up-with-git.html#what-is-git-and-github",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "What is Git and GitHub?",
+    "text": "What is Git and GitHub?\n\nAs I mentioned in earlier posts, one of the major benefits of using Docker is that it allows for sharing a complete computational environment. The francojc/lin-380 image that you pulled in Docker Desktop and ran to create the container for this course is a good example of this. It contains all the software you need to run the course materials, including R, RStudio, and most of the R packages we’ll use.\nIncluded in this software is a utility called git. Git is a version control system that allows you to track changes to files and collaborate with others. It’s a powerful tool that is widely used in software development, and it’s also useful for managing changes to data analysis projects.\nThe git software is the underlying technology that powers GitHub, a web-based platform for hosting and sharing code. GitHub is where many of the resources for the course are hosted (Labs, in particular), and later in the course you’ll use it to submit your work and collaborate with peers."
   },
   {
-    "objectID": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#setting-up-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Setting up the virtual computing environment",
-    "text": "Setting up the virtual computing environment\nOnce you have Docker Desktop up and running, the next step is to download the virtual computing environment that I have created for this course. This is called a Docker image, and it contains all the tools and resources we need for this course. We will navigate to the “Images” tab in Docker Desktop and search for the image called francojc/lin-380. Once you have found it, click on the “Pull” button to download the image.\n\n\n\nPull the image from Docker Hub\n\n\nOnce the image has been downloaded, you will see it in the list of images in Docker Desktop. You can now click on the “Run” button to build a container based on this image.\nYou will need to fill out the following configuration options:\n\nName: Give your container a name. This can be anything you like.\nPorts: This is where you can specify which ports on your computer should be accessible from inside the container. We will be using port 8787 for RStudio Server, so you can enter 8787 in the “Local Port” field and 8787 in the “Container Port” field.\nVolumes: This is where you can specify which folders on your computer should be accessible from inside the container. On the left hand side, click on the “Add” button and select the folder where you want to store your work for this course. On the right hand side, enter /home/rstudio/Workpace as the path inside the container.\nEnvironment variables: This is where you can specify environment variables that will be available inside the container. We will be using an environment variable called PASSWORD to set the password for RStudio Server. On the left hand side, type ‘PASSWORD’ in the “Key” field and the password you want to use in the “Value” field.\n\nOnce you have filled out all the configuration options, click on the “Run” button.\n\n\n\nRun the container\n\n\nThis will start a virtual computing environment that contains all the tools and resources we need for this course. To access this environment, open the “Containers” tab in Docker Desktop, find the container you just created, and click the link 8787:8787 under “Port(s)”. This will open RStudio Server in your web browser.You will be prompted to log in to RStudio Server. Use the username rstudio and the password you specified in the configuration options.\n\n\n\nLog in to RStudio Server\n\n\n\n\n\n\n\n\nRemember that the password you specified in the configuration options is only for RStudio Server. It is not the password for your computer. Remember this password, as you will need it to log in to RStudio Server in the future!"
+    "objectID": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "href": "guides/get-up-with-git.html#first-steps-with-git-and-github-cloning-a-repository",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "First steps with Git and GitHub: cloning a repository",
+    "text": "First steps with Git and GitHub: cloning a repository\nThere are a few terms that are useful to know before working with Git and GitHub. Let’s start with a few of the most important ones as we get started learning how to clone a repository.\nStorage\n\nRepository (or “repo”): A repository is a collection of files and folders that are tracked by Git. Repositories can be hosted on GitHub, or they can be local to your computer.\nRemote: A remote is a repository that is hosted on a server, such as GitHub.\nLocal: A local repository is one that is stored on your computer.\n\nActions\n\nClone: To clone a repository is to create a local copy of a remote repository on your computer.\n\nLet’s start with these terms and concepts in mind as we work through the next few steps.\n\nCloning a repository\nOne of the first things you’ll do with Git and GitHub is to clone a repository. As stated above, cloning a repository is the process of creating a local copy of a remote repository on your computer.\nLet’s take the GitHub repository for Lab 00 as an example. It is hosted on GitHub. For this course, I created a GitHub organization called lin-380-s24. Within this organization, I’ve created a number of repositories we will use in this course. One of these is called lab-00. You can find it at the following URL: https://github.com/lin-380-s24/lab-00.\nLab 00 (and all the other repos in our course organization) is a public repository, which means that anyone can view it and copy it to their computer. Again, in Git-speak, copying a repository to your local computer is called “cloning” it. To clone the repository for Lab 00, you only need to retrieve the URL to the repository from GitHub. You can find this by clicking the big blue “Code” button on the repository page, and then copying the URL that appears in the box that pops up under ‘Clone’.\n\n\n\nGet the URL to clone a repository\n\n\nOnce you have the URL, you can use RStudio to clone the repository to your computer. So before we go further, make sure that you have started the container and are logged in to RStudio Server.\n. . .\nOnce you have the container running and are logged in to RStudio Server, you can clone the repository by clicking on the “New Project” button in the upper left corner of the RStudio toolbar or “File” drop-down menu. This will open a dialog box with a number of options for creating a new project. Select “Version Control” and then “Git”.\nThis will open a dialog box where you can enter the URL for the repository you want to clone. Paste the URL for the Lab 00 repository into the box, open the folder where you want the project to download to1, and click “Create Project”. This will create a new project in RStudio that contains the files and folders from the Lab 00 repository!\n\n\n\nUse RStudio to clone a GitHub repo\n\n\nThere is much more to learn about Git and GitHub, but this is enough to get you started.\nNote: We used RStudio projects to help us clone this repository, but RStudio projects are useful for other reasons as well. We’ll also have more to say about them later in the course."
   },
   {
-    "objectID": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "href": "guides/getting-started.html#sharing-files-between-your-computer-and-the-virtual-computing-environment",
-    "title": "Getting started",
-    "section": "Sharing files between your computer and the virtual computing environment",
-    "text": "Sharing files between your computer and the virtual computing environment\nYour computer is what is known as the “Host”. The virtual computing environment is attached, but isolated from your computer. This is a great benefit to virtual computing so that you can install software and make changes to the environment without affecting your main computer. The downside of this isolation is that the virtual computing environment does not have access to the files on your computer, by default.\nHowever, when you created the container, you specified a folder on your computer (“Host path”) that should be accessible from inside the container through the /home/rstudio/Workspace folder (“Container path”). This is known as a “Volume”. This connection between your computer and the virtual computing environment is the only way to share files between the two directly.\n\n\n\nSharing files between the container and your computer\n\n\nThis connection between Host path and Container path is a two-way street. This means that any files you create in the /home/rstudio/Workspace folder inside the container will be available in the folder you specified on your computer. Similarly, any files you create in the folder you specified on your computer will be available in the /home/rstudio/Workspace folder inside the container.\n\n\n\n\n\n\nVery important\nYou cannot change the Host path or the Container path after you have created the container. If you need to change the Host path or the Container path, you will need to delete the container and create a new one."
+    "objectID": "guides/get-up-with-git.html#footnotes",
+    "href": "guides/get-up-with-git.html#footnotes",
+    "title": "Get up to speed with Git and GitHub",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nI recommend you choose the Workspace/ folder so that this, and other projects, are copied to your local computer.↩︎"
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html",
-    "href": "guides/managing-docker-rstudio.html",
-    "title": "Managing Docker and RStudio Server",
+    "objectID": "guides/data-sources.html",
+    "href": "guides/data-sources.html",
+    "title": "Data sources",
     "section": "",
-    "text": "This guide assumes you’ve set up a Docker container with RStudio Server according to the instructions in the Getting started guide."
+    "text": "In this guide, I list some data sources for text analysis. The list is short and clearly incomplete, but it provides a starting point for researchers who are looking for text data to analyze. The list includes general corpora, language-specific corpora, domain-specific corpora, and R APIs for text analysis.\nSome of the corpora listed below are open access, while others are restricted access. Open access corpora are freely available to the public, while restricted access corpora require a subscription or a license to access."
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#stop-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Stop Docker container and RStudio Server",
-    "text": "Stop Docker container and RStudio Server\nIf you are continuing from the Getting started guide, your Docker container is running and RStudio Server is running inside the container, as shown below.\n \nThe browser window where RStudio Server appears can be closed and reopened at any time. You will not lose any work or data as the Docker container will continue to run in the background.\nYou could always just leave the Docker container running, the Docker Desktop application will reduce the amount of resources it uses when you are not actively using it. However, You may want to stop the Docker container. You have two options: (1) stop the container and leave Docker Desktop running, or (2) quit Docker Desktop entirely.\nTo stop the container and leave Docker Desktop running, navigate to the “Containers” tab in Docker Desktop and find the container you want to stop. Click the “Stop” button ‘’ next to the container. Caution: Do not click the “Delete” button ‘’ as this will delete the container and all of its data.\n\n\n\nStop the Docker container\n\n\nThe container will stop and the “Status” column will change to “Exited”. Docker Desktop is running, but the container is not and the connection to the RStudio Server shut down.\n\n\n\nRStudio Server shut down\n\n\nTo quit Docker Desktop entirely, click the Docker Desktop icon in the menu bar and select “Quit Docker Desktop”. This will stop all running containers and shut down Docker Desktop."
+    "objectID": "guides/data-sources.html#downloads",
+    "href": "guides/data-sources.html#downloads",
+    "title": "Data sources",
+    "section": "Downloads",
+    "text": "Downloads\n\nEnglish\n\nANC (American National Corpus)\nENNTT (Europarl Corpus of Native, Non-native, and Translated Texts)\nSBCSAE (Santa Barbara Corpus of Spoken American English)\nSDAC (Switchboard Dialog Act Corpus, LDC open access)\nICE (International Corpus of English, restricted access)\nBNC (British National Corpus, restricted access)\nCOCA (Corpus of Contemporary American English, restricted access)\n… (suggest more!)\n\n\n\nOther languages\n\nLCMC (Lancaster Corpus of Mandarin Chinese)\nSCC (Sheffield Corpus of Chinese)\nACTIV-ES (Film/TV dialog corpus for Argentine, Mexican, and Peninsular Spanish)\n…"
   },
   {
-    "objectID": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "href": "guides/managing-docker-rstudio.html#restart-docker-container-and-rstudio-server",
-    "title": "Managing Docker and RStudio Server",
-    "section": "Restart Docker container and RStudio Server",
-    "text": "Restart Docker container and RStudio Server\nTo start Docker Desktop, click the Docker Desktop icon in the menu bar and select “Open Docker Desktop”. This will start Docker Desktop. You will need to wait a few seconds for Docker Desktop to start.\nYou can then restart the container by navigating to the “Containers” tab in Docker Desktop and clicking the “Start” button ‘’ for your container. Note you will not need to add the configuration options again, as they are saved in the container.\n\n\n\nRestart your Docker container\n\n\nYou can now open RStudio Server in your browser again and continue working."
+    "objectID": "guides/data-sources.html#domain-specific",
+    "href": "guides/data-sources.html#domain-specific",
+    "title": "Data sources",
+    "section": "Domain specific",
+    "text": "Domain specific\n\nL2 learner corpora\n\nLangsnap (Spanish, French learner corpora)\nCEDEL2 (Corpus Escrito del Español como L2)\n…\n\n\n\nTranslation corpora\n\nOPUS (Open Parallel Corpus)\n…"
   },
   {
-    "objectID": "slides/day-18.html#references",
-    "href": "slides/day-18.html#references",
-    "title": "Explore",
+    "objectID": "guides/data-sources.html#r-apis",
+    "href": "guides/data-sources.html#r-apis",
+    "title": "Data sources",
+    "section": "R APIs",
+    "text": "R APIs\n\ntuber (YouTube)\nrtweet (Twitter)\nrtoot (Mastodon)\ngutenbergr (Project Gutenberg)\nTBDBr (TalkBank Database)\njstor (JSTOR Data for Research)\n\nJSTOR Data for Research (DfR) provides access to the data behind the research on the JSTOR digital library.\n\nlingtypology (Linguistic typology data)\n…"
+  },
+  {
+    "objectID": "guides/data-sources.html#r-packages",
+    "href": "guides/data-sources.html#r-packages",
+    "title": "Data sources",
+    "section": "R packages",
+    "text": "R packages\n\ntextdata (Text data for text analysis)\nfivethirtyeight (Data from the FiveThirtyEight website)\nquanteda.corpora (Corpora for the quanteda package)\ncorpora (Corpora for the corpora package)\n…"
+  },
+  {
+    "objectID": "guides/data-sources.html#other-repositories",
+    "href": "guides/data-sources.html#other-repositories",
+    "title": "Data sources",
+    "section": "Other repositories",
+    "text": "Other repositories\n\nKaggle\nTidytuesday"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Note: This schedule is tentative. The syllabus will be updated as the course develops. If you have any questions, please contact the instructor.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nDate\nFocus\nLessons\nReading\nSlides\nLabs\nProject\nAssessment\n\n\n\n\n🌱 Orientation\n\n\n💧\n1\nJan 17\nIntro course and resources\nIntro to Swirl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n2\nJan 19\nWriting with code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n3\nJan 24\nText Analysis\nWorkspace, Vectors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n4\nJan 26\nAcademic writing with Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Foundations\n\n\n💧\n5\nJan 31\nData\nObjects, Packages and functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n6\nFeb 2\nDive into datasets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n7\nFeb 7\nAnalysis\nSummarizing data, Visual summaries\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n8\nFeb 9\nTrace the datascape\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n9\nFeb 14\nResearch\nProject environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n10\nFeb 16\nScaffolding reproducible research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n11\nFeb 21\nBlueprint\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Preparation\n\n\n💧\n12\nFeb 23\nAcquire\nControl statements, Custom functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n13\nFeb 28\nHarvesting research data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n14\nMar 1\nCurate\nPattern matching, Tidy data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n15\nMar 6\nTaming data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n16\nMar 8\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n17\nMar 20\nTransform\nReshape by rows, Reshape by columns\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n18\nMar 22\nDataset alchemy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Analysis\n\n\n🌿\n19\nMar 27\nExplore\nAdvanced objects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n20\nMar 29\nEmploying exploratory methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n21\nApr 3\nPredict\nAdvanced visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💧\n23\nApr 5\nBuilding predictive models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n24\nApr 10\nInfer\nAdvanced Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌱 Communication\n\n\n💧\n25\nApr 12\nBuilding inferential models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌿\n25\nApr 17\nContribute\nComputing environment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n26\nApr 19\nSharing research\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n27\nApr 24\nWorkshop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n28\nApr 26\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌳\n29\nMay 1\nShowcase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌻 Finalize\n\n\n\n\nMay 7\nIndividual sessions"
+  },
+  {
+    "objectID": "slides/day-06.html#references",
+    "href": "slides/day-06.html#references",
+    "title": "Reading, inspecting, and writing datasets",
     "section": "References",
-    "text": "References\n\n\n\n\nExplore | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nKassambara, Alboukadel, and Fabian Mundt. 2020. Factoextra: Extract and Visualize the Results of Multivariate Data Analyses. https://CRAN.R-project.org/package=factoextra.\n\n\nMeyer, David, and Christian Buchta. 2022. Proxy: Distance and Similarity Measures. https://CRAN.R-project.org/package=proxy.\n\n\nWijffels, Jan, and Kohei Watanabe. 2023. Word2vec: Distributed Representations of Words. https://CRAN.R-project.org/package=word2vec."
+    "text": "References\n\n\n\n\nReading, inspecting, and writing datasets | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nEvert, Stephanie. 2023. Corpora: Statistics and Data Sets for Corpus Frequency Data. https://CRAN.R-project.org/package=corpora.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. Readr: Read Rectangular Text Data. https://CRAN.R-project.org/package=readr."
   },
   {
-    "objectID": "slides/day-09.html#references",
-    "href": "slides/day-09.html#references",
-    "title": "Research",
+    "objectID": "slides/day-12.html#references",
+    "href": "slides/day-12.html#references",
+    "title": "Acquire",
     "section": "References",
-    "text": "References\n\n\n\n\n\nResearch | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCross, Nigel. 2006. “Design as a Discipline.” Designerly Ways of Knowing, 95–103."
+    "text": "References\n\n\n\n\nAcquire | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nHester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. Fs: Cross-Platform File System Operations Based on Libuv. https://fs.r-lib.org.\n\n\nJohnston, Myfanwy, and David Robinson. 2023. Gutenbergr: Download and Process Public Domain Works from Project Gutenberg. https://docs.ropensci.org/gutenbergr/."
   },
   {
-    "objectID": "slides/day-05.html#footnotes",
-    "href": "slides/day-05.html#footnotes",
-    "title": "Data",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe OANC is a large collection of written and spoken American English from 1990 onwards, with freely available data and annotations.\nThe Santa Barbara Corpus includes transcriptions and audio recordings of natural conversations from across the US.\nThe Europarl Parallel Corpus is a collection of proceedings from the European Parliament translated into 21 European languages and aligned at the sentence level to build datasets for statistical machine translation research.\nThe Brown Corpus is the first computer-readable general corpus of edited American English texts from 1961 containing approximately 1 million words across 500 samples."
+    "objectID": "slides/day-16.html#references",
+    "href": "slides/day-16.html#references",
+    "title": "Transformation",
+    "section": "References",
+    "text": "References\n\n\n\n\nTransformation | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nMullen, Lincoln A., Kenneth Benoit, Os Keyes, Dmitry Selivanov, and Jeffrey Arnold. 2018. “Fast, Consistent Tokenization of Natural Language Text.” Journal of Open Source Software 3: 655. https://doi.org/10.21105/joss.00655.\n\n\nSilge, Julia, and David Robinson. 2016. “Tidytext: Text Mining and Analysis Using Tidy Data Principles in r.” JOSS 1 (3). https://doi.org/10.21105/joss.00037.\n\n\nWickham, Hadley. 2023. Stringr: Simple, Consistent Wrappers for Common String Operations. https://CRAN.R-project.org/package=stringr.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. Dplyr: A Grammar of Data Manipulation. https://CRAN.R-project.org/package=dplyr.\n\n\nWijffels, Jan. 2023. Udpipe: Tokenization, Parts of Speech Tagging, Lemmatization and Dependency Parsing with the ’UDPipe’ ’NLP’ Toolkit. https://CRAN.R-project.org/package=udpipe."
   },
   {
-    "objectID": "slides/day-02.html#footnotes",
-    "href": "slides/day-02.html#footnotes",
-    "title": "Writing with code",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFootnote info…"
+    "objectID": "slides/day-10.html#references",
+    "href": "slides/day-10.html#references",
+    "title": "Scaffolding reproducible research",
+    "section": "References",
+    "text": "References\n\n\n\n\nScaffolding reproducible research | Quantitative Text Analysis | Wake Forest University\n\n\n\n\nCsárdi, Gábor. 2022. Gitcreds: Query ’Git’ Credentials from ’r’. https://CRAN.R-project.org/package=gitcreds.\n\n\nOoms, Jeroen. 2023. Credentials: Tools for Managing SSH and Git Credentials. https://CRAN.R-project.org/package=credentials.\n\n\nWickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2023. Usethis: Automate Package and Project Setup. https://CRAN.R-project.org/package=usethis."
   },
   {
     "objectID": "slides/day-07.html#references",
@@ -368,7 +382,7 @@
     "href": "slides.html",
     "title": " Slides",
     "section": "",
-    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nPredict\n\n\n“All models are wrong, but some are useful.”\n— George E.P. Box \n\n\n\nanalysis\n\n\n\n\n\n\nApr 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nExplore\n\n\n“The data speaks for itself, but only if you are willing to listen.”\n— Nate Silver” \n\n\n\nanalysis\n\n\nfrequency analysis\n\n\nco-occurrence analysis\n\n\nclustering\n\n\ndimensionality reduction\n\n\nword embeddings\n\n\n\n\n\n\nMar 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTransformation\n\n\nPrepare and enrich datasets\n\n\n\ndata\n\n\ninformation\n\n\ntidy-data\n\n\ndata-transformation\n\n\nregular-expressions\n\n\ndatasets\n\n\nstringr\n\n\npurrr\n\n\ntidyr\n\n\nreadr\n\n\nfs\n\n\n\n\n\n\nMar 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTaming data\n\n\nThe process of curating data\n\n\n\ndata\n\n\ncurate\n\n\nprocess\n\n\ndata-dictionary\n\n\nreadr\n\n\ndplyr\n\n\ntidyr\n\n\nreadtext\n\n\nqtalrkit\n\n\n\n\n\n\nMar 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCurate\n\n\nData to information\n\n\n\ndata\n\n\ninformation\n\n\ntidy-data\n\n\ndata-curation\n\n\nregular-expressions\n\n\ndatasets\n\n\nstringr\n\n\npurrr\n\n\ntidyr\n\n\nreadr\n\n\nfs\n\n\n\n\n\n\nMar 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHarvesting research data\n\n\nAcquiring research-aligned data\n\n\n\ndata\n\n\ncontrol-statements\n\n\ncustom-functions\n\n\ndownloads\n\n\napi\n\n\n\n\n\n\nFeb 28, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcquire\n\n\nSource, acquisition, and documentation of data\n\n\n\nacquire\n\n\ndownload\n\n\napi\n\n\ndata\n\n\nweb\n\n\nfunctions\n\n\nr\n\n\ncontrol-statements\n\n\ncsv\n\n\ncompressed-files\n\n\nreadr\n\n\nfs\n\n\ndplyr\n\n\ntidyr\n\n\nguenbergr\n\n\n\n\n\n\nFeb 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nProject orientation\n\n\nA guide to setup and provide an overview of the project prospectus\n\n\n\nresearch\n\n\nreproducible-research\n\n\nquarto\n\n\ngit\n\n\ngithub\n\n\nproject\n\n\nprospectus\n\n\n\n\n\n\nFeb 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nScaffolding reproducible research\n\n\nA template for reproducible research\n\n\n\nresearch\n\n\nreproducible-research\n\n\ngit\n\n\ngithub\n\n\nfork\n\n\nclone\n\n\npush\n\n\n\n\n\n\nFeb 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch\n\n\nFraming and scaffolding the research process\n \n\n\n\nresearch\n\n\nresearch-question\n\n\nresearch-aim\n\n\nresearch-statement\n\n\nreproducible-research\n\n\n\n\n\n\nFeb 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTrace the datascape\n\n\nDescriptive assessment of datasets\n\n\n\nggplot2\n\n\nskimr\n\n\njanitor\n\n\nknitr\n\n\nsummarize()\n\n\ngroup_by()\n\n\ncount()\n\n\ntabyl()\n\n\nkable()\n\n\ngeom_*()\n\n\n\n\n\n\nFeb 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis\n\n\nApproaching statistical thinking for text analysis.\n\n\n\ncentral-tendency\n\n\ndispersion\n\n\ndistribution\n\n\nassociation\n\n\nanalysis\n\n\ndocumentation\n\n\nr\n\n\nskimr\n\n\ndplyr\n\n\nggplot2\n\n\n\n\n\n\nFeb 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "The slide decks used in class are available here and are updated as the course progresses.\n\n\n\n\n\n\n\n\n\n\nInfer\n\n\n“People generally see what they look for, and hear what they listen for.”\n— Harper Lee, To Kill a Mockingbird \n\n\n\nanalysis\n\n\ninference\n\n\nsimulation\n\n\ninfer\n\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPredict\n\n\n“All models are wrong, but some are useful.”\n— George E.P. Box \n\n\n\nanalysis\n\n\nprediction\n\n\nsupervised-learning\n\n\nmachine-learning\n\n\ntext-analysis\n\n\ntidymodels\n\n\n\n\n\n\nApr 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nExplore\n\n\n“The data speaks for itself, but only if you are willing to listen.”\n— Nate Silver” \n\n\n\nanalysis\n\n\nfrequency analysis\n\n\nco-occurrence analysis\n\n\nclustering\n\n\ndimensionality reduction\n\n\nword embeddings\n\n\n\n\n\n\nMar 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTransformation\n\n\nPrepare and enrich datasets\n\n\n\ndata\n\n\ninformation\n\n\ntidy-data\n\n\ndata-transformation\n\n\nregular-expressions\n\n\ndatasets\n\n\nstringr\n\n\npurrr\n\n\ntidyr\n\n\nreadr\n\n\nfs\n\n\n\n\n\n\nMar 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTaming data\n\n\nThe process of curating data\n\n\n\ndata\n\n\ncurate\n\n\nprocess\n\n\ndata-dictionary\n\n\nreadr\n\n\ndplyr\n\n\ntidyr\n\n\nreadtext\n\n\nqtalrkit\n\n\n\n\n\n\nMar 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCurate\n\n\nData to information\n\n\n\ndata\n\n\ninformation\n\n\ntidy-data\n\n\ndata-curation\n\n\nregular-expressions\n\n\ndatasets\n\n\nstringr\n\n\npurrr\n\n\ntidyr\n\n\nreadr\n\n\nfs\n\n\n\n\n\n\nMar 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHarvesting research data\n\n\nAcquiring research-aligned data\n\n\n\ndata\n\n\ncontrol-statements\n\n\ncustom-functions\n\n\ndownloads\n\n\napi\n\n\n\n\n\n\nFeb 28, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcquire\n\n\nSource, acquisition, and documentation of data\n\n\n\nacquire\n\n\ndownload\n\n\napi\n\n\ndata\n\n\nweb\n\n\nfunctions\n\n\nr\n\n\ncontrol-statements\n\n\ncsv\n\n\ncompressed-files\n\n\nreadr\n\n\nfs\n\n\ndplyr\n\n\ntidyr\n\n\nguenbergr\n\n\n\n\n\n\nFeb 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nProject orientation\n\n\nA guide to setup and provide an overview of the project prospectus\n\n\n\nresearch\n\n\nreproducible-research\n\n\nquarto\n\n\ngit\n\n\ngithub\n\n\nproject\n\n\nprospectus\n\n\n\n\n\n\nFeb 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nScaffolding reproducible research\n\n\nA template for reproducible research\n\n\n\nresearch\n\n\nreproducible-research\n\n\ngit\n\n\ngithub\n\n\nfork\n\n\nclone\n\n\npush\n\n\n\n\n\n\nFeb 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch\n\n\nFraming and scaffolding the research process\n \n\n\n\nresearch\n\n\nresearch-question\n\n\nresearch-aim\n\n\nresearch-statement\n\n\nreproducible-research\n\n\n\n\n\n\nFeb 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTrace the datascape\n\n\nDescriptive assessment of datasets\n\n\n\nggplot2\n\n\nskimr\n\n\njanitor\n\n\nknitr\n\n\nsummarize()\n\n\ngroup_by()\n\n\ncount()\n\n\ntabyl()\n\n\nkable()\n\n\ngeom_*()\n\n\n\n\n\n\nFeb 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis\n\n\nApproaching statistical thinking for text analysis.\n\n\n\ncentral-tendency\n\n\ndispersion\n\n\ndistribution\n\n\nassociation\n\n\nanalysis\n\n\ndocumentation\n\n\nr\n\n\nskimr\n\n\ndplyr\n\n\nggplot2\n\n\n\n\n\n\nFeb 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading, inspecting, and writing datasets\n\n\nFirst approach at combining Quarto and R\n\n\n\nquarto\n\n\nr\n\n\nreadr\n\n\ndplyr\n\n\n\n\n\n\nFeb 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nData\n\n\nUnderstanding data and information\n\n\n\nsampling\n\n\ncorpora\n\n\ntidy-data\n\n\ndata-structures\n\n\ndata-types\n\n\n\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing with Quarto\n\n\nEnabling more productive scholarly communication\n\n\n\nquarto\n\n\nfront-matter\n\n\nfigures\n\n\ntables\n\n\ncitations\n\n\ntables-of-contents\n\n\ncross-references\n\n\ncode\n\n\ncode-blocks\n\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nText analysis in context\n\n\nWhere science, data, and linguistics meet.\n\n\n\ndata science\n\n\nresearch\n\n\ncomputer science\n\n\nstatistics\n\n\nlinguistics\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWriting with code\n\n\nAn introduction to Literate Programming with R and Quarto\n\n\n\nquarto\n\n\nr\n\n\nrecipes\n\n\ngithub\n\n\nrstudio\n\n\n\n\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroductions\n\n\nCourse goals, the approach, and the resources\n\n\n\nsyllabus\n\n\nresources\n\n\nguides\n\n\n\n\n\n\nJan 17, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/cool-stuff-lab-00/index.html",
