@@ -13,9 +13,18 @@ webr:
 
 ## Overview
 
+:::: {.columns}
+::: {.column width="50%"}
 - Orientation
 - Statistical inference
   - Workflow with `infer`
+:::
+
+::: {.column width="50%"}
+![](images/infer-ai.png)
+:::
+::::
+
 
 ```{=html}
 <style>
