@@ -7,7 +7,7 @@ date: "2024-04-10"
 categories: [analysis, inference, simulation, infer]
 webr:
   show-startup-message: false
-  packages: ['infer']
+  packages: ['infer', 'dplyr', 'ggplot2']
   message: false
 ---
 
@@ -25,6 +25,34 @@ webr:
 :::
 ::::
 
+```{r}
+#| label: testing-data
+#| eval: false
+
+library(dplyr)
+library(readr)
+
+brn_lob_tbl <-
+  corpora::BrownLOBPassives |>
+  as_tibble() |>
+  rename(
+    cat_id = id,
+    pass_n = passive,
+    word_n = n_w,
+    sent_n = n_s,
+    var = lang
+  )
+
+pass_rate_tbl <-
+  brn_lob_tbl |>
+  mutate(
+    pass_rate = (pass_n / sent_n) * 10
+  ) |>
+  select(cat_id, var, pass_rate, genre)
+
+write_csv(pass_rate_tbl, "slides/data/pass_rate.csv")
+
+```
 
 ```{=html}
 <style>
@@ -32,6 +60,25 @@ table {
   font-size: 0.8em;
 }
 </style>
+```
+
+```{webr-r}
+#| context: setup
+
+# Load the data
+pass_rate_tbl <-
+  read.csv("https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/pass_rate.csv") |>
+  as_tibble() |>
+  mutate(
+      var = factor(var, labels = c("American", "British")),
+      genre = factor(genre, labels = c("Adventure", "Fiction", "Learned", "Misc", "Editorial", "Reportage", "Romance", "Scifi", "Hobbies"))
+  ) |>
+  select(cat_id, var, genre, pass_rate)
+
+# Display the first few rows
+pass_rate_tbl
+
+theme_set(theme_minimal())
 ```
 
 ## Process
@@ -141,41 +188,167 @@ The `infer` [@R-infer] package is a simulation-based approach to NHST.
 :::
 ::::
 
-## Case study
+## Statistical test designs {.smaller}
 
-**Research question**: TBD
+| Scenario | Explanatory variable(s) | Statistical test | `infer` |
+|:---------|:------------------------|:-----------------|:------------|
+| Univariate  | - | Proportion | `prop` |
+| Bivariate | Categorical | Difference in proportions | `diff in props` |
+| Bivariate (>2 levels) | Categorical (3+ levels) | Chi-square | `chisq` |
+| Multivariate  | Categorical or Numeric<br>(2+ variables) | Logistic regression | `fit()` |
 
+: Categorical {tbl-colwidths="[20, 30, 30, 20]"}
 
-## Identify
+## Statistical test designs {.smaller}
 
-- Define the research question
-- Identify the population of interest
-- Define the parameter of interest
-- Define the null and alternative hypotheses
-- Choose the significance level
-- Choose the test statistic
+| Scenario | Explanatory variable(s) | Statistical test | `infer`
+|:---------|:------------------------|:-----------------|:-----------------|
+| Univariate | - | Mean | `mean` |
+| Bivariate  | Numeric | Correlation | `correlation` |
+| Bivariate | Categorical (2 levels) | Difference in means | `diff in means` |
+| Bivariate | Categorical (3+ levels ) | ANOVA | `f` |
+| Multivariate  | Numeric or Categorical (2+) | Linear regression | `fit()` |
 
-## Inspect
+: Numeric {tbl-colwidths="[20, 30, 30, 20]"}
 
-- Collect the data
-- Summarize the data
-- Visualize the data
-- Check the assumptions (not necessary for simulation-based NHST)
-- Choose the resampling method
+## Case study: Passives x Variety
 
-## Interrogate
+| | |
+|---|---|
+| RQ | Difference in passives between American and British English |
+| Population | Written American and British English |
+| Hypothesis | British English uses more passives than American English |
+| Null hypothesis | No difference in passives between American and British English, or American English uses more passives |
 
-- Generate the null distribution
-- Calculate the observed test statistic
-- Calculate the p-value
-- Generate a resampling distribution of the test statistic
-- Calculate the confidence interval
+: Case study {tbl-colwidths="[30, 70]"}
 
-## Interpret
+## Identify {.smaller .scrollable}
 
-- Evaluate the p-value
-- Evaluate the confidence interval
-- Make a decision in the context of the research question
+:::: {.columns}
+::: {.column width="50%"}
+
+| | |
+|---|---|
+| Mapping | `pass_rate ~ var` |
+| Information types | Resp: num, Exp: cat (2 levels) |
+| Test statistic | Difference in means |
+| Significance level | 0.05 |
+:::
+
+::: {.column width="50%"}
+
+```{webr-r}
+# Dataset
+pass_rate_tbl
+
+# Specify the relationship
+pass_var_spec <-
+  pass_rate_tbl |>
+  specify(pass_rate ~ var)
+
+# Preview
+pass_var_spec
+
+```
+:::
+::::
+
+## Inspect: summaries {.smaller .scrollable}
+
+With a bivariate relationship where the explanatory variable has two levels, we can use a boxplot or density plot to visualize the distribution of the response variable.
+
+```{webr-r}
+# Density plot
+pass_rate_tbl |>
+  ggplot(aes(x = pass_rate, fill = var)) +
+  geom_density(alpha = 0.75) +
+  labs(
+    x = "Passive rate (per 10 sentences)",
+    y = "Frequency",
+    fill = "Variety"
+  )
+
+pass_rate_tbl |>
+  ggplot(aes(x = var, y = pass_rate, fill = var)) +
+  geom_boxplot(notch = TRUE) +
+  labs(
+    x = "Variety",
+    y = "Passive rate (per 10 sentences)",
+    fill = "Variety"
+  )
+```
+
+## Interrogate: calculate observed statistic {.smaller .scrollable}
+
+```{webr-r}
+pass_var_obs <-
+  pass_var_spec |>
+  # British - American
+  calculate(stat = "diff in means", order = c("British", "American"))
+
+pass_var_obs
+```
+
+## Interrogate: generate null distribution {.smaller .scrollable}
+
+```{webr-r}
+#| message: false
+pass_var_null <-
+  pass_var_spec |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means", order = c("British", "American"))
+
+pass_var_null |> visualize()
+pass_var_null |>
+  visualize() +
+  shade_p_value(obs_stat = pass_var_obs, direction = "greater")
+```
+
+## Interrogate: calculate p-value {.smaller .scrollable}
+
+```{webr-r}
+pass_var_p <-
+  pass_var_null |>
+  get_p_value(obs_stat = pass_var_obs, direction = "greater")
+
+pass_var_p
+```
+
+## Interrogate: generate resampling distribution {.smaller .scrollable}
+
+```{webr-r}
+pass_var_boot <-
+  pass_var_spec |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "diff in means", order = c("British", "American"))
+
+pass_var_boot |> visualize()
+```
+
+## Interrogate: calculate confidence interval {.smaller .scrollable}
+
+```{webr-r}
+pass_var_ci <-
+  pass_var_boot |>
+  get_confidence_interval(level = 0.95)
+
+pass_var_ci
+```
+
+## Interpret {.smaller .scrollable}
+
+```{webr-r}
+# Evaluate the p-value
+pass_var_p
+
+# Evaluate the confidence interval
+pass_var_ci
+
+pass_var_boot |>
+  visualize() +
+  shade_confidence_interval(pass_var_ci)
+```
 
 # Wrap-up
 
@@ -183,6 +356,139 @@ The `infer` [@R-infer] package is a simulation-based approach to NHST.
 
 - Inferential data analysis is a powerful tool for making inferences about a population based on a sample.
 - The `infer` package provides a simulation-based approach to NHST that is easier to understand than classical methods.
+
+
+## Case study: Passives x Genre
+
+| | |
+|---|---|
+| RQ | Difference in passives between genres in English |
+| Population | Written English |
+| Hypothesis | More formal genres use more passives than less formal genres |
+| Null hypothesis | No difference in passives between genres, or less formal genres use more passives |
+
+: Case study {tbl-colwidths="[30, 70]"}
+
+## Identify {.smaller .scrollable}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| | |
+|---|---|
+| Mapping | `pass_rate ~ genre` |
+| Information types | Resp: num, Exp: cat (9 levels) |
+| Test statistic | ANOVA (`f`) |
+| Significance level | 0.05 |
+:::
+
+::: {.column width="50%"}
+
+```{webr-r}
+# Dataset
+pass_rate_tbl
+
+# Specify the relationship
+pass_genre_spec <-
+  pass_rate_tbl |>
+  specify(pass_rate ~ genre)
+
+# Preview
+pass_genre_spec
+
+```
+
+:::
+::::
+
+## Inspect: summaries {.smaller .scrollable}
+
+```{webr-r}
+#| message: false
+# Density plot
+pass_rate_tbl |>
+  ggplot(aes(x = pass_rate, fill = genre)) +
+  geom_density(alpha = 0.75) +
+  labs(
+    x = "Passive rate (per 10 sentences)",
+    y = "Frequency",
+    fill = "Genre"
+  )
+
+pass_rate_tbl |>
+  ggplot(aes(x = genre, y = pass_rate, fill = genre)) +
+  geom_boxplot(notch = TRUE) +
+  labs(
+    x = "Genre",
+    y = "Passive rate (per 10 sentences)",
+    fill = "Genre"
+  )
+```
+
+## Interrogate: calculate observed statistic {.smaller .scrollable}
+
+```{webr-r}
+pass_genre_obs <-
+  pass_genre_spec |>
+  calculate(stat = "f")
+
+pass_genre_obs
+```
+
+## Interrogate: generate null distribution {.smaller .scrollable}
+
+```{webr-r}
+pass_genre_null <-
+  pass_genre_spec |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "f")
+
+pass_genre_null |> visualize()
+```
+
+## Interrogate: calculate p-value {.smaller .scrollable}
+
+```{webr-r}
+pass_genre_p <-
+  pass_genre_null |>
+  get_p_value(obs_stat = pass_genre_obs, direction = "two-sided")
+
+pass_genre_p
+```
+
+## Interrogate: generate resampling distribution {.smaller .scrollable}
+
+```{webr-r}
+pass_genre_boot <-
+  pass_genre_spec |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "f")
+```
+
+## Interrogate: calculate confidence interval {.smaller .scrollable}
+
+```{webr-r}
+pass_genre_ci <-
+  pass_genre_boot |>
+  get_confidence_interval(level = 0.95)
+
+pass_genre_ci
+```
+
+## Interpret
+
+```{webr-r}
+# Evaluate the p-value
+pass_genre_p
+
+# Evaluate the confidence interval
+pass_genre_ci
+
+pass_genre_boot |>
+  visualize() +
+  shade_confidence_interval(pass_genre_ci)
+```
 
 ## References
 
