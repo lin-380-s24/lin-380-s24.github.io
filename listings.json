@@ -9,8 +9,22 @@
     ]
   },
   {
+    "listing": "/news.html",
+    "items": [
+      "/posts/lin380-v.1.2/index.html",
+      "/posts/cool-stuff-lab-03/index.html",
+      "/posts/cool-stuff-lab-02/index.html",
+      "/posts/cool-stuff-lab-01/index.html",
+      "/posts/cool-stuff-lab-00/index.html",
+      "/posts/mac-m1-chip-workaround/index.html",
+      "/posts/first-day-hiccups/index.html",
+      "/posts/eulc5/index.html"
+    ]
+  },
+  {
     "listing": "/slides.html",
     "items": [
+      "/slides/day-24.html",
       "/slides/day-22.html",
       "/slides/day-20.html",
       "/slides/day-18.html",
@@ -30,19 +44,6 @@
       "/slides/day-03.html",
       "/slides/day-02.html",
       "/slides/day-01.html"
-    ]
-  },
-  {
-    "listing": "/news.html",
-    "items": [
-      "/posts/lin380-v.1.2/index.html",
-      "/posts/cool-stuff-lab-03/index.html",
-      "/posts/cool-stuff-lab-02/index.html",
-      "/posts/cool-stuff-lab-01/index.html",
-      "/posts/cool-stuff-lab-00/index.html",
-      "/posts/mac-m1-chip-workaround/index.html",
-      "/posts/first-day-hiccups/index.html",
-      "/posts/eulc5/index.html"
     ]
   }
 ]

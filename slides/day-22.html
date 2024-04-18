@@ -32,71 +32,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -578,7 +513,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"\n# Load the data\npass_rate_tbl <-\n  read.csv(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/pass_rate.csv\") |>\n  as_tibble() |>\n  mutate(\n      var = factor(var, labels = c(\"American\", \"British\")),\n      genre = factor(genre, labels = c(\"Adventure\", \"Fiction\", \"Learned\", \"Misc\", \"Editorial\", \"Reportage\", \"Romance\", \"Scifi\", \"Hobbies\"))\n  ) |>\n  select(cat_id, var, genre, pass_rate)\n\n# Display the first few rows\npass_rate_tbl\n\ntheme_set(theme_minimal())","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"setup","label":"unnamed-chunk-1","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":1},{"code":"# Dataset\npass_rate_tbl\n\n# Specify the relationship\npass_var_spec <-\n  pass_rate_tbl |>\n  specify(pass_rate ~ var)\n\n# Preview\npass_var_spec","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-2","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":2},{"code":"# Density plot\npass_rate_tbl |>\n  ggplot(aes(x = pass_rate, fill = var)) +\n  geom_density(alpha = 0.75) +\n  labs(\n    x = \"Passive rate (per 10 sentences)\",\n    y = \"Frequency\",\n    fill = \"Variety\"\n  )\n\npass_rate_tbl |>\n  ggplot(aes(x = var, y = pass_rate, fill = var)) +\n  geom_boxplot(notch = TRUE) +\n  labs(\n    x = \"Variety\",\n    y = \"Passive rate (per 10 sentences)\",\n    fill = \"Variety\"\n  )","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-3","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":3},{"code":"pass_var_obs <-\n  pass_var_spec |>\n  # British - American\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_obs","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-4","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":4},{"code":"pass_var_null <-\n  pass_var_spec |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_null |> visualize()\npass_var_null |>\n  visualize() +\n  shade_p_value(obs_stat = pass_var_obs, direction = \"greater\")","options":{"out-width":"700px","classes":"","output":"true","message":"false","warning":"true","context":"interactive","label":"unnamed-chunk-5","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":5},{"code":"pass_var_p <-\n  pass_var_null |>\n  get_p_value(obs_stat = pass_var_obs, direction = \"greater\")\n\npass_var_p","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-6","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":6},{"code":"pass_var_boot <-\n  pass_var_spec |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_boot |> visualize()","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-7","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":7},{"code":"pass_var_ci <-\n  pass_var_boot |>\n  get_confidence_interval(level = 0.95)\n\npass_var_ci","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-8","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":8},{"code":"# Evaluate the p-value\npass_var_p\n\n# Evaluate the confidence interval\npass_var_ci\n\npass_var_boot |>\n  visualize() +\n  shade_confidence_interval(pass_var_ci)","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-9","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":9},{"code":"# Dataset\npass_rate_tbl\n\n# Specify the relationship\npass_genre_spec <-\n  pass_rate_tbl |>\n  specify(pass_rate ~ genre)\n\n# Preview\npass_genre_spec","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-10","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":10},{"code":"# Density plot\npass_rate_tbl |>\n  ggplot(aes(x = pass_rate, fill = genre)) +\n  geom_density(alpha = 0.75) +\n  labs(\n    x = \"Passive rate (per 10 sentences)\",\n    y = \"Frequency\",\n    fill = \"Genre\"\n  )\n\npass_rate_tbl |>\n  ggplot(aes(x = genre, y = pass_rate, fill = genre)) +\n  geom_boxplot(notch = TRUE) +\n  labs(\n    x = \"Genre\",\n    y = \"Passive rate (per 10 sentences)\",\n    fill = \"Genre\"\n  )","options":{"out-width":"700px","classes":"","output":"true","message":"false","warning":"true","context":"interactive","label":"unnamed-chunk-11","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":11},{"code":"pass_genre_obs <-\n  pass_genre_spec |>\n  calculate(stat = \"f\")\n\npass_genre_obs","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-12","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":12},{"code":"pass_genre_null <-\n  pass_genre_spec |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  calculate(stat = \"f\")\n\npass_genre_null |> visualize()","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-13","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":13},{"code":"pass_genre_p <-\n  pass_genre_null |>\n  get_p_value(obs_stat = pass_genre_obs, direction = \"two-sided\")\n\npass_genre_p","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-14","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":14},{"code":"pass_genre_boot <-\n  pass_genre_spec |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"f\")","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-15","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":15},{"code":"pass_genre_ci <-\n  pass_genre_boot |>\n  get_confidence_interval(level = 0.95)\n\npass_genre_ci","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-16","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":16},{"code":"# Evaluate the p-value\npass_genre_p\n\n# Evaluate the confidence interval\npass_genre_ci\n\npass_genre_boot |>\n  visualize() +\n  shade_confidence_interval(pass_genre_ci)","options":{"out-width":"700px","classes":"","output":"true","message":"true","warning":"true","context":"interactive","label":"unnamed-chunk-17","out-height":"","results":"markup","dpi":72,"fig-width":7,"fig-height":5,"comment":"","fig-cap":""},"id":17}];
+  globalThis.qwebrCellDetails = [{"code":"\n# Load the data\npass_rate_tbl <-\n  read.csv(\"https://raw.githubusercontent.com/lin-380-s24/lin-380-s24.github.io/main/slides/data/pass_rate.csv\") |>\n  as_tibble() |>\n  mutate(\n      var = factor(var, labels = c(\"American\", \"British\")),\n      genre = factor(genre, labels = c(\"Adventure\", \"Fiction\", \"Learned\", \"Misc\", \"Editorial\", \"Reportage\", \"Romance\", \"Scifi\", \"Hobbies\"))\n  ) |>\n  select(cat_id, var, genre, pass_rate)\n\n# Display the first few rows\npass_rate_tbl\n\ntheme_set(theme_minimal())","id":1,"options":{"context":"setup","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-1","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Dataset\npass_rate_tbl\n\n# Specify the relationship\npass_var_spec <-\n  pass_rate_tbl |>\n  specify(pass_rate ~ var)\n\n# Preview\npass_var_spec","id":2,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-2","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Density plot\npass_rate_tbl |>\n  ggplot(aes(x = pass_rate, fill = var)) +\n  geom_density(alpha = 0.75) +\n  labs(\n    x = \"Passive rate (per 10 sentences)\",\n    y = \"Frequency\",\n    fill = \"Variety\"\n  )\n\npass_rate_tbl |>\n  ggplot(aes(x = var, y = pass_rate, fill = var)) +\n  geom_boxplot(notch = TRUE) +\n  labs(\n    x = \"Variety\",\n    y = \"Passive rate (per 10 sentences)\",\n    fill = \"Variety\"\n  )","id":3,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-3","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_var_obs <-\n  pass_var_spec |>\n  # British - American\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_obs","id":4,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-4","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_var_null <-\n  pass_var_spec |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_null |> visualize()\npass_var_null |>\n  visualize() +\n  shade_p_value(obs_stat = pass_var_obs, direction = \"greater\")","id":5,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"false","warning":"true","label":"unnamed-chunk-5","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_var_p <-\n  pass_var_null |>\n  get_p_value(obs_stat = pass_var_obs, direction = \"greater\")\n\npass_var_p","id":6,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-6","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_var_boot <-\n  pass_var_spec |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"diff in means\", order = c(\"British\", \"American\"))\n\npass_var_boot |> visualize()","id":7,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-7","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_var_ci <-\n  pass_var_boot |>\n  get_confidence_interval(level = 0.95)\n\npass_var_ci","id":8,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-8","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Evaluate the p-value\npass_var_p\n\n# Evaluate the confidence interval\npass_var_ci\n\npass_var_boot |>\n  visualize() +\n  shade_confidence_interval(pass_var_ci)","id":9,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-9","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Dataset\npass_rate_tbl\n\n# Specify the relationship\npass_genre_spec <-\n  pass_rate_tbl |>\n  specify(pass_rate ~ genre)\n\n# Preview\npass_genre_spec","id":10,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-10","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Density plot\npass_rate_tbl |>\n  ggplot(aes(x = pass_rate, fill = genre)) +\n  geom_density(alpha = 0.75) +\n  labs(\n    x = \"Passive rate (per 10 sentences)\",\n    y = \"Frequency\",\n    fill = \"Genre\"\n  )\n\npass_rate_tbl |>\n  ggplot(aes(x = genre, y = pass_rate, fill = genre)) +\n  geom_boxplot(notch = TRUE) +\n  labs(\n    x = \"Genre\",\n    y = \"Passive rate (per 10 sentences)\",\n    fill = \"Genre\"\n  )","id":11,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"false","warning":"true","label":"unnamed-chunk-11","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_genre_obs <-\n  pass_genre_spec |>\n  calculate(stat = \"f\")\n\npass_genre_obs","id":12,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-12","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_genre_null <-\n  pass_genre_spec |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  calculate(stat = \"f\")\n\npass_genre_null |> visualize()","id":13,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-13","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_genre_p <-\n  pass_genre_null |>\n  get_p_value(obs_stat = pass_genre_obs, direction = \"two-sided\")\n\npass_genre_p","id":14,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-14","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_genre_boot <-\n  pass_genre_spec |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"f\")","id":15,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-15","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"pass_genre_ci <-\n  pass_genre_boot |>\n  get_confidence_interval(level = 0.95)\n\npass_genre_ci","id":16,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-16","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}},{"code":"# Evaluate the p-value\npass_genre_p\n\n# Evaluate the confidence interval\npass_genre_ci\n\npass_genre_boot |>\n  visualize() +\n  shade_confidence_interval(pass_genre_ci)","id":17,"options":{"context":"interactive","dpi":72,"output":"true","classes":"","message":"true","warning":"true","label":"unnamed-chunk-17","fig-height":5,"fig-cap":"","results":"markup","out-width":"700px","comment":"","out-height":"","fig-width":7}}];
 
   </script>
   <script type="module">
@@ -1504,30 +1439,6 @@ Dr.&nbsp;Jerid Francom
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/infer-ai.png"></p>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>brn_lob_tbl <span class="ot">&lt;-</span></span>
-<span id="cb1-5"><a></a>  corpora<span class="sc">::</span>BrownLOBPassives <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a></a>  <span class="fu">rename</span>(</span>
-<span id="cb1-8"><a></a>    <span class="at">cat_id =</span> id,</span>
-<span id="cb1-9"><a></a>    <span class="at">pass_n =</span> passive,</span>
-<span id="cb1-10"><a></a>    <span class="at">word_n =</span> n_w,</span>
-<span id="cb1-11"><a></a>    <span class="at">sent_n =</span> n_s,</span>
-<span id="cb1-12"><a></a>    <span class="at">var =</span> lang</span>
-<span id="cb1-13"><a></a>  )</span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a>pass_rate_tbl <span class="ot">&lt;-</span></span>
-<span id="cb1-16"><a></a>  brn_lob_tbl <span class="sc">|&gt;</span></span>
-<span id="cb1-17"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-18"><a></a>    <span class="at">pass_rate =</span> (pass_n <span class="sc">/</span> sent_n) <span class="sc">*</span> <span class="dv">10</span></span>
-<span id="cb1-19"><a></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a></a>  <span class="fu">select</span>(cat_id, var, pass_rate, genre)</span>
-<span id="cb1-21"><a></a></span>
-<span id="cb1-22"><a></a><span class="fu">write_csv</span>(pass_rate_tbl, <span class="st">"slides/data/pass_rate.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <style>
 table {
