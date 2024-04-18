@@ -28,6 +28,7 @@ webr:
 ```{r}
 #| label: testing-data
 #| eval: false
+#| echo: false
 
 library(dplyr)
 library(readr)

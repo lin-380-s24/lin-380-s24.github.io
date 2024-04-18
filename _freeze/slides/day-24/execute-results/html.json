@@ -1,0 +1,19 @@
+{
+  "hash": "3a318375918692f12f075e063657030b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Contribute\"\nsubtitle: |\n  \"The reproducibility of studies and the ability to follow up on the work of others is key for innovation in science and engineering.\"\n  \\\n  —-- Leland Wilkinson\ndate: \"2024-04-17\"\ncategories: [communication, contribute, reporting, reproducible research]\nwebr:\n  show-startup-message: false\n  packages: ['renv', 'dplyr', '']\n  message: false\n---\n\n\n## Overview\n\n:::: {.columns}\n::: {.column width=\"50%\"}\n- Orientation\n- Statistical inference\n  - Workflow with `infer`\n:::\n\n::: {.column width=\"50%\"}\n![](images/infer-ai.png)\n:::\n::::\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\nlibrary(readr)\n\nbrn_lob_tbl <-\n  corpora::BrownLOBPassives |>\n  as_tibble() |>\n  rename(\n    cat_id = id,\n    pass_n = passive,\n    word_n = n_w,\n    sent_n = n_s,\n    var = lang\n  )\n\npass_rate_tbl <-\n  brn_lob_tbl |>\n  mutate(\n    pass_rate = (pass_n / sent_n) * 10\n  ) |>\n  select(cat_id, var, pass_rate, genre)\n\nwrite_csv(pass_rate_tbl, \"slides/data/pass_rate.csv\")\n```\n:::\n\n```{=html}\n<style>\ntable {\n  font-size: 0.8em;\n}\n</style>\n```\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,79 @@
+---
+title: "Contribute"
+subtitle: |
+  "The reproducibility of studies and the ability to follow up on the work of others is key for innovation in science and engineering."
+  \
+  —- Leland Wilkinson
+date: "2024-04-17"
+categories: [communication, contribute, reporting, reproducible research]
+webr:
+  show-startup-message: false
+  packages: ['renv', 'dplyr']
+  message: false
+---
+
+## Overview
+
+:::: {.columns}
+::: {.column width="50%"}
+- Orientation
+- Communicating research
+  - Public-facing
+  - Peer-facing
+:::
+
+::: {.column width="50%"}
+:::
+::::
+
+```{=html}
+<style>
+table {
+  font-size: 0.8em;
+}
+</style>
+```
+
+## Process
+
+![The Big Picture](images/qtal-big-picture.png)
+
+![](images/you-are-here.drawio.png){.absolute top=50 right=25}
+
+## Orientation
+
+Communication is the way to contribute. It is the way to share your work with others, to get feedback, and to build on the work of others. The reproducibility of studies and the ability to follow up on the work of others is key for innovation in science and engineering.
+
+<!-- Public --------------------------------------------------------- -->
+
+# Public-facing
+
+## Goals
+
+## Structure
+
+## Strategies
+
+- Balance the information
+  - Moving forward feels good
+- Reduce text, increase visuals
+- Include slide numbers/ total number of slides
+
+
+<!-- Peer ----------------------------------------------------------- -->
+
+# Peer-facing
+
+## Goals
+
+## Structure
+
+## Strategies
+
+<!-- Wrap-up --------------------------------------------------------- -->
+
+# Wrap-up
+
+## Final thoughts
+
+## References
