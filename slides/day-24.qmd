@@ -48,19 +48,42 @@ Communication is the way to contribute. It is the way to share your work with ot
 
 # Public-facing
 
-## Goals
-
-## Structure
-
-## Strategies
+## Presentations: Tips
 
 - Balance the information
   - Moving forward feels good
 - Reduce text, increase visuals
 - Include slide numbers/ total number of slides
 
+## Presentation: Structure
 
-<!-- Peer ----------------------------------------------------------- -->
+- [Quarto website](https://qtalr.github.io/resources/recipes/recipe-11/#lst-quarto-website)
+  - Multiple format rendering
+- [Presentations](https://qtalr.github.io/resources/recipes/recipe-11/#fig-revealjs-example) with `revealjs` as the format
+  - Interactive slides
+  - Easy to navigate
+  - Presentation tools
+  - etc.
+
+## Presentation: Set up
+
+We need to adjust our `project_web` repositories to reflect some additional features in the [upstream repository](https://github.com/lin-380-s24/project_web).
+
+1. Sync fork on GitHub
+2. Pull changes to local repository (RStudio)
+3. Remove `.github/` directory (with the workflow)
+4. Learn the `quarto render` and `quarto publish gh-pages` commands
+
+## Presentation: revealjs
+
+[revealjs](https://quarto.org/docs/presentations/revealjs/)
+
+- Global
+- Slide
+- Slide elements
+
+
+<!-- Peer -----------------------------------------------------------
 
 # Peer-facing
 
@@ -70,10 +93,16 @@ Communication is the way to contribute. It is the way to share your work with ot
 
 ## Strategies
 
+-->
+
 <!-- Wrap-up --------------------------------------------------------- -->
 
 # Wrap-up
 
 ## Final thoughts
+
+- Communication is key
+- Share your work
+- Build on the work of others
 
 ## References
