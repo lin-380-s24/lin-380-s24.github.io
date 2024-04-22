@@ -7,6 +7,7 @@
 *code-workspace
 *_cache/
 *_files/
+/.vscode/
 
 # renv
 .Rprofile

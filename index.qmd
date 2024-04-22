@@ -34,7 +34,6 @@ Join us for an exciting journey into the world of quantitative text analysis and
 
 By the end of this course you will be able to:
 
-
 A. Identify, interpret and evaluate data analysis procedures and results
 
   1. Identify the impact of research decisions (data collection, organization, and analysis) on research findings.
@@ -90,7 +89,7 @@ The opening of each module will be signaled by the seedling icon (🌱). Each mo
 
 ## Assessment
 
-In line with my view that learning is a process, not a product, individual learning activities will be assessed through qualitative feedback, peer review, and self-assessment --but will not be assigned a grade by the instructor. Instead, you will be asked to provide a self-assessment of your learning progress periodically during the semester and a final process letter at the end of classes. As a final grade is an institutional requirement, during the final examination period I will meet with students individually to critically assess their learning progress (including self-assessments and a process letter) and determine an appropriate final course grade.
+In line with my view that learning is a process, not a product, individual learning activities will be assessed through qualitative feedback, peer review, and self-assessment --but will not be assigned a grade by the instructor. Instead, you will be asked to provide a self-assessment of your learning progress periodically during the semester and a final process statement at the end of classes. As a final grade is an institutional requirement, during the final examination period I will meet with students individually to critically assess their learning progress (including self-assessments and a process statement) and determine an appropriate final course grade.
 
 ### Module-based components
 
@@ -153,7 +152,7 @@ The steps are:
 - Describe the analytical techniques you plan to use to answer your research question and explain your choices.
 - Mention any computational tools (e.g., R packages) you will use for analysis.
 
-1. <a id="communication">Communication: presentation and reporting</a>
+5. <a id="communication">Communication: presentation and reporting</a>
 
 - Outline the structure of a report and presentation, including sections on rationale, research question, methodology, results, and discussion.
 - Prepare to communicate the potential significance of your planned research to non-experts in an in-class presentation.
